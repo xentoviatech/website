@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xentovia Tech — Autonomous AI Workflows</title>
+  <meta name="description" content="Next-gen AI workflow automation, LLM orchestration, and enterprise-grade intelligence by Xentovia Tech.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { inter: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            space: { 950: '#03050a', 900: '#060b18', 800: '#0a1128', 700: '#0f1a3a' },
+            accent: { 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5' },
+            glow: { purple: '#7c3aed', blue: '#3b82f6', cyan: '#06b6d4' }
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 6s ease-in-out 2s infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'glow-move': 'glowMove 15s ease-in-out infinite',
+            'glow-move-2': 'glowMove2 18s ease-in-out infinite',
+            'glow-move-3': 'glowMove3 20s ease-in-out infinite',
+            'particle-drift': 'particleDrift 25s linear infinite',
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            'shimmer': 'shimmer 3s ease-in-out infinite',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #03050a;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #03050a; }
+    ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 3px; }
+
+    /* ── Moving Glow Orbs ── */
+    @keyframes glowMove {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30vw, -15vh) scale(1.2); }
+      50% { transform: translate(-10vw, 25vh) scale(0.8); }
+      75% { transform: translate(-25vw, -10vh) scale(1.1); }
+    }
+    @keyframes glowMove2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(-20vw, 20vh) scale(0.9); }
+      50% { transform: translate(25vw, -10vh) scale(1.3); }
+      75% { transform: translate(10vw, 15vh) scale(1); }
+    }
+    @keyframes glowMove3 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(15vw, 10vh) scale(1.1); }
+      66% { transform: translate(-20vw, -20vh) scale(0.9); }
+    }
+
+    .glow-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+      will-change: transform;
+    }
+    .glow-orb-1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(124,58,237,0.25) 0%, transparent 70%);
+      top: -10%; left: -5%;
+      animation: glowMove 15s ease-in-out infinite;
+    }
+    .glow-orb-2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%);
+      top: 40%; right: -10%;
+      animation: glowMove2 18s ease-in-out infinite;
+    }
+    .glow-orb-3 {
+      width: 450px; height: 450px;
+      background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%);
+      bottom: -5%; left: 30%;
+      animation: glowMove3 20s ease-in-out infinite;
+    }
+
+    /* ── Particle Field ── */
+    @keyframes particleDrift {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+    }
+
+    .particle-field {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .particle {
+      position: absolute;
+      width: 2px; height: 2px;
+      background: rgba(129, 140, 248, 0.6);
+      border-radius: 50%;
+      animation: particleDrift linear infinite;
+    }
+
+    /* ── Entrance Animations ── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Glass Card ── */
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .glass:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(129, 140, 248, 0.2);
+    }
+
+    /* ── Bento Hover Glow ── */
+    .bento-card {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .bento-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, transparent 40%, rgba(129,140,248,0.3) 50%, transparent 60%);
+      background-size: 300% 300%;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .bento-card:hover::before {
+      opacity: 1;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    @keyframes shimmer {
+      0%, 100% { background-position: 100% 0%; }
+      50% { background-position: 0% 100%; }
+    }
+
+    .bento-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px -15px rgba(99, 102, 241, 0.15);
+    }
+
+    /* ── Icon Box ── */
+    .icon-box {
+      width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(124,58,237,0.1));
+      border: 1px solid rgba(129, 140, 248, 0.15);
+    }
+
+    /* ── Gradient Text ── */
+    .gradient-text {
+      background: linear-gradient(135deg, #e0e7ff 0%, #818cf8 40%, #c084fc 70%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ── Hero Grid Lines ── */
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(99,102,241,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99,102,241,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* ── Nav Blur ── */
+    .nav-blur {
+      background: rgba(3, 5, 10, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* ── CTA Button ── */
+    .cta-primary {
+      position: relative;
+      background: linear-gradient(135deg, #6366f1, #7c3aed);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .cta-primary::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .cta-primary:hover::after { opacity: 1; }
+    .cta-primary:hover {
+      box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(124, 58, 237, 0.2);
+      transform: translateY(-2px);
+    }
+    .cta-primary span { position: relative; z-index: 1; }
+
+    /* ── Marquee ── */
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      animation: marquee 30s linear infinite;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* ── Stat Counter ── */
+    .stat-glow {
+      text-shadow: 0 0 40px rgba(99,102,241,0.3);
+    }
+
+    /* ── Section Divider ── */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(99,102,241,0.3), transparent);
+    }
+  </style>
+</head>
+
+<body class="font-inter antialiased">
+
+  <!-- ── Background Effects ── -->
+  <div class="glow-orb glow-orb-1" aria-hidden="true"></div>
+  <div class="glow-orb glow-orb-2" aria-hidden="true"></div>
+  <div class="glow-orb glow-orb-3" aria-hidden="true"></div>
+  <div class="particle-field" id="particleField" aria-hidden="true"></div>
+
+  <!-- ── Navigation ── -->
+  <nav class="nav-blur fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+          <i data-lucide="zap" class="w-4 h-4 text-white"></i>
+        </div>
+        <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#features" class="text-sm text-slate-400 hover:text-white transition-colors">Features</a>
+        <a href="#platform" class="text-sm text-slate-400 hover:text-white transition-colors">Platform</a>
+        <a href="#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a>
+        <a href="#waitlist" class="cta-primary px-5 py-2 rounded-lg text-sm font-semibold text-white">
+          <span class="flex items-center gap-1.5">
+            Join Waitlist
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </span>
+        </a>
+      </div>
+
+      <button class="md:hidden text-slate-400 hover:text-white" id="mobileMenuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden px-6 pb-4 space-y-3" id="mobileMenu">
+      <a href="#features" class="block text-sm text-slate-400 hover:text-white py-2">Features</a>
+      <a href="#platform" class="block text-sm text-slate-400 hover:text-white py-2">Platform</a>
+      <a href="#security" class="block text-sm text-slate-400 hover:text-white py-2">Security</a>
+      <a href="#waitlist" class="block cta-primary px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">
+        <span>Join Waitlist</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="relative z-10">
+
+    <!-- ── Hero ── -->
+    <section class="grid-bg relative min-h-screen flex items-center pt-16">
+      <div class="max-w-7xl mx-auto px-6 py-24 lg:py-32">
+        <div class="max-w-4xl mx-auto text-center">
+
+          <!-- Badge -->
+          <div class="animate-on-scroll inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium text-indigo-300 mb-8">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            Now in Private Beta
+          </div>
+
+          <!-- Headline -->
+          <h1 class="animate-on-scroll text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight leading-[1.05] mb-6">
+            <span class="text-white">Autonomous</span><br>
+            <span class="gradient-text">Workflows</span>
+            <span class="text-white"> for the</span><br>
+            <span class="gradient-text">Intelligence Age</span>
+          </h1>
+
+          <!-- Subheadline -->
+          <p class="animate-on-scroll text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+            Orchestrate multi-model LLM pipelines, automate complex reasoning chains,
+            and deploy enterprise-grade AI workflows — all from a single platform.
+          </p>
+
+          <!-- CTAs -->
+          <div class="animate-on-scroll flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+            <a href="#waitlist" class="cta-primary px-8 py-3.5 rounded-xl text-base font-semibold text-white w-full sm:w-auto">
+              <span class="flex items-center justify-center gap-2">
+                Join the Waitlist
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </span>
+            </a>
+            <a href="#features" class="group px-8 py-3.5 rounded-xl text-base font-medium text-slate-300 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all w-full sm:w-auto flex items-center justify-center gap-2">
+              <i data-lucide="play" class="w-4 h-4 text-indigo-400 group-hover:text-indigo-300 transition-colors"></i>
+              See How It Works
+            </a>
+          </div>
+
+          <!-- Trust Signals -->
+          <div class="animate-on-scroll flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-slate-500">
+            <span class="flex items-center gap-1.5">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-500"></i>
+              SOC 2 Compliant
+            </span>
+            <span class="flex items-center gap-1.5">
+              <i data-lucide="lock" class="w-3.5 h-3.5 text-indigo-400"></i>
+              End-to-End Encrypted
+            </span>
+            <span class="flex items-center gap-1.5">
+              <i data-lucide="globe" class="w-3.5 h-3.5 text-cyan-400"></i>
+              Multi-Region Deployment
+            </span>
+            <span class="flex items-center gap-1.5">
+              <i data-lucide="gauge" class="w-3.5 h-3.5 text-purple-400"></i>
+              99.99% Uptime SLA
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <i data-lucide="chevrons-down" class="w-5 h-5 text-slate-600"></i>
+      </div>
+    </section>
+
+    <!-- ── Logo Marquee ── -->
+    <section class="relative py-12 overflow-hidden border-y border-white/5">
+      <p class="text-center text-xs text-slate-600 uppercase tracking-widest mb-8 font-medium">Powering next-gen teams at</p>
+      <div class="relative overflow-hidden">
+        <div class="marquee-track flex items-center gap-16 whitespace-nowrap w-max">
+          <!-- Repeated for seamless loop -->
+          <span class="text-slate-600 font-semibold text-lg tracking-wide">Fortune 500</span>
+          <span class="text-slate-700">|</span>
+          <span class="text-slate-600 font-semibold text-lg tracking-wide">Series A Startups</span>
+          <span class="text-slate-700">|</span>
+          <span class="text-slate-600 font-semibold text-lg tracking-wide">Research Labs</span>
+          <span class="text-slate-700">|</span>
+          <span class="text-slate-600 font-semibold text-lg tracking-wide">Government</span>
+          <span class="text-slate-700">|</span>
+          <span class="text-slate-600 font-semibold text-lg tracking-wide">Enterprise AI</span>
+          <span class="text-slate-700">|</span>
+          <span class="text-slate-600 font-semibold text-lg tracking-wide">HealthTech</span>
+          <span class="text-slate-700">|</span>
+          <span class="text-slate-600 font-semibold text-lg tracking-wide">FinTech</span>
+          <span class="text-slate-700">|</span>
+          <!-- duplicate -->
+          <span class="text-slate-600 font-semibold text-lg tracking-wide">Fortune 500</span>
+          <span class="text-slate-700">|</span>
+          <span class="text-slate-600 font-semibold text-lg tracking-wide">Series A Startups</span>
+          <span class="text-slate-700">|</span>
+          <span class="text-slate-600 font-semibold text-lg tracking-wide">Research Labs</span>
+          <span class="text-slate-700">|</span>
+          <span class="text-slate-600 font-semibold text-lg tracking-wide">Government</span>
+          <span class="text-slate-700">|</span>
+          <span class="text-slate-600 font-semibold text-lg tracking-wide">Enterprise AI</span>
+          <span class="text-slate-700">|</span>
+          <span class="text-slate-600 font-semibold text-lg tracking-wide">HealthTech</span>
+          <span class="text-slate-700">|</span>
+          <span class="text-slate-600 font-semibold text-lg tracking-wide">FinTech</span>
+          <span class="text-slate-700">|</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Bento Grid Features ── -->
+    <section id="features" class="relative py-24 lg:py-32">
+      <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">Platform Capabilities</p>
+          <h2 class="animate-on-scroll text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+            Built for the <span class="gradient-text">AI-native</span> enterprise
+          </h2>
+          <p class="animate-on-scroll text-lg text-slate-400 max-w-xl mx-auto">
+            Everything you need to design, deploy, and scale autonomous AI workflows.
+          </p>
+        </div>
+
+        <!-- Bento Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+
+          <!-- Card 1: Multi-modal LLM — Spans 2 cols -->
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-8 lg:col-span-2 group">
+            <div class="flex flex-col h-full">
+              <div class="flex items-start justify-between mb-6">
+                <div class="icon-box">
+                  <i data-lucide="brain" class="w-5 h-5 text-indigo-400"></i>
+                </div>
+                <span class="text-xs font-mono text-slate-600 px-2 py-1 rounded-md bg-white/5">CORE ENGINE</span>
+              </div>
+
+              <h3 class="text-2xl font-bold text-white mb-3">Multi-Modal LLM Orchestration</h3>
+              <p class="text-slate-400 mb-8 leading-relaxed max-w-lg">
+                Route tasks across GPT-4, Claude, Gemini, Llama, and custom fine-tuned models.
+                Intelligent model selection based on task complexity, cost, and latency constraints.
+              </p>
+
+              <!-- Visual: Model Routing Diagram -->
+              <div class="mt-auto glass rounded-xl p-5 space-y-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-2 h-2 rounded-full bg-emerald-400"></div>
+                  <div class="flex-1 h-1.5 rounded-full bg-gradient-to-r from-indigo-500/40 to-purple-500/40 relative overflow-hidden">
+                    <div class="absolute inset-y-0 left-0 w-3/4 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 animate-pulse"></div>
+                  </div>
+                  <span class="text-xs text-slate-500 font-mono w-20 text-right">GPT-4o</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-2 h-2 rounded-full bg-cyan-400"></div>
+                  <div class="flex-1 h-1.5 rounded-full bg-gradient-to-r from-cyan-500/40 to-blue-500/40 relative overflow-hidden">
+                    <div class="absolute inset-y-0 left-0 w-4/5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 animate-pulse" style="animation-delay: 0.3s"></div>
+                  </div>
+                  <span class="text-xs text-slate-500 font-mono w-20 text-right">Claude 4</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-2 h-2 rounded-full bg-amber-400"></div>
+                  <div class="flex-1 h-1.5 rounded-full bg-gradient-to-r from-amber-500/40 to-orange-500/40 relative overflow-hidden">
+                    <div class="absolute inset-y-0 left-0 w-1/2 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 animate-pulse" style="animation-delay: 0.6s"></div>
+                  </div>
+                  <span class="text-xs text-slate-500 font-mono w-20 text-right">Gemini</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-2 h-2 rounded-full bg-rose-400"></div>
+                  <div class="flex-1 h-1.5 rounded-full bg-gradient-to-r from-rose-500/40 to-pink-500/40 relative overflow-hidden">
+                    <div class="absolute inset-y-0 left-0 w-2/3 rounded-full bg-gradient-to-r from-rose-500 to-pink-500 animate-pulse" style="animation-delay: 0.9s"></div>
+                  </div>
+                  <span class="text-xs text-slate-500 font-mono w-20 text-right">Llama 3</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Low-Code Automation -->
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-8 group">
+            <div class="flex flex-col h-full">
+              <div class="flex items-start justify-between mb-6">
+                <div class="icon-box">
+                  <i data-lucide="blocks" class="w-5 h-5 text-purple-400"></i>
+                </div>
+                <span class="text-xs font-mono text-slate-600 px-2 py-1 rounded-md bg-white/5">BUILDER</span>
+              </div>
+
+              <h3 class="text-xl font-bold text-white mb-3">Low-Code Automation Studio</h3>
+              <p class="text-slate-400 mb-8 leading-relaxed text-sm">
+                Drag-and-drop workflow builder with 200+ pre-built nodes. Connect APIs, databases, and AI models visually.
+              </p>
+
+              <!-- Visual: Mini Node Editor -->
+              <div class="mt-auto space-y-2.5">
+                <div class="glass rounded-lg px-4 py-2.5 flex items-center gap-3 text-xs">
+                  <div class="w-6 h-6 rounded bg-indigo-500/20 flex items-center justify-center">
+                    <i data-lucide="webhook" class="w-3 h-3 text-indigo-400"></i>
+                  </div>
+                  <span class="text-slate-300">Trigger</span>
+                  <i data-lucide="chevron-right" class="w-3 h-3 text-slate-600 ml-auto"></i>
+                </div>
+                <div class="glass rounded-lg px-4 py-2.5 flex items-center gap-3 text-xs">
+                  <div class="w-6 h-6 rounded bg-purple-500/20 flex items-center justify-center">
+                    <i data-lucide="cpu" class="w-3 h-3 text-purple-400"></i>
+                  </div>
+                  <span class="text-slate-300">Process</span>
+                  <i data-lucide="chevron-right" class="w-3 h-3 text-slate-600 ml-auto"></i>
+                </div>
+                <div class="glass rounded-lg px-4 py-2.5 flex items-center gap-3 text-xs">
+                  <div class="w-6 h-6 rounded bg-emerald-500/20 flex items-center justify-center">
+                    <i data-lucide="send" class="w-3 h-3 text-emerald-400"></i>
+                  </div>
+                  <span class="text-slate-300">Deploy</span>
+                  <i data-lucide="check-circle" class="w-3 h-3 text-emerald-500 ml-auto"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Real-time RAG -->
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-8 group">
+            <div class="flex flex-col h-full">
+              <div class="flex items-start justify-between mb-6">
+                <div class="icon-box">
+                  <i data-lucide="database" class="w-5 h-5 text-cyan-400"></i>
+                </div>
+                <span class="text-xs font-mono text-slate-600 px-2 py-1 rounded-md bg-white/5">DATA</span>
+              </div>
+
+              <h3 class="text-xl font-bold text-white mb-3">Real-Time RAG Engine</h3>
+              <p class="text-slate-400 mb-8 leading-relaxed text-sm">
+                Ingest, chunk, embed, and retrieve from your private knowledge bases in milliseconds. Always up-to-date, always accurate.
+              </p>
+
+              <!-- Visual: RAG Flow -->
+              <div class="mt-auto">
+                <div class="glass rounded-xl p-4 space-y-3">
+                  <div class="flex items-center gap-2 text-xs text-slate-400">
+                    <i data-lucide="file-text" class="w-3.5 h-3.5 text-cyan-400"></i>
+                    <span>docs, PDFs, APIs</span>
+                    <i data-lucide="arrow-right" class="w-3 h-3 text-slate-600"></i>
+                    <i data-lucide="layers" class="w-3.5 h-3.5 text-indigo-400"></i>
+                    <span>Vectorize</span>
+                    <i data-lucide="arrow-right" class="w-3 h-3 text-slate-600"></i>
+                    <i data-lucide="search" class="w-3.5 h-3.5 text-purple-400"></i>
+                    <span>Retrieve</span>
+                  </div>
+                  <div class="h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent"></div>
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="text-emerald-400 font-mono">&lt; 50ms</span>
+                    <span class="text-slate-500">p99 latency</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: SOC2 Security — Spans 2 cols -->
+          <div id="security" class="animate-on-scroll bento-card glass rounded-2xl p-8 lg:col-span-2 group">
+            <div class="flex flex-col lg:flex-row gap-8 h-full">
+              <div class="flex-1">
+                <div class="flex items-start justify-between mb-6">
+                  <div class="icon-box">
+                    <i data-lucide="shield" class="w-5 h-5 text-emerald-400"></i>
+                  </div>
+                  <span class="text-xs font-mono text-slate-600 px-2 py-1 rounded-md bg-white/5">SECURITY</span>
+                </div>
+
+                <h3 class="text-2xl font-bold text-white mb-3">SOC 2-Ready Security</h3>
+                <p class="text-slate-400 leading-relaxed max-w-md">
+                  Enterprise-grade security out of the box. Audit logs, role-based access, data encryption at rest
+                  and in transit, and full compliance automation.
+                </p>
+              </div>
+
+              <!-- Visual: Security Grid -->
+              <div class="flex-1 grid grid-cols-2 gap-3">
+                <div class="glass rounded-xl p-4 flex flex-col items-center gap-2 text-center">
+                  <i data-lucide="key-round" class="w-5 h-5 text-amber-400"></i>
+                  <span class="text-xs text-slate-300 font-medium">RBAC</span>
+                  <span class="text-[10px] text-slate-500">Role-Based Access</span>
+                </div>
+                <div class="glass rounded-xl p-4 flex flex-col items-center gap-2 text-center">
+                  <i data-lucide="scroll-text" class="w-5 h-5 text-indigo-400"></i>
+                  <span class="text-xs text-slate-300 font-medium">Audit Logs</span>
+                  <span class="text-[10px] text-slate-500">Full Traceability</span>
+                </div>
+                <div class="glass rounded-xl p-4 flex flex-col items-center gap-2 text-center">
+                  <i data-lucide="lock" class="w-5 h-5 text-emerald-400"></i>
+                  <span class="text-xs text-slate-300 font-medium">Encryption</span>
+                  <span class="text-[10px] text-slate-500">AES-256 + TLS 1.3</span>
+                </div>
+                <div class="glass rounded-xl p-4 flex flex-col items-center gap-2 text-center">
+                  <i data-lucide="badge-check" class="w-5 h-5 text-cyan-400"></i>
+                  <span class="text-xs text-slate-300 font-medium">Compliance</span>
+                  <span class="text-[10px] text-slate-500">SOC 2 Type II</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Stats Section ── -->
+    <section class="relative py-20">
+      <div class="section-divider mb-20"></div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="animate-on-scroll text-center">
+            <p class="text-4xl lg:text-5xl font-black gradient-text stat-glow mb-2">50+</p>
+            <p class="text-sm text-slate-500">LLM Models Supported</p>
+          </div>
+          <div class="animate-on-scroll text-center">
+            <p class="text-4xl lg:text-5xl font-black gradient-text stat-glow mb-2">&lt;50ms</p>
+            <p class="text-sm text-slate-500">RAG Query Latency</p>
+          </div>
+          <div class="animate-on-scroll text-center">
+            <p class="text-4xl lg:text-5xl font-black gradient-text stat-glow mb-2">99.99%</p>
+            <p class="text-sm text-slate-500">Uptime Guarantee</p>
+          </div>
+          <div class="animate-on-scroll text-center">
+            <p class="text-4xl lg:text-5xl font-black gradient-text stat-glow mb-2">200+</p>
+            <p class="text-sm text-slate-500">Pre-Built Integrations</p>
+          </div>
+        </div>
+      </div>
+      <div class="section-divider mt-20"></div>
+    </section>
+
+    <!-- ── Platform Section ── -->
+    <section id="platform" class="relative py-24 lg:py-32">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+          <div>
+            <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">How It Works</p>
+            <h2 class="animate-on-scroll text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-6">
+              From idea to <span class="gradient-text">production</span> in minutes
+            </h2>
+            <p class="animate-on-scroll text-lg text-slate-400 leading-relaxed mb-10">
+              Define your workflow logic, connect your models and data, and deploy globally with built-in observability and guardrails.
+            </p>
+
+            <div class="space-y-6">
+              <div class="animate-on-scroll flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span class="text-sm font-bold text-indigo-400">1</span>
+                </div>
+                <div>
+                  <h4 class="text-base font-semibold text-white mb-1">Design Your Workflow</h4>
+                  <p class="text-sm text-slate-400">Use the visual canvas or code-first SDK to chain LLM calls, data transforms, and decision logic.</p>
+                </div>
+              </div>
+              <div class="animate-on-scroll flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span class="text-sm font-bold text-purple-400">2</span>
+                </div>
+                <div>
+                  <h4 class="text-base font-semibold text-white mb-1">Connect Models &amp; Data</h4>
+                  <p class="text-sm text-slate-400">Plug in any LLM provider, vector database, or enterprise data source with a single config.</p>
+                </div>
+              </div>
+              <div class="animate-on-scroll flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span class="text-sm font-bold text-cyan-400">3</span>
+                </div>
+                <div>
+                  <h4 class="text-base font-semibold text-white mb-1">Deploy &amp; Observe</h4>
+                  <p class="text-sm text-slate-400">Ship to production with one click. Monitor cost, latency, and quality in real-time dashboards.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual: Terminal/Code Preview -->
+          <div class="animate-on-scroll">
+            <div class="glass rounded-2xl overflow-hidden">
+              <!-- Terminal Header -->
+              <div class="flex items-center gap-2 px-5 py-3.5 border-b border-white/5">
+                <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
+                <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                <span class="ml-3 text-xs text-slate-500 font-mono">workflow.yaml</span>
+              </div>
+              <!-- Code Block -->
+              <div class="p-5 font-mono text-sm leading-relaxed">
+                <p><span class="text-slate-500"># Xentovia Workflow Config</span></p>
+                <p><span class="text-purple-400">name</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"customer-support-agent"</span></p>
+                <p><span class="text-purple-400">version</span><span class="text-slate-500">:</span> <span class="text-cyan-400">2.0</span></p>
+                <p></p>
+                <p><span class="text-purple-400">pipeline</span><span class="text-slate-500">:</span></p>
+                <p>&nbsp;&nbsp;<span class="text-slate-500">-</span> <span class="text-purple-400">step</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"classify_intent"</span></p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">model</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"claude-opus"</span></p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">fallback</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"gpt-4o"</span></p>
+                <p></p>
+                <p>&nbsp;&nbsp;<span class="text-slate-500">-</span> <span class="text-purple-400">step</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"retrieve_context"</span></p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">source</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"knowledge_base"</span></p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">top_k</span><span class="text-slate-500">:</span> <span class="text-cyan-400">5</span></p>
+                <p></p>
+                <p>&nbsp;&nbsp;<span class="text-slate-500">-</span> <span class="text-purple-400">step</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"generate_response"</span></p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">guardrails</span><span class="text-slate-500">:</span> <span class="text-cyan-400">true</span></p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">stream</span><span class="text-slate-500">:</span> <span class="text-cyan-400">true</span></p>
+                <p></p>
+                <p><span class="text-purple-400">deploy</span><span class="text-slate-500">:</span></p>
+                <p>&nbsp;&nbsp;<span class="text-purple-400">regions</span><span class="text-slate-500">:</span> <span class="text-slate-500">[</span><span class="text-emerald-400">"us-east"</span><span class="text-slate-500">,</span> <span class="text-emerald-400">"eu-west"</span><span class="text-slate-500">]</span></p>
+                <p>&nbsp;&nbsp;<span class="text-purple-400">auto_scale</span><span class="text-slate-500">:</span> <span class="text-cyan-400">true</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Waitlist CTA ── -->
+    <section id="waitlist" class="relative py-24 lg:py-32">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <div class="animate-on-scroll">
+          <p class="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Early Access</p>
+          <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6">
+            Ready to build the <span class="gradient-text">future</span>?
+          </h2>
+          <p class="text-lg text-slate-400 max-w-xl mx-auto mb-10 leading-relaxed">
+            Join our private beta and get early access to the most powerful AI workflow platform ever built.
+          </p>
+
+          <!-- Waitlist Form -->
+          <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-6" onsubmit="handleWaitlist(event)">
+            <input
+              type="email"
+              required
+              placeholder="Enter your work email"
+              class="flex-1 px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/25 transition-all"
+            >
+            <button type="submit" class="cta-primary px-6 py-3.5 rounded-xl text-sm font-semibold text-white whitespace-nowrap">
+              <span class="flex items-center justify-center gap-2">
+                Get Early Access
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+              </span>
+            </button>
+          </form>
+          <p class="text-xs text-slate-600">No spam. Unsubscribe anytime. We respect your privacy.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="relative z-10 border-t border-white/5 bg-space-950/80">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 mb-12">
+
+        <!-- Brand -->
+        <div class="col-span-2 md:col-span-1">
+          <a href="#" class="flex items-center gap-2.5 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+              <i data-lucide="zap" class="w-4 h-4 text-white"></i>
+            </div>
+            <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+          </a>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Next-gen AI workflow automation for the modern enterprise.
+          </p>
+        </div>
+
+        <!-- Product -->
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Product</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#features" class="text-sm text-slate-500 hover:text-white transition-colors">Features</a></li>
+            <li><a href="#platform" class="text-sm text-slate-500 hover:text-white transition-colors">Platform</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Pricing</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Changelog</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Company</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">About</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Blog</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Careers</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Legal</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Security</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">DPA</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="section-divider mb-8"></div>
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-slate-600">
+          &copy; 2026 Xentovia Tech Private Limited. All rights reserved.
+        </p>
+        <div class="flex items-center gap-5">
+          <a href="#" class="text-slate-600 hover:text-white transition-colors" aria-label="GitHub">
+            <i data-lucide="github" class="w-4 h-4"></i>
+          </a>
+          <a href="#" class="text-slate-600 hover:text-white transition-colors" aria-label="LinkedIn">
+            <i data-lucide="linkedin" class="w-4 h-4"></i>
+          </a>
+          <a href="#" class="text-slate-600 hover:text-white transition-colors" aria-label="Twitter">
+            <i data-lucide="twitter" class="w-4 h-4"></i>
+          </a>
+          <a href="#" class="text-slate-600 hover:text-white transition-colors" aria-label="Discord">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Initialize Lucide Icons ──
+    lucide.createIcons();
+
+    // ── Particle Generator ──
+    (function createParticles() {
+      const field = document.getElementById('particleField');
+      const count = 40;
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement('div');
+        p.classList.add('particle');
+        p.style.left = Math.random() * 100 + '%';
+        p.style.animationDuration = (15 + Math.random() * 25) + 's';
+        p.style.animationDelay = (Math.random() * 20) + 's';
+        p.style.width = (1 + Math.random() * 2) + 'px';
+        p.style.height = p.style.width;
+        p.style.opacity = (0.2 + Math.random() * 0.5).toString();
+        field.appendChild(p);
+      }
+    })();
+
+    // ── Scroll Reveal ──
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add('visible'), i * 80);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+    // ── Mobile Menu Toggle ──
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    });
+
+    // ── Waitlist Handler ──
+    function handleWaitlist(e) {
+      e.preventDefault();
+      const input = e.target.querySelector('input');
+      const btn = e.target.querySelector('button');
+      btn.innerHTML = '<span class="flex items-center gap-2"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>You\'re on the list!</span>';
+      btn.style.background = 'linear-gradient(135deg, #059669, #10b981)';
+      input.value = '';
+      input.disabled = true;
+      btn.disabled = true;
+    }
+
+    // ── Smooth Nav Hide/Show on Scroll ──
+    let lastScroll = 0;
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      const current = window.scrollY;
+      if (current > lastScroll && current > 100) {
+        nav.style.transform = 'translateY(-100%)';
+        nav.style.transition = 'transform 0.3s ease';
+      } else {
+        nav.style.transform = 'translateY(0)';
+      }
+      lastScroll = current;
+    });
+  </script>
+
+</body>
+</html>
