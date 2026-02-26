@@ -253,18 +253,6 @@
     }
     .cta-primary span { position: relative; z-index: 1; }
 
-    /* ── Marquee ── */
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .marquee-track {
-      animation: marquee 30s linear infinite;
-    }
-    .marquee-track:hover {
-      animation-play-state: paused;
-    }
-
     /* ── Stat Counter ── */
     .stat-glow {
       text-shadow: 0 0 40px rgba(99,102,241,0.3);
@@ -391,44 +379,6 @@
       </div>
     </section>
 
-    <!-- ── Logo Marquee ── -->
-    <section class="relative py-12 overflow-hidden border-y border-white/5">
-      <p class="text-center text-xs text-slate-600 uppercase tracking-widest mb-8 font-medium">Powering next-gen teams at</p>
-      <div class="relative overflow-hidden">
-        <div class="marquee-track flex items-center gap-16 whitespace-nowrap w-max">
-          <!-- Repeated for seamless loop -->
-          <span class="text-slate-600 font-semibold text-lg tracking-wide">Fortune 500</span>
-          <span class="text-slate-700">|</span>
-          <span class="text-slate-600 font-semibold text-lg tracking-wide">Series A Startups</span>
-          <span class="text-slate-700">|</span>
-          <span class="text-slate-600 font-semibold text-lg tracking-wide">Research Labs</span>
-          <span class="text-slate-700">|</span>
-          <span class="text-slate-600 font-semibold text-lg tracking-wide">Government</span>
-          <span class="text-slate-700">|</span>
-          <span class="text-slate-600 font-semibold text-lg tracking-wide">Enterprise AI</span>
-          <span class="text-slate-700">|</span>
-          <span class="text-slate-600 font-semibold text-lg tracking-wide">HealthTech</span>
-          <span class="text-slate-700">|</span>
-          <span class="text-slate-600 font-semibold text-lg tracking-wide">FinTech</span>
-          <span class="text-slate-700">|</span>
-          <!-- duplicate -->
-          <span class="text-slate-600 font-semibold text-lg tracking-wide">Fortune 500</span>
-          <span class="text-slate-700">|</span>
-          <span class="text-slate-600 font-semibold text-lg tracking-wide">Series A Startups</span>
-          <span class="text-slate-700">|</span>
-          <span class="text-slate-600 font-semibold text-lg tracking-wide">Research Labs</span>
-          <span class="text-slate-700">|</span>
-          <span class="text-slate-600 font-semibold text-lg tracking-wide">Government</span>
-          <span class="text-slate-700">|</span>
-          <span class="text-slate-600 font-semibold text-lg tracking-wide">Enterprise AI</span>
-          <span class="text-slate-700">|</span>
-          <span class="text-slate-600 font-semibold text-lg tracking-wide">HealthTech</span>
-          <span class="text-slate-700">|</span>
-          <span class="text-slate-600 font-semibold text-lg tracking-wide">FinTech</span>
-          <span class="text-slate-700">|</span>
-        </div>
-      </div>
-    </section>
 
     <!-- ── Bento Grid Features ── -->
     <section id="features" class="relative py-24 lg:py-32">
