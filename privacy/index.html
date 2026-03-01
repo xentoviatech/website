@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Xentovia Tech</title>
+  <meta name="description" content="Privacy Policy for Xentovia Tech products including Xentovia AI Workflows and EdunodeX.">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { inter: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            space: { 950: '#03050a', 900: '#060b18', 800: '#0a1128', 700: '#0f1a3a' },
+            accent: { 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5' },
+            glow: { purple: '#7c3aed', blue: '#3b82f6', cyan: '#06b6d4' }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #03050a;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #03050a; }
+    ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 3px; }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #e0e7ff 0%, #818cf8 40%, #c084fc 70%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-blur {
+      background: rgba(3, 5, 10, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(99,102,241,0.3), transparent);
+    }
+
+    .cta-primary {
+      position: relative;
+      background: linear-gradient(135deg, #6366f1, #7c3aed);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .cta-primary::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .cta-primary:hover::after { opacity: 1; }
+    .cta-primary:hover {
+      box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(124, 58, 237, 0.2);
+      transform: translateY(-2px);
+    }
+    .cta-primary span { position: relative; z-index: 1; }
+
+    .legal-content h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .legal-content h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .legal-content p {
+      color: #94a3b8;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .legal-content ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .legal-content li {
+      color: #94a3b8;
+      line-height: 1.8;
+      margin-bottom: 0.25rem;
+    }
+
+    .legal-content a {
+      color: #818cf8;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .legal-content a:hover {
+      color: #a5b4fc;
+    }
+  </style>
+</head>
+
+<body class="font-inter antialiased">
+
+  <!-- Navigation -->
+  <nav class="nav-blur fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 group">
+        <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
+        <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/#features" class="text-sm text-slate-400 hover:text-white transition-colors">Features</a>
+        <a href="/#platform" class="text-sm text-slate-400 hover:text-white transition-colors">Platform</a>
+        <a href="/#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a>
+        <a href="/#waitlist" class="cta-primary px-5 py-2 rounded-lg text-sm font-semibold text-white">
+          <span class="flex items-center gap-1.5">
+            Join Waitlist
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </span>
+        </a>
+      </div>
+
+      <button class="md:hidden text-slate-400 hover:text-white" id="mobileMenuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <div class="md:hidden hidden px-6 pb-4 space-y-3" id="mobileMenu">
+      <a href="/#features" class="block text-sm text-slate-400 hover:text-white py-2">Features</a>
+      <a href="/#platform" class="block text-sm text-slate-400 hover:text-white py-2">Platform</a>
+      <a href="/#security" class="block text-sm text-slate-400 hover:text-white py-2">Security</a>
+      <a href="/#waitlist" class="block cta-primary px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">
+        <span>Join Waitlist</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="relative z-10 pt-24 pb-16">
+    <div class="max-w-4xl mx-auto px-6">
+
+      <!-- Page Header -->
+      <div class="mb-12">
+        <p class="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">Legal</p>
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+          Privacy <span class="gradient-text">Policy</span>
+        </h1>
+        <p class="text-slate-500 text-sm">Last updated: March 1, 2026</p>
+      </div>
+
+      <!-- Content -->
+      <div class="glass rounded-2xl p-8 sm:p-12 legal-content">
+
+        <p>
+          Xentovia Tech Private Limited ("Xentovia," "we," "us," or "our") is committed to protecting
+          the privacy of individuals who visit our websites, use our products — including
+          <strong class="text-white">Xentovia</strong> (autonomous AI workflow platform) and
+          <strong class="text-white">EdunodeX</strong> (AI-powered education platform) — or otherwise
+          interact with our services (collectively, the "Services").
+        </p>
+        <p>
+          This Privacy Policy explains how we collect, use, disclose, and safeguard your information.
+          By accessing or using our Services, you agree to this Privacy Policy.
+        </p>
+
+        <h2>1. Information We Collect</h2>
+
+        <h3>1.1 Information You Provide</h3>
+        <ul>
+          <li><strong class="text-slate-200">Account Information:</strong> Name, email address, phone number, company name, and job title when you create an account or join our waitlist.</li>
+          <li><strong class="text-slate-200">Payment Information:</strong> Billing address and payment details processed securely through third-party payment processors. We do not store full payment card numbers.</li>
+          <li><strong class="text-slate-200">Workflow &amp; Content Data:</strong> Workflow configurations, prompts, API keys (encrypted), and data you process through Xentovia or EdunodeX.</li>
+          <li><strong class="text-slate-200">Communications:</strong> Messages you send to us via email, support tickets, or feedback forms.</li>
+          <li><strong class="text-slate-200">EdunodeX Learning Data:</strong> Course progress, assessment responses, learning preferences, and performance analytics when you use EdunodeX.</li>
+        </ul>
+
+        <h3>1.2 Information Collected Automatically</h3>
+        <ul>
+          <li><strong class="text-slate-200">Usage Data:</strong> Pages visited, features used, workflow execution logs, API call metadata, timestamps, and session duration.</li>
+          <li><strong class="text-slate-200">Device &amp; Browser Data:</strong> IP address, browser type, operating system, device identifiers, and screen resolution.</li>
+          <li><strong class="text-slate-200">Cookies &amp; Tracking:</strong> We use cookies, pixels, and similar technologies to maintain sessions, remember preferences, and analyze usage patterns.</li>
+        </ul>
+
+        <h3>1.3 Information from Third Parties</h3>
+        <ul>
+          <li>Data from authentication providers (e.g., Google, GitHub) when you use single sign-on.</li>
+          <li>Information from integrated third-party services you connect to your workflows.</li>
+          <li>Business contact information from publicly available sources or partners.</li>
+        </ul>
+
+        <h2>2. How We Use Your Information</h2>
+        <p>We use the information we collect to:</p>
+        <ul>
+          <li>Provide, operate, and maintain our Services, including Xentovia and EdunodeX.</li>
+          <li>Process transactions and send related information (confirmations, invoices).</li>
+          <li>Personalize and improve the user experience, including AI model performance and learning pathways on EdunodeX.</li>
+          <li>Analyze usage patterns to develop new features and optimize platform performance.</li>
+          <li>Send administrative communications (security alerts, updates, support messages).</li>
+          <li>Send marketing communications where you have opted in (you can unsubscribe anytime).</li>
+          <li>Detect, prevent, and address fraud, abuse, and security incidents.</li>
+          <li>Comply with legal obligations and enforce our terms.</li>
+        </ul>
+
+        <h2>3. How We Share Your Information</h2>
+        <p>We do not sell your personal information. We may share information in the following circumstances:</p>
+        <ul>
+          <li><strong class="text-slate-200">Service Providers:</strong> With trusted vendors who assist us in operating our Services (cloud hosting, payment processing, analytics, customer support), subject to confidentiality obligations.</li>
+          <li><strong class="text-slate-200">LLM Providers:</strong> When you use Xentovia workflows, prompts and data may be sent to third-party LLM providers (e.g., OpenAI, Anthropic, Google) as necessary to execute your workflows. We encourage you to review their privacy policies.</li>
+          <li><strong class="text-slate-200">Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets, your data may be transferred as part of the transaction.</li>
+          <li><strong class="text-slate-200">Legal Requirements:</strong> When required by law, regulation, legal process, or enforceable governmental request.</li>
+          <li><strong class="text-slate-200">With Your Consent:</strong> When you explicitly authorize the sharing of your information.</li>
+        </ul>
+
+        <h2>4. Data Security</h2>
+        <p>
+          We implement industry-standard security measures to protect your information:
+        </p>
+        <ul>
+          <li>AES-256 encryption for data at rest.</li>
+          <li>TLS 1.3 encryption for data in transit.</li>
+          <li>Role-based access control (RBAC) and multi-factor authentication.</li>
+          <li>Regular security audits and penetration testing.</li>
+          <li>SOC 2 Type II compliance framework.</li>
+          <li>Encrypted storage of API keys and credentials using hardware security modules.</li>
+        </ul>
+        <p>
+          While we strive to protect your information, no method of transmission over the Internet or
+          electronic storage is 100% secure. We cannot guarantee absolute security.
+        </p>
+
+        <h2>5. Data Retention</h2>
+        <p>
+          We retain your personal information for as long as your account is active or as needed to provide
+          our Services. We also retain data as necessary to comply with legal obligations, resolve disputes,
+          and enforce our agreements. Workflow execution data and logs are retained for up to 90 days unless
+          you configure a different retention period. EdunodeX learning records are retained for as long as
+          your account is active to support continued learning progress.
+        </p>
+
+        <h2>6. Your Rights &amp; Choices</h2>
+        <p>Depending on your location, you may have the following rights:</p>
+        <ul>
+          <li><strong class="text-slate-200">Access &amp; Portability:</strong> Request a copy of the personal data we hold about you.</li>
+          <li><strong class="text-slate-200">Correction:</strong> Request correction of inaccurate or incomplete data.</li>
+          <li><strong class="text-slate-200">Deletion:</strong> Request deletion of your personal data, subject to legal retention requirements.</li>
+          <li><strong class="text-slate-200">Opt-Out:</strong> Unsubscribe from marketing emails at any time via the link in our emails.</li>
+          <li><strong class="text-slate-200">Cookie Preferences:</strong> Manage cookie settings through your browser or our cookie consent tool.</li>
+          <li><strong class="text-slate-200">Data Processing Objection:</strong> Object to or restrict certain processing of your data.</li>
+        </ul>
+        <p>
+          To exercise any of these rights, contact us at
+          <a href="mailto:privacy@xentovia.ai">privacy@xentovia.ai</a>.
+        </p>
+
+        <h2>7. International Data Transfers</h2>
+        <p>
+          Our Services are hosted in multiple regions. Your data may be transferred to and processed in
+          countries other than your country of residence. We ensure appropriate safeguards are in place,
+          including standard contractual clauses and data processing agreements, to protect your data
+          in accordance with applicable laws.
+        </p>
+
+        <h2>8. Children's Privacy</h2>
+        <p>
+          Our Services are not directed to individuals under the age of 16. We do not knowingly collect
+          personal information from children under 16. If you become aware that a child has provided us
+          with personal data, please contact us at
+          <a href="mailto:privacy@xentovia.ai">privacy@xentovia.ai</a>,
+          and we will take steps to delete such information.
+        </p>
+        <p>
+          For EdunodeX: where educational institutions use EdunodeX for students under 16, the institution
+          is responsible for obtaining appropriate parental or guardian consent as required by applicable law.
+        </p>
+
+        <h2>9. Third-Party Links &amp; Integrations</h2>
+        <p>
+          Our Services may contain links to third-party websites and integrate with third-party services.
+          This Privacy Policy does not apply to those third parties. We encourage you to review the privacy
+          policies of any third-party services you connect to through our platform.
+        </p>
+
+        <h2>10. Changes to This Policy</h2>
+        <p>
+          We may update this Privacy Policy from time to time. We will notify you of material changes by
+          posting the updated policy on our website and updating the "Last updated" date. Your continued
+          use of our Services after changes are posted constitutes acceptance of the updated policy.
+        </p>
+
+        <h2>11. Contact Us</h2>
+        <p>
+          If you have questions, concerns, or requests regarding this Privacy Policy or our data practices,
+          please contact us:
+        </p>
+        <ul>
+          <li><strong class="text-slate-200">Email:</strong> <a href="mailto:privacy@xentovia.ai">privacy@xentovia.ai</a></li>
+          <li><strong class="text-slate-200">General:</strong> <a href="mailto:hello@xentovia.ai">hello@xentovia.ai</a></li>
+          <li><strong class="text-slate-200">Phone:</strong> +91 788 017 0555</li>
+          <li><strong class="text-slate-200">Entity:</strong> Xentovia Tech Private Limited</li>
+        </ul>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-white/5 bg-space-950/80">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 mb-12">
+
+        <div class="col-span-2 md:col-span-1">
+          <a href="/" class="flex items-center gap-2.5 mb-4">
+            <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
+            <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+          </a>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4">
+            Next-gen AI workflow automation for the modern enterprise.
+          </p>
+          <div class="space-y-2">
+            <a href="tel:+917880170555" class="flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors">
+              <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+              788 017 0555
+            </a>
+            <a href="mailto:hello@xentovia.ai" class="flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+              hello@xentovia.ai
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Product</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/#features" class="text-sm text-slate-500 hover:text-white transition-colors">Features</a></li>
+            <li><a href="/#platform" class="text-sm text-slate-500 hover:text-white transition-colors">Platform</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Pricing</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Changelog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Company</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">About</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Blog</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Careers</a></li>
+            <li><a href="mailto:hello@xentovia.ai" class="text-sm text-slate-500 hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Legal</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/privacy/" class="text-sm text-slate-500 hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms/" class="text-sm text-slate-500 hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Security</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">DPA</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-divider mb-8"></div>
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-slate-600">
+          &copy; 2026 Xentovia Tech Private Limited. All rights reserved.
+        </p>
+        <div class="flex items-center gap-5">
+          <a href="#" class="text-slate-600 hover:text-white transition-colors" aria-label="GitHub">
+            <i data-lucide="github" class="w-4 h-4"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/xentovia-ai" target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-white transition-colors" aria-label="LinkedIn">
+            <i data-lucide="linkedin" class="w-4 h-4"></i>
+          </a>
+          <a href="#" class="text-slate-600 hover:text-white transition-colors" aria-label="Twitter">
+            <i data-lucide="twitter" class="w-4 h-4"></i>
+          </a>
+          <a href="#" class="text-slate-600 hover:text-white transition-colors" aria-label="Discord">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>
