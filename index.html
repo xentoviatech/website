@@ -3,8 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Xentovia Tech — Autonomous AI Workflows</title>
-  <meta name="description" content="Next-gen AI workflow automation, LLM orchestration, and enterprise-grade intelligence by Xentovia Tech.">
+  <title>Xentovia Tech — Agentic AI Solutions for Enterprise</title>
+  <meta name="description" content="We build agentic AI solutions combining Vision AI and GenAI for document intelligence, visual inspection, and workflow automation. Human-in-the-loop verification for enterprise-grade accuracy.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Xentovia Tech — Agentic AI Solutions for Enterprise">
+  <meta property="og:description" content="AI agents that see, understand, and act. Document intelligence, visual inspection, and intelligent automation with human oversight.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xentovia.ai">
+  <meta property="og:image" content="https://xentovia.ai/favicon.png">
 
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -253,15 +260,25 @@
     }
     .cta-primary span { position: relative; z-index: 1; }
 
-    /* ── Stat Counter ── */
-    .stat-glow {
-      text-shadow: 0 0 40px rgba(99,102,241,0.3);
-    }
-
     /* ── Section Divider ── */
     .section-divider {
       height: 1px;
       background: linear-gradient(90deg, transparent, rgba(99,102,241,0.3), transparent);
+    }
+
+    /* ── API Tabs ── */
+    .api-tab {
+      color: #64748b;
+      border-bottom: 2px solid transparent;
+    }
+    .api-tab.active {
+      color: #818cf8;
+      border-bottom-color: #6366f1;
+      background: rgba(99, 102, 241, 0.05);
+    }
+    .api-tab:hover:not(.active) {
+      color: #94a3b8;
+      background: rgba(255, 255, 255, 0.02);
     }
   </style>
 </head>
@@ -283,12 +300,14 @@
       </a>
 
       <div class="hidden md:flex items-center gap-8">
-        <a href="#features" class="text-sm text-slate-400 hover:text-white transition-colors">Features</a>
-        <a href="#platform" class="text-sm text-slate-400 hover:text-white transition-colors">Platform</a>
+        <a href="#capabilities" class="text-sm text-slate-400 hover:text-white transition-colors">Capabilities</a>
+        <a href="#solutions" class="text-sm text-slate-400 hover:text-white transition-colors">Solutions</a>
+        <a href="#how-it-works" class="text-sm text-slate-400 hover:text-white transition-colors">How It Works</a>
         <a href="#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a>
-        <a href="#waitlist" class="cta-primary px-5 py-2 rounded-lg text-sm font-semibold text-white">
+        <a href="#company" class="text-sm text-slate-400 hover:text-white transition-colors">Company</a>
+        <a href="#contact" class="cta-primary px-5 py-2 rounded-lg text-sm font-semibold text-white">
           <span class="flex items-center gap-1.5">
-            Join Waitlist
+            Book a Demo
             <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
           </span>
         </a>
@@ -301,11 +320,13 @@
 
     <!-- Mobile Menu -->
     <div class="md:hidden hidden px-6 pb-4 space-y-3" id="mobileMenu">
-      <a href="#features" class="block text-sm text-slate-400 hover:text-white py-2">Features</a>
-      <a href="#platform" class="block text-sm text-slate-400 hover:text-white py-2">Platform</a>
+      <a href="#capabilities" class="block text-sm text-slate-400 hover:text-white py-2">Capabilities</a>
+      <a href="#solutions" class="block text-sm text-slate-400 hover:text-white py-2">Solutions</a>
+      <a href="#how-it-works" class="block text-sm text-slate-400 hover:text-white py-2">How It Works</a>
       <a href="#security" class="block text-sm text-slate-400 hover:text-white py-2">Security</a>
-      <a href="#waitlist" class="block cta-primary px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">
-        <span>Join Waitlist</span>
+      <a href="#company" class="block text-sm text-slate-400 hover:text-white py-2">Company</a>
+      <a href="#contact" class="block cta-primary px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">
+        <span>Book a Demo</span>
       </a>
     </div>
   </nav>
@@ -320,34 +341,34 @@
           <!-- Badge -->
           <div class="animate-on-scroll inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium text-indigo-300 mb-8">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            Now in Private Beta
+            Vision AI + GenAI for Enterprise
           </div>
 
           <!-- Headline -->
           <h1 class="animate-on-scroll text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight leading-[1.05] mb-6">
-            <span class="text-white">Autonomous</span><br>
-            <span class="gradient-text">Workflows</span>
-            <span class="text-white"> for the</span><br>
-            <span class="gradient-text">Intelligence Age</span>
+            <span class="text-white">AI Agents That</span><br>
+            <span class="gradient-text">See, Understand,</span><br>
+            <span class="gradient-text">and Act.</span>
           </h1>
 
           <!-- Subheadline -->
           <p class="animate-on-scroll text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
-            Orchestrate multi-model LLM pipelines, automate complex reasoning chains,
-            and deploy enterprise-grade AI workflows — all from a single platform.
+            We build agentic AI solutions that combine Vision AI and Generative AI to solve complex
+            enterprise problems &mdash; document intelligence, visual inspection, intelligent automation.
+            With human oversight where it matters.
           </p>
 
           <!-- CTAs -->
           <div class="animate-on-scroll flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-            <a href="#waitlist" class="cta-primary px-8 py-3.5 rounded-xl text-base font-semibold text-white w-full sm:w-auto">
+            <a href="#contact" class="cta-primary px-8 py-3.5 rounded-xl text-base font-semibold text-white w-full sm:w-auto">
               <span class="flex items-center justify-center gap-2">
-                Join the Waitlist
+                Book a Demo
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </span>
             </a>
-            <a href="#features" class="group px-8 py-3.5 rounded-xl text-base font-medium text-slate-300 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all w-full sm:w-auto flex items-center justify-center gap-2">
-              <i data-lucide="play" class="w-4 h-4 text-indigo-400 group-hover:text-indigo-300 transition-colors"></i>
-              See How It Works
+            <a href="#contact" class="group px-8 py-3.5 rounded-xl text-base font-medium text-slate-300 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all w-full sm:w-auto flex items-center justify-center gap-2">
+              <i data-lucide="message-circle" class="w-4 h-4 text-indigo-400 group-hover:text-indigo-300 transition-colors"></i>
+              Tell Us Your Problem
             </a>
           </div>
 
@@ -355,19 +376,19 @@
           <div class="animate-on-scroll flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-slate-500">
             <span class="flex items-center gap-1.5">
               <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-500"></i>
-              SOC 2 Compliant
+              SOC 2 (In Progress)
             </span>
             <span class="flex items-center gap-1.5">
               <i data-lucide="lock" class="w-3.5 h-3.5 text-indigo-400"></i>
               End-to-End Encrypted
             </span>
             <span class="flex items-center gap-1.5">
-              <i data-lucide="globe" class="w-3.5 h-3.5 text-cyan-400"></i>
-              Multi-Region Deployment
+              <i data-lucide="heart-pulse" class="w-3.5 h-3.5 text-cyan-400"></i>
+              HIPAA-Ready Architecture
             </span>
             <span class="flex items-center gap-1.5">
-              <i data-lucide="gauge" class="w-3.5 h-3.5 text-purple-400"></i>
-              99.99% Uptime SLA
+              <i data-lucide="activity" class="w-3.5 h-3.5 text-purple-400"></i>
+              In Production Today
             </span>
           </div>
         </div>
@@ -380,193 +401,133 @@
     </section>
 
 
-    <!-- ── Bento Grid Features ── -->
-    <section id="features" class="relative py-24 lg:py-32">
+    <!-- ── Core Capabilities ── -->
+    <section id="capabilities" class="relative py-24 lg:py-32">
       <div class="max-w-7xl mx-auto px-6">
 
         <!-- Section Header -->
         <div class="text-center mb-16">
-          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">Platform Capabilities</p>
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">Core Capabilities</p>
           <h2 class="animate-on-scroll text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
-            Built for the <span class="gradient-text">AI-native</span> enterprise
+            Three pillars. One <span class="gradient-text">agentic platform.</span>
           </h2>
-          <p class="animate-on-scroll text-lg text-slate-400 max-w-xl mx-auto">
-            Everything you need to design, deploy, and scale autonomous AI workflows.
+          <p class="animate-on-scroll text-lg text-slate-400 max-w-2xl mx-auto">
+            Every solution we build combines Vision AI, Generative AI, and human oversight into agentic pipelines that deliver verified results.
           </p>
         </div>
 
-        <!-- Bento Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+        <!-- Three Pillars -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
 
-          <!-- Card 1: Multi-modal LLM — Spans 2 cols -->
-          <div class="animate-on-scroll bento-card glass rounded-2xl p-8 lg:col-span-2 group">
-            <div class="flex flex-col h-full">
-              <div class="flex items-start justify-between mb-6">
-                <div class="icon-box">
-                  <i data-lucide="brain" class="w-5 h-5 text-indigo-400"></i>
-                </div>
-                <span class="text-xs font-mono text-slate-600 px-2 py-1 rounded-md bg-white/5">CORE ENGINE</span>
-              </div>
-
-              <h3 class="text-2xl font-bold text-white mb-3">Multi-Modal LLM Orchestration</h3>
-              <p class="text-slate-400 mb-8 leading-relaxed max-w-lg">
-                Route tasks across GPT-4, Claude, Gemini, Llama, and custom fine-tuned models.
-                Intelligent model selection based on task complexity, cost, and latency constraints.
-              </p>
-
-              <!-- Visual: Model Routing Diagram -->
-              <div class="mt-auto glass rounded-xl p-5 space-y-3">
-                <div class="flex items-center gap-3">
-                  <div class="w-2 h-2 rounded-full bg-emerald-400"></div>
-                  <div class="flex-1 h-1.5 rounded-full bg-gradient-to-r from-indigo-500/40 to-purple-500/40 relative overflow-hidden">
-                    <div class="absolute inset-y-0 left-0 w-3/4 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 animate-pulse"></div>
-                  </div>
-                  <span class="text-xs text-slate-500 font-mono w-20 text-right">GPT-4o</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <div class="w-2 h-2 rounded-full bg-cyan-400"></div>
-                  <div class="flex-1 h-1.5 rounded-full bg-gradient-to-r from-cyan-500/40 to-blue-500/40 relative overflow-hidden">
-                    <div class="absolute inset-y-0 left-0 w-4/5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 animate-pulse" style="animation-delay: 0.3s"></div>
-                  </div>
-                  <span class="text-xs text-slate-500 font-mono w-20 text-right">Claude 4</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <div class="w-2 h-2 rounded-full bg-amber-400"></div>
-                  <div class="flex-1 h-1.5 rounded-full bg-gradient-to-r from-amber-500/40 to-orange-500/40 relative overflow-hidden">
-                    <div class="absolute inset-y-0 left-0 w-1/2 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 animate-pulse" style="animation-delay: 0.6s"></div>
-                  </div>
-                  <span class="text-xs text-slate-500 font-mono w-20 text-right">Gemini</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <div class="w-2 h-2 rounded-full bg-rose-400"></div>
-                  <div class="flex-1 h-1.5 rounded-full bg-gradient-to-r from-rose-500/40 to-pink-500/40 relative overflow-hidden">
-                    <div class="absolute inset-y-0 left-0 w-2/3 rounded-full bg-gradient-to-r from-rose-500 to-pink-500 animate-pulse" style="animation-delay: 0.9s"></div>
-                  </div>
-                  <span class="text-xs text-slate-500 font-mono w-20 text-right">Llama 3</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2: Low-Code Automation -->
+          <!-- Pillar 1: Document Intelligence -->
           <div class="animate-on-scroll bento-card glass rounded-2xl p-8 group">
             <div class="flex flex-col h-full">
               <div class="flex items-start justify-between mb-6">
                 <div class="icon-box">
-                  <i data-lucide="blocks" class="w-5 h-5 text-purple-400"></i>
+                  <i data-lucide="scan-text" class="w-5 h-5 text-indigo-400"></i>
                 </div>
-                <span class="text-xs font-mono text-slate-600 px-2 py-1 rounded-md bg-white/5">BUILDER</span>
+                <div class="flex items-center gap-2">
+                  <span class="text-[10px] font-mono text-emerald-400 px-2 py-0.5 rounded-md bg-emerald-500/10 border border-emerald-500/20">IN PRODUCTION</span>
+                </div>
               </div>
 
-              <h3 class="text-xl font-bold text-white mb-3">Low-Code Automation Studio</h3>
-              <p class="text-slate-400 mb-8 leading-relaxed text-sm">
-                Drag-and-drop workflow builder with 200+ pre-built nodes. Connect APIs, databases, and AI models visually.
+              <h3 class="text-xl font-bold text-white mb-3">Agentic Document Intelligence</h3>
+              <p class="text-slate-400 mb-6 leading-relaxed text-sm">
+                VLM agents that read handwritten, scanned, and digital documents &mdash; extracting structured data from forms, tables, contracts, and free-text. Multi-step validation catches what single-pass extraction misses.
               </p>
 
-              <!-- Visual: Mini Node Editor -->
-              <div class="mt-auto space-y-2.5">
-                <div class="glass rounded-lg px-4 py-2.5 flex items-center gap-3 text-xs">
-                  <div class="w-6 h-6 rounded bg-indigo-500/20 flex items-center justify-center">
-                    <i data-lucide="webhook" class="w-3 h-3 text-indigo-400"></i>
-                  </div>
-                  <span class="text-slate-300">Trigger</span>
-                  <i data-lucide="chevron-right" class="w-3 h-3 text-slate-600 ml-auto"></i>
+              <div class="mt-auto space-y-2">
+                <div class="flex items-center gap-2 text-xs text-slate-400">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i>
+                  Handwritten &amp; printed text (multi-language)
                 </div>
-                <div class="glass rounded-lg px-4 py-2.5 flex items-center gap-3 text-xs">
-                  <div class="w-6 h-6 rounded bg-purple-500/20 flex items-center justify-center">
-                    <i data-lucide="cpu" class="w-3 h-3 text-purple-400"></i>
-                  </div>
-                  <span class="text-slate-300">Process</span>
-                  <i data-lucide="chevron-right" class="w-3 h-3 text-slate-600 ml-auto"></i>
+                <div class="flex items-center gap-2 text-xs text-slate-400">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i>
+                  Tables, forms, mixed layouts
                 </div>
-                <div class="glass rounded-lg px-4 py-2.5 flex items-center gap-3 text-xs">
-                  <div class="w-6 h-6 rounded bg-emerald-500/20 flex items-center justify-center">
-                    <i data-lucide="send" class="w-3 h-3 text-emerald-400"></i>
-                  </div>
-                  <span class="text-slate-300">Deploy</span>
-                  <i data-lucide="check-circle" class="w-3 h-3 text-emerald-500 ml-auto"></i>
+                <div class="flex items-center gap-2 text-xs text-slate-400">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i>
+                  Structured JSON output
+                </div>
+                <div class="flex items-center gap-2 text-xs text-slate-400">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i>
+                  Auto-correction &amp; cross-validation
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Card 3: Real-time RAG -->
+          <!-- Pillar 2: Visual AI -->
           <div class="animate-on-scroll bento-card glass rounded-2xl p-8 group">
             <div class="flex flex-col h-full">
               <div class="flex items-start justify-between mb-6">
                 <div class="icon-box">
-                  <i data-lucide="database" class="w-5 h-5 text-cyan-400"></i>
+                  <i data-lucide="eye" class="w-5 h-5 text-cyan-400"></i>
                 </div>
-                <span class="text-xs font-mono text-slate-600 px-2 py-1 rounded-md bg-white/5">DATA</span>
+                <div class="flex items-center gap-2">
+                  <span class="text-[10px] font-mono text-cyan-400 px-2 py-0.5 rounded-md bg-cyan-500/10 border border-cyan-500/20">AVAILABLE</span>
+                </div>
               </div>
 
-              <h3 class="text-xl font-bold text-white mb-3">Real-Time RAG Engine</h3>
-              <p class="text-slate-400 mb-8 leading-relaxed text-sm">
-                Ingest, chunk, embed, and retrieve from your private knowledge bases in milliseconds. Always up-to-date, always accurate.
+              <h3 class="text-xl font-bold text-white mb-3">Visual Inspection &amp; Analysis</h3>
+              <p class="text-slate-400 mb-6 leading-relaxed text-sm">
+                Vision AI agents that inspect, classify, and analyze images and video &mdash; from manufacturing quality control to property damage assessment to medical imaging analysis.
               </p>
 
-              <!-- Visual: RAG Flow -->
-              <div class="mt-auto">
-                <div class="glass rounded-xl p-4 space-y-3">
-                  <div class="flex items-center gap-2 text-xs text-slate-400">
-                    <i data-lucide="file-text" class="w-3.5 h-3.5 text-cyan-400"></i>
-                    <span>docs, PDFs, APIs</span>
-                    <i data-lucide="arrow-right" class="w-3 h-3 text-slate-600"></i>
-                    <i data-lucide="layers" class="w-3.5 h-3.5 text-indigo-400"></i>
-                    <span>Vectorize</span>
-                    <i data-lucide="arrow-right" class="w-3 h-3 text-slate-600"></i>
-                    <i data-lucide="search" class="w-3.5 h-3.5 text-purple-400"></i>
-                    <span>Retrieve</span>
-                  </div>
-                  <div class="h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent"></div>
-                  <div class="flex items-center justify-between text-xs">
-                    <span class="text-emerald-400 font-mono">&lt; 50ms</span>
-                    <span class="text-slate-500">p99 latency</span>
-                  </div>
+              <div class="mt-auto space-y-2">
+                <div class="flex items-center gap-2 text-xs text-slate-400">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i>
+                  Defect detection &amp; quality grading
+                </div>
+                <div class="flex items-center gap-2 text-xs text-slate-400">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i>
+                  Damage assessment from photos
+                </div>
+                <div class="flex items-center gap-2 text-xs text-slate-400">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i>
+                  Image classification &amp; comparison
+                </div>
+                <div class="flex items-center gap-2 text-xs text-slate-400">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i>
+                  Video frame analysis
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Card 4: SOC2 Security — Spans 2 cols -->
-          <div id="security" class="animate-on-scroll bento-card glass rounded-2xl p-8 lg:col-span-2 group">
-            <div class="flex flex-col lg:flex-row gap-8 h-full">
-              <div class="flex-1">
-                <div class="flex items-start justify-between mb-6">
-                  <div class="icon-box">
-                    <i data-lucide="shield" class="w-5 h-5 text-emerald-400"></i>
-                  </div>
-                  <span class="text-xs font-mono text-slate-600 px-2 py-1 rounded-md bg-white/5">SECURITY</span>
+          <!-- Pillar 3: GenAI Automation -->
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-8 group">
+            <div class="flex flex-col h-full">
+              <div class="flex items-start justify-between mb-6">
+                <div class="icon-box">
+                  <i data-lucide="brain" class="w-5 h-5 text-purple-400"></i>
                 </div>
-
-                <h3 class="text-2xl font-bold text-white mb-3">SOC 2-Ready Security</h3>
-                <p class="text-slate-400 leading-relaxed max-w-md">
-                  Enterprise-grade security out of the box. Audit logs, role-based access, data encryption at rest
-                  and in transit, and full compliance automation.
-                </p>
+                <div class="flex items-center gap-2">
+                  <span class="text-[10px] font-mono text-purple-400 px-2 py-0.5 rounded-md bg-purple-500/10 border border-purple-500/20">AVAILABLE</span>
+                </div>
               </div>
 
-              <!-- Visual: Security Grid -->
-              <div class="flex-1 grid grid-cols-2 gap-3">
-                <div class="glass rounded-xl p-4 flex flex-col items-center gap-2 text-center">
-                  <i data-lucide="key-round" class="w-5 h-5 text-amber-400"></i>
-                  <span class="text-xs text-slate-300 font-medium">RBAC</span>
-                  <span class="text-[10px] text-slate-500">Role-Based Access</span>
+              <h3 class="text-xl font-bold text-white mb-3">Intelligent Workflow Agents</h3>
+              <p class="text-slate-400 mb-6 leading-relaxed text-sm">
+                GenAI agents that reason, decide, and act across your business workflows &mdash; from claims triage to compliance checks to customer communication. Orchestrate LLMs with domain-specific guardrails.
+              </p>
+
+              <div class="mt-auto space-y-2">
+                <div class="flex items-center gap-2 text-xs text-slate-400">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i>
+                  Multi-model orchestration
                 </div>
-                <div class="glass rounded-xl p-4 flex flex-col items-center gap-2 text-center">
-                  <i data-lucide="scroll-text" class="w-5 h-5 text-indigo-400"></i>
-                  <span class="text-xs text-slate-300 font-medium">Audit Logs</span>
-                  <span class="text-[10px] text-slate-500">Full Traceability</span>
+                <div class="flex items-center gap-2 text-xs text-slate-400">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i>
+                  Decision logic with guardrails
                 </div>
-                <div class="glass rounded-xl p-4 flex flex-col items-center gap-2 text-center">
-                  <i data-lucide="lock" class="w-5 h-5 text-emerald-400"></i>
-                  <span class="text-xs text-slate-300 font-medium">Encryption</span>
-                  <span class="text-[10px] text-slate-500">AES-256 + TLS 1.3</span>
+                <div class="flex items-center gap-2 text-xs text-slate-400">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i>
+                  Domain-specific reasoning chains
                 </div>
-                <div class="glass rounded-xl p-4 flex flex-col items-center gap-2 text-center">
-                  <i data-lucide="badge-check" class="w-5 h-5 text-cyan-400"></i>
-                  <span class="text-xs text-slate-300 font-medium">Compliance</span>
-                  <span class="text-[10px] text-slate-500">SOC 2 Type II</span>
+                <div class="flex items-center gap-2 text-xs text-slate-400">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i>
+                  API-driven workflow integration
                 </div>
               </div>
             </div>
@@ -576,109 +537,271 @@
       </div>
     </section>
 
-    <!-- ── Stats Section ── -->
-    <section class="relative py-20">
+
+    <!-- ── Solutions ── -->
+    <section id="solutions" class="relative py-24 lg:py-32">
       <div class="section-divider mb-20"></div>
       <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="animate-on-scroll text-center">
-            <p class="text-4xl lg:text-5xl font-black gradient-text stat-glow mb-2">50+</p>
-            <p class="text-sm text-slate-500">LLM Models Supported</p>
+
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">Solutions</p>
+          <h2 class="animate-on-scroll text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+            Real problems. <span class="gradient-text">Verified results.</span>
+          </h2>
+          <p class="animate-on-scroll text-lg text-slate-400 max-w-2xl mx-auto">
+            We work across industries where complex documents, visual data, and manual processes are costing enterprises time and money.
+          </p>
+        </div>
+
+        <!-- Use Case Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+          <!-- Card 1: Insurance -->
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7 group">
+            <div class="flex flex-col h-full">
+              <div class="icon-box mb-5">
+                <i data-lucide="shield" class="w-5 h-5 text-indigo-400"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Claims &amp; Underwriting</h3>
+              <div class="flex flex-wrap gap-1.5 mb-3">
+                <span class="text-[10px] font-mono text-indigo-300 px-1.5 py-0.5 rounded bg-indigo-500/10">Document Intelligence</span>
+                <span class="text-[10px] font-mono text-purple-300 px-1.5 py-0.5 rounded bg-purple-500/10">GenAI Automation</span>
+              </div>
+              <p class="text-sm text-slate-400 mb-4 leading-relaxed">
+                Extract and validate claims documents, automate submission triage, and accelerate underwriting decisions.
+              </p>
+              <p class="mt-auto text-xs text-slate-500">
+                FNOL forms &middot; Medical records &middot; Policy applications &middot; Repair estimates
+              </p>
+            </div>
           </div>
-          <div class="animate-on-scroll text-center">
-            <p class="text-4xl lg:text-5xl font-black gradient-text stat-glow mb-2">&lt;50ms</p>
-            <p class="text-sm text-slate-500">RAG Query Latency</p>
+
+          <!-- Card 2: Healthcare -->
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7 group">
+            <div class="flex flex-col h-full">
+              <div class="icon-box mb-5">
+                <i data-lucide="heart-pulse" class="w-5 h-5 text-rose-400"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Clinical Documentation &amp; Prior Auth</h3>
+              <div class="flex flex-wrap gap-1.5 mb-3">
+                <span class="text-[10px] font-mono text-indigo-300 px-1.5 py-0.5 rounded bg-indigo-500/10">Document Intelligence</span>
+                <span class="text-[10px] font-mono text-purple-300 px-1.5 py-0.5 rounded bg-purple-500/10">GenAI Automation</span>
+              </div>
+              <p class="text-sm text-slate-400 mb-4 leading-relaxed">
+                Process clinical notes, assemble prior auth packages, and extract structured data from medical records.
+              </p>
+              <p class="mt-auto text-xs text-slate-500">
+                Lab results &middot; Discharge summaries &middot; EOBs &middot; Imaging reports
+              </p>
+            </div>
           </div>
-          <div class="animate-on-scroll text-center">
-            <p class="text-4xl lg:text-5xl font-black gradient-text stat-glow mb-2">99.99%</p>
-            <p class="text-sm text-slate-500">Uptime Guarantee</p>
+
+          <!-- Card 3: Mortgage -->
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7 group">
+            <div class="flex flex-col h-full">
+              <div class="icon-box mb-5">
+                <i data-lucide="landmark" class="w-5 h-5 text-amber-400"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Loan Processing &amp; Compliance</h3>
+              <div class="flex flex-wrap gap-1.5 mb-3">
+                <span class="text-[10px] font-mono text-indigo-300 px-1.5 py-0.5 rounded bg-indigo-500/10">Document Intelligence</span>
+                <span class="text-[10px] font-mono text-purple-300 px-1.5 py-0.5 rounded bg-purple-500/10">GenAI Automation</span>
+              </div>
+              <p class="text-sm text-slate-400 mb-4 leading-relaxed">
+                Index loan files, verify income and assets, and automate compliance document checks.
+              </p>
+              <p class="mt-auto text-xs text-slate-500">
+                W-2s &middot; Tax returns &middot; Bank statements &middot; TRID disclosures
+              </p>
+            </div>
           </div>
-          <div class="animate-on-scroll text-center">
-            <p class="text-4xl lg:text-5xl font-black gradient-text stat-glow mb-2">200+</p>
-            <p class="text-sm text-slate-500">Pre-Built Integrations</p>
+
+          <!-- Card 4: Manufacturing -->
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7 group">
+            <div class="flex flex-col h-full">
+              <div class="icon-box mb-5">
+                <i data-lucide="factory" class="w-5 h-5 text-emerald-400"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Visual Inspection &amp; Quality Control</h3>
+              <div class="flex flex-wrap gap-1.5 mb-3">
+                <span class="text-[10px] font-mono text-cyan-300 px-1.5 py-0.5 rounded bg-cyan-500/10">Visual AI</span>
+              </div>
+              <p class="text-sm text-slate-400 mb-4 leading-relaxed">
+                Detect defects, grade quality, and monitor production lines with vision AI agents that learn your standards.
+              </p>
+              <p class="mt-auto text-xs text-slate-500">
+                Product photos &middot; Assembly line video &middot; Packaging inspection
+              </p>
+            </div>
           </div>
+
+          <!-- Card 5: Government -->
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7 group">
+            <div class="flex flex-col h-full">
+              <div class="icon-box mb-5">
+                <i data-lucide="building" class="w-5 h-5 text-cyan-400"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Record Digitization &amp; Processing</h3>
+              <div class="flex flex-wrap gap-1.5 mb-3">
+                <span class="text-[10px] font-mono text-indigo-300 px-1.5 py-0.5 rounded bg-indigo-500/10">Document Intelligence</span>
+                <span class="text-[10px] font-mono text-cyan-300 px-1.5 py-0.5 rounded bg-cyan-500/10">Visual AI</span>
+              </div>
+              <p class="text-sm text-slate-400 mb-4 leading-relaxed">
+                Digitize handwritten records, process benefits applications, and modernize paper-based archives at scale.
+              </p>
+              <p class="mt-auto text-xs text-slate-500 italic">
+                Currently processing handwritten government land records in production.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 6: Your Industry -->
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7 group border border-dashed border-white/10 hover:border-indigo-500/30">
+            <div class="flex flex-col h-full">
+              <div class="icon-box mb-5">
+                <i data-lucide="message-circle" class="w-5 h-5 text-slate-400"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Something Else?</h3>
+              <div class="flex flex-wrap gap-1.5 mb-3">
+                <span class="text-[10px] font-mono text-slate-400 px-1.5 py-0.5 rounded bg-white/5">All Capabilities</span>
+              </div>
+              <p class="text-sm text-slate-400 mb-4 leading-relaxed">
+                If you have complex documents, visual data, or manual workflows draining your team &mdash; we should talk.
+                We build custom agentic solutions for problems that off-the-shelf tools can't handle.
+              </p>
+              <a href="#contact" class="mt-auto text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1.5">
+                Tell Us Your Problem
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
       <div class="section-divider mt-20"></div>
     </section>
 
-    <!-- ── Platform Section ── -->
-    <section id="platform" class="relative py-24 lg:py-32">
+
+    <!-- ── How It Works ── -->
+    <section id="how-it-works" class="relative py-24 lg:py-32">
       <div class="max-w-7xl mx-auto px-6">
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
 
           <div>
             <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">How It Works</p>
             <h2 class="animate-on-scroll text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-6">
-              From idea to <span class="gradient-text">production</span> in minutes
+              Agentic pipelines that deliver <span class="gradient-text">verified results</span>
             </h2>
             <p class="animate-on-scroll text-lg text-slate-400 leading-relaxed mb-10">
-              Define your workflow logic, connect your models and data, and deploy globally with built-in observability and guardrails.
+              Every solution follows the same architecture &mdash; specialized AI agents working in sequence, with human oversight built in.
             </p>
 
-            <div class="space-y-6">
+            <div class="space-y-5">
               <div class="animate-on-scroll flex items-start gap-4">
                 <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <span class="text-sm font-bold text-indigo-400">1</span>
+                  <i data-lucide="upload" class="w-4 h-4 text-indigo-400"></i>
                 </div>
                 <div>
-                  <h4 class="text-base font-semibold text-white mb-1">Design Your Workflow</h4>
-                  <p class="text-sm text-slate-400">Use the visual canvas or code-first SDK to chain LLM calls, data transforms, and decision logic.</p>
+                  <h4 class="text-base font-semibold text-white mb-1">Ingest</h4>
+                  <p class="text-sm text-slate-400">Send us anything &mdash; documents via API, images via S3, video feeds via webhook, or data via email. We handle the format chaos.</p>
                 </div>
               </div>
               <div class="animate-on-scroll flex items-start gap-4">
                 <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <span class="text-sm font-bold text-purple-400">2</span>
+                  <i data-lucide="eye" class="w-4 h-4 text-purple-400"></i>
                 </div>
                 <div>
-                  <h4 class="text-base font-semibold text-white mb-1">Connect Models &amp; Data</h4>
-                  <p class="text-sm text-slate-400">Plug in any LLM provider, vector database, or enterprise data source with a single config.</p>
+                  <h4 class="text-base font-semibold text-white mb-1">Understand</h4>
+                  <p class="text-sm text-slate-400">Vision AI and language models analyze your input &mdash; classifying type, detecting structure, reading content, identifying what matters.</p>
                 </div>
               </div>
               <div class="animate-on-scroll flex items-start gap-4">
                 <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <span class="text-sm font-bold text-cyan-400">3</span>
+                  <i data-lucide="cpu" class="w-4 h-4 text-cyan-400"></i>
                 </div>
                 <div>
-                  <h4 class="text-base font-semibold text-white mb-1">Deploy &amp; Observe</h4>
-                  <p class="text-sm text-slate-400">Ship to production with one click. Monitor cost, latency, and quality in real-time dashboards.</p>
+                  <h4 class="text-base font-semibold text-white mb-1">Extract &amp; Process</h4>
+                  <p class="text-sm text-slate-400">Specialized agents pull structured data, detect anomalies, grade quality, or execute reasoning chains &mdash; depending on what your problem needs.</p>
+                </div>
+              </div>
+              <div class="animate-on-scroll flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+                </div>
+                <div>
+                  <h4 class="text-base font-semibold text-white mb-1">Validate</h4>
+                  <p class="text-sm text-slate-400">Agentic validation cross-checks every output &mdash; catching inconsistencies, applying business rules, scoring confidence, and auto-correcting known error patterns.</p>
+                </div>
+              </div>
+              <div class="animate-on-scroll flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i data-lucide="users" class="w-4 h-4 text-amber-400"></i>
+                </div>
+                <div>
+                  <h4 class="text-base font-semibold text-white mb-1">Human Review</h4>
+                  <p class="text-sm text-slate-400">Low-confidence outputs route to your team in a built-in review dashboard. Side-by-side viewer, inline editing, one-click approve. <span class="text-white font-medium">You review 10-20%, not 100%.</span></p>
+                </div>
+              </div>
+              <div class="animate-on-scroll flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i data-lucide="send" class="w-4 h-4 text-rose-400"></i>
+                </div>
+                <div>
+                  <h4 class="text-base font-semibold text-white mb-1">Deliver</h4>
+                  <p class="text-sm text-slate-400">Verified results pushed to your systems &mdash; structured JSON, Excel, database insert, or direct API call to your CRM, claims system, EHR, or ERP.</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Visual: Terminal/Code Preview -->
-          <div class="animate-on-scroll">
+          <!-- Tabbed API Examples -->
+          <div class="animate-on-scroll lg:sticky lg:top-24">
             <div class="glass rounded-2xl overflow-hidden">
-              <!-- Terminal Header -->
-              <div class="flex items-center gap-2 px-5 py-3.5 border-b border-white/5">
-                <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
-                <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
-                <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
-                <span class="ml-3 text-xs text-slate-500 font-mono">workflow.yaml</span>
+              <!-- Tab Bar -->
+              <div class="flex border-b border-white/5">
+                <button class="api-tab active flex-1 px-4 py-3 text-xs font-medium text-center transition-colors" data-tab="doc">
+                  Document
+                </button>
+                <button class="api-tab flex-1 px-4 py-3 text-xs font-medium text-center transition-colors" data-tab="visual">
+                  Visual
+                </button>
+                <button class="api-tab flex-1 px-4 py-3 text-xs font-medium text-center transition-colors" data-tab="auto">
+                  Automation
+                </button>
               </div>
-              <!-- Code Block -->
-              <div class="p-5 font-mono text-sm leading-relaxed">
-                <p><span class="text-slate-500"># Xentovia Workflow Config</span></p>
-                <p><span class="text-purple-400">name</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"customer-support-agent"</span></p>
-                <p><span class="text-purple-400">version</span><span class="text-slate-500">:</span> <span class="text-cyan-400">2.0</span></p>
-                <p></p>
-                <p><span class="text-purple-400">pipeline</span><span class="text-slate-500">:</span></p>
-                <p>&nbsp;&nbsp;<span class="text-slate-500">-</span> <span class="text-purple-400">step</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"classify_intent"</span></p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">model</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"claude-opus"</span></p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">fallback</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"gpt-4o"</span></p>
-                <p></p>
-                <p>&nbsp;&nbsp;<span class="text-slate-500">-</span> <span class="text-purple-400">step</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"retrieve_context"</span></p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">source</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"knowledge_base"</span></p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">top_k</span><span class="text-slate-500">:</span> <span class="text-cyan-400">5</span></p>
-                <p></p>
-                <p>&nbsp;&nbsp;<span class="text-slate-500">-</span> <span class="text-purple-400">step</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"generate_response"</span></p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">guardrails</span><span class="text-slate-500">:</span> <span class="text-cyan-400">true</span></p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">stream</span><span class="text-slate-500">:</span> <span class="text-cyan-400">true</span></p>
-                <p></p>
-                <p><span class="text-purple-400">deploy</span><span class="text-slate-500">:</span></p>
-                <p>&nbsp;&nbsp;<span class="text-purple-400">regions</span><span class="text-slate-500">:</span> <span class="text-slate-500">[</span><span class="text-emerald-400">"us-east"</span><span class="text-slate-500">,</span> <span class="text-emerald-400">"eu-west"</span><span class="text-slate-500">]</span></p>
-                <p>&nbsp;&nbsp;<span class="text-purple-400">auto_scale</span><span class="text-slate-500">:</span> <span class="text-cyan-400">true</span></p>
+              <!-- Tab Content: Document -->
+              <div class="api-panel active p-5 font-mono text-sm leading-relaxed" data-panel="doc">
+                <p><span class="text-slate-500">POST</span> <span class="text-emerald-400">/api/v1/pipeline/run</span></p>
+                <p class="text-slate-600">{</p>
+                <p>&nbsp;&nbsp;<span class="text-purple-400">"type"</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"document"</span><span class="text-slate-600">,</span></p>
+                <p>&nbsp;&nbsp;<span class="text-purple-400">"source"</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"s3://inbox/claim-4821.pdf"</span><span class="text-slate-600">,</span></p>
+                <p>&nbsp;&nbsp;<span class="text-purple-400">"pipeline"</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"insurance-claims"</span><span class="text-slate-600">,</span></p>
+                <p>&nbsp;&nbsp;<span class="text-purple-400">"review_mode"</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"flag_low_confidence"</span><span class="text-slate-600">,</span></p>
+                <p>&nbsp;&nbsp;<span class="text-purple-400">"callback"</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"https://your-app.com/webhook"</span></p>
+                <p class="text-slate-600">}</p>
+              </div>
+              <!-- Tab Content: Visual -->
+              <div class="api-panel hidden p-5 font-mono text-sm leading-relaxed" data-panel="visual">
+                <p><span class="text-slate-500">POST</span> <span class="text-emerald-400">/api/v1/pipeline/run</span></p>
+                <p class="text-slate-600">{</p>
+                <p>&nbsp;&nbsp;<span class="text-purple-400">"type"</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"visual"</span><span class="text-slate-600">,</span></p>
+                <p>&nbsp;&nbsp;<span class="text-purple-400">"source"</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"s3://qc-feed/batch-0412/"</span><span class="text-slate-600">,</span></p>
+                <p>&nbsp;&nbsp;<span class="text-purple-400">"pipeline"</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"defect-detection"</span><span class="text-slate-600">,</span></p>
+                <p>&nbsp;&nbsp;<span class="text-purple-400">"threshold"</span><span class="text-slate-500">:</span> <span class="text-cyan-400">0.95</span><span class="text-slate-600">,</span></p>
+                <p>&nbsp;&nbsp;<span class="text-purple-400">"callback"</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"https://your-app.com/webhook"</span></p>
+                <p class="text-slate-600">}</p>
+              </div>
+              <!-- Tab Content: Automation -->
+              <div class="api-panel hidden p-5 font-mono text-sm leading-relaxed" data-panel="auto">
+                <p><span class="text-slate-500">POST</span> <span class="text-emerald-400">/api/v1/pipeline/run</span></p>
+                <p class="text-slate-600">{</p>
+                <p>&nbsp;&nbsp;<span class="text-purple-400">"type"</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"workflow"</span><span class="text-slate-600">,</span></p>
+                <p>&nbsp;&nbsp;<span class="text-purple-400">"trigger"</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"new_claim_submitted"</span><span class="text-slate-600">,</span></p>
+                <p>&nbsp;&nbsp;<span class="text-purple-400">"agents"</span><span class="text-slate-500">:</span> <span class="text-slate-500">[</span><span class="text-emerald-400">"classify"</span><span class="text-slate-600">,</span> <span class="text-emerald-400">"extract"</span><span class="text-slate-600">,</span> <span class="text-emerald-400">"decide"</span><span class="text-slate-600">,</span> <span class="text-emerald-400">"route"</span><span class="text-slate-500">]</span><span class="text-slate-600">,</span></p>
+                <p>&nbsp;&nbsp;<span class="text-purple-400">"guardrails"</span><span class="text-slate-500">:</span> <span class="text-cyan-400">true</span><span class="text-slate-600">,</span></p>
+                <p>&nbsp;&nbsp;<span class="text-purple-400">"callback"</span><span class="text-slate-500">:</span> <span class="text-emerald-400">"https://your-app.com/webhook"</span></p>
+                <p class="text-slate-600">}</p>
               </div>
             </div>
           </div>
@@ -686,35 +809,233 @@
       </div>
     </section>
 
-    <!-- ── Waitlist CTA ── -->
-    <section id="waitlist" class="relative py-24 lg:py-32">
-      <div class="max-w-3xl mx-auto px-6 text-center">
-        <div class="animate-on-scroll">
-          <p class="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Early Access</p>
-          <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6">
-            Ready to build the <span class="gradient-text">future</span>?
-          </h2>
-          <p class="text-lg text-slate-400 max-w-xl mx-auto mb-10 leading-relaxed">
-            Join our private beta and get early access to the most powerful AI workflow platform ever built.
-          </p>
 
-          <!-- Waitlist Form -->
-          <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-6" onsubmit="handleWaitlist(event)">
-            <input
-              type="email"
-              required
-              placeholder="Enter your work email"
-              class="flex-1 px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/25 transition-all"
-            >
-            <button type="submit" class="cta-primary px-6 py-3.5 rounded-xl text-sm font-semibold text-white whitespace-nowrap">
-              <span class="flex items-center justify-center gap-2">
-                Get Early Access
-                <i data-lucide="sparkles" class="w-4 h-4"></i>
-              </span>
-            </button>
-          </form>
-          <p class="text-xs text-slate-600">No spam. Unsubscribe anytime. We respect your privacy.</p>
+    <!-- ── Security & Compliance ── -->
+    <section id="security" class="relative py-24 lg:py-32">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
+
+          <div>
+            <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">Security &amp; Compliance</p>
+            <h2 class="animate-on-scroll text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-6">
+              Enterprise-grade by <span class="gradient-text">design</span>, not by afterthought
+            </h2>
+            <p class="animate-on-scroll text-lg text-slate-400 leading-relaxed">
+              Every document processed through Xentovia is encrypted in transit (TLS 1.3) and at rest (AES-256).
+              Our agentic pipelines run in isolated tenant environments with full audit trails &mdash; every extraction,
+              every validation, every human review is logged and traceable.
+            </p>
+            <p class="animate-on-scroll text-lg text-slate-400 leading-relaxed mt-4">
+              We're building toward the compliance certifications that US enterprises require &mdash;
+              not claiming them before we have them.
+            </p>
+          </div>
+
+          <!-- Compliance Grid -->
+          <div class="animate-on-scroll grid grid-cols-2 gap-3">
+            <div class="glass rounded-xl p-5 flex flex-col items-center gap-2.5 text-center">
+              <i data-lucide="shield-check" class="w-6 h-6 text-amber-400"></i>
+              <span class="text-sm text-white font-medium">SOC 2 Type II</span>
+              <span class="text-[11px] text-amber-400 font-medium">In Progress</span>
+            </div>
+            <div class="glass rounded-xl p-5 flex flex-col items-center gap-2.5 text-center">
+              <i data-lucide="heart-pulse" class="w-6 h-6 text-rose-400"></i>
+              <span class="text-sm text-white font-medium">HIPAA-Ready</span>
+              <span class="text-[11px] text-slate-500">Architecture designed for BAA</span>
+            </div>
+            <div class="glass rounded-xl p-5 flex flex-col items-center gap-2.5 text-center">
+              <i data-lucide="lock" class="w-6 h-6 text-emerald-400"></i>
+              <span class="text-sm text-white font-medium">Encryption</span>
+              <span class="text-[11px] text-slate-500">AES-256 + TLS 1.3</span>
+            </div>
+            <div class="glass rounded-xl p-5 flex flex-col items-center gap-2.5 text-center">
+              <i data-lucide="layers" class="w-6 h-6 text-indigo-400"></i>
+              <span class="text-sm text-white font-medium">Tenant Isolation</span>
+              <span class="text-[11px] text-slate-500">Schema-per-tenant, zero cross-access</span>
+            </div>
+            <div class="glass rounded-xl p-5 flex flex-col items-center gap-2.5 text-center">
+              <i data-lucide="scroll-text" class="w-6 h-6 text-cyan-400"></i>
+              <span class="text-sm text-white font-medium">Audit Trail</span>
+              <span class="text-[11px] text-slate-500">Every AI decision logged</span>
+            </div>
+            <div class="glass rounded-xl p-5 flex flex-col items-center gap-2.5 text-center">
+              <i data-lucide="globe" class="w-6 h-6 text-purple-400"></i>
+              <span class="text-sm text-white font-medium">Data Residency</span>
+              <span class="text-[11px] text-slate-500">US, EU, or India</span>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
+
+
+    <!-- ── Company / Proof ── -->
+    <section id="company" class="relative py-24 lg:py-32">
+      <div class="section-divider mb-20"></div>
+      <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">Why Xentovia</p>
+          <h2 class="animate-on-scroll text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+            We don't just talk about AI agents. <span class="gradient-text">We ship them.</span>
+          </h2>
+          <p class="animate-on-scroll text-lg text-slate-400 max-w-2xl mx-auto">
+            Xentovia Tech builds agentic AI systems that are in production &mdash; not pitch decks.
+          </p>
+        </div>
+
+        <!-- Proof Blocks -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-16">
+
+          <!-- Block 1: Vision AI -->
+          <div class="animate-on-scroll glass rounded-2xl p-7">
+            <div class="icon-box mb-5">
+              <i data-lucide="scan-text" class="w-5 h-5 text-indigo-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-3">Vision AI &mdash; Government Record Digitization</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">
+              Our agentic VLM pipeline processes handwritten Indian land records &mdash; Devanagari script across decades-old registers.
+              Multi-step extraction with auto-correction and human review, delivered in government-mandated export formats.
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-[10px] font-mono text-indigo-300 px-2 py-0.5 rounded bg-indigo-500/10">Vision Language Models</span>
+              <span class="text-[10px] font-mono text-purple-300 px-2 py-0.5 rounded bg-purple-500/10">Agentic Pipeline</span>
+              <span class="text-[10px] font-mono text-cyan-300 px-2 py-0.5 rounded bg-cyan-500/10">Handwritten OCR</span>
+              <span class="text-[10px] font-mono text-emerald-300 px-2 py-0.5 rounded bg-emerald-500/10">HITL Dashboard</span>
+            </div>
+          </div>
+
+          <!-- Block 2: SaaS -->
+          <div class="animate-on-scroll glass rounded-2xl p-7">
+            <div class="icon-box mb-5">
+              <i data-lucide="school" class="w-5 h-5 text-cyan-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-3">Full-Stack SaaS &mdash; School Management Platform</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">
+              We built and operate a multi-tenant SaaS platform serving schools across India &mdash; admissions, fees, academics,
+              assessments, and parent engagement. Schema-per-tenant isolation, automated billing, and role-based access for 5 user types.
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-[10px] font-mono text-indigo-300 px-2 py-0.5 rounded bg-indigo-500/10">Multi-Tenant SaaS</span>
+              <span class="text-[10px] font-mono text-purple-300 px-2 py-0.5 rounded bg-purple-500/10">Schema Isolation</span>
+              <span class="text-[10px] font-mono text-cyan-300 px-2 py-0.5 rounded bg-cyan-500/10">API-First</span>
+              <span class="text-[10px] font-mono text-emerald-300 px-2 py-0.5 rounded bg-emerald-500/10">Production Scale</span>
+            </div>
+          </div>
+
+          <!-- Block 3: Stack -->
+          <div class="animate-on-scroll glass rounded-2xl p-7">
+            <div class="icon-box mb-5">
+              <i data-lucide="code-2" class="w-5 h-5 text-purple-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-3">Our Stack</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">
+              Full-stack AI engineering team. We own the pipeline end to end &mdash; from image preprocessing to VLM extraction
+              to HITL dashboards to API delivery.
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-[10px] font-mono text-slate-300 px-2 py-0.5 rounded bg-white/5">FastAPI</span>
+              <span class="text-[10px] font-mono text-slate-300 px-2 py-0.5 rounded bg-white/5">Next.js</span>
+              <span class="text-[10px] font-mono text-slate-300 px-2 py-0.5 rounded bg-white/5">PostgreSQL</span>
+              <span class="text-[10px] font-mono text-slate-300 px-2 py-0.5 rounded bg-white/5">Gemini VLM</span>
+              <span class="text-[10px] font-mono text-slate-300 px-2 py-0.5 rounded bg-white/5">OpenCV</span>
+              <span class="text-[10px] font-mono text-slate-300 px-2 py-0.5 rounded bg-white/5">Celery</span>
+              <span class="text-[10px] font-mono text-slate-300 px-2 py-0.5 rounded bg-white/5">Docker</span>
+              <span class="text-[10px] font-mono text-slate-300 px-2 py-0.5 rounded bg-white/5">AWS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Founder Note -->
+        <div class="animate-on-scroll glass rounded-2xl p-8 max-w-3xl mx-auto text-center">
+          <p class="text-lg text-white font-semibold mb-3">Built by engineers, not a pitch deck.</p>
+          <p class="text-sm text-slate-400 leading-relaxed mb-5">
+            Xentovia Tech is founded by Santosh Kumar &mdash; a full-stack AI engineer who has built and shipped every product
+            in our portfolio. We're a small, focused team that builds production systems, not prototypes.
+          </p>
+          <div class="flex items-center justify-center gap-6 text-sm text-slate-500">
+            <a href="https://www.linkedin.com/company/xentovia-ai" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors flex items-center gap-1.5">
+              <i data-lucide="linkedin" class="w-4 h-4"></i>
+              LinkedIn
+            </a>
+            <a href="mailto:hello@xentovia.ai" class="hover:text-white transition-colors flex items-center gap-1.5">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+              hello@xentovia.ai
+            </a>
+            <a href="tel:+917880170555" class="hover:text-white transition-colors flex items-center gap-1.5">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+              +91 788 017 0555
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ── Contact CTA ── -->
+    <section id="contact" class="relative py-24 lg:py-32">
+      <div class="section-divider mb-20"></div>
+      <div class="max-w-5xl mx-auto px-6">
+
+        <div class="text-center mb-16">
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Get Started</p>
+          <h2 class="animate-on-scroll text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6">
+            Have a problem that needs <span class="gradient-text">AI agents?</span>
+          </h2>
+          <p class="animate-on-scroll text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            Whether it's messy documents, visual inspection, or manual workflows draining your team &mdash;
+            tell us what you're dealing with. We'll tell you if we can help.
+          </p>
+        </div>
+
+        <div class="animate-on-scroll grid md:grid-cols-2 gap-8">
+
+          <!-- Book a Demo -->
+          <div class="glass rounded-2xl p-8 text-center">
+            <div class="icon-box mx-auto mb-5">
+              <i data-lucide="calendar" class="w-5 h-5 text-indigo-400"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">Book a Demo</h3>
+            <p class="text-sm text-slate-400 mb-6 leading-relaxed">
+              See our agentic pipelines in action with your document types.
+            </p>
+            <a href="mailto:hello@xentovia.ai?subject=Demo%20Request" class="cta-primary inline-flex px-8 py-3.5 rounded-xl text-sm font-semibold text-white">
+              <span class="flex items-center gap-2">
+                Schedule a Call
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </span>
+            </a>
+            <p class="text-xs text-slate-600 mt-4">30-minute call. No slides. Live demo with your documents.</p>
+          </div>
+
+          <!-- Tell Us Your Problem -->
+          <div class="glass rounded-2xl p-8">
+            <div class="icon-box mx-auto mb-5 md:mx-0">
+              <i data-lucide="message-circle" class="w-5 h-5 text-cyan-400"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 text-center md:text-left">Tell Us Your Problem</h3>
+            <form class="space-y-4" onsubmit="handleContact(event)">
+              <input type="text" required placeholder="Name"
+                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/25 transition-all">
+              <input type="email" required placeholder="Work email"
+                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/25 transition-all">
+              <input type="text" placeholder="Company"
+                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/25 transition-all">
+              <textarea required rows="3" placeholder="Describe your problem"
+                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/25 transition-all resize-none"></textarea>
+              <button type="submit" class="cta-primary w-full px-6 py-3.5 rounded-xl text-sm font-semibold text-white">
+                <span class="flex items-center justify-center gap-2">
+                  Submit
+                  <i data-lucide="send" class="w-4 h-4"></i>
+                </span>
+              </button>
+            </form>
+            <p class="text-xs text-slate-600 mt-3 text-center md:text-left">We respond within 24 hours.</p>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -732,12 +1053,12 @@
             <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
           </a>
           <p class="text-sm text-slate-500 leading-relaxed mb-4">
-            Next-gen AI workflow automation for the modern enterprise.
+            Agentic AI solutions for the enterprise.
           </p>
           <div class="space-y-2">
             <a href="tel:+917880170555" class="flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors">
               <i data-lucide="phone" class="w-3.5 h-3.5"></i>
-              788 017 0555
+              +91 788 017 0555
             </a>
             <a href="mailto:hello@xentovia.ai" class="flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors">
               <i data-lucide="mail" class="w-3.5 h-3.5"></i>
@@ -750,10 +1071,10 @@
         <div>
           <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Product</h4>
           <ul class="space-y-2.5">
-            <li><a href="#features" class="text-sm text-slate-500 hover:text-white transition-colors">Features</a></li>
-            <li><a href="#platform" class="text-sm text-slate-500 hover:text-white transition-colors">Platform</a></li>
-            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Pricing</a></li>
-            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Changelog</a></li>
+            <li><a href="#capabilities" class="text-sm text-slate-500 hover:text-white transition-colors">Capabilities</a></li>
+            <li><a href="#solutions" class="text-sm text-slate-500 hover:text-white transition-colors">Solutions</a></li>
+            <li><a href="#how-it-works" class="text-sm text-slate-500 hover:text-white transition-colors">How It Works</a></li>
+            <li><a href="#security" class="text-sm text-slate-500 hover:text-white transition-colors">Security</a></li>
           </ul>
         </div>
 
@@ -761,7 +1082,7 @@
         <div>
           <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Company</h4>
           <ul class="space-y-2.5">
-            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">About</a></li>
+            <li><a href="#company" class="text-sm text-slate-500 hover:text-white transition-colors">About</a></li>
             <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Blog</a></li>
             <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Careers</a></li>
             <li><a href="mailto:hello@xentovia.ai" class="text-sm text-slate-500 hover:text-white transition-colors">Contact</a></li>
@@ -774,7 +1095,7 @@
           <ul class="space-y-2.5">
             <li><a href="/privacy/" class="text-sm text-slate-500 hover:text-white transition-colors">Privacy Policy</a></li>
             <li><a href="/terms/" class="text-sm text-slate-500 hover:text-white transition-colors">Terms of Service</a></li>
-            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Security</a></li>
+            <li><a href="#security" class="text-sm text-slate-500 hover:text-white transition-colors">Security</a></li>
             <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">DPA</a></li>
           </ul>
         </div>
@@ -787,17 +1108,11 @@
           &copy; 2026 Xentovia Tech Private Limited. All rights reserved.
         </p>
         <div class="flex items-center gap-5">
-          <a href="#" class="text-slate-600 hover:text-white transition-colors" aria-label="GitHub">
-            <i data-lucide="github" class="w-4 h-4"></i>
-          </a>
           <a href="https://www.linkedin.com/company/xentovia-ai" target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-white transition-colors" aria-label="LinkedIn">
             <i data-lucide="linkedin" class="w-4 h-4"></i>
           </a>
-          <a href="#" class="text-slate-600 hover:text-white transition-colors" aria-label="Twitter">
-            <i data-lucide="twitter" class="w-4 h-4"></i>
-          </a>
-          <a href="#" class="text-slate-600 hover:text-white transition-colors" aria-label="Discord">
-            <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <a href="mailto:hello@xentovia.ai" class="text-slate-600 hover:text-white transition-colors" aria-label="Email">
+            <i data-lucide="mail" class="w-4 h-4"></i>
           </a>
         </div>
       </div>
@@ -845,15 +1160,27 @@
       menu.classList.toggle('hidden');
     });
 
-    // ── Waitlist Handler ──
-    function handleWaitlist(e) {
+    // ── API Tab Switching ──
+    document.querySelectorAll('.api-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.api-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.api-panel').forEach(p => { p.classList.add('hidden'); p.classList.remove('active'); });
+        tab.classList.add('active');
+        const panel = document.querySelector(`.api-panel[data-panel="${tab.dataset.tab}"]`);
+        panel.classList.remove('hidden');
+        panel.classList.add('active');
+      });
+    });
+
+    // ── Contact Form Handler ──
+    function handleContact(e) {
       e.preventDefault();
-      const input = e.target.querySelector('input');
-      const btn = e.target.querySelector('button');
-      btn.innerHTML = '<span class="flex items-center gap-2"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>You\'re on the list!</span>';
+      const form = e.target;
+      const btn = form.querySelector('button');
+      const inputs = form.querySelectorAll('input, textarea');
+      btn.innerHTML = '<span class="flex items-center gap-2"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Message sent!</span>';
       btn.style.background = 'linear-gradient(135deg, #059669, #10b981)';
-      input.value = '';
-      input.disabled = true;
+      inputs.forEach(i => { i.value = ''; i.disabled = true; });
       btn.disabled = true;
     }
 
