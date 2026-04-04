@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intelligent Document Processing for Mortgage & Lending — Xentovia Tech</title>
+  <meta name="description" content="Accelerate loan processing with agentic AI. Extract and validate mortgage documents with under 2-3% error rates, 2-3x productivity gains, and 60% faster turnaround.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Intelligent Document Processing for Mortgage & Lending — Xentovia Tech">
+  <meta property="og:description" content="Agentic AI for mortgage document extraction, validation, and compliance. Encompass, Byte, and LOS integration.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xentovia.ai/solutions/mortgage/">
+  <meta property="og:image" content="https://xentovia.ai/favicon.png">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { inter: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            space: { 950: '#03050a', 900: '#060b18', 800: '#0a1128', 700: '#0f1a3a' },
+            accent: { 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5' },
+            glow: { purple: '#7c3aed', blue: '#3b82f6', cyan: '#06b6d4' }
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 6s ease-in-out 2s infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'glow-move': 'glowMove 15s ease-in-out infinite',
+            'glow-move-2': 'glowMove2 18s ease-in-out infinite',
+            'glow-move-3': 'glowMove3 20s ease-in-out infinite',
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            'shimmer': 'shimmer 3s ease-in-out infinite',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #03050a;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #03050a; }
+    ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 3px; }
+
+    @keyframes glowMove {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30vw, -15vh) scale(1.2); }
+      50% { transform: translate(-10vw, 25vh) scale(0.8); }
+      75% { transform: translate(-25vw, -10vh) scale(1.1); }
+    }
+    @keyframes glowMove2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(-20vw, 20vh) scale(0.9); }
+      50% { transform: translate(25vw, -10vh) scale(1.3); }
+      75% { transform: translate(10vw, 15vh) scale(1); }
+    }
+    @keyframes glowMove3 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(15vw, 10vh) scale(1.1); }
+      66% { transform: translate(-20vw, -20vh) scale(0.9); }
+    }
+
+    .glow-orb {
+      position: fixed; border-radius: 50%; filter: blur(120px);
+      pointer-events: none; z-index: 0; will-change: transform;
+    }
+    .glow-orb-1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(124,58,237,0.25) 0%, transparent 70%);
+      top: -10%; left: -5%; animation: glowMove 15s ease-in-out infinite;
+    }
+    .glow-orb-2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%);
+      top: 40%; right: -10%; animation: glowMove2 18s ease-in-out infinite;
+    }
+    .glow-orb-3 {
+      width: 450px; height: 450px;
+      background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%);
+      bottom: -5%; left: 30%; animation: glowMove3 20s ease-in-out infinite;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-on-scroll {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .glass:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(129, 140, 248, 0.2);
+    }
+
+    .bento-card {
+      position: relative; overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .bento-card::before {
+      content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+      background: linear-gradient(135deg, transparent 40%, rgba(129,140,248,0.3) 50%, transparent 60%);
+      background-size: 300% 300%;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      opacity: 0; transition: opacity 0.5s ease;
+    }
+    .bento-card:hover::before { opacity: 1; animation: shimmer 3s ease-in-out infinite; }
+    @keyframes shimmer {
+      0%, 100% { background-position: 100% 0%; }
+      50% { background-position: 0% 100%; }
+    }
+    .bento-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px -15px rgba(99, 102, 241, 0.15);
+    }
+
+    .icon-box {
+      width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(124,58,237,0.1));
+      border: 1px solid rgba(129, 140, 248, 0.15);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #e0e7ff 0%, #818cf8 40%, #c084fc 70%, #38bdf8 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(99,102,241,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99,102,241,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .nav-blur {
+      background: rgba(3, 5, 10, 0.7);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .cta-primary {
+      position: relative; background: linear-gradient(135deg, #6366f1, #7c3aed);
+      overflow: hidden; transition: all 0.3s ease;
+    }
+    .cta-primary::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .cta-primary:hover::after { opacity: 1; }
+    .cta-primary:hover {
+      box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(124, 58, 237, 0.2);
+      transform: translateY(-2px);
+    }
+    .cta-primary span { position: relative; z-index: 1; }
+
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(99,102,241,0.3), transparent);
+    }
+  </style>
+</head>
+
+<body class="font-inter antialiased">
+
+  <!-- Background Effects -->
+  <div class="glow-orb glow-orb-1" aria-hidden="true"></div>
+  <div class="glow-orb glow-orb-2" aria-hidden="true"></div>
+  <div class="glow-orb glow-orb-3" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav-blur fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 group">
+        <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
+        <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/#capabilities" class="text-sm text-slate-400 hover:text-white transition-colors">Capabilities</a>
+        <a href="/#solutions" class="text-sm text-slate-400 hover:text-white transition-colors">Solutions</a>
+        <a href="/#how-it-works" class="text-sm text-slate-400 hover:text-white transition-colors">How It Works</a>
+        <a href="/#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a>
+        <a href="/#company" class="text-sm text-slate-400 hover:text-white transition-colors">Company</a>
+        <a href="/#contact" class="cta-primary px-5 py-2 rounded-lg text-sm font-semibold text-white">
+          <span class="flex items-center gap-1.5">Book a Demo <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></span>
+        </a>
+      </div>
+      <button class="md:hidden text-slate-400 hover:text-white" id="mobileMenuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+    </div>
+    <div class="md:hidden hidden px-6 pb-4 space-y-3" id="mobileMenu">
+      <a href="/#capabilities" class="block text-sm text-slate-400 hover:text-white py-2">Capabilities</a>
+      <a href="/#solutions" class="block text-sm text-slate-400 hover:text-white py-2">Solutions</a>
+      <a href="/#how-it-works" class="block text-sm text-slate-400 hover:text-white py-2">How It Works</a>
+      <a href="/#security" class="block text-sm text-slate-400 hover:text-white py-2">Security</a>
+      <a href="/#company" class="block text-sm text-slate-400 hover:text-white py-2">Company</a>
+      <a href="/#contact" class="block cta-primary px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">
+        <span>Book a Demo</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="relative z-10">
+
+    <!-- Hero -->
+    <section class="grid-bg relative min-h-[80vh] flex items-center pt-16">
+      <div class="max-w-7xl mx-auto px-6 py-24 lg:py-32">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="animate-on-scroll inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium text-indigo-300 mb-8">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            Mortgage &amp; Lending Solutions
+          </div>
+          <h1 class="animate-on-scroll text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight leading-[1.08] mb-6">
+            <span class="text-white">Accelerate Loan</span><br>
+            <span class="gradient-text">Processing with</span><br>
+            <span class="gradient-text">AI Agents.</span>
+          </h1>
+          <p class="animate-on-scroll text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+            The average mortgage file has doubled in size. Manual processing can't keep up.
+            Xentovia's agentic AI extracts, validates, and structures loan documents with under 3% error rates &mdash;
+            so your team closes faster.
+          </p>
+          <div class="animate-on-scroll flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#contact" class="cta-primary px-8 py-3.5 rounded-xl text-base font-semibold text-white w-full sm:w-auto">
+              <span class="flex items-center justify-center gap-2">Book a Demo <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </a>
+            <a href="#contact" class="group px-8 py-3.5 rounded-xl text-base font-medium text-slate-300 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all w-full sm:w-auto flex items-center justify-center gap-2">
+              <i data-lucide="message-circle" class="w-4 h-4 text-indigo-400 group-hover:text-indigo-300 transition-colors"></i>
+              Tell Us Your Problem
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Problem -->
+    <section class="relative py-24 lg:py-32">
+      <div class="section-divider mb-20"></div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">The Problem</p>
+          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
+            Loan files are growing. <span class="gradient-text">Manual processing isn't.</span>
+          </h2>
+          <p class="animate-on-scroll text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
+            Mortgage origination involves hundreds of pages per file &mdash; income docs, tax returns, bank statements,
+            disclosures &mdash; each requiring extraction, verification, and compliance checks. The industry knows it needs AI,
+            but legacy OCR tools don't cut it.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="animate-on-scroll glass rounded-2xl p-8 text-center">
+            <div class="text-5xl font-black gradient-text mb-3">2x</div>
+            <p class="text-white font-semibold mb-2">Average File Size Growth</p>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Mortgage files have doubled in page count over the last decade due to increased regulatory
+              requirements, additional disclosures, and expanded documentation standards.
+            </p>
+          </div>
+          <div class="animate-on-scroll glass rounded-2xl p-8 text-center">
+            <div class="text-5xl font-black gradient-text mb-3">10-15%</div>
+            <p class="text-white font-semibold mb-2">Manual Error Rates</p>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Manual data entry across loan documents produces 10-15% error rates &mdash; leading to
+              condition requests, re-disclosures, compliance flags, and delayed closings.
+            </p>
+          </div>
+          <div class="animate-on-scroll glass rounded-2xl p-8 text-center">
+            <div class="text-5xl font-black gradient-text mb-3">83%</div>
+            <p class="text-white font-semibold mb-2">Lenders Increasing AI Budgets</p>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              83% of mortgage lenders are increasing their GenAI technology budgets. The industry recognizes
+              that intelligent automation is no longer optional &mdash; it's a competitive necessity.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Solution -->
+    <section class="relative py-24 lg:py-32">
+      <div class="section-divider mb-20"></div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">The Solution</p>
+          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
+            Agentic AI built for <span class="gradient-text">mortgage documents.</span>
+          </h2>
+          <p class="animate-on-scroll text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
+            Xentovia's AI agents process the full mortgage document stack &mdash; from 1003 applications to
+            bank statements to closing disclosures. Vision-Language Models understand complex financial
+            documents, while agentic validation catches errors before they reach underwriting.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
+            <div class="icon-box mb-5">
+              <i data-lucide="scan-line" class="w-5 h-5 text-indigo-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Intelligent Document Intake</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Accept loan files via any channel &mdash; borrower portal, LOS upload, email, or batch.
+              Our agents handle PDFs, images, multi-page scans, and e-signed documents.
+            </p>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
+            <div class="icon-box mb-5">
+              <i data-lucide="layers" class="w-5 h-5 text-purple-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Auto-Classification</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Automatically sort and label every page in a loan file &mdash; identifying 1003s, W-2s, tax returns,
+              bank statements, and 30+ other document types instantly.
+            </p>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
+            <div class="icon-box mb-5">
+              <i data-lucide="file-search" class="w-5 h-5 text-cyan-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">VLM-Powered Extraction</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Vision-Language Models extract borrower data, income figures, asset totals, and employment
+              details from complex financial documents &mdash; including multi-column tables and handwritten fields.
+            </p>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
+            <div class="icon-box mb-5">
+              <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Cross-Document Validation</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              AI agents cross-reference data across documents &mdash; matching income on W-2s to tax returns,
+              verifying employer details, and flagging discrepancies automatically.
+            </p>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
+            <div class="icon-box mb-5">
+              <i data-lucide="user-check" class="w-5 h-5 text-amber-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Human-in-the-Loop QC</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Processors review only flagged items with pre-populated fields and side-by-side document
+              views. What took 45 minutes per file now takes 10.
+            </p>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
+            <div class="icon-box mb-5">
+              <i data-lucide="arrow-right-circle" class="w-5 h-5 text-blue-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">LOS Delivery</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Validated, structured data flows directly into your Loan Origination System &mdash;
+              indexed, categorized, and ready for underwriting review.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Document Types -->
+    <section class="relative py-24 lg:py-32">
+      <div class="section-divider mb-20"></div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Document Types</p>
+          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
+            The complete <span class="gradient-text">mortgage document stack.</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div class="animate-on-scroll bento-card glass rounded-xl p-6">
+            <div class="icon-box mb-4 w-10 h-10">
+              <i data-lucide="file-text" class="w-4 h-4 text-indigo-400"></i>
+            </div>
+            <h4 class="text-sm font-bold text-white mb-1">Loan Applications (1003)</h4>
+            <p class="text-xs text-slate-500 leading-relaxed">Uniform Residential Loan Application with borrower info, employment, assets, and liabilities.</p>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-xl p-6">
+            <div class="icon-box mb-4 w-10 h-10">
+              <i data-lucide="receipt" class="w-4 h-4 text-purple-400"></i>
+            </div>
+            <h4 class="text-sm font-bold text-white mb-1">W-2s & Pay Stubs</h4>
+            <p class="text-xs text-slate-500 leading-relaxed">Income verification documents with employer details, earnings, and withholding data.</p>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-xl p-6">
+            <div class="icon-box mb-4 w-10 h-10">
+              <i data-lucide="calculator" class="w-4 h-4 text-cyan-400"></i>
+            </div>
+            <h4 class="text-sm font-bold text-white mb-1">Tax Returns</h4>
+            <p class="text-xs text-slate-500 leading-relaxed">1040s, schedules, and business returns with income, deductions, and self-employment data.</p>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-xl p-6">
+            <div class="icon-box mb-4 w-10 h-10">
+              <i data-lucide="landmark" class="w-4 h-4 text-emerald-400"></i>
+            </div>
+            <h4 class="text-sm font-bold text-white mb-1">Bank Statements</h4>
+            <p class="text-xs text-slate-500 leading-relaxed">Checking, savings, and investment account statements with balances and transaction history.</p>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-xl p-6">
+            <div class="icon-box mb-4 w-10 h-10">
+              <i data-lucide="badge-check" class="w-4 h-4 text-amber-400"></i>
+            </div>
+            <h4 class="text-sm font-bold text-white mb-1">VOE / VOD</h4>
+            <p class="text-xs text-slate-500 leading-relaxed">Verification of Employment and Verification of Deposit forms from employers and financial institutions.</p>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-xl p-6">
+            <div class="icon-box mb-4 w-10 h-10">
+              <i data-lucide="scale" class="w-4 h-4 text-rose-400"></i>
+            </div>
+            <h4 class="text-sm font-bold text-white mb-1">TRID Disclosures</h4>
+            <p class="text-xs text-slate-500 leading-relaxed">Loan Estimates, Closing Disclosures, and regulatory documents with fee schedules and terms.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Outcomes -->
+    <section class="relative py-24 lg:py-32">
+      <div class="section-divider mb-20"></div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Key Outcomes</p>
+          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
+            Close faster. <span class="gradient-text">With fewer errors.</span>
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="animate-on-scroll glass rounded-2xl p-8 text-center">
+            <div class="icon-box mx-auto mb-5">
+              <i data-lucide="target" class="w-5 h-5 text-emerald-400"></i>
+            </div>
+            <div class="text-4xl font-black gradient-text mb-2">&lt;2-3%</div>
+            <p class="text-white font-semibold mb-2">Error Rates</p>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Reduce extraction error rates from 10-15% (manual) to under 2-3% with VLM-based
+              extraction and multi-agent validation. Fewer conditions, fewer re-disclosures.
+            </p>
+          </div>
+          <div class="animate-on-scroll glass rounded-2xl p-8 text-center">
+            <div class="icon-box mx-auto mb-5">
+              <i data-lucide="trending-up" class="w-5 h-5 text-indigo-400"></i>
+            </div>
+            <div class="text-4xl font-black gradient-text mb-2">2-3x</div>
+            <p class="text-white font-semibold mb-2">Processor Productivity</p>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Each loan processor handles 2-3 times more files per day when AI agents handle
+              document classification, extraction, and validation.
+            </p>
+          </div>
+          <div class="animate-on-scroll glass rounded-2xl p-8 text-center">
+            <div class="icon-box mx-auto mb-5">
+              <i data-lucide="zap" class="w-5 h-5 text-amber-400"></i>
+            </div>
+            <div class="text-4xl font-black gradient-text mb-2">60%</div>
+            <p class="text-white font-semibold mb-2">Faster Turnaround</p>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Reduce document processing turnaround by 60% &mdash; getting complete, validated loan
+              files to underwriting faster and reducing time-to-close.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compliance & Integration -->
+    <section class="relative py-24 lg:py-32">
+      <div class="section-divider mb-20"></div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-8">
+
+          <!-- Compliance -->
+          <div class="animate-on-scroll glass rounded-2xl p-8">
+            <div class="icon-box mb-5">
+              <i data-lucide="shield" class="w-5 h-5 text-emerald-400"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4">Regulatory Compliance Built In</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-6">
+              Mortgage lending is heavily regulated. Xentovia's pipeline is designed to support compliance
+              with federal and state lending regulations at every step.
+            </p>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span class="text-sm text-slate-300">RESPA (Real Estate Settlement Procedures Act)</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span class="text-sm text-slate-300">TILA (Truth in Lending Act)</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span class="text-sm text-slate-300">HMDA (Home Mortgage Disclosure Act)</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span class="text-sm text-slate-300">BSA/AML &amp; KYC verification support</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span class="text-sm text-slate-300">Full audit trails for regulatory examination</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Integration -->
+          <div class="animate-on-scroll glass rounded-2xl p-8">
+            <div class="icon-box mb-5">
+              <i data-lucide="plug" class="w-5 h-5 text-indigo-400"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4">LOS & Platform Integration</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-6">
+              Xentovia plugs directly into the loan origination systems and platforms your team already uses.
+              No disruption to existing workflows.
+            </p>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span class="text-sm text-slate-300">Encompass by ICE Mortgage Technology</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span class="text-sm text-slate-300">Byte Software LOS</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span class="text-sm text-slate-300">Other LOS platforms via REST API</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span class="text-sm text-slate-300">Document management systems (DMS)</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span class="text-sm text-slate-300">Batch processing &amp; SFTP delivery</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section id="contact" class="relative py-24 lg:py-32">
+      <div class="section-divider mb-20"></div>
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Get Started</p>
+          <h2 class="animate-on-scroll text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6">
+            Ready to modernize your <span class="gradient-text">loan processing?</span>
+          </h2>
+          <p class="animate-on-scroll text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            See how Xentovia can process your mortgage documents faster, more accurately, and at scale.
+            We'll demo with your actual loan files.
+          </p>
+        </div>
+
+        <div class="animate-on-scroll grid md:grid-cols-2 gap-8">
+          <div class="glass rounded-2xl p-8 text-center">
+            <div class="icon-box mx-auto mb-5">
+              <i data-lucide="calendar" class="w-5 h-5 text-indigo-400"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">Book a Demo</h3>
+            <p class="text-sm text-slate-400 mb-6 leading-relaxed">
+              See our mortgage document pipelines in action with your loan file types.
+            </p>
+            <a href="mailto:hello@xentovia.ai?subject=Mortgage%20Demo%20Request" class="cta-primary inline-flex px-8 py-3.5 rounded-xl text-sm font-semibold text-white">
+              <span class="flex items-center gap-2">Schedule a Call <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </a>
+            <p class="text-xs text-slate-600 mt-4">30-minute call. No slides. Live demo with your documents.</p>
+          </div>
+
+          <div class="glass rounded-2xl p-8">
+            <div class="icon-box mx-auto mb-5 md:mx-0">
+              <i data-lucide="message-circle" class="w-5 h-5 text-cyan-400"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 text-center md:text-left">Tell Us Your Problem</h3>
+            <form class="space-y-4" onsubmit="handleContact(event)">
+              <input type="text" required placeholder="Name"
+                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/25 transition-all">
+              <input type="email" required placeholder="Work email"
+                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/25 transition-all">
+              <input type="text" placeholder="Company"
+                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/25 transition-all">
+              <textarea required rows="3" placeholder="Describe your mortgage document challenge"
+                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/25 transition-all resize-none"></textarea>
+              <button type="submit" class="cta-primary w-full px-6 py-3.5 rounded-xl text-sm font-semibold text-white">
+                <span class="flex items-center justify-center gap-2">Submit <i data-lucide="send" class="w-4 h-4"></i></span>
+              </button>
+            </form>
+            <p class="text-xs text-slate-600 mt-3 text-center md:text-left">We respond within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-white/5 bg-space-950/80">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 mb-12">
+        <div class="col-span-2 md:col-span-1">
+          <a href="/" class="flex items-center gap-2.5 mb-4">
+            <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
+            <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+          </a>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4">Agentic AI solutions for the enterprise.</p>
+          <div class="space-y-2">
+            <a href="tel:+917880170555" class="flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors">
+              <i data-lucide="phone" class="w-3.5 h-3.5"></i> +91 788 017 0555
+            </a>
+            <a href="mailto:hello@xentovia.ai" class="flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i> hello@xentovia.ai
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Product</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/#capabilities" class="text-sm text-slate-500 hover:text-white transition-colors">Capabilities</a></li>
+            <li><a href="/#solutions" class="text-sm text-slate-500 hover:text-white transition-colors">Solutions</a></li>
+            <li><a href="/#how-it-works" class="text-sm text-slate-500 hover:text-white transition-colors">How It Works</a></li>
+            <li><a href="/#security" class="text-sm text-slate-500 hover:text-white transition-colors">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Company</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/#company" class="text-sm text-slate-500 hover:text-white transition-colors">About</a></li>
+            <li><a href="/blog/" class="text-sm text-slate-500 hover:text-white transition-colors">Blog</a></li>
+            <li><a href="/careers/" class="text-sm text-slate-500 hover:text-white transition-colors">Careers</a></li>
+            <li><a href="mailto:hello@xentovia.ai" class="text-sm text-slate-500 hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Legal</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/privacy/" class="text-sm text-slate-500 hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms/" class="text-sm text-slate-500 hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="/#security" class="text-sm text-slate-500 hover:text-white transition-colors">Security</a></li>
+            <li><a href="/dpa/" class="text-sm text-slate-500 hover:text-white transition-colors">DPA</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="section-divider mb-8"></div>
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-slate-600">&copy; 2026 Xentovia Tech Private Limited. All rights reserved.</p>
+        <div class="flex items-center gap-5">
+          <a href="https://www.linkedin.com/company/xentovia-ai" target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-white transition-colors" aria-label="LinkedIn">
+            <i data-lucide="linkedin" class="w-4 h-4"></i>
+          </a>
+          <a href="mailto:hello@xentovia.ai" class="text-slate-600 hover:text-white transition-colors" aria-label="Email">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add('visible'), i * 80);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+
+    function handleContact(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('button');
+      const inputs = form.querySelectorAll('input, textarea');
+      btn.innerHTML = '<span class="flex items-center gap-2"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Message sent!</span>';
+      btn.style.background = 'linear-gradient(135deg, #059669, #10b981)';
+      inputs.forEach(i => { i.value = ''; i.disabled = true; });
+      btn.disabled = true;
+    }
+
+    let lastScroll = 0;
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      const current = window.scrollY;
+      if (current > lastScroll && current > 100) {
+        nav.style.transform = 'translateY(-100%)';
+        nav.style.transition = 'transform 0.3s ease';
+      } else {
+        nav.style.transform = 'translateY(0)';
+      }
+      lastScroll = current;
+    });
+  </script>
+
+</body>
+</html>
