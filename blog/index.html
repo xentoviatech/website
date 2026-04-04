@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Xentovia Tech</title>
+  <meta name="description" content="Insights on agentic AI, document intelligence, Vision Language Models, and enterprise automation from the Xentovia Tech team.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Blog — Xentovia Tech">
+  <meta property="og:description" content="Insights on agentic AI, document intelligence, and enterprise automation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xentovia.ai/blog/">
+  <meta property="og:image" content="https://xentovia.ai/favicon.png">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { inter: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            space: { 950: '#03050a', 900: '#060b18', 800: '#0a1128', 700: '#0f1a3a' },
+            accent: { 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5' },
+            glow: { purple: '#7c3aed', blue: '#3b82f6', cyan: '#06b6d4' }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #03050a;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #03050a; }
+    ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 3px; }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #e0e7ff 0%, #818cf8 40%, #c084fc 70%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-blur {
+      background: rgba(3, 5, 10, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(99,102,241,0.3), transparent);
+    }
+
+    .cta-primary {
+      position: relative;
+      background: linear-gradient(135deg, #6366f1, #7c3aed);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .cta-primary::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .cta-primary:hover::after { opacity: 1; }
+    .cta-primary:hover {
+      box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(124, 58, 237, 0.2);
+      transform: translateY(-2px);
+    }
+    .cta-primary span { position: relative; z-index: 1; }
+
+    /* Bento Card with Hover Glow */
+    .bento-card {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .bento-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, transparent 40%, rgba(129,140,248,0.3) 50%, transparent 60%);
+      background-size: 300% 300%;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .bento-card:hover::before {
+      opacity: 1;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    @keyframes shimmer {
+      0%, 100% { background-position: 100% 0%; }
+      50% { background-position: 0% 100%; }
+    }
+    .bento-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px -15px rgba(99, 102, 241, 0.15);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 9999px;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      background: rgba(99, 102, 241, 0.1);
+      color: #818cf8;
+      border: 1px solid rgba(99, 102, 241, 0.15);
+    }
+  </style>
+</head>
+
+<body class="font-inter antialiased">
+
+  <!-- Navigation -->
+  <nav class="nav-blur fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 group">
+        <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
+        <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/#capabilities" class="text-sm text-slate-400 hover:text-white transition-colors">Capabilities</a>
+        <a href="/#solutions" class="text-sm text-slate-400 hover:text-white transition-colors">Solutions</a>
+        <a href="/#how-it-works" class="text-sm text-slate-400 hover:text-white transition-colors">How It Works</a>
+        <a href="/#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a>
+        <a href="/#company" class="text-sm text-slate-400 hover:text-white transition-colors">Company</a>
+        <a href="/#contact" class="cta-primary px-5 py-2 rounded-lg text-sm font-semibold text-white">
+          <span class="flex items-center gap-1.5">
+            Book a Demo
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </span>
+        </a>
+      </div>
+
+      <button class="md:hidden text-slate-400 hover:text-white" id="mobileMenuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <div class="md:hidden hidden px-6 pb-4 space-y-3" id="mobileMenu">
+      <a href="/#capabilities" class="block text-sm text-slate-400 hover:text-white py-2">Capabilities</a>
+      <a href="/#solutions" class="block text-sm text-slate-400 hover:text-white py-2">Solutions</a>
+      <a href="/#how-it-works" class="block text-sm text-slate-400 hover:text-white py-2">How It Works</a>
+      <a href="/#security" class="block text-sm text-slate-400 hover:text-white py-2">Security</a>
+      <a href="/#company" class="block text-sm text-slate-400 hover:text-white py-2">Company</a>
+      <a href="/#contact" class="block cta-primary px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">
+        <span>Book a Demo</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="relative z-10 pt-24 pb-16">
+    <div class="max-w-5xl mx-auto px-6">
+
+      <!-- Page Header -->
+      <div class="mb-16 text-center">
+        <p class="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">Insights</p>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
+          <span class="gradient-text">Blog</span>
+        </h1>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+          Perspectives on Vision AI, document intelligence, and building enterprise-grade agentic systems.
+        </p>
+      </div>
+
+      <!-- Blog Cards Grid -->
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+        <!-- Post 1 -->
+        <article class="glass bento-card rounded-2xl p-6 flex flex-col">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="tag">Vision AI</span>
+            <span class="tag">Document Intelligence</span>
+          </div>
+          <h2 class="text-lg font-bold text-white leading-snug mb-3">
+            <a href="#" class="hover:text-indigo-300 transition-colors">
+              Why Vision Language Models Are Replacing Traditional OCR in Enterprise
+            </a>
+          </h2>
+          <p class="text-sm text-slate-400 leading-relaxed mb-6 flex-grow">
+            Legacy OCR pipelines break down on complex layouts, mixed languages, and degraded scans. Vision Language Models approach documents the way humans do — seeing the full page and understanding context, not just recognizing characters. For enterprises processing millions of pages, this shift means fewer correction loops, higher straight-through rates, and dramatically lower cost per document.
+          </p>
+          <div class="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
+            <time datetime="2026-03-28" class="text-xs text-slate-500">March 28, 2026</time>
+            <a href="#" class="flex items-center gap-1.5 text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors">
+              Read more
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="glass bento-card rounded-2xl p-6 flex flex-col">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="tag">Human-in-the-Loop</span>
+            <span class="tag">Compliance</span>
+          </div>
+          <h2 class="text-lg font-bold text-white leading-snug mb-3">
+            <a href="#" class="hover:text-indigo-300 transition-colors">
+              The Case for Human-in-the-Loop AI in Regulated Industries
+            </a>
+          </h2>
+          <p class="text-sm text-slate-400 leading-relaxed mb-6 flex-grow">
+            In insurance, healthcare, and financial services, a 98% accuracy rate still means thousands of errors at scale — errors with real regulatory and financial consequences. Human-in-the-loop is not a concession to imperfect AI; it is a design principle for trust. The most effective enterprise AI systems route low-confidence decisions to human reviewers, creating a feedback loop that improves the model while keeping compliance teams confident.
+          </p>
+          <div class="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
+            <time datetime="2026-03-18" class="text-xs text-slate-500">March 18, 2026</time>
+            <a href="#" class="flex items-center gap-1.5 text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors">
+              Read more
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Post 3 -->
+        <article class="glass bento-card rounded-2xl p-6 flex flex-col">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="tag">Case Study</span>
+            <span class="tag">Digitization</span>
+          </div>
+          <h2 class="text-lg font-bold text-white leading-snug mb-3">
+            <a href="#" class="hover:text-indigo-300 transition-colors">
+              From Handwritten Records to Structured Data: Lessons from Digitizing Government Archives
+            </a>
+          </h2>
+          <p class="text-sm text-slate-400 leading-relaxed mb-6 flex-grow">
+            When a state government needed to digitize decades of handwritten land and civil records spanning multiple regional scripts, traditional OCR was not an option. We built a pipeline combining Vision Language Models with human verification that processed over a million pages — handling smudged ink, inconsistent layouts, and mixed-language entries. The lessons we learned apply to any organization sitting on legacy paper archives they need to unlock.
+          </p>
+          <div class="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
+            <time datetime="2026-03-07" class="text-xs text-slate-500">March 7, 2026</time>
+            <a href="#" class="flex items-center gap-1.5 text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors">
+              Read more
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-white/5 bg-space-950/80">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 mb-12">
+
+        <div class="col-span-2 md:col-span-1">
+          <a href="/" class="flex items-center gap-2.5 mb-4">
+            <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
+            <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+          </a>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4">
+            Agentic AI solutions for the enterprise.
+          </p>
+          <div class="space-y-2">
+            <a href="tel:+917880170555" class="flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors">
+              <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+              +91 788 017 0555
+            </a>
+            <a href="mailto:hello@xentovia.ai" class="flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+              hello@xentovia.ai
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Product</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/#capabilities" class="text-sm text-slate-500 hover:text-white transition-colors">Capabilities</a></li>
+            <li><a href="/#solutions" class="text-sm text-slate-500 hover:text-white transition-colors">Solutions</a></li>
+            <li><a href="/#how-it-works" class="text-sm text-slate-500 hover:text-white transition-colors">How It Works</a></li>
+            <li><a href="/#security" class="text-sm text-slate-500 hover:text-white transition-colors">Security</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Company</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/#company" class="text-sm text-slate-500 hover:text-white transition-colors">About</a></li>
+            <li><a href="/blog/" class="text-sm text-slate-500 hover:text-white transition-colors">Blog</a></li>
+            <li><a href="#" class="text-sm text-slate-500/50 cursor-default">Careers <span class="text-[10px] text-slate-600">(Coming Soon)</span></a></li>
+            <li><a href="mailto:hello@xentovia.ai" class="text-sm text-slate-500 hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Legal</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/privacy/" class="text-sm text-slate-500 hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms/" class="text-sm text-slate-500 hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="/#security" class="text-sm text-slate-500 hover:text-white transition-colors">Security</a></li>
+            <li><a href="/dpa/" class="text-sm text-slate-500 hover:text-white transition-colors">DPA</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-divider mb-8"></div>
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-slate-600">
+          &copy; 2026 Xentovia Tech Private Limited. All rights reserved.
+        </p>
+        <div class="flex items-center gap-5">
+          <a href="https://www.linkedin.com/company/xentovia-ai" target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-white transition-colors" aria-label="LinkedIn">
+            <i data-lucide="linkedin" class="w-4 h-4"></i>
+          </a>
+          <a href="mailto:hello@xentovia.ai" class="text-slate-600 hover:text-white transition-colors" aria-label="Email">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers — Xentovia Tech</title>
+  <meta name="description" content="Join Xentovia Tech. Build agentic AI solutions that ship to production. Open roles in AI/ML engineering, full-stack development, and business development.">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { inter: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            space: { 950: '#03050a', 900: '#060b18', 800: '#0a1128', 700: '#0f1a3a' },
+            accent: { 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5' },
+            glow: { purple: '#7c3aed', blue: '#3b82f6', cyan: '#06b6d4' }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #03050a;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #03050a; }
+    ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 3px; }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .glass:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(129, 140, 248, 0.2);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #e0e7ff 0%, #818cf8 40%, #c084fc 70%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-blur {
+      background: rgba(3, 5, 10, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(99,102,241,0.3), transparent);
+    }
+
+    .cta-primary {
+      position: relative;
+      background: linear-gradient(135deg, #6366f1, #7c3aed);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .cta-primary::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .cta-primary:hover::after { opacity: 1; }
+    .cta-primary:hover {
+      box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(124, 58, 237, 0.2);
+      transform: translateY(-2px);
+    }
+    .cta-primary span { position: relative; z-index: 1; }
+
+    .apply-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.625rem 1.5rem;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(135deg, #6366f1, #7c3aed);
+      transition: all 0.3s ease;
+    }
+    .apply-btn:hover {
+      box-shadow: 0 0 24px rgba(99, 102, 241, 0.4);
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+
+<body class="font-inter antialiased">
+
+  <!-- Navigation -->
+  <nav class="nav-blur fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 group">
+        <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
+        <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/#capabilities" class="text-sm text-slate-400 hover:text-white transition-colors">Capabilities</a>
+        <a href="/#solutions" class="text-sm text-slate-400 hover:text-white transition-colors">Solutions</a>
+        <a href="/#how-it-works" class="text-sm text-slate-400 hover:text-white transition-colors">How It Works</a>
+        <a href="/#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a>
+        <a href="/#company" class="text-sm text-slate-400 hover:text-white transition-colors">Company</a>
+        <a href="/#contact" class="cta-primary px-5 py-2 rounded-lg text-sm font-semibold text-white">
+          <span class="flex items-center gap-1.5">
+            Book a Demo
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </span>
+        </a>
+      </div>
+
+      <button class="md:hidden text-slate-400 hover:text-white" id="mobileMenuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <div class="md:hidden hidden px-6 pb-4 space-y-3" id="mobileMenu">
+      <a href="/#capabilities" class="block text-sm text-slate-400 hover:text-white py-2">Capabilities</a>
+      <a href="/#solutions" class="block text-sm text-slate-400 hover:text-white py-2">Solutions</a>
+      <a href="/#how-it-works" class="block text-sm text-slate-400 hover:text-white py-2">How It Works</a>
+      <a href="/#security" class="block text-sm text-slate-400 hover:text-white py-2">Security</a>
+      <a href="/#company" class="block text-sm text-slate-400 hover:text-white py-2">Company</a>
+      <a href="/#contact" class="block cta-primary px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">
+        <span>Book a Demo</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="relative z-10 pt-24 pb-16">
+    <div class="max-w-5xl mx-auto px-6">
+
+      <!-- Page Header -->
+      <div class="text-center mb-16">
+        <p class="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">Join Us</p>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
+          <span class="gradient-text">Careers</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto">
+          Build AI systems that ship to production, not just to demos.
+        </p>
+      </div>
+
+      <!-- Culture Section -->
+      <div class="mb-16">
+        <div class="glass rounded-2xl p-8 sm:p-10">
+          <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2.5">
+            <i data-lucide="users" class="w-5 h-5 text-indigo-400"></i>
+            Working at Xentovia
+          </h2>
+          <p class="text-slate-400 leading-relaxed">
+            Xentovia is a small, focused team building agentic AI products that are already in production with real
+            enterprise clients. We are based in India and work with companies across the US and global markets. Here,
+            you won't be a cog in a machine — you will own entire features end-to-end, from architecture to deployment.
+            We value full-stack ownership, shipping fast, and solving hard problems with pragmatic engineering. If you
+            want to work on document intelligence, visual AI, and GenAI automation at a company where your code reaches
+            customers within days, not quarters, this is the place.
+          </p>
+        </div>
+      </div>
+
+      <!-- Open Positions -->
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold text-white mb-2">Open Positions</h2>
+        <p class="text-slate-500 text-sm">3 roles currently open</p>
+      </div>
+
+      <div class="space-y-6">
+
+        <!-- Senior AI/ML Engineer -->
+        <div class="glass rounded-2xl p-8 sm:p-10">
+          <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2">Senior AI/ML Engineer</h3>
+              <div class="flex flex-wrap items-center gap-3 text-sm">
+                <span class="flex items-center gap-1.5 text-slate-400">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 text-indigo-400"></i>
+                  Remote (India)
+                </span>
+                <span class="flex items-center gap-1.5 text-slate-400">
+                  <i data-lucide="clock" class="w-3.5 h-3.5 text-indigo-400"></i>
+                  Full-time
+                </span>
+              </div>
+            </div>
+          </div>
+          <p class="text-slate-400 leading-relaxed mb-5">
+            Design and build production VLM pipelines for document intelligence and visual inspection.
+            You will work with Gemini, OpenCV, and FastAPI to ship AI agents that process thousands of
+            documents daily for enterprise clients in insurance, healthcare, and mortgage.
+          </p>
+          <h4 class="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-3">Requirements</h4>
+          <ul class="list-disc pl-5 space-y-1.5 text-slate-400 text-sm mb-6">
+            <li>3+ years of experience building ML/AI systems in production</li>
+            <li>Strong experience with Vision Language Models (Gemini, GPT-4V, or similar)</li>
+            <li>Proficiency with OpenCV, image processing pipelines, and document parsing</li>
+            <li>Hands-on with FastAPI, Celery, Docker, and AWS infrastructure</li>
+            <li>Solid understanding of evaluation frameworks, prompt engineering, and retrieval systems</li>
+          </ul>
+          <a href="mailto:careers@xentovia.ai?subject=Application%3A%20Senior%20AI%2FML%20Engineer" class="apply-btn">
+            Apply
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Full-Stack Engineer -->
+        <div class="glass rounded-2xl p-8 sm:p-10">
+          <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2">Full-Stack Engineer</h3>
+              <div class="flex flex-wrap items-center gap-3 text-sm">
+                <span class="flex items-center gap-1.5 text-slate-400">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 text-indigo-400"></i>
+                  Remote (India)
+                </span>
+                <span class="flex items-center gap-1.5 text-slate-400">
+                  <i data-lucide="clock" class="w-3.5 h-3.5 text-indigo-400"></i>
+                  Full-time
+                </span>
+              </div>
+            </div>
+          </div>
+          <p class="text-slate-400 leading-relaxed mb-5">
+            Build the interfaces and backend systems that power our AI products. You will own HITL
+            (human-in-the-loop) dashboards, SaaS billing flows, and real-time data pipelines using
+            Next.js, FastAPI, and PostgreSQL. Your work will be used directly by enterprise customers.
+          </p>
+          <h4 class="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-3">Requirements</h4>
+          <ul class="list-disc pl-5 space-y-1.5 text-slate-400 text-sm mb-6">
+            <li>3+ years of full-stack development experience</li>
+            <li>Strong proficiency with Next.js (App Router), React, and TypeScript</li>
+            <li>Backend experience with FastAPI or Django, PostgreSQL, and Redis</li>
+            <li>Comfortable with Docker, CI/CD pipelines, and AWS deployment</li>
+            <li>Experience building multi-tenant SaaS applications is a plus</li>
+          </ul>
+          <a href="mailto:careers@xentovia.ai?subject=Application%3A%20Full-Stack%20Engineer" class="apply-btn">
+            Apply
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Business Development (US Market) -->
+        <div class="glass rounded-2xl p-8 sm:p-10">
+          <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2">Business Development (US Market)</h3>
+              <div class="flex flex-wrap items-center gap-3 text-sm">
+                <span class="flex items-center gap-1.5 text-slate-400">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 text-indigo-400"></i>
+                  Remote (US)
+                </span>
+                <span class="flex items-center gap-1.5 text-slate-400">
+                  <i data-lucide="clock" class="w-3.5 h-3.5 text-indigo-400"></i>
+                  Full-time
+                </span>
+              </div>
+            </div>
+          </div>
+          <p class="text-slate-400 leading-relaxed mb-5">
+            Be the first US hire at Xentovia. You will drive enterprise sales for our AI solutions
+            across insurance, healthcare, and mortgage verticals. This is a ground-floor opportunity
+            to shape our go-to-market strategy and build lasting relationships with decision-makers
+            at mid-market and enterprise companies.
+          </p>
+          <h4 class="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-3">Requirements</h4>
+          <ul class="list-disc pl-5 space-y-1.5 text-slate-400 text-sm mb-6">
+            <li>3+ years in enterprise B2B sales, ideally selling AI/SaaS solutions</li>
+            <li>Existing network or deep experience in insurance, healthcare, or mortgage industries</li>
+            <li>Ability to run the full sales cycle — from prospecting to contract close</li>
+            <li>Comfortable working with a small, technical, India-based founding team</li>
+            <li>Strong written and verbal communication skills</li>
+          </ul>
+          <a href="mailto:careers@xentovia.ai?subject=Application%3A%20Business%20Development%20(US%20Market)" class="apply-btn">
+            Apply
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- General Application CTA -->
+      <div class="mt-12 text-center">
+        <p class="text-slate-500 text-sm">
+          Don't see a role that fits? Reach out at
+          <a href="mailto:careers@xentovia.ai?subject=General%20Application" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-2">careers@xentovia.ai</a>
+          — we're always interested in hearing from talented people.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-white/5 bg-space-950/80">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 mb-12">
+
+        <div class="col-span-2 md:col-span-1">
+          <a href="/" class="flex items-center gap-2.5 mb-4">
+            <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
+            <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+          </a>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4">
+            Next-gen AI workflow automation for the modern enterprise.
+          </p>
+          <div class="space-y-2">
+            <a href="tel:+917880170555" class="flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors">
+              <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+              788 017 0555
+            </a>
+            <a href="mailto:hello@xentovia.ai" class="flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+              hello@xentovia.ai
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Product</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/#features" class="text-sm text-slate-500 hover:text-white transition-colors">Features</a></li>
+            <li><a href="/#platform" class="text-sm text-slate-500 hover:text-white transition-colors">Platform</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Pricing</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Changelog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Company</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">About</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Blog</a></li>
+            <li><a href="/careers/" class="text-sm text-slate-500 hover:text-white transition-colors">Careers</a></li>
+            <li><a href="mailto:hello@xentovia.ai" class="text-sm text-slate-500 hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Legal</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/privacy/" class="text-sm text-slate-500 hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms/" class="text-sm text-slate-500 hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Security</a></li>
+            <li><a href="/dpa/" class="text-sm text-slate-500 hover:text-white transition-colors">DPA</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-divider mb-8"></div>
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-slate-600">
+          &copy; 2026 Xentovia Tech Private Limited. All rights reserved.
+        </p>
+        <div class="flex items-center gap-5">
+          <a href="#" class="text-slate-600 hover:text-white transition-colors" aria-label="GitHub">
+            <i data-lucide="github" class="w-4 h-4"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/xentovia-ai" target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-white transition-colors" aria-label="LinkedIn">
+            <i data-lucide="linkedin" class="w-4 h-4"></i>
+          </a>
+          <a href="#" class="text-slate-600 hover:text-white transition-colors" aria-label="Twitter">
+            <i data-lucide="twitter" class="w-4 h-4"></i>
+          </a>
+          <a href="#" class="text-slate-600 hover:text-white transition-colors" aria-label="Discord">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>
