@@ -6,6 +6,7 @@
 **Length**: 60 seconds
 **Format**: 16:9 desktop (1920×1080)
 **Distribution**: Homepage hero, LinkedIn, YouTube pre-roll, sales decks
+**Visual companion**: [`2026-05-02-customs-trade-promo-storyboard.html`](./2026-05-02-customs-trade-promo-storyboard.html) — open in browser for shot-by-shot frame mockups
 **Sound**: Sound-on primary; always-on captions for muted feeds
 **Structure**: Pain → Promise → Proof
 **Presenter**: Xentovia team member (brand-voice spokesperson)
