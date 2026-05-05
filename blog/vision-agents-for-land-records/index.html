@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Land Records, Reimagined: A Vision-First Approach for Government and Industry — Xentovia Tech</title>
+  <meta name="description" content="Land record digitization has stalled for two decades because OCR cannot read hand-written regional scripts and manual data entry does not scale. Vision agents change the math. Meet Axar — a vision-first agent for land records, built for governments, banks, courts, and the organisations downstream of paper registers.">
+
+  <meta property="og:title" content="Land Records, Reimagined — Xentovia Tech">
+  <meta property="og:description" content="Why vision agents are replacing OCR and manual data entry for land record digitization — and what it means for government, banks, and industry.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://xentovia.ai/blog/vision-agents-for-land-records/">
+  <meta property="og:image" content="https://xentovia.ai/blog/vision-agents-for-land-records/axar-icon.png">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { inter: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            space:  { 950: '#03050a', 900: '#060b18', 800: '#0a1128', 700: '#0f1a3a' },
+            accent: { 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5' },
+            glow:   { purple: '#7c3aed', blue: '#3b82f6', cyan: '#06b6d4' }
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #03050a;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #03050a; }
+    ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 3px; }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #e0e7ff 0%, #818cf8 40%, #c084fc 70%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .axar-gradient {
+      background: linear-gradient(135deg, #818cf8 0%, #6366f1 35%, #7c3aed 70%, #06b6d4 100%);
+    }
+
+    .axar-text {
+      background: linear-gradient(135deg, #818cf8 0%, #7c3aed 50%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-blur {
+      background: rgba(3, 5, 10, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(99,102,241,0.3), transparent);
+    }
+
+    .cta-primary {
+      position: relative;
+      background: linear-gradient(135deg, #6366f1, #7c3aed);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .cta-primary::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #7c3aed, #06b6d4);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .cta-primary:hover::after { opacity: 1; }
+    .cta-primary:hover {
+      box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(124, 58, 237, 0.2);
+      transform: translateY(-2px);
+    }
+    .cta-primary span { position: relative; z-index: 1; }
+
+    .legal-content h2 {
+      font-size: 1.625rem;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .legal-content h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .legal-content p {
+      color: #94a3b8;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .legal-content ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .legal-content li {
+      color: #94a3b8;
+      line-height: 1.8;
+      margin-bottom: 0.5rem;
+    }
+
+    .legal-content a {
+      color: #818cf8;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .legal-content a:hover {
+      color: #a5b4fc;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: rgba(99, 102, 241, 0.15);
+      color: #818cf8;
+      border: 1px solid rgba(99, 102, 241, 0.25);
+    }
+    .tag.tag-axar {
+      background: linear-gradient(135deg, rgba(99,102,241,0.18), rgba(6,182,212,0.18));
+      color: #c4b5fd;
+      border-color: rgba(124, 58, 237, 0.4);
+    }
+
+    /* === Background glow orbs (echoes Xentovia hero) === */
+    @keyframes glowMove1 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      50%     { transform: translate(8vw,-6vh) scale(1.15); }
+    }
+    @keyframes glowMove2 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      50%     { transform: translate(-10vw,6vh) scale(0.92); }
+    }
+    @keyframes glowMove3 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      50%     { transform: translate(6vw,4vh) scale(1.08); }
+    }
+    .glow-orb {
+      position: fixed; border-radius: 50%; filter: blur(120px);
+      pointer-events: none; z-index: 0; will-change: transform;
+    }
+    .glow-orb-1 {
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, rgba(124,58,237,0.20) 0%, transparent 70%);
+      top: -10%; left: -5%;
+      animation: glowMove1 18s ease-in-out infinite;
+    }
+    .glow-orb-2 {
+      width: 460px; height: 460px;
+      background: radial-gradient(circle, rgba(59,130,246,0.16) 0%, transparent 70%);
+      top: 35%; right: -8%;
+      animation: glowMove2 22s ease-in-out infinite;
+    }
+    .glow-orb-3 {
+      width: 380px; height: 380px;
+      background: radial-gradient(circle, rgba(6,182,212,0.14) 0%, transparent 70%);
+      bottom: -5%; left: 25%;
+      animation: glowMove3 24s ease-in-out infinite;
+    }
+
+    /* === Hero mark animation === */
+    @keyframes axarFloat {
+      0%,100% { transform: translateY(0); }
+      50%     { transform: translateY(-10px); }
+    }
+    @keyframes axarPulse {
+      0%,100% { box-shadow: 0 0 60px rgba(99,102,241,0.45), 0 0 120px rgba(124,58,237,0.30), 0 0 200px rgba(6,182,212,0.18); }
+      50%     { box-shadow: 0 0 80px rgba(99,102,241,0.65), 0 0 160px rgba(124,58,237,0.42), 0 0 260px rgba(6,182,212,0.28); }
+    }
+    .axar-mark-hero {
+      width: 144px; height: 144px;
+      border-radius: 32px;
+      animation: axarFloat 6s ease-in-out infinite, axarPulse 4.5s ease-in-out infinite;
+    }
+
+    /* === Side-by-side comparison panel === */
+    @keyframes scanLine {
+      0%   { top: 0%;   opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 1; }
+      100% { top: 100%; opacity: 0; }
+    }
+    @keyframes flickerBad {
+      0%,5%   { content: 'अ'; color: #fca5a5; }
+      10%     { content: '?'; color: #ef4444; }
+      20%     { content: '#'; color: #ef4444; }
+      30%     { content: 'a'; color: #fca5a5; }
+      40%     { content: 'क'; color: #ef4444; }
+      50%     { content: '7'; color: #ef4444; }
+      60%     { content: '?'; color: #ef4444; }
+      70%,100% { content: '?'; color: #ef4444; }
+    }
+    .compare-panel { position: relative; overflow: hidden; }
+    .compare-scan {
+      position: absolute; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, #06b6d4, transparent);
+      box-shadow: 0 0 14px rgba(6,182,212,0.6);
+      animation: scanLine 3s linear infinite;
+    }
+
+    /* === Pipeline diagram === */
+    .pipeline-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      counter-reset: step;
+    }
+    @media (max-width: 768px) {
+      .pipeline-steps { grid-template-columns: 1fr; gap: 1rem; }
+      .pipeline-arrow { display: none; }
+    }
+    .pipeline-step {
+      position: relative;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .pipeline-step.in-view { opacity: 1; transform: translateY(0); }
+    .pipeline-step:nth-child(1).in-view { transition-delay: 0.0s; }
+    .pipeline-step:nth-child(2).in-view { transition-delay: 0.15s; }
+    .pipeline-step:nth-child(3).in-view { transition-delay: 0.30s; }
+    .pipeline-step:nth-child(4).in-view { transition-delay: 0.45s; }
+    .pipeline-step:nth-child(5).in-view { transition-delay: 0.60s; }
+    .pipeline-icon {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 0.75rem;
+      background: linear-gradient(135deg, rgba(99,102,241,0.18), rgba(124,58,237,0.18));
+      border: 1px solid rgba(99,102,241,0.4);
+      color: #a5b4fc;
+    }
+    .pipeline-step h4 {
+      font-size: 0.875rem; font-weight: 600; color: #e2e8f0; margin-bottom: 0.25rem;
+    }
+    .pipeline-step p {
+      font-size: 0.75rem; color: #64748b; line-height: 1.5;
+    }
+    .pipeline-arrow {
+      position: absolute;
+      top: 1.85rem; right: -8px;
+      width: 16px; height: 2px;
+      background: linear-gradient(90deg, rgba(99,102,241,0.5), rgba(6,182,212,0.5));
+    }
+    .pipeline-arrow::after {
+      content: ''; position: absolute; right: -2px; top: -3px;
+      width: 0; height: 0;
+      border-left: 6px solid #06b6d4;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+    }
+
+    /* === Stat counters === */
+    .stat-card {
+      padding: 1.75rem 1.5rem;
+      border-radius: 1rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .stat-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(99,102,241,0.4);
+      box-shadow: 0 10px 40px rgba(99,102,241,0.12);
+    }
+    .stat-num {
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-label {
+      font-size: 0.8125rem;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+
+    /* === Audience callout cards === */
+    .audience-card {
+      padding: 1.5rem;
+      border-radius: 1rem;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.3s ease;
+    }
+    .audience-card:hover {
+      border-color: rgba(99,102,241,0.4);
+      background: rgba(255,255,255,0.045);
+    }
+    .audience-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(6,182,212,0.2));
+      color: #a5b4fc;
+      margin-bottom: 0.75rem;
+    }
+
+    /* === Reveal-on-scroll === */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+    /* Devanagari helper */
+    .devanagari { font-family: 'Noto Sans Devanagari', 'Inter', sans-serif; font-weight: 700; }
+  </style>
+</head>
+
+<body class="font-inter antialiased">
+
+  <!-- Background glow orbs -->
+  <div class="glow-orb glow-orb-1"></div>
+  <div class="glow-orb glow-orb-2"></div>
+  <div class="glow-orb glow-orb-3"></div>
+
+  <!-- Navigation -->
+  <nav class="nav-blur fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 group">
+        <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
+        <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/#capabilities" class="text-sm text-slate-400 hover:text-white transition-colors">Capabilities</a>
+        <a href="/#solutions" class="text-sm text-slate-400 hover:text-white transition-colors">Solutions</a>
+        <a href="/#how-it-works" class="text-sm text-slate-400 hover:text-white transition-colors">How It Works</a>
+        <a href="/#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a>
+        <a href="/#company" class="text-sm text-slate-400 hover:text-white transition-colors">Company</a>
+        <a href="/blog/" class="text-sm text-slate-400 hover:text-white transition-colors">Blog</a>
+        <a href="/#contact" class="cta-primary px-5 py-2 rounded-lg text-sm font-semibold text-white">
+          <span class="flex items-center gap-1.5">
+            Book a Demo
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </span>
+        </a>
+      </div>
+
+      <button class="md:hidden text-slate-400 hover:text-white" id="mobileMenuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <div class="md:hidden hidden px-6 pb-4 space-y-3" id="mobileMenu">
+      <a href="/#capabilities" class="block text-sm text-slate-400 hover:text-white py-2">Capabilities</a>
+      <a href="/#solutions" class="block text-sm text-slate-400 hover:text-white py-2">Solutions</a>
+      <a href="/#how-it-works" class="block text-sm text-slate-400 hover:text-white py-2">How It Works</a>
+      <a href="/#security" class="block text-sm text-slate-400 hover:text-white py-2">Security</a>
+      <a href="/#company" class="block text-sm text-slate-400 hover:text-white py-2">Company</a>
+      <a href="/blog/" class="block text-sm text-slate-400 hover:text-white py-2">Blog</a>
+      <a href="/#contact" class="block cta-primary px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">
+        <span>Book a Demo</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="relative z-10 pt-24 pb-16">
+    <div class="max-w-4xl mx-auto px-6">
+
+      <!-- Back to Blog -->
+      <a href="/blog/" class="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-indigo-400 transition-colors mb-8">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        Back to Blog
+      </a>
+
+      <!-- Hero -->
+      <div class="text-center mb-12">
+        <div class="flex justify-center mb-8">
+          <img src="./axar-icon.png" alt="Axar — A by Xentovia" class="axar-mark-hero">
+        </div>
+        <div class="flex flex-wrap justify-center gap-2 mb-5">
+          <span class="tag tag-axar">Axar</span>
+          <span class="tag">Vision AI</span>
+          <span class="tag">Land Records</span>
+          <span class="tag">GovTech</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-5 leading-tight">
+          Land Records, <span class="gradient-text">Reimagined</span>
+        </h1>
+        <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed mb-5">
+          A vision-first approach to digitizing the paper that holds up property, credit, and citizenship — for governments, banks, courts, and the organisations downstream of land.
+        </p>
+        <div class="flex items-center justify-center gap-3 text-sm text-slate-500">
+          <time datetime="2026-05-05">May 5, 2026</time>
+          <span class="w-1 h-1 rounded-full bg-slate-600"></span>
+          <span>9 min read</span>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="glass rounded-2xl p-8 sm:p-12 legal-content">
+
+        <p>
+          Land records are the connective tissue between a citizen and the state. They underpin property transactions, credit, taxation, dispute resolution, urban planning, agricultural subsidies, and disaster relief. And in most of the world, they still live on paper — bound registers in district offices, hand-written in regional scripts by generations of revenue officers.
+        </p>
+        <p>
+          Digitizing them has been on every government's roadmap for two decades. The reality has been less encouraging. Programs launch with a 2-year plan, hire armies of contractors to type the data into vendor systems, and quietly stretch into 7-year drags. Cost overruns are routine. Quality is uneven. And at the end of it, the digital database often differs in subtle ways from the paper original it was supposed to mirror.
+        </p>
+        <p>
+          Something is changing. The combination of vision-language models and agentic orchestration has fundamentally shifted the math. What used to take a district 18 months and a team of 200 typists can now be processed in weeks, with a small operations team and an AI agent doing the reading. This post is about why that shift is happening, and what it means for the agencies, banks, courts, and researchers who depend on these records.
+        </p>
+
+        <h2>Why Digitization Keeps Stalling</h2>
+        <p>
+          Most digitization narratives focus on scanning. That part is solved — paper goes through a feeder, a high-resolution image comes out the other side. The actual choke point is what happens <em>after</em> the scan: turning a photograph of a hand-written page into structured, queryable, legally-citable data.
+        </p>
+        <p>
+          Optical Character Recognition was designed for printed text in Latin scripts. It does not work on hand-written Devanagari, Tamil, Telugu, Bangla, or Gurmukhi — the scripts in which most South Asian land records are kept. Character-level accuracy on these inputs is typically below 50%, which means more than half of every extracted line is wrong. At that error rate, the OCR output is less useful than no output at all.
+        </p>
+        <p>
+          Manual data entry has been the fallback for two decades, and it carries its own problems: slow throughput (40–60 records per operator-day at best), high cost per record, fatigue-driven errors, and no audit trail to explain why a particular field reads the way it does.
+        </p>
+
+        <!-- === COMPARISON PANEL (animated) === -->
+        <div class="grid sm:grid-cols-2 gap-4 my-8 not-prose">
+          <div class="compare-panel rounded-xl border border-red-500/20 bg-red-950/10 p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-[10px] uppercase tracking-widest text-red-400 font-semibold">Legacy OCR</span>
+              <span class="text-[10px] text-red-400/60">character-by-character</span>
+            </div>
+            <div class="font-mono text-sm leading-relaxed text-red-300 select-none">
+              <div>राम<span class="text-red-500">?</span> <span class="text-red-500">#@</span>र <span class="text-red-500">7</span>/<span class="text-red-500">2?</span></div>
+              <div>क<span class="text-red-500">?</span>ष <span class="text-red-500">###</span> <span class="text-red-500">??</span>.<span class="text-red-500">??</span> ह<span class="text-red-500">?</span></div>
+              <div>नो<span class="text-red-500">??</span>त: <span class="text-red-500">####</span></div>
+            </div>
+            <p class="text-xs text-slate-500 mt-4 leading-relaxed">
+              No layout awareness. No context. Every uncertain stroke becomes garbage that a human has to fix line-by-line.
+            </p>
+            <div class="compare-scan" style="animation-delay: 0.1s"></div>
+          </div>
+
+          <div class="compare-panel rounded-xl border border-indigo-500/30 bg-gradient-to-br from-indigo-950/20 to-cyan-950/10 p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-[10px] uppercase tracking-widest axar-text font-semibold">Vision Agent</span>
+              <span class="text-[10px] text-slate-500">whole-page understanding</span>
+            </div>
+            <div class="text-sm leading-relaxed text-slate-200 space-y-1">
+              <div><span class="text-slate-400 text-xs">Khasra</span> <span class="font-semibold">7/2</span> <span class="text-emerald-400 text-xs">✓ 0.97</span></div>
+              <div><span class="text-slate-400 text-xs">Owner</span> <span class="font-semibold devanagari">रामेश्वर</span> <span class="text-emerald-400 text-xs">✓ 0.94</span></div>
+              <div><span class="text-slate-400 text-xs">Area</span> <span class="font-semibold">2.40 ha</span> <span class="text-emerald-400 text-xs">✓ 0.96</span></div>
+              <div><span class="text-slate-400 text-xs">Noiyat</span> <span class="font-semibold devanagari">कृषि</span> <span class="text-emerald-400 text-xs">✓ 0.92</span></div>
+            </div>
+            <p class="text-xs text-slate-500 mt-4 leading-relaxed">
+              Reads the whole page in context. Each field carries a confidence score. Low-confidence fields are routed to a human reviewer; the rest pass through.
+            </p>
+            <div class="compare-scan"></div>
+          </div>
+        </div>
+
+        <p>
+          A vision agent reads the page, not the characters. It sees the column structure, the marginalia, the cross-outs, the red-ink mutations, the way today's record relates to yesterday's. It draws on the village's history — what came before, who owned which parcel last year, what crops were grown over the last five seasons. And it produces structured records with confidence scores attached to every field, so a reviewer can spend their attention where the model is genuinely uncertain.
+        </p>
+
+        <!-- === INTRODUCING AXAR === -->
+        <div class="my-12 p-1 rounded-3xl axar-gradient">
+          <div class="rounded-[22px] bg-space-950 px-8 py-10 sm:px-12 sm:py-12 text-center">
+            <img src="./axar-logo-tagline.png" alt="Axar — Vision Agent for Land Records" class="max-w-[420px] w-full h-auto mx-auto mb-2 brightness-0 invert opacity-95">
+            <p class="text-slate-400 text-sm mt-4 max-w-xl mx-auto">
+              <span class="axar-text font-semibold">Axar</span> is the vision agent we built at Xentovia for land record digitization. The name comes from the Sanskrit <span class="devanagari text-slate-300">अक्षर</span> — <em>letter, character, imperishable</em>. Its job is reading the imperishable: the registers that hold up land, family, and inheritance.
+            </p>
+          </div>
+        </div>
+
+        <h2>How Axar Works</h2>
+        <p>
+          Axar handles the full pipeline — from raw scan to structured database — as a single agentic flow. Each stage is the answer to a specific failure mode of legacy digitization.
+        </p>
+
+        <!-- === ANIMATED PIPELINE === -->
+        <div class="pipeline-steps my-8" id="pipeline">
+          <div class="pipeline-step">
+            <div class="pipeline-icon"><i data-lucide="scan-line" class="w-6 h-6"></i></div>
+            <h4>Intake</h4>
+            <p>Bound registers, single-page scans, mixed orientations — auto-detected and prepared.</p>
+            <div class="pipeline-arrow"></div>
+          </div>
+          <div class="pipeline-step">
+            <div class="pipeline-icon"><i data-lucide="layers" class="w-6 h-6"></i></div>
+            <h4>Classify</h4>
+            <p>Each page is identified by register type and column structure before extraction begins.</p>
+            <div class="pipeline-arrow"></div>
+          </div>
+          <div class="pipeline-step">
+            <div class="pipeline-icon"><i data-lucide="eye" class="w-6 h-6"></i></div>
+            <h4>Extract</h4>
+            <p>The vision agent reads the page in context, with village history and prior pages loaded as memory.</p>
+            <div class="pipeline-arrow"></div>
+          </div>
+          <div class="pipeline-step">
+            <div class="pipeline-icon"><i data-lucide="user-check" class="w-6 h-6"></i></div>
+            <h4>Review</h4>
+            <p>Operators see image and extraction side-by-side. They confirm, edit, or reject — every action audited.</p>
+            <div class="pipeline-arrow"></div>
+          </div>
+          <div class="pipeline-step">
+            <div class="pipeline-icon"><i data-lucide="database" class="w-6 h-6"></i></div>
+            <h4>Export</h4>
+            <p>Outputs land in the format the receiving system already expects — CSV, XML, JSON, vendor-aligned.</p>
+          </div>
+        </div>
+
+        <p>
+          Two design choices distinguish Axar from earlier attempts. <strong class="text-slate-200">Progressive context</strong>: every page the agent reads enriches the village's working memory, so by page 50 it knows the local owner registry, the typical handwriting of the patwari who wrote that register, and the noiyat patterns that village uses. <strong class="text-slate-200">Honest confidence</strong>: a field that the agent is unsure about is flagged and routed to review, never silently smoothed over. The system errs on the side of telling the truth about what it does not know.
+        </p>
+
+        <h2>Why Government Should Care</h2>
+        <p>
+          For revenue and land departments, vision-first digitization changes four economic constants:
+        </p>
+
+        <!-- === STAT CARDS === -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 my-7">
+          <div class="stat-card reveal">
+            <div class="stat-num gradient-text" data-target="10" data-suffix="×">0×</div>
+            <div class="stat-label">lower cost per record vs. typed entry</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-num gradient-text" data-target="6" data-suffix="–10 wks">0 wks</div>
+            <div class="stat-label">to digitize a typical district</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-num gradient-text" data-target="95" data-suffix="%+">0%</div>
+            <div class="stat-label">field-level accuracy on production workloads</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-num gradient-text" data-target="100" data-suffix="%">0%</div>
+            <div class="stat-label">of fields traced to source image with bounding box</div>
+          </div>
+        </div>
+
+        <ul>
+          <li><strong class="text-slate-200">Speed.</strong> A district that took 18 months through traditional contractors fits inside a 6–10 week window. The bottleneck moves from data entry to scan logistics — and even those run in parallel.</li>
+          <li><strong class="text-slate-200">Cost.</strong> Traditional pipelines pay per record entered. Vision-agent pipelines pay per page read by the agent, with a fraction allocated to human review. Total cost-per-record drops by an order of magnitude.</li>
+          <li><strong class="text-slate-200">Accuracy.</strong> Field-level accuracy on production workloads consistently runs above 95%, with confidence scoring on every field. Every value is traceable back to a bounding box on the source image, so disputes resolve in seconds rather than days.</li>
+          <li><strong class="text-slate-200">Compliance.</strong> Data residency, audit logs, encryption at rest and in transit. Axar runs in your cloud, your on-prem cluster, or air-gapped — your data never leaves the perimeter you control.</li>
+        </ul>
+        <p>
+          There is also a softer benefit that matters more than any of the above: <em>pace of completion</em>. Programs that drag for seven years lose their political mandate, their staffing continuity, and their original technical lead. Programs that ship in months keep momentum, capture lessons, and earn the next phase of investment.
+        </p>
+
+        <h2>Why Banks, Insurers, and Industry Should Care</h2>
+        <p>
+          The same engine that helps a state revenue department also helps every organization downstream of land records.
+        </p>
+
+        <!-- === AUDIENCE CARDS === -->
+        <div class="grid sm:grid-cols-2 gap-4 my-7 not-prose">
+          <div class="audience-card reveal">
+            <div class="audience-icon"><i data-lucide="landmark" class="w-5 h-5"></i></div>
+            <h4 class="text-slate-200 font-semibold mb-1.5">Banks &amp; NBFCs</h4>
+            <p class="text-sm text-slate-400 leading-relaxed">Mortgage origination, title verification, KYC on land-backed credit. A citizen's land document goes from scan to validated extraction in minutes.</p>
+          </div>
+          <div class="audience-card reveal">
+            <div class="audience-icon"><i data-lucide="shield-check" class="w-5 h-5"></i></div>
+            <h4 class="text-slate-200 font-semibold mb-1.5">Title &amp; Insurance</h4>
+            <p class="text-sm text-slate-400 leading-relaxed">Historical title trees — who owned this parcel in 1995, in 1973 — are the bulk of underwriting cost. A digitized historical register cuts underwriting from weeks to hours.</p>
+          </div>
+          <div class="audience-card reveal">
+            <div class="audience-icon"><i data-lucide="building-2" class="w-5 h-5"></i></div>
+            <h4 class="text-slate-200 font-semibold mb-1.5">Real Estate, Mining, Infra</h4>
+            <p class="text-sm text-slate-400 leading-relaxed">Parcel-level intelligence along a proposed alignment, in a target acquisition area, or on competing claims — without physically visiting district offices.</p>
+          </div>
+          <div class="audience-card reveal">
+            <div class="audience-icon"><i data-lucide="scale" class="w-5 h-5"></i></div>
+            <h4 class="text-slate-200 font-semibold mb-1.5">Legal &amp; Litigation</h4>
+            <p class="text-sm text-slate-400 leading-relaxed">Inherited-claim evidence, mutation history, encumbrance trails — searchable across decades of registers instead of physically pulled from cardboard folders.</p>
+          </div>
+          <div class="audience-card reveal">
+            <div class="audience-icon"><i data-lucide="flask-conical" class="w-5 h-5"></i></div>
+            <h4 class="text-slate-200 font-semibold mb-1.5">Research &amp; NGOs</h4>
+            <p class="text-sm text-slate-400 leading-relaxed">Longitudinal land-use studies, gender-of-ownership analysis, tribal land rights documentation — the same paper, finally queryable.</p>
+          </div>
+          <div class="audience-card reveal">
+            <div class="audience-icon"><i data-lucide="globe" class="w-5 h-5"></i></div>
+            <h4 class="text-slate-200 font-semibold mb-1.5">Public Sector at Large</h4>
+            <p class="text-sm text-slate-400 leading-relaxed">Court archives, civil registers, settlement records, historical revenue surveys — anything in bound volumes with hand-written entries.</p>
+          </div>
+        </div>
+
+        <h2>What "Good" Looks Like</h2>
+        <p>
+          A few principles we have learned the hard way while building Axar — they apply to any vision-AI program touching legacy paper:
+        </p>
+        <ul>
+          <li><strong class="text-slate-200">Outputs must drop into existing systems.</strong> The most elegant JSON is worthless if your IT vendor expects a specific CSV layout with a specific date format. Axar exports byte-compatible with whatever the receiving system already consumes.</li>
+          <li><strong class="text-slate-200">Human-in-the-loop is a feature, not a fallback.</strong> AI proposes; the operator approves. Every operator action makes the system smarter — flagged corrections feed back into per-village owner registries, per-district format hints, per-handwriting models.</li>
+          <li><strong class="text-slate-200">Honest confidence beats false certainty.</strong> A field flagged as low-confidence and routed to review is more valuable than a field that is silently wrong.</li>
+          <li><strong class="text-slate-200">Localization is not optional.</strong> A platform built for Latin-script printed text and retrofitted for Devanagari handwriting will keep losing accuracy at scale. Axar was built script-first, with regional handwriting and domain vocabulary at its core.</li>
+        </ul>
+
+        <h2>Where to From Here</h2>
+        <p>
+          We are working with revenue departments, financial institutions, and research organizations to bring Axar to more land-record corpora across India and beyond. If you have a digitization program that has stalled, a backlog of paper that you have been told is "too hard", or a downstream use case that depends on land data being structured and searchable — we would like to hear from you.
+        </p>
+
+        <!-- CTA -->
+        <div class="mt-12 pt-8 border-t border-white/10 text-center">
+          <p class="text-white text-lg font-semibold mb-2">Reading the imperishable, at scale.</p>
+          <p class="text-slate-400 mb-6">Pilot a single register or lot — fixed-fee, fixed-time, no commitment.</p>
+          <a href="/#contact" class="cta-primary inline-block px-8 py-3 rounded-lg text-sm font-semibold text-white">
+            <span class="flex items-center gap-2">
+              Book a Demo
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-white/5 bg-space-950/80">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 mb-12">
+
+        <div class="col-span-2 md:col-span-1">
+          <a href="/" class="flex items-center gap-2.5 mb-4">
+            <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
+            <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+          </a>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4">
+            Agentic AI solutions for the enterprise.
+          </p>
+          <a href="mailto:sales@xentovia.ai" class="flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+            sales@xentovia.ai
+          </a>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Product</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/#capabilities" class="text-sm text-slate-500 hover:text-white transition-colors">Capabilities</a></li>
+            <li><a href="/#solutions" class="text-sm text-slate-500 hover:text-white transition-colors">Solutions</a></li>
+            <li><a href="/#how-it-works" class="text-sm text-slate-500 hover:text-white transition-colors">How It Works</a></li>
+            <li><a href="/#security" class="text-sm text-slate-500 hover:text-white transition-colors">Security</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Company</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/#company" class="text-sm text-slate-500 hover:text-white transition-colors">About</a></li>
+            <li><a href="/blog/" class="text-sm text-slate-500 hover:text-white transition-colors">Blog</a></li>
+            <li><a href="/careers/" class="text-sm text-slate-500 hover:text-white transition-colors">Careers</a></li>
+            <li><a href="mailto:sales@xentovia.ai" class="text-sm text-slate-500 hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Legal</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/privacy/" class="text-sm text-slate-500 hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms/" class="text-sm text-slate-500 hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="/#security" class="text-sm text-slate-500 hover:text-white transition-colors">Security</a></li>
+            <li><a href="/dpa/" class="text-sm text-slate-500 hover:text-white transition-colors">DPA</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-divider mb-8"></div>
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-slate-600">
+          &copy; 2026 Xentovia Tech Private Limited. All rights reserved.
+        </p>
+        <div class="flex items-center gap-5">
+          <a href="https://www.linkedin.com/company/xentovia-ai" target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-white transition-colors" aria-label="LinkedIn">
+            <i data-lucide="linkedin" class="w-4 h-4"></i>
+          </a>
+          <a href="mailto:sales@xentovia.ai" class="text-slate-600 hover:text-white transition-colors" aria-label="Email">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+
+    // === Scroll-triggered reveals ===
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal, .pipeline-step').forEach(el => revealObserver.observe(el));
+
+    // === Stat counter animation ===
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseFloat(el.dataset.target);
+        const suffix = el.dataset.suffix || '';
+        const duration = 1400;
+        const start = performance.now();
+        const tick = (now) => {
+          const t = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - t, 3);
+          const value = Math.round(target * eased);
+          el.textContent = value + suffix;
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        counterObserver.unobserve(el);
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('.stat-num[data-target]').forEach(el => counterObserver.observe(el));
+  </script>
+
+</body>
+</html>
