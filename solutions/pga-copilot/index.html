@@ -432,6 +432,110 @@
       </div>
     </section>
 
+    <!-- What it does -->
+    <section class="relative py-24 lg:py-32">
+      <div class="section-divider mb-20"></div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">What it does</p>
+          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
+            Three agencies in v1. <span class="gradient-text">The ones whose rules just changed.</span>
+          </h2>
+          <p class="animate-on-scroll text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
+            Every field comes with a citation. Every field comes with a confidence score. Every field is yours to override.
+          </p>
+        </div>
+
+        <div class="space-y-6 lg:space-y-8 max-w-5xl mx-auto">
+
+          <!-- FDA Prior Notice -->
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7 lg:p-9">
+            <p class="text-[11px] font-mono text-slate-500 uppercase tracking-widest mb-3">FDA Prior Notice &middot; food</p>
+            <h3 class="text-xl lg:text-2xl font-bold text-white mb-5">Filed via ABI/ACE/ITDS or FDA PNSI &mdash; pre-filled, you approve.</h3>
+            <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-8 items-center">
+              <div>
+                <p class="text-[11px] font-mono text-slate-500 uppercase tracking-widest mb-3">Input</p>
+                <ul class="space-y-2 text-sm text-slate-300">
+                  <li class="flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-sky-400"></i> Commercial invoice</li>
+                  <li class="flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-sky-400"></i> Packing list</li>
+                  <li class="flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-sky-400"></i> Manufacturer registration</li>
+                </ul>
+              </div>
+              <div class="flex md:flex-col items-center gap-2">
+                <i data-lucide="arrow-right" class="w-5 h-5 text-indigo-400 hidden md:block"></i>
+                <i data-lucide="arrow-down" class="w-5 h-5 text-indigo-400 md:hidden"></i>
+              </div>
+              <div>
+                <p class="text-[11px] font-mono text-slate-500 uppercase tracking-widest mb-3">Output</p>
+                <ul class="space-y-2 text-sm text-slate-300">
+                  <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> Filled Prior Notice fields (JSON)</li>
+                  <li class="flex items-center gap-2"><i data-lucide="link-2" class="w-4 h-4 text-indigo-400"></i> Citation per field (e.g., 21 CFR 1.281)</li>
+                  <li class="flex items-center gap-2"><i data-lucide="gauge" class="w-4 h-4 text-sky-400"></i> Confidence chip per field</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- EPA TSCA §13 -->
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7 lg:p-9">
+            <p class="text-[11px] font-mono text-slate-500 uppercase tracking-widest mb-3">EPA TSCA §13 &middot; chemicals/polymers</p>
+            <h3 class="text-xl lg:text-2xl font-bold text-white mb-5">Positive or negative TSCA §13 statement &mdash; with the docs to back it.</h3>
+            <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-8 items-center">
+              <div>
+                <p class="text-[11px] font-mono text-slate-500 uppercase tracking-widest mb-3">Input</p>
+                <ul class="space-y-2 text-sm text-slate-300">
+                  <li class="flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-sky-400"></i> Commercial invoice</li>
+                  <li class="flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-sky-400"></i> SDS / MSDS</li>
+                  <li class="flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-sky-400"></i> Certificate of analysis</li>
+                </ul>
+              </div>
+              <div class="flex md:flex-col items-center gap-2">
+                <i data-lucide="arrow-right" class="w-5 h-5 text-indigo-400 hidden md:block"></i>
+                <i data-lucide="arrow-down" class="w-5 h-5 text-indigo-400 md:hidden"></i>
+              </div>
+              <div>
+                <p class="text-[11px] font-mono text-slate-500 uppercase tracking-widest mb-3">Output</p>
+                <ul class="space-y-2 text-sm text-slate-300">
+                  <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> TSCA §13 import certification (positive/negative)</li>
+                  <li class="flex items-center gap-2"><i data-lucide="link-2" class="w-4 h-4 text-indigo-400"></i> Citation to 15 USC §2612 + relevant TSCA §§5/6/7</li>
+                  <li class="flex items-center gap-2"><i data-lucide="gauge" class="w-4 h-4 text-sky-400"></i> Confidence chip per field</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lacey PPQ-505 -->
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7 lg:p-9">
+            <p class="text-[11px] font-mono text-slate-500 uppercase tracking-widest mb-3">Lacey PPQ-505 &middot; wood / plant products</p>
+            <h3 class="text-xl lg:text-2xl font-bold text-white mb-5">Species, genus, country of harvest &mdash; pre-filled, citation per claim.</h3>
+            <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-8 items-center">
+              <div>
+                <p class="text-[11px] font-mono text-slate-500 uppercase tracking-widest mb-3">Input</p>
+                <ul class="space-y-2 text-sm text-slate-300">
+                  <li class="flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-sky-400"></i> Commercial invoice</li>
+                  <li class="flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-sky-400"></i> Packing list</li>
+                  <li class="flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-sky-400"></i> Product spec sheet</li>
+                </ul>
+              </div>
+              <div class="flex md:flex-col items-center gap-2">
+                <i data-lucide="arrow-right" class="w-5 h-5 text-indigo-400 hidden md:block"></i>
+                <i data-lucide="arrow-down" class="w-5 h-5 text-indigo-400 md:hidden"></i>
+              </div>
+              <div>
+                <p class="text-[11px] font-mono text-slate-500 uppercase tracking-widest mb-3">Output</p>
+                <ul class="space-y-2 text-sm text-slate-300">
+                  <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> PPQ-505 declaration (ACE / LAWGS)</li>
+                  <li class="flex items-center gap-2"><i data-lucide="link-2" class="w-4 h-4 text-indigo-400"></i> Citation to 16 USC §3372 + Phase VII scope</li>
+                  <li class="flex items-center gap-2"><i data-lucide="gauge" class="w-4 h-4 text-sky-400"></i> Confidence chip per field</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- Footer -->
