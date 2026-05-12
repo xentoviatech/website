@@ -377,6 +377,42 @@
       </div>
     </section>
 
+    <!-- 40s teaser video -->
+    <section class="relative py-20 lg:py-28">
+      <div class="section-divider mb-16"></div>
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-10">
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">40 seconds</p>
+          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+            PGA filings got harder. <span class="gradient-text">Here's why.</span>
+          </h2>
+          <p class="animate-on-scroll text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            A 36-second look at the three rules that tightened US PGA filings &mdash; and how a copilot built below the H350722 line fits in.
+          </p>
+        </div>
+        <div class="animate-on-scroll relative aspect-video rounded-2xl overflow-hidden glass shadow-2xl shadow-indigo-500/10 ring-1 ring-white/5">
+          <button
+            type="button"
+            class="yt-lite group absolute inset-0 w-full h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+            data-youtube-id="EpT4VxD5yNQ"
+            aria-label="Play 40-second PGA Copilot teaser">
+            <img
+              src="https://i.ytimg.com/vi/EpT4VxD5yNQ/maxresdefault.jpg"
+              alt="PGA Copilot teaser preview"
+              loading="lazy"
+              class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity">
+            <span aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent"></span>
+            <span aria-hidden="true" class="absolute inset-0 flex items-center justify-center">
+              <span class="flex items-center justify-center w-20 h-20 rounded-full bg-indigo-500 group-hover:bg-indigo-400 group-hover:scale-105 transition-all shadow-2xl shadow-indigo-500/40">
+                <i data-lucide="play" class="w-8 h-8 text-white ml-1"></i>
+              </span>
+            </span>
+            <span aria-hidden="true" class="absolute bottom-4 left-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur text-white text-xs font-mono">0:36</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- Why now -->
     <section class="relative py-24 lg:py-32">
       <div class="section-divider mb-20"></div>
@@ -896,6 +932,20 @@
 
     document.querySelectorAll('.count-up, .compliance-line, .stamp, .zone-chip')
       .forEach((el) => oneShotObserver.observe(el));
+
+    // Lite YouTube embed: load the iframe only on click — no YouTube JS until then.
+    document.querySelectorAll('.yt-lite').forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const id = trigger.dataset.youtubeId;
+        if (!id) return;
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
+        iframe.title = trigger.getAttribute('aria-label') || 'YouTube video';
+        iframe.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture; fullscreen');
+        iframe.className = 'absolute inset-0 w-full h-full border-0';
+        trigger.replaceWith(iframe);
+      });
+    });
   </script>
 
 </body>
