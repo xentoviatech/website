@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Axar: Reading hard-to-digitize documents — Xentovia Tech</title>
+  <meta name="description" content="Axar turns decades-old handwritten registers, mixed-script forms, and faded archives into clean structured data — with your authorized reviewer approving every record. Built for regulated document workflows.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Axar: Reading hard-to-digitize documents — Xentovia Tech">
+  <meta property="og:description" content="From handwritten registers to clean, signed-off data. AI drafts; your authorized reviewer decides every field. Built for land records, archives, KYC, healthcare, legal — any high-stakes document workflow.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xentovia.ai/solutions/axar/">
+  <meta property="og:image" content="https://xentovia.ai/favicon.png">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { inter: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            space: { 950: '#03050a', 900: '#060b18', 800: '#0a1128', 700: '#0f1a3a' },
+            accent: { 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5' },
+            glow: { purple: '#7c3aed', blue: '#3b82f6', cyan: '#06b6d4' }
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 6s ease-in-out 2s infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'glow-move': 'glowMove 15s ease-in-out infinite',
+            'glow-move-2': 'glowMove2 18s ease-in-out infinite',
+            'glow-move-3': 'glowMove3 20s ease-in-out infinite',
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            'shimmer': 'shimmer 3s ease-in-out infinite',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #03050a;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #03050a; }
+    ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 3px; }
+
+    @keyframes glowMove {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30vw, -15vh) scale(1.2); }
+      50% { transform: translate(-10vw, 25vh) scale(0.8); }
+      75% { transform: translate(-25vw, -10vh) scale(1.1); }
+    }
+    @keyframes glowMove2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(-20vw, 20vh) scale(0.9); }
+      50% { transform: translate(25vw, -10vh) scale(1.3); }
+      75% { transform: translate(10vw, 15vh) scale(1); }
+    }
+    @keyframes glowMove3 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(15vw, 10vh) scale(1.1); }
+      66% { transform: translate(-20vw, -20vh) scale(0.9); }
+    }
+
+    .glow-orb {
+      position: fixed; border-radius: 50%; filter: blur(120px);
+      pointer-events: none; z-index: 0; will-change: transform;
+    }
+    .glow-orb-1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(124,58,237,0.25) 0%, transparent 70%);
+      top: -10%; left: -5%; animation: glowMove 15s ease-in-out infinite;
+    }
+    .glow-orb-2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%);
+      top: 40%; right: -10%; animation: glowMove2 18s ease-in-out infinite;
+    }
+    .glow-orb-3 {
+      width: 450px; height: 450px;
+      background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%);
+      bottom: -5%; left: 30%; animation: glowMove3 20s ease-in-out infinite;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-on-scroll {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .glass:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(129, 140, 248, 0.2);
+    }
+
+    .bento-card {
+      position: relative; overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .bento-card::before {
+      content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+      background: linear-gradient(135deg, transparent 40%, rgba(129,140,248,0.3) 50%, transparent 60%);
+      background-size: 300% 300%;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      opacity: 0; transition: opacity 0.5s ease;
+    }
+    .bento-card:hover::before { opacity: 1; animation: shimmer 3s ease-in-out infinite; }
+    @keyframes shimmer {
+      0%, 100% { background-position: 100% 0%; }
+      50% { background-position: 0% 100%; }
+    }
+    .bento-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px -15px rgba(99, 102, 241, 0.15);
+    }
+
+    .icon-box {
+      width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(124,58,237,0.1));
+      border: 1px solid rgba(129, 140, 248, 0.15);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #e0e7ff 0%, #818cf8 40%, #c084fc 70%, #38bdf8 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(99,102,241,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99,102,241,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .nav-blur {
+      background: rgba(3, 5, 10, 0.7);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .cta-primary {
+      position: relative; background: linear-gradient(135deg, #6366f1, #7c3aed);
+      overflow: hidden; transition: all 0.3s ease;
+    }
+    .cta-primary::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .cta-primary:hover::after { opacity: 1; }
+    .cta-primary:hover {
+      box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(124, 58, 237, 0.2);
+      transform: translateY(-2px);
+    }
+    .cta-primary span { position: relative; z-index: 1; }
+
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(99,102,241,0.3), transparent);
+    }
+
+    /* Approval-stamp motif — page-unique to PGA Copilot */
+    .stamp {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.5rem 1rem;
+      border: 2px solid rgba(220, 38, 38, 0.65);
+      color: rgba(252, 165, 165, 0.95);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 800; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+      border-radius: 4px;
+      transform: rotate(-6deg);
+      background: rgba(127, 29, 29, 0.08);
+      box-shadow: inset 0 0 0 1px rgba(220, 38, 38, 0.15);
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+    .stamp.visible {
+      opacity: 0.92;
+      animation: stampIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    @keyframes stampIn {
+      0%   { opacity: 0; transform: rotate(0deg) scale(1.6); }
+      60%  { opacity: 1; transform: rotate(-8deg) scale(0.94); }
+      100% { opacity: 0.92; transform: rotate(-6deg) scale(1); }
+    }
+
+    /* Hover-revealed stamp inside the outcomes button-mockup */
+    .stamp-hover {
+      opacity: 0;
+      transform: rotate(0deg) scale(1.5);
+      transition: opacity 0.4s ease-out, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .stamp-hover-trigger:hover .stamp-hover,
+    .stamp-hover-trigger:focus-within .stamp-hover {
+      opacity: 0.92;
+      transform: rotate(-6deg) scale(1);
+    }
+
+    /* Compliance-line + zone chips */
+    .compliance-line {
+      stroke: rgba(129, 140, 248, 0.55);
+      stroke-width: 2;
+      stroke-dasharray: 1200;
+      stroke-dashoffset: 1200;
+      transition: stroke-dashoffset 1.6s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+    .compliance-line.visible { stroke-dashoffset: 0; }
+    .zone-chip {
+      opacity: 0; transform: translateY(8px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    .zone-chip.visible { opacity: 1; transform: translateY(0); }
+
+    /* Count-up reserves space so layout doesn't shift */
+    .count-up { font-variant-numeric: tabular-nums; display: inline-block; }
+
+    /* Reduced-motion: collapse all animations to instant fades */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+      .compliance-line { stroke-dashoffset: 0 !important; }
+      .stamp { opacity: 0.92 !important; transform: rotate(-6deg) !important; }
+      .glow-orb { animation: none !important; }
+    }
+  </style>
+</head>
+
+<body class="font-inter antialiased">
+
+  <!-- Background Effects -->
+  <div class="glow-orb glow-orb-1" aria-hidden="true"></div>
+  <div class="glow-orb glow-orb-2" aria-hidden="true"></div>
+  <div class="glow-orb glow-orb-3" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav-blur fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 group">
+        <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
+        <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/#capabilities" class="text-sm text-slate-400 hover:text-white transition-colors">Capabilities</a>
+        <a href="/#solutions" class="text-sm text-slate-400 hover:text-white transition-colors">Solutions</a>
+        <a href="/#how-it-works" class="text-sm text-slate-400 hover:text-white transition-colors">How It Works</a>
+        <a href="/#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a>
+        <a href="/#company" class="text-sm text-slate-400 hover:text-white transition-colors">Company</a>
+        <a href="/blog/" class="text-sm text-slate-400 hover:text-white transition-colors">Blog</a>
+        <a href="/#contact" class="cta-primary px-5 py-2 rounded-lg text-sm font-semibold text-white">
+          <span class="flex items-center gap-1.5">Book a Demo <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></span>
+        </a>
+      </div>
+      <button class="md:hidden text-slate-400 hover:text-white" id="mobileMenuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+    </div>
+    <div class="md:hidden hidden px-6 pb-4 space-y-3" id="mobileMenu">
+      <a href="/#capabilities" class="block text-sm text-slate-400 hover:text-white py-2">Capabilities</a>
+      <a href="/#solutions" class="block text-sm text-slate-400 hover:text-white py-2">Solutions</a>
+      <a href="/#how-it-works" class="block text-sm text-slate-400 hover:text-white py-2">How It Works</a>
+      <a href="/#security" class="block text-sm text-slate-400 hover:text-white py-2">Security</a>
+      <a href="/#company" class="block text-sm text-slate-400 hover:text-white py-2">Company</a>
+      <a href="/blog/" class="block text-sm text-slate-400 hover:text-white py-2">Blog</a>
+      <a href="/#contact" class="block cta-primary px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">
+        <span>Book a Demo</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="relative z-10">
+
+    <!-- Hero -->
+    <section class="grid-bg relative min-h-[88vh] flex items-center pt-16 overflow-hidden">
+      <video class="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none" autoplay muted loop playsinline preload="auto" aria-hidden="true" style="z-index:0;">
+        <source src="images/hero-loop.mp4" type="video/mp4">
+      </video>
+      <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(3,5,10,0.55) 0%, rgba(3,5,10,0.92) 70%, rgba(3,5,10,0.98) 100%); z-index:1;"></div>
+      <div class="max-w-7xl mx-auto px-6 py-24 lg:py-32 w-full relative" style="z-index:2;">
+        <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
+          <div>
+            <div class="animate-on-scroll inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium text-cyan-300 mb-8">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              For regulated document workflows
+            </div>
+            <h1 class="animate-on-scroll text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight leading-[1.06] mb-6">
+              <span class="text-white">From handwritten registers</span><br>
+              <span class="text-white">to </span><span class="gradient-text">clean, signed-off data.</span>
+            </h1>
+            <p class="animate-on-scroll text-lg sm:text-xl text-slate-300 max-w-xl mb-10 leading-relaxed font-light">
+              Decades-old handwritten registers, mixed-script forms, faded archives &mdash; turned into clean structured data. Your authorized reviewer approves every record. Always.
+            </p>
+            <div class="animate-on-scroll flex flex-col sm:flex-row items-start gap-4">
+              <a href="mailto:sales@xentovia.ai?subject=Axar%20demo%20request" class="cta-primary px-8 py-3.5 rounded-xl text-base font-semibold text-white w-full sm:w-auto">
+                <span class="flex items-center justify-center gap-2">Book a 30-min walkthrough <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+              </a>
+              <a href="#how" class="group px-8 py-3.5 rounded-xl text-base font-medium text-slate-300 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all w-full sm:w-auto flex items-center justify-center gap-2">
+                <i data-lucide="play-circle" class="w-4 h-4 text-cyan-400 group-hover:text-cyan-300 transition-colors"></i>
+                See how it works
+              </a>
+            </div>
+          </div>
+
+          <div class="relative animate-on-scroll hidden lg:block">
+            <div class="bento-card glass rounded-2xl p-6 lg:p-7 relative">
+              <div class="flex items-center justify-between mb-5">
+                <p class="text-[11px] font-mono text-slate-500 uppercase tracking-widest">Live extraction &mdash; illustrative</p>
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-[11px] font-mono">
+                  <i data-lucide="check-circle-2" class="w-3 h-3"></i> reviewer-approved
+                </span>
+              </div>
+              <div class="space-y-2.5 font-mono text-[12px]">
+                <div class="flex justify-between p-2 rounded bg-slate-800/40"><span class="text-slate-500">Parcel #</span><span class="text-white">412</span></div>
+                <div class="flex justify-between p-2 rounded bg-slate-800/40"><span class="text-slate-500">Year</span><span class="text-white">1985 &middot; 2003 &middot; 2018</span></div>
+                <div class="flex justify-between p-2 rounded bg-slate-800/40"><span class="text-slate-500">Owners (3)</span><span class="text-cyan-300">chain of title traced</span></div>
+                <div class="flex justify-between p-2 rounded bg-slate-800/40"><span class="text-slate-500">Confidence</span><span class="text-emerald-300">98%</span></div>
+                <div class="flex justify-between p-2 rounded bg-slate-800/40"><span class="text-slate-500">Source</span><span class="text-indigo-300">Register p.78</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Problem -->
+    <section class="relative py-24 lg:py-32" id="problem">
+      <div class="section-divider mb-16"></div>
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">The Problem</p>
+          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+            Reading the page is only <span class="gradient-text">20% of the problem.</span>
+          </h2>
+          <p class="animate-on-scroll text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            Digitization fails after reading, not at reading.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
+            <div class="icon-box mb-4"><i data-lucide="layers" class="w-5 h-5 text-indigo-400"></i></div>
+            <h3 class="text-lg font-bold text-white mb-2">Faded ink, mixed scripts, decades of variation</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">No off-the-shelf tool was trained on your registers.</p>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
+            <div class="icon-box mb-4"><i data-lucide="alert-triangle" class="w-5 h-5 text-amber-400"></i></div>
+            <h3 class="text-lg font-bold text-white mb-2">One wrong field is a real problem</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">Legal records can't tolerate a mis-spelled name.</p>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
+            <div class="icon-box mb-4"><i data-lucide="trending-down" class="w-5 h-5 text-rose-400"></i></div>
+            <h3 class="text-lg font-bold text-white mb-2">Labour vendors slow down at scale</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">Accuracy slips, deadlines slip with it.</p>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
+            <div class="icon-box mb-4"><i data-lucide="user-check" class="w-5 h-5 text-cyan-400"></i></div>
+            <h3 class="text-lg font-bold text-white mb-2">Your reviewer must approve every record</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">But should never re-type one.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Axar Does -->
+    <section class="relative py-24 lg:py-32">
+      <div class="section-divider mb-16"></div>
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">What Axar Does</p>
+          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+            Four jobs, one workflow.
+          </h2>
+          <p class="animate-on-scroll text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            From the desk to the delivered record.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-6">
+            <div class="icon-box mb-4"><i data-lucide="scan-eye" class="w-5 h-5 text-indigo-400"></i></div>
+            <h3 class="text-base font-bold text-white mb-2">Reads handwritten registers</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">No re-typing. Axar reads each page and produces clean rows in the structure your downstream system needs.</p>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-6">
+            <div class="icon-box mb-4"><i data-lucide="shield-check" class="w-5 h-5 text-cyan-400"></i></div>
+            <h3 class="text-base font-bold text-white mb-2">Catches its own mistakes</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">Cross-field checks, page-to-page consistency, confidence on every value &mdash; before a human is asked to look.</p>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-6">
+            <div class="icon-box mb-4"><i data-lucide="user-cog" class="w-5 h-5 text-violet-400"></i></div>
+            <h3 class="text-base font-bold text-white mb-2">Your reviewer approves every record</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">The authorized reviewer has the final word on every field. Axar drafts; your reviewer decides.</p>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-6">
+            <div class="icon-box mb-4"><i data-lucide="file-output" class="w-5 h-5 text-emerald-400"></i></div>
+            <h3 class="text-base font-bold text-white mb-2">Delivers in your format</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">Government submission templates, vendor schemas, internal databases &mdash; the exact format your contractor expects.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works (4-photo workflow) -->
+    <section id="how" class="relative py-24 lg:py-32 scroll-mt-20">
+      <div class="section-divider mb-16"></div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="animate-on-scroll text-sm font-semibold text-cyan-400 uppercase tracking-widest mb-4">How It Works</p>
+          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+            From the stack on the desk to the signed-off record.
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="animate-on-scroll">
+            <div class="rounded-2xl overflow-hidden mb-4 aspect-square ring-1 ring-white/10 shadow-xl">
+              <img src="images/01-ingest.png" alt="Stacked land registers on a wooden desk being prepared for scanning" class="w-full h-full object-cover">
+            </div>
+            <p class="text-xs font-mono text-indigo-400 uppercase tracking-widest mb-1">01 &middot; Ingest</p>
+            <p class="text-sm text-slate-300 leading-relaxed">Old registers, photos, or PDFs come in. We handle whatever your team can put on the desk.</p>
+          </div>
+          <div class="animate-on-scroll">
+            <div class="rounded-2xl overflow-hidden mb-4 aspect-square ring-1 ring-white/10 shadow-xl">
+              <img src="images/02-extract.png" alt="Handwritten register beside a laptop showing structured data" class="w-full h-full object-cover">
+            </div>
+            <p class="text-xs font-mono text-indigo-400 uppercase tracking-widest mb-1">02 &middot; Read &amp; Cross-Check</p>
+            <p class="text-sm text-slate-300 leading-relaxed">Axar reads each page and produces clean rows. Cross-checks catch mistakes before any human sees them.</p>
+          </div>
+          <div class="animate-on-scroll">
+            <div class="rounded-2xl overflow-hidden mb-4 aspect-square ring-1 ring-white/10 shadow-xl">
+              <img src="images/03-review.png" alt="Operator reviewing scanned register and structured form on a monitor" class="w-full h-full object-cover">
+            </div>
+            <p class="text-xs font-mono text-indigo-400 uppercase tracking-widest mb-1">03 &middot; Reviewer Approves</p>
+            <p class="text-sm text-slate-300 leading-relaxed">Your authorized reviewer sees only the records that need eyes. They approve every field. Always.</p>
+          </div>
+          <div class="animate-on-scroll">
+            <div class="rounded-2xl overflow-hidden mb-4 aspect-square ring-1 ring-white/10 shadow-xl">
+              <img src="images/04-export.png" alt="Delivery report with government rubber stamp on a wooden desk" class="w-full h-full object-cover">
+            </div>
+            <p class="text-xs font-mono text-indigo-400 uppercase tracking-widest mb-1">04 &middot; Deliver</p>
+            <p class="text-sm text-slate-300 leading-relaxed">Clean data in the exact format your downstream system expects. Full audit trail kept for the long haul.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Before / After -->
+    <section class="relative py-24 lg:py-32">
+      <div class="section-divider mb-16"></div>
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">What Changes</p>
+          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+            Same desk. <span class="gradient-text">Very different day.</span>
+          </h2>
+        </div>
+        <div class="animate-on-scroll rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl mb-10">
+          <img src="images/05-before-after.png" alt="Cluttered record room with stacked handwritten ledgers contrasted with a clean digital dashboard on a laptop" class="w-full">
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="animate-on-scroll">
+            <p class="text-xs font-mono text-rose-400 uppercase tracking-widest mb-3">Today</p>
+            <ul class="space-y-2.5">
+              <li class="flex items-start gap-2 text-sm text-slate-400"><span class="text-rose-400 mt-1">&times;</span>Months of labour re-typing every page</li>
+              <li class="flex items-start gap-2 text-sm text-slate-400"><span class="text-rose-400 mt-1">&times;</span>Accuracy slips as volume grows</li>
+              <li class="flex items-start gap-2 text-sm text-slate-400"><span class="text-rose-400 mt-1">&times;</span>A new document type means starting over</li>
+            </ul>
+          </div>
+          <div class="animate-on-scroll">
+            <p class="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-3">With Axar</p>
+            <ul class="space-y-2.5">
+              <li class="flex items-start gap-2 text-sm text-slate-200"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mt-0.5"></i>Days, not months, per batch of records</li>
+              <li class="flex items-start gap-2 text-sm text-slate-200"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mt-0.5"></i>Same accuracy at one record or a million</li>
+              <li class="flex items-start gap-2 text-sm text-slate-200"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mt-0.5"></i>Reviewer approves; never re-types</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chain of Title + Ask in Plain Language -->
+    <section class="relative py-24 lg:py-32">
+      <div class="section-divider mb-16"></div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="animate-on-scroll text-sm font-semibold text-cyan-400 uppercase tracking-widest mb-4">What This Becomes</p>
+          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+            Full chain of title. <span class="gradient-text">Ask in plain language.</span>
+          </h2>
+          <p class="animate-on-scroll text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            Digitization is the start, not the end. Records become searchable by meaning &mdash; ask any question, get a cited answer from the original page.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <div class="animate-on-scroll rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl">
+            <img src="images/06-chain-of-title.png" alt="Three register entries for the same parcel across 1985, 2003, and 2018 showing the chain of ownership" class="w-full">
+          </div>
+          <div class="animate-on-scroll rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl">
+            <img src="images/07-vector-search.png" alt="Operator asking a plain-language question and receiving a cited answer with the source register page" class="w-full">
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-6">
+            <div class="icon-box mb-4"><i data-lucide="link-2" class="w-5 h-5 text-indigo-400"></i></div>
+            <h3 class="text-base font-bold text-white mb-2">Linked across documents and years</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">The same person, parcel, account or case &mdash; connected wherever they appear.</p>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-6">
+            <div class="icon-box mb-4"><i data-lucide="history" class="w-5 h-5 text-violet-400"></i></div>
+            <h3 class="text-base font-bold text-white mb-2">Full chain of title, not a snapshot</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">Trace every owner, every transfer, every mutation back through the years. Defensible in court, audit-ready.</p>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-6">
+            <div class="icon-box mb-4"><i data-lucide="message-circle-question" class="w-5 h-5 text-cyan-400"></i></div>
+            <h3 class="text-base font-bold text-white mb-2">Cited to the source</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">Every answer points back to the original page and field. No SQL, no specialist required.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust -->
+    <section id="trust" class="relative py-24 lg:py-32">
+      <div class="section-divider mb-16"></div>
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Trust &amp; Safety</p>
+          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+            Why this is safe to try.
+          </h2>
+          <p class="animate-on-scroll text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            Compliance, retention, and the chain of authority are not afterthoughts &mdash; they're the design.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-5">
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-6 flex items-start gap-4">
+            <div class="icon-box flex-shrink-0"><i data-lucide="shield" class="w-5 h-5 text-cyan-400"></i></div>
+            <div>
+              <h3 class="text-base font-bold text-white mb-2">Your reviewer has the final word</h3>
+              <p class="text-sm text-slate-400 leading-relaxed">Axar drafts every record; your authorized reviewer approves every field. Originals are never altered &mdash; only annotated.</p>
+            </div>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-6 flex items-start gap-4">
+            <div class="icon-box flex-shrink-0"><i data-lucide="archive" class="w-5 h-5 text-indigo-400"></i></div>
+            <div>
+              <h3 class="text-base font-bold text-white mb-2">Full audit trail, long retention</h3>
+              <p class="text-sm text-slate-400 leading-relaxed">Every read, every edit, every approval &mdash; tracked and retained for the long windows regulated records require.</p>
+            </div>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-6 flex items-start gap-4">
+            <div class="icon-box flex-shrink-0"><i data-lucide="lock" class="w-5 h-5 text-emerald-400"></i></div>
+            <div>
+              <h3 class="text-base font-bold text-white mb-2">Data stays in your jurisdiction</h3>
+              <p class="text-sm text-slate-400 leading-relaxed">Hosted in your region of choice. Aligned with modern data-protection regulations and ISO 27001 controls.</p>
+            </div>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-6 flex items-start gap-4">
+            <div class="icon-box flex-shrink-0"><i data-lucide="file-output" class="w-5 h-5 text-violet-400"></i></div>
+            <div>
+              <h3 class="text-base font-bold text-white mb-2">Fits your existing pipeline</h3>
+              <p class="text-sm text-slate-400 leading-relaxed">Output matches whatever submission template your downstream system, contractor, or government format already expects.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industries -->
+    <section class="relative py-24 lg:py-32">
+      <div class="section-divider mb-16"></div>
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="animate-on-scroll text-sm font-semibold text-cyan-400 uppercase tracking-widest mb-4">Industries</p>
+          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+            Built for regulated <span class="gradient-text">document workflows.</span>
+          </h2>
+          <p class="animate-on-scroll text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            Any industry where a high-stakes document needs to be read, structured, and signed off by an authorized human.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div class="animate-on-scroll rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl">
+            <img src="images/08-industries.png" alt="Four regulated record-keeping environments: a land register room, a KYC bank archive, a hospital file room, and a court records vault" class="w-full">
+          </div>
+          <div class="animate-on-scroll space-y-3">
+            <div class="flex items-center justify-between p-4 rounded-xl glass">
+              <div>
+                <p class="text-sm font-semibold text-white">Government Land Records</p>
+                <p class="text-xs text-slate-500">Village Revenue Officer</p>
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 text-[10px] font-mono">LIVE PILOT</span>
+            </div>
+            <div class="flex items-center justify-between p-4 rounded-xl glass">
+              <div>
+                <p class="text-sm font-semibold text-white">Banking &amp; KYC</p>
+                <p class="text-xs text-slate-500">Compliance Officer</p>
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-indigo-500/12 border border-indigo-500/25 text-indigo-300 text-[10px] font-mono">IN SCOPE</span>
+            </div>
+            <div class="flex items-center justify-between p-4 rounded-xl glass">
+              <div>
+                <p class="text-sm font-semibold text-white">Healthcare &amp; Medical Records</p>
+                <p class="text-xs text-slate-500">Medical Records Officer</p>
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-indigo-500/12 border border-indigo-500/25 text-indigo-300 text-[10px] font-mono">IN SCOPE</span>
+            </div>
+            <div class="flex items-center justify-between p-4 rounded-xl glass">
+              <div>
+                <p class="text-sm font-semibold text-white">Legal &amp; Court Files</p>
+                <p class="text-xs text-slate-500">Paralegal / Records Clerk</p>
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-indigo-500/12 border border-indigo-500/25 text-indigo-300 text-[10px] font-mono">IN SCOPE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proven (Hero Stats) -->
+    <section class="relative py-24 lg:py-32">
+      <div class="section-divider mb-16"></div>
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Proven on Real Records</p>
+          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+            Numbers from our first end-to-end pilot.
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-[1.8fr_1fr_1fr] gap-5">
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-8 lg:p-10 lg:row-span-2 flex flex-col justify-center" style="background: linear-gradient(160deg, rgba(99,102,241,0.10), rgba(124,58,237,0.04));">
+            <div class="text-6xl sm:text-7xl lg:text-8xl font-black text-indigo-400 tracking-tight mb-3" style="letter-spacing:-0.035em;">93%+</div>
+            <h3 class="text-xl font-bold text-white mb-2">Reviewer-approved accuracy</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">Met the vendor submission standard on decades-old handwriting &mdash; faded ink, mixed scripts, yellowed paper.</p>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-6">
+            <div class="text-3xl font-black text-cyan-400 mb-2 font-mono">~10&times;</div>
+            <p class="text-sm text-slate-400 leading-relaxed">Lower cost than labour digitization</p>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-6">
+            <div class="text-3xl font-black text-violet-400 mb-2 font-mono">2,600+</div>
+            <p class="text-sm text-slate-400 leading-relaxed">Pages processed end-to-end in the pilot</p>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-6">
+            <div class="text-3xl font-black text-indigo-400 mb-2 font-mono">Days</div>
+            <p class="text-sm text-slate-400 leading-relaxed">To onboard a new document type</p>
+          </div>
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-6">
+            <div class="text-3xl font-black text-cyan-400 mb-2 font-mono">Indic-first</div>
+            <p class="text-sm text-slate-400 leading-relaxed">Devanagari built ground-up; Tamil, Telugu, Bengali, Latin supported</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA band -->
+    <section id="cta" class="relative py-24 lg:py-32">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="animate-on-scroll bento-card glass rounded-3xl p-10 lg:p-14 relative overflow-hidden">
+          <div class="absolute inset-0 opacity-30 pointer-events-none" aria-hidden="true">
+            <div class="absolute -top-10 -right-10 w-72 h-72 rounded-full bg-indigo-500/20 blur-3xl"></div>
+            <div class="absolute -bottom-10 -left-10 w-72 h-72 rounded-full bg-cyan-500/20 blur-3xl"></div>
+          </div>
+          <div class="relative">
+            <p class="text-[11px] font-mono text-cyan-400 uppercase tracking-widest mb-4">Our Offer</p>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+              Show us your hardest documents. <br class="hidden sm:block">
+              <span class="gradient-text">We'll show you what's possible.</span>
+            </h2>
+            <p class="text-lg text-slate-300 mb-10 leading-relaxed max-w-3xl">
+              Send a sample of your actual records &mdash; any format, any language, any quality. In <strong class="text-white">2 weeks</strong> we deliver a working extraction pipeline for your document types, with your schema. You see accuracy numbers on your data &mdash; not benchmarks, not promises.
+            </p>
+            <div class="flex flex-col sm:flex-row items-start gap-4">
+              <a href="mailto:sales@xentovia.ai?subject=Axar%20demo%20request" class="cta-primary px-8 py-3.5 rounded-xl text-base font-semibold text-white w-full sm:w-auto">
+                <span class="flex items-center justify-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i> Email sales@xentovia.ai</span>
+              </a>
+              <a href="/#contact" class="group px-8 py-3.5 rounded-xl text-base font-medium text-slate-300 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all w-full sm:w-auto flex items-center justify-center gap-2">
+                <i data-lucide="message-circle" class="w-4 h-4 text-indigo-400 group-hover:text-indigo-300"></i>
+                Or use the contact form
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-white/5 bg-space-950/80">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 mb-12">
+        <div class="col-span-2 md:col-span-1">
+          <a href="/" class="flex items-center gap-2.5 mb-4">
+            <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
+            <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+          </a>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4">Agentic AI solutions for the enterprise.</p>
+          <a href="mailto:sales@xentovia.ai" class="flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i> sales@xentovia.ai
+          </a>
+        </div>
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Product</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/#capabilities" class="text-sm text-slate-500 hover:text-white transition-colors">Capabilities</a></li>
+            <li><a href="/#solutions" class="text-sm text-slate-500 hover:text-white transition-colors">Solutions</a></li>
+            <li><a href="/#how-it-works" class="text-sm text-slate-500 hover:text-white transition-colors">How It Works</a></li>
+            <li><a href="/#security" class="text-sm text-slate-500 hover:text-white transition-colors">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Company</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/#company" class="text-sm text-slate-500 hover:text-white transition-colors">About</a></li>
+            <li><a href="/blog/" class="text-sm text-slate-500 hover:text-white transition-colors">Blog</a></li>
+            <li><a href="/careers/" class="text-sm text-slate-500 hover:text-white transition-colors">Careers</a></li>
+            <li><a href="mailto:sales@xentovia.ai" class="text-sm text-slate-500 hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Legal</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/privacy/" class="text-sm text-slate-500 hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms/" class="text-sm text-slate-500 hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="/#security" class="text-sm text-slate-500 hover:text-white transition-colors">Security</a></li>
+            <li><a href="/dpa/" class="text-sm text-slate-500 hover:text-white transition-colors">DPA</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="section-divider mb-8"></div>
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-slate-600">&copy; 2026 Xentovia Tech Private Limited. All rights reserved.</p>
+        <div class="flex items-center gap-5">
+          <a href="https://www.linkedin.com/company/xentovia-ai" target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-white transition-colors" aria-label="LinkedIn">
+            <i data-lucide="linkedin" class="w-4 h-4"></i>
+          </a>
+          <a href="mailto:sales@xentovia.ai" class="text-slate-600 hover:text-white transition-colors" aria-label="Email">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add('visible'), i * 80);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+
+
+    let lastScroll = 0;
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      const current = window.scrollY;
+      if (current > lastScroll && current > 100) {
+        nav.style.transform = 'translateY(-100%)';
+        nav.style.transition = 'transform 0.3s ease';
+      } else {
+        nav.style.transform = 'translateY(0)';
+      }
+      lastScroll = current;
+    });
+
+    // Count-up: reads data-target on a .count-up element and ticks to that value once visible.
+    function runCountUp(el) {
+      const target = parseFloat(el.dataset.target || '0');
+      const decimals = parseInt(el.dataset.decimals || '0', 10);
+      const duration = parseInt(el.dataset.duration || '1400', 10);
+      const suffix = el.dataset.suffix || '';
+      const start = performance.now();
+      function tick(now) {
+        const t = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - t, 3);
+        const value = (target * eased).toFixed(decimals);
+        el.textContent = value + suffix;
+        if (t < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const oneShotObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        if (el.classList.contains('count-up') && !el.dataset.done) {
+          el.dataset.done = '1';
+          if (reduceMotion) {
+            const t = parseFloat(el.dataset.target || '0');
+            const d = parseInt(el.dataset.decimals || '0', 10);
+            el.textContent = t.toFixed(d) + (el.dataset.suffix || '');
+          } else {
+            runCountUp(el);
+          }
+        }
+        if (el.classList.contains('compliance-line')) {
+          el.classList.add('visible');
+        }
+        if (el.classList.contains('stamp')) {
+          el.classList.add('visible');
+        }
+        if (el.classList.contains('zone-chip')) {
+          const delay = parseInt(el.dataset.delay || '0', 10);
+          setTimeout(() => el.classList.add('visible'), reduceMotion ? 0 : delay);
+        }
+        oneShotObserver.unobserve(el);
+      });
+    }, { threshold: 0.35 });
+
+    document.querySelectorAll('.count-up, .compliance-line, .stamp, .zone-chip')
+      .forEach((el) => oneShotObserver.observe(el));
+
+    // Lite YouTube embed: load the iframe only on click — no YouTube JS until then.
+    document.querySelectorAll('.yt-lite').forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const id = trigger.dataset.youtubeId;
+        if (!id) return;
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
+        iframe.title = trigger.getAttribute('aria-label') || 'YouTube video';
+        iframe.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture; fullscreen');
+        iframe.className = 'absolute inset-0 w-full h-full border-0';
+        trigger.replaceWith(iframe);
+      });
+    });
+  </script>
+
+</body>
+</html>
