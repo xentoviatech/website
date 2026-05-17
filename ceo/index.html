@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#03050a" />
+  <title>Ramachandaran AV — CEO & Co-Founder, Xentovia</title>
+  <meta name="description" content="Digital business card for Ramachandaran AV, CEO & Co-Founder at Xentovia." />
+  <meta name="robots" content="noindex" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ramachandaran AV — CEO & Co-Founder, Xentovia" />
+  <meta property="og:description" content="Tap to save contact." />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://xentovia.ai/ceo/" />
+  <meta property="og:image" content="https://xentovia.ai/assets/team/avr.jpg" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+
+  <!-- PWA: install as app on mobile -->
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="application-name" content="Ram · Xentovia" />
+
+  <!-- iOS Safari: Add to Home Screen -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Ram · Xentovia" />
+  <link rel="apple-touch-icon" href="/assets/team/avr.jpg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/team/avr.jpg" />
+  <link rel="apple-touch-icon" sizes="512x512" href="/assets/team/avr.jpg" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['"Instrument Serif"', 'ui-serif', 'Georgia', 'serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+          },
+          colors: {
+            space: { 950: '#03050a', 900: '#060b18', 800: '#0a1128', 700: '#0f1a3a' },
+            accent: { 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5' },
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      background: #03050a;
+      color: #e2e8f0;
+      font-family: 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow: hidden; /* non-scrolling card */
+    }
+
+    body {
+      min-height: 100svh; /* small viewport units — best for mobile chrome */
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(16px, 4vw, 32px);
+      position: relative;
+      isolation: isolate;
+    }
+
+    /* ── Ambient backdrop ──────────────────────────────────────── */
+    .backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(60% 50% at 50% 28%, rgba(99,102,241,0.18) 0%, transparent 65%),
+        radial-gradient(50% 40% at 80% 90%, rgba(6,182,212,0.10) 0%, transparent 70%),
+        radial-gradient(40% 30% at 12% 88%, rgba(124,58,237,0.12) 0%, transparent 70%),
+        linear-gradient(180deg, #03050a 0%, #050813 100%);
+    }
+
+    /* faint grid texture for "deep tech" */
+    .grid-texture {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(129,140,248,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(129,140,248,0.045) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 70% 55% at 50% 50%, #000 30%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 50%, #000 30%, transparent 80%);
+    }
+
+    /* drifting orbs (kept subtle for a calm card) */
+    @keyframes drift1 {
+      0%, 100% { transform: translate(0, 0); }
+      50%      { transform: translate(6vw, -4vh); }
+    }
+    @keyframes drift2 {
+      0%, 100% { transform: translate(0, 0); }
+      50%      { transform: translate(-5vw, 5vh); }
+    }
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(110px);
+      pointer-events: none;
+      z-index: -1;
+      will-change: transform;
+    }
+    .orb-a {
+      width: 420px; height: 420px; top: -120px; left: -80px;
+      background: radial-gradient(circle, rgba(99,102,241,0.35) 0%, transparent 70%);
+      animation: drift1 16s ease-in-out infinite;
+    }
+    .orb-b {
+      width: 360px; height: 360px; bottom: -120px; right: -80px;
+      background: radial-gradient(circle, rgba(6,182,212,0.22) 0%, transparent 70%);
+      animation: drift2 20s ease-in-out infinite;
+    }
+
+    /* ── Card ──────────────────────────────────────────────────── */
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      padding: 32px 28px 28px;
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.045) 0%, rgba(255,255,255,0.015) 100%);
+      backdrop-filter: blur(22px) saturate(140%);
+      -webkit-backdrop-filter: blur(22px) saturate(140%);
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow:
+        0 30px 80px -20px rgba(0,0,0,0.6),
+        0 0 0 1px rgba(255,255,255,0.02) inset,
+        0 1px 0 rgba(255,255,255,0.08) inset;
+      animation: cardIn 900ms cubic-bezier(.2,.7,.2,1) both;
+    }
+
+    @keyframes cardIn {
+      0%   { opacity: 0; transform: translateY(14px) scale(.985); }
+      100% { opacity: 1; transform: translateY(0)    scale(1); }
+    }
+
+    /* hairline gradient border accent at top */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 14%; right: 14%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(129,140,248,0.7), transparent);
+      pointer-events: none;
+    }
+
+    /* corner ticks for the "executive engraving" feel */
+    .tick {
+      position: absolute;
+      width: 14px; height: 14px;
+      border-color: rgba(129,140,248,0.35);
+      pointer-events: none;
+    }
+    .tick-tl { top: 12px;    left: 12px;    border-top: 1px solid; border-left: 1px solid;  border-top-left-radius: 6px; }
+    .tick-tr { top: 12px;    right: 12px;   border-top: 1px solid; border-right: 1px solid; border-top-right-radius: 6px; }
+    .tick-bl { bottom: 12px; left: 12px;    border-bottom: 1px solid; border-left: 1px solid;  border-bottom-left-radius: 6px; }
+    .tick-br { bottom: 12px; right: 12px;   border-bottom: 1px solid; border-right: 1px solid; border-bottom-right-radius: 6px; }
+
+    /* ── Wordmark ─────────────────────────────────────────────── */
+    .wordmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(226,232,240,0.75);
+    }
+    .wordmark .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #6ee7b7;
+      box-shadow: 0 0 0 3px rgba(110,231,183,0.18), 0 0 12px rgba(110,231,183,0.55);
+      animation: pulseDot 2.4s ease-in-out infinite;
+    }
+    @keyframes pulseDot {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(110,231,183,0.18), 0 0 10px rgba(110,231,183,0.5); }
+      50%      { box-shadow: 0 0 0 5px rgba(110,231,183,0.10), 0 0 16px rgba(110,231,183,0.7); }
+    }
+
+    /* ── Avatar ───────────────────────────────────────────────── */
+    .avatar-wrap {
+      position: relative;
+      width: 124px; height: 124px;
+      margin: 22px auto 18px;
+    }
+    .avatar-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -10px;
+      border-radius: 50%;
+      background: conic-gradient(from 200deg, #6366f1, #06b6d4, #7c3aed, #6366f1);
+      filter: blur(14px);
+      opacity: 0.55;
+      z-index: 0;
+      animation: spin 18s linear infinite;
+    }
+    .avatar-wrap::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 50%;
+      padding: 2px;
+      background: conic-gradient(from 0deg, rgba(129,140,248,0.9), rgba(6,182,212,0.6), rgba(168,85,247,0.8), rgba(129,140,248,0.9));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+              mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      z-index: 1;
+      animation: spin 24s linear infinite reverse;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .avatar {
+      position: relative;
+      z-index: 2;
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: 50% 28%;
+      background: #0a1128;
+      box-shadow: 0 12px 30px -10px rgba(0,0,0,0.6);
+    }
+
+    /* ── Identity ─────────────────────────────────────────────── */
+    .name {
+      font-family: 'Instrument Serif', ui-serif, Georgia, serif;
+      font-size: clamp(34px, 8vw, 40px);
+      line-height: 1.04;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: #f5f7ff;
+      text-align: center;
+    }
+    .name .ampersign {
+      font-style: italic;
+      background: linear-gradient(135deg, #c7d2fe 0%, #a5f3fc 100%);
+      -webkit-background-clip: text;
+              background-clip: text;
+      color: transparent;
+    }
+    .title {
+      margin-top: 6px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(199,210,254,0.85);
+      text-align: center;
+    }
+    .title .sep {
+      display: inline-block;
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: rgba(199,210,254,0.45);
+      vertical-align: middle;
+      margin: 0 8px 2px;
+    }
+    .company-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      font-size: 13px;
+      color: rgba(226,232,240,0.7);
+      transition: color 200ms ease;
+    }
+    .company-link:hover { color: #a5b4fc; }
+    .company-link svg { transition: transform 200ms ease; }
+    .company-link:hover svg { transform: translate(2px, -2px); }
+
+    /* ── Hairline divider ─────────────────────────────────────── */
+    .divider {
+      margin: 22px 0 18px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+    }
+
+    /* ── Action icons row ─────────────────────────────────────── */
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .action {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 54px;
+      border-radius: 16px;
+      color: #e2e8f0;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .action:hover, .action:focus-visible {
+      background: rgba(129,140,248,0.10);
+      border-color: rgba(129,140,248,0.35);
+      color: #c7d2fe;
+      transform: translateY(-1px);
+      outline: none;
+    }
+    .action:active { transform: translateY(0); }
+    .action svg { width: 20px; height: 20px; }
+    .action .label {
+      position: absolute;
+      bottom: -18px; left: 0; right: 0;
+      text-align: center;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(148,163,184,0.7);
+    }
+
+    /* ── Save Contact CTA ─────────────────────────────────────── */
+    .cta {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      height: 54px;
+      margin-top: 22px;
+      border-radius: 16px;
+      font-size: 14.5px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #ffffff;
+      background:
+        linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+      box-shadow:
+        0 10px 30px -8px rgba(99,102,241,0.6),
+        0 0 0 1px rgba(255,255,255,0.1) inset;
+      transition: transform 180ms ease, box-shadow 220ms ease, filter 220ms ease;
+      overflow: hidden;
+      -webkit-tap-highlight-color: transparent;
+      cursor: pointer;
+    }
+    .cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.25) 50%, transparent 70%);
+      transform: translateX(-100%);
+      transition: transform 700ms ease;
+    }
+    .cta:hover::before { transform: translateX(100%); }
+    .cta:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow:
+        0 16px 40px -8px rgba(99,102,241,0.7),
+        0 0 0 1px rgba(255,255,255,0.15) inset;
+    }
+    .cta:active { transform: translateY(0); }
+    .cta svg { width: 18px; height: 18px; }
+
+    .cta.saved {
+      background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+    }
+
+    /* ── Footer micro ─────────────────────────────────────────── */
+    .meta {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(148,163,184,0.55);
+    }
+    .meta a { color: inherit; transition: color 200ms ease; }
+    .meta a:hover { color: #a5b4fc; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+
+    /* Very short viewports — keep within fold */
+    @media (max-height: 700px) {
+      .card { padding: 22px 24px 22px; }
+      .avatar-wrap { width: 104px; height: 104px; margin: 14px auto 12px; }
+      .divider { margin: 16px 0 14px; }
+      .cta { margin-top: 16px; height: 50px; }
+      .meta { margin-top: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="backdrop"></div>
+  <div class="grid-texture"></div>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+
+  <main class="card" role="main" aria-labelledby="card-name">
+    <span class="tick tick-tl"></span>
+    <span class="tick tick-tr"></span>
+    <span class="tick tick-bl"></span>
+    <span class="tick tick-br"></span>
+
+    <header style="display:flex;align-items:center;justify-content:space-between;">
+      <span class="wordmark">
+        <span class="dot" aria-hidden="true"></span>
+        Xentovia
+      </span>
+      <span class="wordmark" style="color:rgba(148,163,184,0.55);">
+        Card · 01
+      </span>
+    </header>
+
+    <div class="avatar-wrap" aria-hidden="false">
+      <img
+        class="avatar"
+        src="/assets/team/avr.jpg"
+        alt="Portrait of Ramachandaran AV"
+        width="124"
+        height="124"
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+
+    <h1 id="card-name" class="name">Ramachandaran <span class="ampersign">AV</span></h1>
+
+    <div class="title">
+      CEO <span class="sep" aria-hidden="true"></span> Co-Founder
+    </div>
+
+    <div style="text-align:center;">
+      <a class="company-link" href="https://xentovia.ai" target="_blank" rel="noopener">
+        xentovia.ai
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="12" height="12" aria-hidden="true">
+          <path d="M7 17 17 7"/><path d="M8 7h9v9"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="divider" role="separator" aria-hidden="true"></div>
+
+    <div class="actions" role="group" aria-label="Contact actions">
+      <a class="action" href="tel:+916362304979" aria-label="Call Ramachandaran AV">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </a>
+      <a class="action" href="mailto:ram@xentovia.ai" aria-label="Email Ramachandaran AV">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="14" rx="2"/>
+          <path d="m3 7 9 6 9-6"/>
+        </svg>
+      </a>
+      <a class="action" href="https://www.linkedin.com/in/ramachandran-a-v-aa2a80408/" target="_blank" rel="noopener" aria-label="View LinkedIn profile">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.05-1.86-3.05-1.86 0-2.15 1.45-2.15 2.95v5.67H9.32V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+        </svg>
+      </a>
+    </div>
+
+    <button id="save-contact" class="cta" type="button" aria-label="Download contact card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      <span class="cta-label">Save Contact</span>
+    </button>
+
+    <div class="meta">
+      <span>Bengaluru · IN</span>
+      <a href="https://xentovia.ai" target="_blank" rel="noopener">xentovia.ai ↗</a>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const contact = {
+        first: 'Ramachandaran',
+        last: 'AV',
+        full: 'Ramachandaran AV',
+        title: 'CEO & Co-Founder',
+        org: 'Xentovia',
+        email: 'ram@xentovia.ai',
+        phone: '+916362304979',
+        phoneDisplay: '+91 63623 04979',
+        website: 'https://xentovia.ai',
+        linkedin: 'https://www.linkedin.com/in/ramachandran-a-v-aa2a80408/',
+      };
+
+      // Build a valid vCard 3.0 string (CRLF line endings per RFC 2426).
+      function buildVCard(c) {
+        const lines = [
+          'BEGIN:VCARD',
+          'VERSION:3.0',
+          `N:${c.last};${c.first};;;`,
+          `FN:${c.full}`,
+          `ORG:${c.org}`,
+          `TITLE:${c.title}`,
+          `EMAIL;TYPE=INTERNET,WORK,PREF:${c.email}`,
+          `TEL;TYPE=CELL,VOICE,WORK:${c.phone}`,
+          `URL:${c.website}`,
+          `item1.URL:${c.linkedin}`,
+          'item1.X-ABLabel:LinkedIn',
+          `REV:${new Date().toISOString()}`,
+          'END:VCARD',
+        ];
+        return lines.join('\r\n');
+      }
+
+      function downloadVCard() {
+        const vcard = buildVCard(contact);
+        const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
+        const filename = 'Ramachandaran-AV.vcf';
+
+        // iOS Safari doesn't honor <a download> for blob: URLs reliably;
+        // route through a data URL there.
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        if (isIOS) {
+          const dataUrl = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcard);
+          window.location.href = dataUrl;
+          return;
+        }
+
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.rel = 'noopener';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 1500);
+      }
+
+      const btn = document.getElementById('save-contact');
+      const label = btn.querySelector('.cta-label');
+      btn.addEventListener('click', function () {
+        downloadVCard();
+        const original = label.textContent;
+        btn.classList.add('saved');
+        label.textContent = 'Contact Saved';
+        setTimeout(() => {
+          btn.classList.remove('saved');
+          label.textContent = original;
+        }, 2200);
+      });
+
+      // Register service worker so the card is installable + works offline.
+      // Only registers on https or localhost (browsers reject otherwise).
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('sw.js', { scope: '/ceo/' }).catch(() => { /* no-op */ });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

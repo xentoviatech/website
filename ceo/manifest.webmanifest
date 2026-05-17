@@ -1,0 +1,27 @@
+{
+  "name": "Ramachandaran AV — Xentovia",
+  "short_name": "Ram · Xentovia",
+  "description": "Digital business card for Ramachandaran AV, CEO & Co-Founder at Xentovia.",
+  "start_url": "/ceo/",
+  "scope": "/ceo/",
+  "id": "/ceo/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#03050a",
+  "theme_color": "#03050a",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "/assets/team/avr.jpg",
+      "sizes": "896x1194",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "511x511",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
