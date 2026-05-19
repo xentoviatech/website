@@ -379,45 +379,64 @@
     </section>
 
     <!-- Watch it work -->
-    <section class="relative py-24 lg:py-32">
-      <div class="section-divider mb-20"></div>
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Watch it work</p>
-          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
+    <section id="video" class="relative py-24 lg:py-32 scroll-mt-20">
+      <div class="section-divider mb-16"></div>
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-10">
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Watch it work &middot; 20 seconds</p>
+          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
             What goes in. <span class="gradient-text">What comes out.</span>
           </h2>
-          <p class="animate-on-scroll text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            See exactly what you'd hand us and what you'd get back &mdash; on a real customs &amp; trade workflow we run today.
+          <p class="animate-on-scroll text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            A 20-second walkthrough &mdash; from shipping documents to a broker-approved entry filed to ICEGATE,
+            on a live production workflow.
           </p>
         </div>
 
-        <div class="animate-on-scroll bento-card glass rounded-2xl p-8 lg:p-10 max-w-5xl mx-auto">
-          <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-8 md:gap-8 items-center mb-8">
-            <div class="text-center">
-              <div class="icon-box mx-auto mb-4"><i data-lucide="file-stack" class="w-5 h-5 text-sky-400"></i></div>
-              <p class="text-[11px] font-mono text-slate-400 uppercase tracking-widest mb-2">Input</p>
-              <p class="text-sm text-slate-200 leading-relaxed">50 commercial invoices, BOLs, packing lists, and certificates of origin &mdash; in any language, any layout</p>
-            </div>
-            <div class="flex md:flex-col items-center gap-2">
-              <i data-lucide="arrow-right" class="w-5 h-5 text-sky-400 hidden md:block"></i>
-              <i data-lucide="arrow-down" class="w-5 h-5 text-sky-400 md:hidden"></i>
-              <span class="text-sm font-mono text-sky-300 whitespace-nowrap">~15 minutes</span>
-            </div>
-            <div class="text-center">
-              <div class="icon-box mx-auto mb-4"><i data-lucide="file-check-2" class="w-5 h-5 text-emerald-400"></i></div>
-              <p class="text-[11px] font-mono text-slate-400 uppercase tracking-widest mb-2">Output</p>
-              <p class="text-sm text-slate-200 leading-relaxed">50 audit-ready customs entries with HS codes, OFAC/EAR screening, cross-doc validation, and a reasoning trail per decision</p>
-            </div>
-          </div>
-          <div class="border-t border-white/5 pt-6 text-center">
-            <p class="text-sm text-slate-400">
-              <span class="font-mono text-xs text-slate-400 uppercase tracking-widest mr-2">Manual baseline</span>
-              Coordinators today: 2&ndash;4 hours per entry &mdash; plus the inevitable 3&ndash;7 day customs hold when one field doesn't match.
-            </p>
-          </div>
+        <div class="animate-on-scroll relative aspect-video rounded-2xl overflow-hidden glass shadow-2xl shadow-indigo-500/10 ring-1 ring-white/5">
+          <button
+            type="button"
+            id="cargoVideoPlay"
+            class="group absolute inset-0 w-full h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+            aria-label="Play 20-second CargologiX workflow video">
+            <img
+              src="/assets/videos/cargologix-workflow-poster.png"
+              alt="CargologiX workflow preview &mdash; customs entries filed to ICEGATE in 15 minutes"
+              loading="lazy"
+              class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity">
+            <span aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent"></span>
+            <span aria-hidden="true" class="absolute inset-0 flex items-center justify-center">
+              <span class="flex items-center justify-center w-20 h-20 rounded-full bg-indigo-500 group-hover:bg-indigo-400 group-hover:scale-105 transition-all shadow-2xl shadow-indigo-500/40">
+                <i data-lucide="play" class="w-8 h-8 text-white ml-1"></i>
+              </span>
+            </span>
+            <span aria-hidden="true" class="absolute bottom-4 left-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur text-white text-xs font-mono">0:20</span>
+          </button>
         </div>
+
+        <p class="animate-on-scroll text-center mt-6 text-sm text-slate-400">
+          <span class="font-mono text-xs text-slate-400 uppercase tracking-widest mr-2">Manual baseline</span>
+          2&ndash;4 hours per entry today &mdash; plus the 3&ndash;7 day customs hold when one field doesn't match.
+        </p>
       </div>
+
+      <script>
+        (function () {
+          var btn = document.getElementById('cargoVideoPlay');
+          if (!btn) return;
+          btn.addEventListener('click', function () {
+            var video = document.createElement('video');
+            video.src = '/assets/videos/cargologix-workflow.mp4';
+            video.poster = '/assets/videos/cargologix-workflow-poster.png';
+            video.controls = true;
+            video.autoplay = true;
+            video.playsInline = true;
+            video.preload = 'auto';
+            video.className = 'absolute inset-0 w-full h-full object-cover';
+            btn.parentNode.replaceChild(video, btn);
+          });
+        })();
+      </script>
     </section>
 
     <!-- The Problem -->

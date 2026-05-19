@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>CargologiX — workflow animation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 1920px; height: 1080px;
+    background: #03050a;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #e2e8f0;
+    overflow: hidden;
+  }
+  .stage {
+    width: 1920px; height: 1080px;
+    position: relative;
+    background:
+      radial-gradient(1400px 900px at 10% 10%, rgba(124,58,237,0.32), transparent 60%),
+      radial-gradient(1200px 800px at 90% 90%, rgba(6,182,212,0.22), transparent 60%),
+      radial-gradient(900px 600px at 50% 50%, rgba(99,102,241,0.18), transparent 65%),
+      linear-gradient(160deg, #03050a 0%, #060b18 55%, #0a1128 100%);
+  }
+  .grid-overlay {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(99,102,241,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(99,102,241,0.05) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, #818cf8 0%, #c4b5fd 45%, #67e8f9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .glass {
+    background: rgba(15, 26, 58, 0.55);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(129, 140, 248, 0.22);
+    border-radius: 14px;
+  }
+  .top-bar {
+    position: absolute; top: 56px; left: 64px; right: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 16px;
+  }
+  .logo img { width: 64px; height: 64px; border-radius: 12px; }
+  .logo .wordmark { display: flex; flex-direction: column; line-height: 1; }
+  .logo .wordmark .name { font-size: 38px; font-weight: 800; letter-spacing: -0.02em; color: #fff; }
+  .logo .wordmark .name .by { color: #94a3b8; font-weight: 500; font-size: 24px; margin-left: 8px; }
+  .logo .wordmark .tag {
+    font-size: 13px; font-weight: 600;
+    color: #a5b4fc; letter-spacing: 0.22em; text-transform: uppercase;
+    margin-top: 10px;
+  }
+  .pill {
+    background: rgba(99,102,241,0.12);
+    border: 1px solid rgba(99,102,241,0.35);
+    color: #c7d2fe;
+    padding: 8px 16px; border-radius: 999px;
+    font-size: 14px; font-weight: 600; letter-spacing: 0.04em;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .pill .dot { width: 8px; height: 8px; border-radius: 50%; background: #34d399; }
+
+  /* Scene title */
+  .scene-title {
+    position: absolute; top: 200px; left: 64px;
+    font-size: 28px; font-weight: 600;
+    color: #94a3b8; letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .scene-num {
+    color: #6366f1; margin-right: 16px; font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* === SCENE LAYOUT === */
+  .scene { position: absolute; inset: 0; }
+
+  /* Title scene */
+  .title-block {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .title-block .pre {
+    font-size: 24px; color: #a5b4fc; letter-spacing: 0.22em;
+    text-transform: uppercase; margin-bottom: 24px; font-weight: 600;
+  }
+  .title-block .h1 {
+    font-size: 140px; font-weight: 900; letter-spacing: -0.04em; line-height: 1;
+  }
+  .title-block .sub {
+    font-size: 36px; color: #cbd5e1; margin-top: 32px; font-weight: 500;
+  }
+
+  /* Documents */
+  .docs {
+    position: absolute; left: 64px; top: 380px;
+    display: flex; flex-direction: column; gap: 24px;
+  }
+  .doc-card {
+    width: 380px; padding: 24px 28px;
+    background: rgba(15, 26, 58, 0.65);
+    border: 1px solid rgba(129,140,248,0.25);
+    border-radius: 14px;
+    display: flex; align-items: center; gap: 18px;
+  }
+  .doc-icon {
+    width: 48px; height: 48px; border-radius: 10px;
+    background: rgba(99,102,241,0.15);
+    border: 1px solid rgba(99,102,241,0.35);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace; font-weight: 700;
+    color: #a5b4fc; font-size: 14px;
+  }
+  .doc-meta .doc-type { font-size: 18px; font-weight: 700; color: #fff; }
+  .doc-meta .doc-file {
+    font-size: 13px; color: #94a3b8;
+    font-family: 'JetBrains Mono', monospace; margin-top: 4px;
+  }
+
+  /* AI Core */
+  .ai-core {
+    position: absolute; left: 50%; top: 50%;
+    width: 380px; height: 380px;
+    transform: translate(-50%, -50%);
+  }
+  .ai-core .ring {
+    position: absolute; inset: 0; border-radius: 50%;
+    border: 2px solid rgba(99,102,241,0.4);
+    box-shadow: 0 0 80px rgba(99,102,241,0.4), inset 0 0 80px rgba(99,102,241,0.2);
+  }
+  .ai-core .ring.r2 { inset: -40px; border-color: rgba(99,102,241,0.2); }
+  .ai-core .ring.r3 { inset: -80px; border-color: rgba(99,102,241,0.1); }
+  .ai-core .core-inner {
+    position: absolute; inset: 80px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(99,102,241,0.4) 0%, rgba(124,58,237,0.2) 50%, transparent 100%);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 700; font-size: 32px;
+    text-align: center;
+  }
+  .ai-core .label-top {
+    position: absolute; top: -60px; left: 50%; transform: translateX(-50%);
+    font-family: 'JetBrains Mono', monospace; font-size: 14px;
+    color: #a5b4fc; letter-spacing: 0.2em; text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* Annotation chips on AI processing */
+  .chips {
+    position: absolute; right: 64px; top: 380px;
+    display: flex; flex-direction: column; gap: 16px; width: 460px;
+  }
+  .chip {
+    background: rgba(15, 26, 58, 0.65);
+    border: 1px solid rgba(129,140,248,0.25);
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-family: 'JetBrains Mono', monospace; font-size: 16px;
+    color: #e2e8f0;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .chip .check { color: #34d399; font-size: 20px; font-weight: 700; }
+  .chip .key { color: #94a3b8; }
+  .chip .val { color: #fff; font-weight: 600; }
+
+  /* Output entry card */
+  .entry-out {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    width: 920px; padding: 40px 48px;
+    background: rgba(15, 26, 58, 0.85);
+    border: 2px solid rgba(99,102,241,0.45);
+    border-radius: 20px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 100px rgba(99,102,241,0.25);
+  }
+  .entry-out .head {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(129,140,248,0.2);
+    padding-bottom: 20px;
+  }
+  .entry-out .head .title-l { font-size: 24px; font-weight: 700; color: #fff; }
+  .entry-out .head .ref {
+    font-family: 'JetBrains Mono', monospace; font-size: 14px;
+    color: #a5b4fc;
+  }
+  .entry-out .rows { display: flex; flex-direction: column; gap: 12px; }
+  .entry-out .row {
+    display: grid; grid-template-columns: 1fr auto auto auto;
+    gap: 24px; align-items: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 15px;
+  }
+  .entry-out .row .desc { color: #cbd5e1; }
+  .entry-out .row .hs { color: #67e8f9; }
+  .entry-out .row .qty { color: #94a3b8; }
+  .entry-out .row .val { color: #fff; font-weight: 600; }
+  .entry-out .totals {
+    margin-top: 24px; padding-top: 20px;
+    border-top: 1px solid rgba(129,140,248,0.2);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .entry-out .totals .lbl { color: #94a3b8; font-size: 16px; font-weight: 500; }
+  .entry-out .totals .big {
+    font-size: 36px; font-weight: 800; color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Broker approval */
+  .broker {
+    position: absolute; left: 50%; bottom: 200px;
+    transform: translateX(-50%);
+    width: 720px;
+    background: rgba(15, 26, 58, 0.85);
+    border: 1px solid rgba(52, 211, 153, 0.5);
+    border-radius: 16px;
+    padding: 24px 32px;
+    display: flex; align-items: center; gap: 24px;
+  }
+  .broker .avatar {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #34d399);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; color: #fff; font-size: 22px;
+  }
+  .broker .info .name { font-size: 18px; font-weight: 700; color: #fff; }
+  .broker .info .role { font-size: 14px; color: #94a3b8; margin-top: 4px; }
+  .broker .stamp {
+    margin-left: auto;
+    background: rgba(52, 211, 153, 0.15);
+    border: 1px solid rgba(52, 211, 153, 0.5);
+    color: #34d399;
+    padding: 12px 24px; border-radius: 999px;
+    font-size: 16px; font-weight: 700; letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* Filed stamp */
+  .filed {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%) rotate(-8deg);
+    border: 4px solid #34d399;
+    border-radius: 18px;
+    padding: 32px 56px;
+    background: rgba(15, 26, 58, 0.85);
+  }
+  .filed .lbl-up {
+    font-size: 14px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: #94a3b8; text-align: center; margin-bottom: 8px;
+  }
+  .filed .lbl-big {
+    font-size: 72px; font-weight: 900; color: #34d399;
+    letter-spacing: -0.02em; line-height: 1;
+  }
+  .filed .lbl-ref {
+    font-size: 16px; color: #cbd5e1; text-align: center;
+    margin-top: 12px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .filed .lbl-time {
+    font-size: 14px; color: #a5b4fc; text-align: center;
+    margin-top: 6px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Final stat */
+  .final-stat {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .final-stat .pre {
+    font-size: 24px; color: #a5b4fc; letter-spacing: 0.22em;
+    text-transform: uppercase; font-weight: 600; margin-bottom: 24px;
+  }
+  .final-stat .nums {
+    display: flex; align-items: center; gap: 64px; justify-content: center;
+  }
+  .final-stat .before {
+    font-size: 120px; font-weight: 900;
+    color: #64748b; line-height: 1;
+    text-decoration: line-through;
+    text-decoration-color: rgba(244, 63, 94, 0.7);
+    text-decoration-thickness: 8px;
+  }
+  .final-stat .before .u { font-size: 56px; }
+  .final-stat .arrow {
+    font-size: 72px; color: #6366f1;
+  }
+  .final-stat .after {
+    font-size: 200px; font-weight: 900; line-height: 1; letter-spacing: -0.04em;
+  }
+  .final-stat .after .u { font-size: 84px; }
+  .final-stat .cta {
+    margin-top: 48px;
+    font-size: 36px; font-weight: 600; color: #fff;
+  }
+  .final-stat .url {
+    margin-top: 16px; font-size: 22px; color: #a5b4fc;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Bottom bar */
+  .bottom-bar {
+    position: absolute; bottom: 56px; left: 64px; right: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    color: #64748b; font-size: 18px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+  <div class="grid-overlay"></div>
+
+  <!-- Persistent top bar -->
+  <div class="top-bar">
+    <div class="logo">
+      <img src="../../favicon.png" alt="Xentovia" />
+      <div class="wordmark">
+        <div class="name">CargologiX<span class="by">by Xentovia</span></div>
+        <div class="tag">Customs entry automation</div>
+      </div>
+    </div>
+    <div class="pill" id="pill"><span class="dot"></span><span id="pillText">IN PRODUCTION · LIVE</span></div>
+  </div>
+
+  <!-- Scene title (changes per scene) -->
+  <div class="scene-title" id="sceneTitle"><span class="scene-num" id="sceneNum">01</span><span id="sceneLabel">Workflow</span></div>
+
+  <!-- Dynamic scene content goes here -->
+  <div class="scene" id="sceneRoot"></div>
+
+  <!-- Persistent bottom bar -->
+  <div class="bottom-bar">
+    <span>xentovia.ai/solutions/cargologix</span>
+    <span>Customs · Healthcare · Insurance · Mortgage</span>
+  </div>
+</div>
+
+<script>
+// =====================================================================
+// Deterministic animation: state is a pure function of t (ms since start).
+// Total runtime: 20000 ms (20 s).
+// Stages:
+//   0    – 2000   : intro title
+//   2000 – 7000   : documents arrive
+//   7000 – 12000  : AI processing (docs converge into core, chips appear)
+//   12000 – 15500 : entry draft card emerges
+//   15500 – 17500 : broker approval
+//   17500 – 20000 : ICEGATE filed + final stat
+// =====================================================================
+
+const url = new URL(location.href);
+const t = Math.max(0, Math.min(20000, parseInt(url.searchParams.get('t') || '0', 10)));
+const stamp = (url.searchParams.get('stamp') || 'ICEGATE').toUpperCase();
+const refNum = url.searchParams.get('ref') || '2026-05-19-3847';
+const timeStr = url.searchParams.get('time') || '15:32 IST';
+
+const root = document.getElementById('sceneRoot');
+const sceneNum = document.getElementById('sceneNum');
+const sceneLabel = document.getElementById('sceneLabel');
+
+function lerp(a, b, x) { return a + (b - a) * Math.max(0, Math.min(1, x)); }
+function easeOut(x) { return 1 - Math.pow(1 - x, 3); }
+function easeIn(x) { return x * x * x; }
+function easeInOut(x) { return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
+function fadeIn(t, start, dur) {
+  if (t < start) return 0;
+  if (t >= start + dur) return 1;
+  return easeOut((t - start) / dur);
+}
+function fadeOut(t, start, dur) {
+  if (t < start) return 1;
+  if (t >= start + dur) return 0;
+  return 1 - easeIn((t - start) / dur);
+}
+
+// -- Scene 1: title (0-2000ms) --
+function sceneTitle() {
+  sceneNum.textContent = '01';
+  sceneLabel.textContent = 'How CargologiX files a customs entry';
+  const op = fadeIn(t, 0, 600) * fadeOut(t, 1600, 400);
+  const y = lerp(40, 0, fadeIn(t, 0, 800));
+  root.innerHTML = `
+    <div class="title-block" style="opacity:${op}; transform: translate(-50%, calc(-50% + ${y}px));">
+      <div class="pre">A workflow that used to take 2–4 hours</div>
+      <div class="h1"><span class="gradient-text">CargologiX</span></div>
+      <div class="sub">Customs entries in 15 minutes — broker-approved, audit-ready.</div>
+    </div>`;
+}
+
+// -- Scene 2: documents arrive (2000-7000ms) --
+function sceneDocs() {
+  sceneNum.textContent = '02';
+  sceneLabel.textContent = 'Documents arrive — invoice, BOL, packing list, COO';
+  const tScene = t - 2000; // 0-5000
+  const docs = [
+    { icon: 'INV', type: 'Commercial Invoice', file: 'INV-2046.pdf' },
+    { icon: 'BOL', type: 'Bill of Lading', file: 'MAEU-7740291.pdf' },
+    { icon: 'PKG', type: 'Packing List', file: 'PL-2046-A.pdf' },
+    { icon: 'COO', type: 'Certificate of Origin', file: 'COO-IN-2046.pdf' },
+  ];
+  let html = '<div class="docs">';
+  docs.forEach((d, i) => {
+    const start = i * 600;
+    const dur = 800;
+    const op = fadeIn(tScene, start, dur);
+    const x = lerp(-200, 0, easeOut(Math.min(1, Math.max(0, (tScene - start) / dur))));
+    html += `
+      <div class="doc-card" style="opacity:${op}; transform: translateX(${x}px);">
+        <div class="doc-icon">${d.icon}</div>
+        <div class="doc-meta">
+          <div class="doc-type">${d.type}</div>
+          <div class="doc-file">${d.file}</div>
+        </div>
+      </div>`;
+  });
+  html += '</div>';
+  root.innerHTML = html;
+}
+
+// -- Scene 3: AI processing (7000-12000ms) --
+function sceneAI() {
+  sceneNum.textContent = '03';
+  sceneLabel.textContent = 'CargologiX agent reads, classifies, screens';
+  const tScene = t - 7000; // 0-5000
+  // Documents converge from left toward center over first 1500ms
+  const conv = Math.min(1, tScene / 1500);
+  const docs = [
+    { icon: 'INV', type: 'Commercial Invoice', file: 'INV-2046.pdf' },
+    { icon: 'BOL', type: 'Bill of Lading', file: 'MAEU-7740291.pdf' },
+    { icon: 'PKG', type: 'Packing List', file: 'PL-2046-A.pdf' },
+    { icon: 'COO', type: 'Certificate of Origin', file: 'COO-IN-2046.pdf' },
+  ];
+  const chips = [
+    { key: 'HS code', val: '6109.10.00', check: true },
+    { key: 'OFAC / EAR / ITAR', val: 'Clear', check: true },
+    { key: 'COO match', val: 'India · verified', check: true },
+    { key: 'Invoice value', val: '$48,750', check: true },
+    { key: 'Confidence', val: '96%', check: true },
+  ];
+
+  // Docs fade out & shrink to center
+  let html = '<div class="docs">';
+  docs.forEach((d, i) => {
+    const opacity = lerp(1, 0.15, conv);
+    const scale = lerp(1, 0.6, conv);
+    const dx = lerp(0, 700, conv);
+    const dy = lerp(0, 80 - i * 24, conv);
+    html += `
+      <div class="doc-card" style="opacity:${opacity}; transform: translate(${dx}px, ${dy}px) scale(${scale}); transform-origin: left center;">
+        <div class="doc-icon">${d.icon}</div>
+        <div class="doc-meta">
+          <div class="doc-type">${d.type}</div>
+          <div class="doc-file">${d.file}</div>
+        </div>
+      </div>`;
+  });
+  html += '</div>';
+
+  // AI core
+  const corePulse = 0.92 + Math.sin(tScene / 200) * 0.04;
+  const coreOp = fadeIn(tScene, 600, 800);
+  html += `
+    <div class="ai-core" style="opacity:${coreOp}; transform: translate(-50%, -50%) scale(${corePulse});">
+      <div class="label-top">CargologiX agent</div>
+      <div class="ring r3"></div>
+      <div class="ring r2"></div>
+      <div class="ring"></div>
+      <div class="core-inner">Reading<br/>Classifying<br/>Screening</div>
+    </div>`;
+
+  // Chips appear one by one starting at 1800ms
+  html += '<div class="chips">';
+  chips.forEach((c, i) => {
+    const start = 1800 + i * 600;
+    const op = fadeIn(tScene, start, 500);
+    const dx = lerp(60, 0, easeOut(Math.min(1, Math.max(0, (tScene - start) / 500))));
+    html += `
+      <div class="chip" style="opacity:${op}; transform: translateX(${dx}px);">
+        <span class="key">${c.key}</span>
+        <span><span class="val">${c.val}</span> <span class="check">✓</span></span>
+      </div>`;
+  });
+  html += '</div>';
+
+  root.innerHTML = html;
+}
+
+// -- Scene 4: entry draft card (12000-15500ms) --
+function sceneEntry() {
+  sceneNum.textContent = '04';
+  sceneLabel.textContent = 'CargologiX drafts the customs entry — line items, duties, citations';
+  const tScene = t - 12000; // 0-3500
+  const op = fadeIn(tScene, 0, 600);
+  const scale = lerp(0.92, 1, easeOut(Math.min(1, tScene / 800)));
+  const lineItems = [
+    { desc: 'Knit cotton t-shirts, men', hs: '6109.10.00', qty: '2,400 pcs', val: '$18,720' },
+    { desc: 'Knit cotton polo, men', hs: '6105.10.00', qty: '1,200 pcs', val: '$14,400' },
+    { desc: 'Knit cotton tank, women', hs: '6109.90.10', qty: '1,800 pcs', val: '$15,630' },
+  ];
+  let rowsHtml = '';
+  lineItems.forEach((r, i) => {
+    const rowOp = fadeIn(tScene, 800 + i * 250, 400);
+    rowsHtml += `
+      <div class="row" style="opacity:${rowOp};">
+        <span class="desc">${r.desc}</span>
+        <span class="hs">${r.hs}</span>
+        <span class="qty">${r.qty}</span>
+        <span class="val">${r.val}</span>
+      </div>`;
+  });
+  const totalsOp = fadeIn(tScene, 2000, 600);
+  root.innerHTML = `
+    <div class="entry-out" style="opacity:${op}; transform: translate(-50%, -50%) scale(${scale});">
+      <div class="head">
+        <span class="title-l">Customs entry draft &mdash; ready for broker review</span>
+        <span class="ref">Entry #${refNum}</span>
+      </div>
+      <div class="rows">${rowsHtml}</div>
+      <div class="totals" style="opacity:${totalsOp};">
+        <span class="lbl">Total declared value &middot; Computed duty &middot; 3 line items</span>
+        <span class="big">$48,750 &middot; $1,247</span>
+      </div>
+    </div>`;
+}
+
+// -- Scene 5: broker approval (15500-17500ms) --
+function sceneBroker() {
+  sceneNum.textContent = '05';
+  sceneLabel.textContent = 'Licensed broker reviews — and approves';
+  const tScene = t - 15500; // 0-2000
+  const op = fadeIn(tScene, 0, 600);
+  const y = lerp(40, 0, easeOut(Math.min(1, tScene / 800)));
+  const stampOp = fadeIn(tScene, 800, 600);
+  const stampScale = lerp(0.5, 1, easeOut(Math.min(1, Math.max(0, (tScene - 800) / 600))));
+  root.innerHTML = `
+    <div class="entry-out" style="opacity:0.4; transform: translate(-50%, -50%) scale(0.85);">
+      <div class="head">
+        <span class="title-l">Customs entry draft &mdash; ready for broker review</span>
+        <span class="ref">Entry #${refNum}</span>
+      </div>
+    </div>
+    <div class="broker" style="opacity:${op}; transform: translate(-50%, ${y}px);">
+      <div class="avatar">R</div>
+      <div class="info">
+        <div class="name">R. Krishnan &mdash; Licensed Customs Broker</div>
+        <div class="role">CHA Licence · Reviewed 3 line items · Approved per-field</div>
+      </div>
+      <div class="stamp" style="opacity:${stampOp}; transform: scale(${stampScale});">Approved</div>
+    </div>`;
+}
+
+// -- Scene 6: filed + final stat (17500-20000ms) --
+function sceneFiled() {
+  sceneNum.textContent = '06';
+  sceneLabel.textContent = `Filed automatically to ${stamp}`;
+  const tScene = t - 17500; // 0-2500
+  // First: filed stamp lands (0-1200ms)
+  const stampPhase = Math.min(1, tScene / 1200);
+  const stampOp = fadeIn(tScene, 0, 600) * fadeOut(tScene, 1500, 400);
+  const rot = lerp(15, -8, easeOut(stampPhase));
+  const scale = lerp(0.3, 1, easeOut(stampPhase));
+
+  // Second: final stat (1200ms onward)
+  const statOp = fadeIn(tScene, 1400, 500);
+  const statY = lerp(40, 0, easeOut(Math.min(1, Math.max(0, (tScene - 1400) / 500))));
+
+  let html = '';
+  if (tScene < 1500) {
+    html += `
+      <div class="filed" style="opacity:${stampOp}; transform: translate(-50%, -50%) rotate(${rot}deg) scale(${scale});">
+        <div class="lbl-up">Filed automatically to</div>
+        <div class="lbl-big">${stamp}</div>
+        <div class="lbl-ref">Entry #${refNum}</div>
+        <div class="lbl-time">${timeStr} &middot; audit trail attached</div>
+      </div>`;
+  } else {
+    html += `
+      <div class="final-stat" style="opacity:${statOp}; transform: translate(-50%, calc(-50% + ${statY}px));">
+        <div class="pre">CargologiX &middot; customs entries in production today</div>
+        <div class="nums">
+          <div class="before">2&ndash;4<span class="u">hrs</span></div>
+          <div class="arrow">→</div>
+          <div class="after gradient-text">15<span class="u">min</span></div>
+        </div>
+        <div class="cta">Same broker. Same compliance posture. Audit-ready.</div>
+        <div class="url">xentovia.ai/solutions/cargologix</div>
+      </div>`;
+  }
+
+  root.innerHTML = html;
+}
+
+// Pill text changes per scene
+function setPill(text, color) {
+  const pill = document.getElementById('pill');
+  const pillText = document.getElementById('pillText');
+  pillText.textContent = text;
+  if (color === 'green') {
+    pill.style.background = 'rgba(52,211,153,0.15)';
+    pill.style.borderColor = 'rgba(52,211,153,0.5)';
+    pill.style.color = '#34d399';
+    pill.querySelector('.dot').style.background = '#34d399';
+  } else {
+    pill.style.background = 'rgba(99,102,241,0.12)';
+    pill.style.borderColor = 'rgba(99,102,241,0.35)';
+    pill.style.color = '#c7d2fe';
+    pill.querySelector('.dot').style.background = '#34d399';
+  }
+}
+
+// Route to current scene
+if (t < 2000) { sceneTitle(); setPill('IN PRODUCTION · LIVE'); }
+else if (t < 7000) { sceneDocs(); setPill('STEP 1 OF 4 · INGEST'); }
+else if (t < 12000) { sceneAI(); setPill('STEP 2 OF 4 · CLASSIFY & SCREEN'); }
+else if (t < 15500) { sceneEntry(); setPill('STEP 3 OF 4 · DRAFT ENTRY'); }
+else if (t < 17500) { sceneBroker(); setPill('STEP 4 OF 4 · BROKER REVIEW'); }
+else { sceneFiled(); setPill(`FILED TO ${stamp}`, 'green'); }
+</script>
+</body>
+</html>
