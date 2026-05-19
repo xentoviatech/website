@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Xentovia — Customs 15min LinkedIn hero</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #03050a; font-family: 'Inter', system-ui, sans-serif; }
+  .card {
+    width: 1200px;
+    height: 627px;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(1100px 700px at 12% 15%, rgba(124, 58, 237, 0.32), transparent 60%),
+      radial-gradient(900px 600px at 88% 85%, rgba(6, 182, 212, 0.22), transparent 60%),
+      radial-gradient(700px 500px at 50% 50%, rgba(99, 102, 241, 0.18), transparent 65%),
+      linear-gradient(160deg, #03050a 0%, #060b18 55%, #0a1128 100%);
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, #818cf8 0%, #c4b5fd 45%, #67e8f9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .grid-overlay {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(99,102,241,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(99,102,241,0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+  }
+  .glass {
+    background: rgba(15, 26, 58, 0.45);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(129, 140, 248, 0.22);
+  }
+  .arrow-glow {
+    filter: drop-shadow(0 0 14px rgba(99, 102, 241, 0.55));
+  }
+  .stat-num {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+  .pill {
+    background: rgba(99, 102, 241, 0.12);
+    border: 1px solid rgba(99, 102, 241, 0.35);
+    color: #c7d2fe;
+  }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .doc-shape {
+    background: linear-gradient(180deg, rgba(15,26,58,0.55), rgba(15,26,58,0.25));
+    border: 1px solid rgba(129,140,248,0.18);
+    border-radius: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="grid-overlay"></div>
+
+  <!-- Top bar: logo + URL -->
+  <div class="absolute top-10 left-12 right-12 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <img src="../../favicon.png" alt="Xentovia" class="w-11 h-11 rounded-lg" />
+      <div class="flex flex-col leading-none">
+        <span class="text-white text-2xl font-bold tracking-tight">CargologiX <span class="text-slate-400 font-medium text-base">by Xentovia</span></span>
+        <span class="text-indigo-300 text-[11px] font-medium tracking-[0.22em] uppercase mt-1">Customs entry automation</span>
+      </div>
+    </div>
+    <div class="pill px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide flex items-center gap-2">
+      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+      IN PRODUCTION
+    </div>
+  </div>
+
+  <!-- Main stat -->
+  <div class="absolute left-12 right-12 top-1/2 -translate-y-1/2">
+    <div class="flex items-end gap-8">
+      <!-- Before -->
+      <div class="flex flex-col">
+        <div class="text-slate-400 text-sm font-medium tracking-wider uppercase mb-2">Customs entry — before</div>
+        <div class="stat-num text-slate-500 text-[120px] line-through decoration-rose-400/70 decoration-[6px]">2–4<span class="text-[64px] ml-3 align-top">hrs</span></div>
+      </div>
+
+      <!-- Arrow -->
+      <div class="arrow-glow flex items-center justify-center mb-7">
+        <svg width="100" height="48" viewBox="0 0 100 48" fill="none">
+          <defs>
+            <linearGradient id="arrowGrad" x1="0" y1="0" x2="100" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#6366f1"/>
+              <stop offset="100%" stop-color="#06b6d4"/>
+            </linearGradient>
+          </defs>
+          <path d="M0 24 L82 24" stroke="url(#arrowGrad)" stroke-width="5" stroke-linecap="round"/>
+          <path d="M74 8 L94 24 L74 40" stroke="url(#arrowGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
+
+      <!-- After -->
+      <div class="flex flex-col">
+        <div class="text-indigo-300 text-sm font-semibold tracking-wider uppercase mb-2">After</div>
+        <div class="stat-num gradient-text text-[180px]">15<span class="text-[80px] ml-3 align-top">min</span></div>
+      </div>
+    </div>
+
+    <!-- Subtitle -->
+    <div class="mt-6 max-w-[940px]">
+      <div class="text-white text-[26px] font-semibold tracking-tight leading-tight">
+        Customs entries. Same broker. Same compliance posture.
+      </div>
+      <div class="text-slate-300 text-[17px] mt-2 leading-snug">
+        HS classification with reasoning shown · OFAC/EAR sanctions screening · Per-field citations · Full audit trail
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative document stack (top right) -->
+  <div class="absolute top-28 right-12 w-44 h-52 opacity-60">
+    <div class="doc-shape absolute inset-0 rotate-6"></div>
+    <div class="doc-shape absolute inset-0 -rotate-3 translate-x-3 translate-y-1"></div>
+    <div class="doc-shape absolute inset-0 translate-x-1 -translate-y-2 flex flex-col p-4 gap-2">
+      <div class="h-2 rounded-sm bg-indigo-400/30 w-3/4"></div>
+      <div class="h-2 rounded-sm bg-indigo-400/20 w-full"></div>
+      <div class="h-2 rounded-sm bg-indigo-400/20 w-5/6"></div>
+      <div class="h-2 rounded-sm bg-indigo-400/20 w-2/3"></div>
+      <div class="h-2 rounded-sm bg-indigo-400/30 w-4/5 mt-2"></div>
+      <div class="h-2 rounded-sm bg-indigo-400/20 w-3/5"></div>
+      <div class="h-2 rounded-sm bg-cyan-400/30 w-2/3 mt-auto"></div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="absolute bottom-9 left-12 right-12 flex items-center justify-between">
+    <div class="mono text-slate-400 text-[13px] tracking-wide">xentovia.ai</div>
+    <div class="text-slate-400 text-[13px] tracking-wide flex items-center gap-3">
+      <span>Customs · Healthcare · Insurance · Mortgage</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
