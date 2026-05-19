@@ -421,55 +421,118 @@
 
   <main class="relative z-10">
 
-    <!-- ── Hero ── -->
-    <section class="grid-bg relative min-h-screen flex items-center pt-16">
-      <div class="max-w-7xl mx-auto px-6 py-24 lg:py-32">
-        <div class="max-w-4xl mx-auto text-center">
+    <!-- ── Hero (two-slide carousel: Axar, CargologiX) ── -->
+    <style>
+      .hero-slide-stack > .hero-slide {
+        grid-area: slide;
+        transition: opacity 700ms ease, transform 700ms ease;
+      }
+      .hero-slide[data-active="false"] {
+        opacity: 0; transform: translateY(8px); pointer-events: none;
+      }
+      .hero-slide[data-active="true"] {
+        opacity: 1; transform: translateY(0); pointer-events: auto;
+      }
+      .hero-dot {
+        height: 8px; width: 8px; border-radius: 999px;
+        background: rgba(148, 163, 184, 0.35);
+        border: 0; padding: 0; cursor: pointer;
+        transition: width 300ms ease, background 300ms ease;
+      }
+      .hero-dot[data-active="true"] {
+        width: 36px;
+        background: linear-gradient(90deg, #6366f1, #06b6d4);
+      }
+      .hero-dot:hover { background: rgba(148, 163, 184, 0.6); }
+      .hero-dot[data-active="true"]:hover { background: linear-gradient(90deg, #818cf8, #67e8f9); }
+      @media (prefers-reduced-motion: reduce) {
+        .hero-slide-stack > .hero-slide { transition: none; }
+      }
+    </style>
+    <section id="hero" class="grid-bg relative min-h-screen flex items-center pt-16"
+             aria-roledescription="carousel" aria-label="Featured products">
+      <div class="max-w-7xl mx-auto px-6 py-24 lg:py-32 w-full">
 
-          <!-- Badge -->
-          <div class="animate-on-scroll inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium text-indigo-300 mb-8">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            Agentic AI &middot; Built for production
+        <!-- Slide stack: two hero variants share the same grid cell so the tallest defines height -->
+        <div class="hero-slide-stack grid grid-cols-1" style="grid-template-areas: 'slide';">
+
+          <!-- ─── Slide 1: Axar ─── -->
+          <div class="hero-slide" data-active="true" data-slide="0"
+               role="group" aria-roledescription="slide" aria-label="1 of 2: Axar">
+            <div class="max-w-4xl mx-auto text-center">
+              <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium text-cyan-300 mb-8">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                Axar &middot; Vision AI for unstructured documents
+              </div>
+              <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight leading-[1.06] mb-6">
+                <span class="text-white">From handwritten registers</span><br>
+                <span class="text-white">to </span><span class="gradient-text">clean, signed-off data.</span>
+              </h1>
+              <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+                Decades-old handwritten registers, mixed-script forms, faded archives &mdash; turned into clean structured data.
+                Reviewer-approved, audit-grade. Live at production scale on government land records.
+              </p>
+              <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-3">
+                <a href="mailto:sales@xentovia.ai?subject=Axar%20demo%20request" class="cta-primary px-8 py-3.5 rounded-xl text-base font-semibold text-white w-full sm:w-auto">
+                  <span class="flex items-center justify-center gap-2">Book a 30-min walkthrough <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+                </a>
+                <a href="/solutions/axar/" class="group px-8 py-3.5 rounded-xl text-base font-medium text-slate-300 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all w-full sm:w-auto flex items-center justify-center gap-2">
+                  <i data-lucide="arrow-right" class="w-4 h-4 text-cyan-400 group-hover:text-cyan-300 transition-colors"></i>
+                  See Axar
+                </a>
+              </div>
+            </div>
           </div>
 
-          <!-- Headline -->
-          <h1 class="animate-on-scroll text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight leading-[1.06] mb-6">
-            <span class="text-white">PGA Copilot &mdash;</span><br>
-            <span class="gradient-text">AI for FDA, EPA, and Lacey filings.</span><br>
-            <span class="text-white">Built below the H350722 line.</span>
-          </h1>
-
-          <!-- Subheadline -->
-          <p class="animate-on-scroll text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
-            We pre-fill the forms with citations and confidence. The licensed broker reviews and approves every field. Below the CBP HQ H350722 line, by design.
-          </p>
-
-          <!-- CTAs -->
-          <div class="animate-on-scroll flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-            <a href="mailto:sales@xentovia.ai?subject=PGA%20Copilot%20demo%20request" class="cta-primary px-8 py-3.5 rounded-xl text-base font-semibold text-white w-full sm:w-auto">
-              <span class="flex items-center justify-center gap-2">Book a 30-min demo <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
-            </a>
-            <a href="/solutions/pga-copilot/" class="group px-8 py-3.5 rounded-xl text-base font-medium text-slate-300 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all w-full sm:w-auto flex items-center justify-center gap-2">
-              <i data-lucide="arrow-right" class="w-4 h-4 text-indigo-400 group-hover:text-indigo-300 transition-colors"></i>
-              See PGA Copilot
-            </a>
+          <!-- ─── Slide 2: CargologiX ─── -->
+          <div class="hero-slide" data-active="false" data-slide="1"
+               role="group" aria-roledescription="slide" aria-label="2 of 2: CargologiX">
+            <div class="max-w-4xl mx-auto text-center">
+              <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium text-indigo-300 mb-8">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                CargologiX &middot; Customs entries in production today
+              </div>
+              <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight leading-[1.06] mb-6">
+                <span class="gradient-text">CargologiX.</span><br>
+                <span class="text-white">Customs entries in</span><br>
+                <span class="gradient-text">15 minutes.</span>
+              </h1>
+              <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+                From shipping documents to a broker-approved entry, filed automatically.
+                Live with brokers in India today; expanding to US and global brokers this year.
+              </p>
+              <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-3">
+                <a href="mailto:sales@xentovia.ai?subject=CargologiX%20demo%20request" class="cta-primary px-8 py-3.5 rounded-xl text-base font-semibold text-white w-full sm:w-auto">
+                  <span class="flex items-center justify-center gap-2">Book a 30-min demo <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+                </a>
+                <a href="/solutions/cargologix/#video" class="group px-8 py-3.5 rounded-xl text-base font-medium text-slate-300 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all w-full sm:w-auto flex items-center justify-center gap-2">
+                  <i data-lucide="play-circle" class="w-4 h-4 text-indigo-400 group-hover:text-indigo-300 transition-colors"></i>
+                  Watch the 20-second walkthrough
+                </a>
+              </div>
+            </div>
           </div>
 
-          <!-- Video link -->
-          <div class="animate-on-scroll mt-3">
-            <a href="/solutions/pga-copilot/#video" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-indigo-300 transition-colors group">
-              <i data-lucide="play-circle" class="w-4 h-4 text-indigo-400 group-hover:text-indigo-300 transition-colors"></i>
-              Watch the 40-second overview
-            </a>
-          </div>
+        </div>
 
-          <!-- Broader-surface acknowledgement -->
-          <p class="animate-on-scroll text-sm text-slate-400 mt-4 mb-12 max-w-2xl mx-auto">
-            We also build agentic AI for healthcare, insurance, mortgage, and manufacturing &mdash; <a href="#solutions" class="text-indigo-400 hover:text-indigo-300 underline-offset-2 hover:underline">see all solutions</a>.
+        <!-- Slide dots -->
+        <div class="mt-10 flex items-center justify-center gap-3" role="tablist" aria-label="Hero slides">
+          <button type="button" class="hero-dot" data-slide-to="0" data-active="true"
+                  role="tab" aria-label="Show Axar"></button>
+          <button type="button" class="hero-dot" data-slide-to="1" data-active="false"
+                  role="tab" aria-label="Show CargologiX"></button>
+        </div>
+
+        <!-- Universal below-slide content -->
+        <div class="max-w-4xl mx-auto text-center mt-10">
+          <p class="text-sm text-slate-400 mb-10 max-w-2xl mx-auto">
+            We also build agentic AI for <a href="/solutions/pga-copilot/" class="text-indigo-400 hover:text-indigo-300 underline-offset-2 hover:underline">PGA filings (FDA, EPA, Lacey)</a>,
+            healthcare, insurance, mortgage, and manufacturing &mdash;
+            <a href="#solutions" class="text-indigo-400 hover:text-indigo-300 underline-offset-2 hover:underline">see all solutions</a>.
           </p>
 
           <!-- Proof Strip (real production stats, no fabricated logos) -->
-          <div class="animate-on-scroll flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-slate-400">
+          <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-slate-400">
             <span class="flex items-center gap-1.5">
               <i data-lucide="timer" class="w-3.5 h-3.5 text-sky-400"></i>
               <b class="text-white font-semibold">15-minute</b> customs filings
@@ -488,12 +551,55 @@
             </span>
           </div>
         </div>
+
       </div>
 
       <!-- Scroll Indicator -->
       <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
         <i data-lucide="chevrons-down" class="w-5 h-5 text-slate-400"></i>
       </div>
+
+      <script>
+        (function () {
+          var slides = document.querySelectorAll('#hero .hero-slide');
+          var dots = document.querySelectorAll('#hero [data-slide-to]');
+          if (!slides.length || !dots.length) return;
+          var active = 0;
+          var timer = null;
+          var paused = false;
+
+          function show(i) {
+            active = (i + slides.length) % slides.length;
+            slides.forEach(function (s, idx) {
+              s.setAttribute('data-active', idx === active ? 'true' : 'false');
+              s.setAttribute('aria-hidden', idx === active ? 'false' : 'true');
+            });
+            dots.forEach(function (d, idx) {
+              d.setAttribute('data-active', idx === active ? 'true' : 'false');
+              d.setAttribute('aria-selected', idx === active ? 'true' : 'false');
+            });
+          }
+          function next() { if (!paused) show(active + 1); }
+          function start() {
+            stop();
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            timer = setInterval(next, 8000);
+          }
+          function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+          dots.forEach(function (d, i) {
+            d.addEventListener('click', function () { show(i); start(); });
+          });
+          var hero = document.getElementById('hero');
+          hero.addEventListener('mouseenter', function () { paused = true; });
+          hero.addEventListener('mouseleave', function () { paused = false; });
+          hero.addEventListener('focusin', function () { paused = true; });
+          hero.addEventListener('focusout', function () { paused = false; });
+
+          show(0);
+          start();
+        })();
+      </script>
     </section>
 
 
