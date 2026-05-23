@@ -102,6 +102,7 @@
           attrs: { src: LOGO_SRC, alt: 'Xentovia' },
         });
         const url = el('div', { class: 'brand-url', text: 'xentovia.ai' });
+        const legal = el('div', { class: 'legal', text: 'Xentovia Tech Pvt Ltd' });
 
         const inner = el('div', { class: 'card-inner' }, mark, url);
 
@@ -111,6 +112,7 @@
         });
         for (const m of cropMarks()) page.appendChild(m);
         page.appendChild(inner);
+        page.appendChild(legal);
         return page;
       }
 

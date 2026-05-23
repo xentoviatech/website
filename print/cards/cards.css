@@ -221,3 +221,16 @@ html, body {
   text-transform: uppercase;
   color: var(--slate);
 }
+
+.back .legal {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3mm;
+  text-align: center;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 5pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(71,85,105,0.7);
+}
