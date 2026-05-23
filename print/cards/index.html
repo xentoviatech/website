@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Xentovia — Founder Business Cards (Print)</title>
+  <meta name="robots" content="noindex" />
+
+  <!-- Fonts: match the website families -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="cards.css" />
+
+  <!-- QR encoder (~12KB) -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+</head>
+<body>
+  <div id="pages"></div>
+
+  <script src="data.js"></script>
+  <script src="qr.js"></script>
+  <script>
+    (function () {
+      // ─── Tiny DOM helper: el(tag, {class, text}, ...children) ───
+      function el(tag, opts, ...children) {
+        const node = document.createElement(tag);
+        if (opts) {
+          if (opts.class) node.className = opts.class;
+          if (opts.text != null) node.textContent = opts.text;
+          if (opts.id) node.id = opts.id;
+          if (opts.dataset) {
+            for (const k in opts.dataset) node.dataset[k] = opts.dataset[k];
+          }
+        }
+        for (const c of children) {
+          if (c == null || c === false) continue;
+          node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+        }
+        return node;
+      }
+
+      // Crop marks are eight inert <span>s — class names only, no data.
+      function cropMarks() {
+        const positions = [
+          'crop-h tl-h', 'crop-v tl-v',
+          'crop-h tr-h', 'crop-v tr-v',
+          'crop-h bl-h', 'crop-v bl-v',
+          'crop-h br-h', 'crop-v br-v',
+        ];
+        return positions.map((cls) => el('span', { class: 'crop ' + cls }));
+      }
+
+      function frontFace(f) {
+        const wordmark = el('div', { class: 'wordmark' },
+          el('span', { class: 'glyph' }),
+          'Xentovia'
+        );
+        const name = el('h1', { class: 'name', text: f.full });
+        const role = el('div', { class: 'role', text: f.role });
+        const hairline = el('div', { class: 'hairline' });
+
+        const contact = el('div', { class: 'contact' });
+        contact.appendChild(el('div', { text: f.email }));
+        if (f.phoneDisplay) contact.appendChild(el('div', { text: f.phoneDisplay }));
+        contact.appendChild(el('div', { text: 'xentovia.ai' }));
+
+        const footerMicro = el('div', { class: 'footer-micro', text: f.location });
+
+        const inner = el('div', { class: 'card-inner' },
+          wordmark, name, role, hairline, contact
+        );
+
+        const page = el('section', {
+          class: 'card-page front',
+          dataset: { founder: f.id },
+        });
+        for (const m of cropMarks()) page.appendChild(m);
+        page.appendChild(inner);
+        page.appendChild(footerMicro);
+        return page;
+      }
+
+      function backFace(f) {
+        const qrSlot = el('div', { class: 'qr', id: 'qr-' + f.id });
+        const caption = el('div', { class: 'caption', text: 'SCAN TO SAVE CONTACT' });
+
+        const inner = el('div', { class: 'card-inner' }, qrSlot, caption);
+
+        const footer = el('div', { class: 'footer' },
+          el('span', { class: 'glyph' }),
+          'xentovia.ai'
+        );
+
+        const page = el('section', {
+          class: 'card-page back',
+          dataset: { founder: f.id },
+        });
+        for (const m of cropMarks()) page.appendChild(m);
+        page.appendChild(inner);
+        page.appendChild(footer);
+        return page;
+      }
+
+      // ?only=ram | rajnee | santosh — narrows the print run to one founder
+      const params = new URLSearchParams(window.location.search);
+      const only = params.get('only');
+      const list = only
+        ? window.FOUNDERS.filter((f) => f.id === only)
+        : window.FOUNDERS;
+
+      const pages = document.getElementById('pages');
+      for (const f of list) {
+        pages.appendChild(frontFace(f));
+        pages.appendChild(backFace(f));
+      }
+
+      // Render QR codes into their slots (renderQR uses createElementNS).
+      for (const f of list) {
+        const target = document.getElementById('qr-' + f.id);
+        const payload = window.buildMECARD(f);
+        window.renderQR(payload, target);
+      }
+
+      // Signal "ready for print" once fonts have loaded — headless renderers
+      // poll `document.title` for this string.
+      (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve())
+        .then(() => new Promise((r) => setTimeout(r, 500)))
+        .then(() => { document.title = 'READY'; });
+    })();
+  </script>
+</body>
+</html>
