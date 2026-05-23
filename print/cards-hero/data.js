@@ -1,0 +1,43 @@
+// Single source of truth for founder card content.
+// Editing here regenerates all faces and QR codes on next render.
+window.FOUNDERS = [
+  {
+    id: 'ram',
+    first: 'Ramachandran',
+    last: 'A V',
+    full: 'Ramachandran A V',
+    title: 'CEO & Co-Founder',
+    role: 'CEO · CO-FOUNDER',
+    email: 'ram@xentovia.ai',
+    phone: '+916362304979',
+    phoneDisplay: '+91 63623 04979',
+    website: 'https://xentovia.ai',
+    location: 'BENGALURU · IN',
+  },
+  {
+    id: 'rajnee',
+    first: 'Rajnee',
+    last: 'Dubey',
+    full: 'Rajnee Dubey',
+    title: 'COO & Co-Founder',
+    role: 'COO · CO-FOUNDER',
+    email: 'rajnee@xentovia.ai',
+    phone: null,
+    phoneDisplay: null,
+    website: 'https://xentovia.ai',
+    location: 'BENGALURU · IN',
+  },
+  {
+    id: 'santosh',
+    first: 'Santosh',
+    last: 'Kumar',
+    full: 'Santosh Kumar',
+    title: 'CTO & Co-Founder',
+    role: 'CTO · CO-FOUNDER',
+    email: 'santosh@xentovia.ai',
+    phone: null,
+    phoneDisplay: null,
+    website: 'https://xentovia.ai',
+    location: 'BENGALURU · IN',
+  },
+];

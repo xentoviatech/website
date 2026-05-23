@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Xentovia — Founder Business Cards (Hero, Print)</title>
+  <meta name="robots" content="noindex" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="cards.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+</head>
+<body>
+  <div id="pages"></div>
+
+  <script src="data.js"></script>
+  <script src="qr.js"></script>
+  <script>
+    (function () {
+      function el(tag, opts, ...children) {
+        const node = document.createElement(tag);
+        if (opts) {
+          if (opts.class) node.className = opts.class;
+          if (opts.text != null) node.textContent = opts.text;
+          if (opts.id) node.id = opts.id;
+          if (opts.dataset) {
+            for (const k in opts.dataset) node.dataset[k] = opts.dataset[k];
+          }
+          if (opts.attrs) {
+            for (const k in opts.attrs) node.setAttribute(k, opts.attrs[k]);
+          }
+        }
+        for (const c of children) {
+          if (c == null || c === false) continue;
+          node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+        }
+        return node;
+      }
+
+      const LOGO_SRC = '../../favicon.png';
+
+      function cropMarks() {
+        return [
+          'crop-h tl-h', 'crop-v tl-v',
+          'crop-h tr-h', 'crop-v tr-v',
+          'crop-h bl-h', 'crop-v bl-v',
+          'crop-h br-h', 'crop-v br-v',
+        ].map((cls) => el('span', { class: 'crop ' + cls }));
+      }
+
+      // Contact line 2: "phone · website" if phone present, else just "website"
+      function buildSecondaryContactLine(f) {
+        const line = el('div');
+        if (f.phoneDisplay) {
+          line.appendChild(document.createTextNode(f.phoneDisplay));
+          line.appendChild(el('span', { class: 'sep', text: '·' }));
+        }
+        line.appendChild(document.createTextNode('xentovia.ai'));
+        return line;
+      }
+
+      function frontFace(f) {
+        const wordmark = el('div', { class: 'wordmark' },
+          el('img', { class: 'glyph', attrs: { src: LOGO_SRC, alt: '' } }),
+          'Xentovia'
+        );
+
+        const nameBlock = el('div', { class: 'name-block' },
+          el('span', { class: 'name-first', text: f.first }),
+          el('span', { class: 'name-last', text: f.last })
+        );
+
+        const hairline = el('div', { class: 'hairline' });
+        const role = el('div', { class: 'role', text: f.role });
+
+        const contact = el('div', { class: 'contact' });
+        contact.appendChild(el('div', { text: f.email }));
+        contact.appendChild(buildSecondaryContactLine(f));
+
+        const footerMicro = el('div', { class: 'footer-micro', text: f.location });
+
+        const inner = el('div', { class: 'card-inner' },
+          wordmark, nameBlock, hairline, role, contact
+        );
+
+        const page = el('section', {
+          class: 'card-page front',
+          dataset: { founder: f.id },
+        });
+        for (const m of cropMarks()) page.appendChild(m);
+        page.appendChild(inner);
+        page.appendChild(footerMicro);
+        return page;
+      }
+
+      function backFace(f) {
+        const qrSlot = el('div', { class: 'qr', id: 'qr-' + f.id });
+        const caption = el('div', { class: 'caption', text: 'SCAN TO ADD CONTACT' });
+
+        const inner = el('div', { class: 'card-inner' }, qrSlot, caption);
+
+        const brand = el('div', { class: 'brand' },
+          el('img', { class: 'glyph', attrs: { src: LOGO_SRC, alt: 'Xentovia' } }),
+          'xentovia.ai'
+        );
+        const legal = el('div', { class: 'legal', text: 'Xentovia Tech Pvt Ltd' });
+
+        const page = el('section', {
+          class: 'card-page back',
+          dataset: { founder: f.id },
+        });
+        for (const m of cropMarks()) page.appendChild(m);
+        page.appendChild(inner);
+        page.appendChild(brand);
+        page.appendChild(legal);
+        return page;
+      }
+
+      const params = new URLSearchParams(window.location.search);
+      const only = params.get('only');
+      const list = only
+        ? window.FOUNDERS.filter((f) => f.id === only)
+        : window.FOUNDERS;
+
+      const pages = document.getElementById('pages');
+      for (const f of list) {
+        pages.appendChild(frontFace(f));
+        pages.appendChild(backFace(f));
+      }
+      for (const f of list) {
+        const target = document.getElementById('qr-' + f.id);
+        const payload = window.buildMECARD(f);
+        window.renderQR(payload, target);
+      }
+
+      (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve())
+        .then(() => new Promise((r) => setTimeout(r, 500)))
+        .then(() => { document.title = 'READY'; });
+    })();
+  </script>
+</body>
+</html>
