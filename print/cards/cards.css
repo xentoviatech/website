@@ -92,7 +92,31 @@ html, body {
 
 /* ─────────────────────────────────────────────────────────────
    FRONT FACE
+   Two columns: identity (left) + QR block (right), split by a hairline.
    ───────────────────────────────────────────────────────────── */
+.front .card-inner {
+  flex-direction: row;
+  gap: 5mm;
+}
+
+.front .identity {
+  flex: 1 1 auto;
+  min-width: 0;            /* allow name to shrink if needed */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.front .qr-block {
+  flex: 0 0 26mm;          /* fixed width for the QR column */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 3mm;
+  border-left: 0.18mm solid rgba(10,17,40,0.10);
+}
+
 .front .wordmark {
   display: inline-flex;
   align-items: center;
@@ -105,33 +129,33 @@ html, body {
   color: var(--slate);
 }
 .front .wordmark .glyph {
-  width: 4mm;
-  height: 4mm;
-  border-radius: 1mm;
-  background: linear-gradient(135deg, var(--accent-from), var(--accent-to));
-  box-shadow: 0 0 0 0.18mm rgba(10,17,40,0.10);
+  width: 5mm;
+  height: 5mm;
+  border-radius: 1.2mm;
+  object-fit: cover;
+  display: block;
 }
 
 .front .name {
-  margin-top: 8mm;
+  margin-top: 6mm;
   font-family: 'Instrument Serif', ui-serif, Georgia, serif;
   font-weight: 400;
-  font-size: 18pt;
-  line-height: 1.04;
+  font-size: 14pt;
+  line-height: 1.05;
   letter-spacing: -0.01em;
   color: var(--ink);
 }
 .front .role {
-  margin-top: 1.2mm;
+  margin-top: 1mm;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 6.5pt;
+  font-size: 6pt;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--slate);
 }
 .front .hairline {
   margin-top: 2mm;
-  width: 24mm;
+  width: 18mm;
   height: 0.35mm;
   background: linear-gradient(90deg, var(--accent-from), var(--accent-to));
   border-radius: 1mm;
@@ -140,62 +164,60 @@ html, body {
 .front .contact {
   margin-top: auto;
   font-family: 'Inter', system-ui, sans-serif;
-  font-size: 7.5pt;
+  font-size: 7pt;
   line-height: 1.55;
   color: var(--ink);
 }
 
 .front .footer-micro {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  margin-top: 2mm;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 5.5pt;
   letter-spacing: 0.22em;
   color: var(--slate);
 }
 
-/* ─────────────────────────────────────────────────────────────
-   BACK FACE
-   ───────────────────────────────────────────────────────────── */
-.back .card-inner {
-  align-items: center;
-  justify-content: center;
-}
-.back .qr {
-  width: 28mm;
-  height: 28mm;
+.front .qr {
+  width: 24mm;
+  height: 24mm;
   display: block;
 }
-.back .qr svg { width: 100%; height: 100%; display: block; }
+.front .qr svg { width: 100%; height: 100%; display: block; }
 
-.back .caption {
-  margin-top: 3mm;
+.front .scan-label {
+  margin-top: 2mm;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 6pt;
+  font-size: 5pt;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--slate);
   text-align: center;
+  line-height: 1.3;
 }
 
-.back .footer {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 4mm;
-  display: flex;
+/* ─────────────────────────────────────────────────────────────
+   BACK FACE
+   Clean brand piece: centred logo + url, nothing else.
+   ───────────────────────────────────────────────────────────── */
+.back .card-inner {
   align-items: center;
   justify-content: center;
-  gap: 2mm;
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 6pt;
-  letter-spacing: 0.18em;
-  color: var(--slate);
+  gap: 3mm;
 }
-.back .footer .glyph {
-  width: 3.2mm;
-  height: 3.2mm;
-  border-radius: 0.8mm;
-  background: linear-gradient(135deg, var(--accent-from), var(--accent-to));
+
+.back .brand-mark {
+  width: 22mm;
+  height: 22mm;
+  border-radius: 4mm;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 0 0 0.18mm rgba(10,17,40,0.08);
+}
+
+.back .brand-url {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 7pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--slate);
 }

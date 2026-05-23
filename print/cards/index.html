@@ -26,7 +26,7 @@
   <script src="qr.js"></script>
   <script>
     (function () {
-      // ─── Tiny DOM helper: el(tag, {class, text}, ...children) ───
+      // ─── Tiny DOM helper: el(tag, {class, text, id, dataset, attrs}, ...children) ───
       function el(tag, opts, ...children) {
         const node = document.createElement(tag);
         if (opts) {
@@ -36,6 +36,9 @@
           if (opts.dataset) {
             for (const k in opts.dataset) node.dataset[k] = opts.dataset[k];
           }
+          if (opts.attrs) {
+            for (const k in opts.attrs) node.setAttribute(k, opts.attrs[k]);
+          }
         }
         for (const c of children) {
           if (c == null || c === false) continue;
@@ -43,6 +46,9 @@
         }
         return node;
       }
+
+      // Path to the Xentovia logo, resolved relative to print/cards/index.html.
+      const LOGO_SRC = '../../favicon.png';
 
       // Crop marks are eight inert <span>s — class names only, no data.
       function cropMarks() {
@@ -57,7 +63,7 @@
 
       function frontFace(f) {
         const wordmark = el('div', { class: 'wordmark' },
-          el('span', { class: 'glyph' }),
+          el('img', { class: 'glyph', attrs: { src: LOGO_SRC, alt: '' } }),
           'Xentovia'
         );
         const name = el('h1', { class: 'name', text: f.full });
@@ -71,9 +77,15 @@
 
         const footerMicro = el('div', { class: 'footer-micro', text: f.location });
 
-        const inner = el('div', { class: 'card-inner' },
-          wordmark, name, role, hairline, contact
+        const identity = el('div', { class: 'identity' },
+          wordmark, name, role, hairline, contact, footerMicro
         );
+
+        const qrSlot = el('div', { class: 'qr', id: 'qr-' + f.id });
+        const scanLabel = el('div', { class: 'scan-label', text: 'SCAN TO SAVE CONTACT' });
+        const qrBlock = el('div', { class: 'qr-block' }, qrSlot, scanLabel);
+
+        const inner = el('div', { class: 'card-inner' }, identity, qrBlock);
 
         const page = el('section', {
           class: 'card-page front',
@@ -81,20 +93,17 @@
         });
         for (const m of cropMarks()) page.appendChild(m);
         page.appendChild(inner);
-        page.appendChild(footerMicro);
         return page;
       }
 
       function backFace(f) {
-        const qrSlot = el('div', { class: 'qr', id: 'qr-' + f.id });
-        const caption = el('div', { class: 'caption', text: 'SCAN TO SAVE CONTACT' });
+        const mark = el('img', {
+          class: 'brand-mark',
+          attrs: { src: LOGO_SRC, alt: 'Xentovia' },
+        });
+        const url = el('div', { class: 'brand-url', text: 'xentovia.ai' });
 
-        const inner = el('div', { class: 'card-inner' }, qrSlot, caption);
-
-        const footer = el('div', { class: 'footer' },
-          el('span', { class: 'glyph' }),
-          'xentovia.ai'
-        );
+        const inner = el('div', { class: 'card-inner' }, mark, url);
 
         const page = el('section', {
           class: 'card-page back',
@@ -102,7 +111,6 @@
         });
         for (const m of cropMarks()) page.appendChild(m);
         page.appendChild(inner);
-        page.appendChild(footer);
         return page;
       }
 
