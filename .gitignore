@@ -1,2 +1,3 @@
 # generated print artefacts
 print/cards/out/*.pdf
+print/cards-dark/out/*.pdf

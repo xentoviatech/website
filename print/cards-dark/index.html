@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Xentovia — Founder Business Cards (Dark, Print)</title>
+  <meta name="robots" content="noindex" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="cards.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+</head>
+<body>
+  <div id="pages"></div>
+
+  <script src="data.js"></script>
+  <script src="qr.js"></script>
+  <script>
+    (function () {
+      // ─── DOM helper (same shape as v1) ───
+      function el(tag, opts, ...children) {
+        const node = document.createElement(tag);
+        if (opts) {
+          if (opts.class) node.className = opts.class;
+          if (opts.text != null) node.textContent = opts.text;
+          if (opts.id) node.id = opts.id;
+          if (opts.dataset) {
+            for (const k in opts.dataset) node.dataset[k] = opts.dataset[k];
+          }
+          if (opts.attrs) {
+            for (const k in opts.attrs) node.setAttribute(k, opts.attrs[k]);
+          }
+        }
+        for (const c of children) {
+          if (c == null || c === false) continue;
+          node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+        }
+        return node;
+      }
+
+      const LOGO_SRC = '../../favicon.png';
+      const SVG_NS = 'http://www.w3.org/2000/svg';
+
+      // ─── Lucide-derived icon paths (MIT). Stroke-only, viewBox 24×24. ───
+      const ICONS = {
+        mail: [
+          { type: 'rect', attrs: { x: '2', y: '4', width: '20', height: '16', rx: '2' } },
+          { type: 'path', attrs: { d: 'm22 7-10 5L2 7' } },
+        ],
+        phone: [
+          { type: 'path', attrs: {
+            d: 'M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z'
+          } },
+        ],
+        link: [
+          { type: 'path', attrs: { d: 'M7 17 17 7' } },
+          { type: 'path', attrs: { d: 'M8 7h9v9' } },
+        ],
+        pin: [
+          { type: 'path', attrs: { d: 'M20 10c0 7-8 13-8 13s-8-6-8-13a8 8 0 0 1 16 0Z' } },
+          { type: 'circle', attrs: { cx: '12', cy: '10', r: '3' } },
+        ],
+      };
+
+      // Build an inline SVG icon. Strokes inherit colour from CSS via currentColor.
+      function icon(name) {
+        const svg = document.createElementNS(SVG_NS, 'svg');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        svg.setAttribute('fill', 'none');
+        svg.setAttribute('stroke', 'currentColor');
+        svg.setAttribute('stroke-width', '1.5');
+        svg.setAttribute('stroke-linecap', 'round');
+        svg.setAttribute('stroke-linejoin', 'round');
+        svg.setAttribute('class', 'icon');
+        svg.setAttribute('aria-hidden', 'true');
+        for (const part of ICONS[name]) {
+          const node = document.createElementNS(SVG_NS, part.type);
+          for (const k in part.attrs) node.setAttribute(k, part.attrs[k]);
+          svg.appendChild(node);
+        }
+        return svg;
+      }
+
+      function logoWithGlow(extraClass) {
+        return el('span', { class: 'logo-glow' + (extraClass ? ' ' + extraClass : '') },
+          el('img', { class: 'glyph', attrs: { src: LOGO_SRC, alt: '' } })
+        );
+      }
+
+      function cropMarks() {
+        return [
+          'crop-h tl-h', 'crop-v tl-v',
+          'crop-h tr-h', 'crop-v tr-v',
+          'crop-h bl-h', 'crop-v bl-v',
+          'crop-h br-h', 'crop-v br-v',
+        ].map((cls) => el('span', { class: 'crop ' + cls }));
+      }
+
+      function contactRow(iconName, text) {
+        return el('div', { class: 'row' }, icon(iconName), el('span', { text: text }));
+      }
+
+      function frontFace(f) {
+        const wordmark = el('div', { class: 'wordmark' },
+          logoWithGlow(),
+          'Xentovia'
+        );
+        const name = el('h1', { class: 'name', text: f.full });
+        const role = el('div', { class: 'role', text: f.role });
+        const hairline = el('div', { class: 'hairline' });
+
+        const contact = el('div', { class: 'contact' });
+        contact.appendChild(contactRow('mail', f.email));
+        if (f.phoneDisplay) contact.appendChild(contactRow('phone', f.phoneDisplay));
+        contact.appendChild(contactRow('link', 'xentovia.ai'));
+
+        const footerRow = el('div', { class: 'footer-row' },
+          icon('pin'),
+          el('span', { text: f.location })
+        );
+
+        const inner = el('div', { class: 'card-inner' },
+          wordmark, name, role, hairline, contact, footerRow
+        );
+
+        const page = el('section', {
+          class: 'card-page front',
+          dataset: { founder: f.id },
+        });
+        for (const m of cropMarks()) page.appendChild(m);
+        page.appendChild(inner);
+        return page;
+      }
+
+      function backFace(f) {
+        const qrSlot = el('div', { class: 'qr', id: 'qr-' + f.id });
+        const stamp = el('div', { class: 'qr-stamp' }, qrSlot);
+        const caption = el('div', { class: 'caption', text: 'SCAN TO ADD CONTACT' });
+
+        const inner = el('div', { class: 'card-inner' }, stamp, caption);
+
+        const brand = el('div', { class: 'brand' },
+          logoWithGlow(),
+          'xentovia.ai'
+        );
+        const legal = el('div', { class: 'legal', text: 'Xentovia Tech Pvt Ltd' });
+
+        const page = el('section', {
+          class: 'card-page back',
+          dataset: { founder: f.id },
+        });
+        for (const m of cropMarks()) page.appendChild(m);
+        page.appendChild(inner);
+        page.appendChild(brand);
+        page.appendChild(legal);
+        return page;
+      }
+
+      const params = new URLSearchParams(window.location.search);
+      const only = params.get('only');
+      const list = only
+        ? window.FOUNDERS.filter((f) => f.id === only)
+        : window.FOUNDERS;
+
+      const pages = document.getElementById('pages');
+      for (const f of list) {
+        pages.appendChild(frontFace(f));
+        pages.appendChild(backFace(f));
+      }
+      for (const f of list) {
+        const target = document.getElementById('qr-' + f.id);
+        const payload = window.buildMECARD(f);
+        window.renderQR(payload, target);
+      }
+
+      (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve())
+        .then(() => new Promise((r) => setTimeout(r, 500)))
+        .then(() => { document.title = 'READY'; });
+    })();
+  </script>
+</body>
+</html>
