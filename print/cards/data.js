@@ -4,8 +4,8 @@ window.FOUNDERS = [
   {
     id: 'ram',
     first: 'Ramachandran',
-    last: 'AV',
-    full: 'Ramachandran AV',
+    last: 'A V',
+    full: 'Ramachandran A V',
     title: 'CEO & Co-Founder',
     role: 'CEO · CO-FOUNDER',
     email: 'ram@xentovia.ai',
