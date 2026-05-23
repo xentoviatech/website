@@ -1,0 +1,201 @@
+/* ─────────────────────────────────────────────────────────────
+   Xentovia founder business cards — print stylesheet
+   Trim: 89×51mm landscape. Bleed: 3mm. Artboard: 95×57mm.
+   ───────────────────────────────────────────────────────────── */
+
+@page {
+  size: 95mm 57mm;     /* artboard = trim + 3mm bleed on all sides */
+  margin: 0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --paper:  #FAFAF7;
+  --ink:    #0A1128;
+  --slate:  #475569;
+  --accent-from: #6366F1;
+  --accent-to:   #06B6D4;
+
+  --bleed: 3mm;
+  --trim-w: 89mm;
+  --trim-h: 51mm;
+  --safe:   5mm; /* inside trim */
+}
+
+html, body {
+  background: #ffffff;
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── On-screen preview: lay the pages out vertically with a soft bg ─── */
+@media screen {
+  body {
+    background: #e5e7eb;
+    padding: 32px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .card-page {
+    box-shadow: 0 12px 32px -12px rgba(0,0,0,0.4);
+  }
+}
+
+/* ─── Print: one card-page per sheet ─── */
+@media print {
+  body { background: #ffffff; padding: 0; gap: 0; }
+  .card-page { page-break-after: always; box-shadow: none; }
+  .card-page:last-child { page-break-after: auto; }
+}
+
+/* Each .card-page is the full 95×57mm artboard (trim + bleed). */
+.card-page {
+  width: 95mm;
+  height: 57mm;
+  background: var(--paper);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Inner content sits inside the safe zone (5mm inset from trim,
+   so 8mm from the artboard edge: 3mm bleed + 5mm safe). */
+.card-inner {
+  position: absolute;
+  inset: 8mm;            /* 3mm bleed + 5mm safe */
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Crop marks: hairline ticks at 3mm offset from trim ─── */
+.crop {
+  position: absolute;
+  background: var(--ink);
+}
+.crop-h { height: 0.18mm; width: 3mm; }   /* horizontal tick */
+.crop-v { width: 0.18mm; height: 3mm; }   /* vertical tick */
+
+/* Top-left, top-right, bottom-left, bottom-right corner pairs.
+   Trim edges are 3mm in from each side of the artboard. */
+.crop.tl-h { top: 3mm;   left: 0; }
+.crop.tl-v { top: 0;     left: 3mm; }
+.crop.tr-h { top: 3mm;   right: 0; }
+.crop.tr-v { top: 0;     right: 3mm; }
+.crop.bl-h { bottom: 3mm; left: 0; }
+.crop.bl-v { bottom: 0;   left: 3mm; }
+.crop.br-h { bottom: 3mm; right: 0; }
+.crop.br-v { bottom: 0;   right: 3mm; }
+
+/* ─────────────────────────────────────────────────────────────
+   FRONT FACE
+   ───────────────────────────────────────────────────────────── */
+.front .wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 2mm;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 6.5pt;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.front .wordmark .glyph {
+  width: 4mm;
+  height: 4mm;
+  border-radius: 1mm;
+  background: linear-gradient(135deg, var(--accent-from), var(--accent-to));
+  box-shadow: 0 0 0 0.18mm rgba(10,17,40,0.10);
+}
+
+.front .name {
+  margin-top: 8mm;
+  font-family: 'Instrument Serif', ui-serif, Georgia, serif;
+  font-weight: 400;
+  font-size: 18pt;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.front .role {
+  margin-top: 1.2mm;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 6.5pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.front .hairline {
+  margin-top: 2mm;
+  width: 24mm;
+  height: 0.35mm;
+  background: linear-gradient(90deg, var(--accent-from), var(--accent-to));
+  border-radius: 1mm;
+}
+
+.front .contact {
+  margin-top: auto;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 7.5pt;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.front .footer-micro {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 5.5pt;
+  letter-spacing: 0.22em;
+  color: var(--slate);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   BACK FACE
+   ───────────────────────────────────────────────────────────── */
+.back .card-inner {
+  align-items: center;
+  justify-content: center;
+}
+.back .qr {
+  width: 28mm;
+  height: 28mm;
+  display: block;
+}
+.back .qr svg { width: 100%; height: 100%; display: block; }
+
+.back .caption {
+  margin-top: 3mm;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 6pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--slate);
+  text-align: center;
+}
+
+.back .footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2mm;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 6pt;
+  letter-spacing: 0.18em;
+  color: var(--slate);
+}
+.back .footer .glyph {
+  width: 3.2mm;
+  height: 3.2mm;
+  border-radius: 0.8mm;
+  background: linear-gradient(135deg, var(--accent-from), var(--accent-to));
+}
