@@ -1204,53 +1204,80 @@
             </div>
           </div>
 
-          <!-- Tabbed API Examples -->
+          <!-- Agent Workflow Pipeline Visual Flow -->
           <div class="animate-on-scroll lg:sticky lg:top-24">
-            <div class="glass rounded-2xl overflow-hidden">
-              <!-- Tab Bar -->
-              <div class="flex border-b border-white/5">
-                <button class="api-tab active flex-1 px-4 py-3 text-xs font-medium text-center transition-colors" data-tab="doc">
-                  Document
-                </button>
-                <button class="api-tab flex-1 px-4 py-3 text-xs font-medium text-center transition-colors" data-tab="visual">
-                  Visual
-                </button>
-                <button class="api-tab flex-1 px-4 py-3 text-xs font-medium text-center transition-colors" data-tab="auto">
-                  Automation
-                </button>
+            <div class="glass rounded-2xl p-6 border border-white/10 shadow-2xl relative overflow-hidden">
+              <div class="absolute top-0 right-0 p-3">
+                <span class="flex h-2 w-2 relative">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                </span>
               </div>
-              <!-- Tab Content: Document -->
-              <div class="api-panel active p-5 font-mono text-sm leading-relaxed" data-panel="doc">
-                <p><span class="text-slate-400">POST</span> <span class="text-emerald-400">/api/v1/pipeline/run</span></p>
-                <p class="text-slate-400">{</p>
-                <p>&nbsp;&nbsp;<span class="text-purple-400">"type"</span><span class="text-slate-400">:</span> <span class="text-emerald-400">"document"</span><span class="text-slate-400">,</span></p>
-                <p>&nbsp;&nbsp;<span class="text-purple-400">"source"</span><span class="text-slate-400">:</span> <span class="text-emerald-400">"s3://inbox/claim-4821.pdf"</span><span class="text-slate-400">,</span></p>
-                <p>&nbsp;&nbsp;<span class="text-purple-400">"pipeline"</span><span class="text-slate-400">:</span> <span class="text-emerald-400">"insurance-claims"</span><span class="text-slate-400">,</span></p>
-                <p>&nbsp;&nbsp;<span class="text-purple-400">"review_mode"</span><span class="text-slate-400">:</span> <span class="text-emerald-400">"flag_low_confidence"</span><span class="text-slate-400">,</span></p>
-                <p>&nbsp;&nbsp;<span class="text-purple-400">"callback"</span><span class="text-slate-400">:</span> <span class="text-emerald-400">"https://your-app.com/webhook"</span></p>
-                <p class="text-slate-400">}</p>
-              </div>
-              <!-- Tab Content: Visual -->
-              <div class="api-panel hidden p-5 font-mono text-sm leading-relaxed" data-panel="visual">
-                <p><span class="text-slate-400">POST</span> <span class="text-emerald-400">/api/v1/pipeline/run</span></p>
-                <p class="text-slate-400">{</p>
-                <p>&nbsp;&nbsp;<span class="text-purple-400">"type"</span><span class="text-slate-400">:</span> <span class="text-emerald-400">"visual"</span><span class="text-slate-400">,</span></p>
-                <p>&nbsp;&nbsp;<span class="text-purple-400">"source"</span><span class="text-slate-400">:</span> <span class="text-emerald-400">"s3://qc-feed/batch-0412/"</span><span class="text-slate-400">,</span></p>
-                <p>&nbsp;&nbsp;<span class="text-purple-400">"pipeline"</span><span class="text-slate-400">:</span> <span class="text-emerald-400">"defect-detection"</span><span class="text-slate-400">,</span></p>
-                <p>&nbsp;&nbsp;<span class="text-purple-400">"threshold"</span><span class="text-slate-400">:</span> <span class="text-cyan-400">0.95</span><span class="text-slate-400">,</span></p>
-                <p>&nbsp;&nbsp;<span class="text-purple-400">"callback"</span><span class="text-slate-400">:</span> <span class="text-emerald-400">"https://your-app.com/webhook"</span></p>
-                <p class="text-slate-400">}</p>
-              </div>
-              <!-- Tab Content: Automation -->
-              <div class="api-panel hidden p-5 font-mono text-sm leading-relaxed" data-panel="auto">
-                <p><span class="text-slate-400">POST</span> <span class="text-emerald-400">/api/v1/pipeline/run</span></p>
-                <p class="text-slate-400">{</p>
-                <p>&nbsp;&nbsp;<span class="text-purple-400">"type"</span><span class="text-slate-400">:</span> <span class="text-emerald-400">"workflow"</span><span class="text-slate-400">,</span></p>
-                <p>&nbsp;&nbsp;<span class="text-purple-400">"trigger"</span><span class="text-slate-400">:</span> <span class="text-emerald-400">"new_claim_submitted"</span><span class="text-slate-400">,</span></p>
-                <p>&nbsp;&nbsp;<span class="text-purple-400">"agents"</span><span class="text-slate-400">:</span> <span class="text-slate-400">[</span><span class="text-emerald-400">"classify"</span><span class="text-slate-400">,</span> <span class="text-emerald-400">"extract"</span><span class="text-slate-400">,</span> <span class="text-emerald-400">"decide"</span><span class="text-slate-400">,</span> <span class="text-emerald-400">"route"</span><span class="text-slate-400">]</span><span class="text-slate-400">,</span></p>
-                <p>&nbsp;&nbsp;<span class="text-purple-400">"guardrails"</span><span class="text-slate-400">:</span> <span class="text-cyan-400">true</span><span class="text-slate-400">,</span></p>
-                <p>&nbsp;&nbsp;<span class="text-purple-400">"callback"</span><span class="text-slate-400">:</span> <span class="text-emerald-400">"https://your-app.com/webhook"</span></p>
-                <p class="text-slate-400">}</p>
+              <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-6 flex items-center gap-2">
+                <i data-lucide="activity" class="w-4 h-4 text-indigo-400"></i>
+                Agent Lifecycle Pipeline
+              </h3>
+
+              <div class="space-y-6 relative before:absolute before:inset-0 before:left-5 before:top-2 before:bottom-2 before:w-[1px] before:bg-gradient-to-b before:from-indigo-500 before:via-purple-500 before:to-emerald-500">
+                <!-- Step 1 -->
+                <div class="relative pl-10 flex gap-4">
+                  <div class="absolute left-3 w-5 h-5 rounded-full bg-space-950 border-2 border-indigo-500 flex items-center justify-center -translate-x-1/2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-mono font-bold text-indigo-400 uppercase tracking-widest mb-1">Step 1: Raw Ingestion</h4>
+                    <p class="text-sm text-white font-semibold mb-0.5">Commercial invoices, clinical scans, or audio</p>
+                    <p class="text-xs text-slate-400">Payload accepted via S3 hook, SFTP, email, or direct API</p>
+                  </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative pl-10 flex gap-4">
+                  <div class="absolute left-3 w-5 h-5 rounded-full bg-space-950 border-2 border-indigo-400 flex items-center justify-center -translate-x-1/2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-indigo-300"></span>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-mono font-bold text-indigo-300 uppercase tracking-widest mb-1">Step 2: Multi-Agent Analysis</h4>
+                    <p class="text-sm text-white font-semibold mb-0.5">Layout segmentation &amp; extraction</p>
+                    <p class="text-xs text-slate-400">VLMs read Devanagari handwriting, tables, and mixed fields</p>
+                  </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative pl-10 flex gap-4">
+                  <div class="absolute left-3 w-5 h-5 rounded-full bg-space-950 border-2 border-purple-500 flex items-center justify-center -translate-x-1/2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-mono font-bold text-purple-400 uppercase tracking-widest mb-1">Step 3: Self-Correction Loop</h4>
+                    <p class="text-sm text-white font-semibold mb-0.5">Cross-validation and confidence scoring</p>
+                    <p class="text-xs text-slate-400">Inconsistencies prompt auto-correction verification routines</p>
+                  </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative pl-10 flex gap-4">
+                  <div class="absolute left-3 w-5 h-5 rounded-full bg-space-950 border-2 border-amber-500 flex items-center justify-center -translate-x-1/2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-mono font-bold text-amber-400 uppercase tracking-widest mb-1">Step 4: HITL Verification Gateway</h4>
+                    <p class="text-sm text-white font-semibold mb-0.5">High-confidence auto-approve &amp; low-confidence routing</p>
+                    <p class="text-xs text-slate-400">Low confidence scores trigger review in human-in-the-loop dashboard</p>
+                  </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="relative pl-10 flex gap-4">
+                  <div class="absolute left-3 w-5 h-5 rounded-full bg-space-950 border-2 border-emerald-500 flex items-center justify-center -translate-x-1/2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-widest mb-1">Step 5: Enterprise Delivery</h4>
+                    <p class="text-sm text-white font-semibold mb-0.5">Clean structured JSON, ERP/CRM records, database commits</p>
+                    <p class="text-xs text-slate-400">Data pushed back to SAP, Salesforce, or direct webhook callback</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1623,17 +1650,7 @@
       menu.classList.toggle('hidden');
     });
 
-    // ── API Tab Switching ──
-    document.querySelectorAll('.api-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.api-tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.api-panel').forEach(p => { p.classList.add('hidden'); p.classList.remove('active'); });
-        tab.classList.add('active');
-        const panel = document.querySelector(`.api-panel[data-panel="${tab.dataset.tab}"]`);
-        panel.classList.remove('hidden');
-        panel.classList.add('active');
-      });
-    });
+
 
     // ── Contact Form Handler ──
     function handleContact(e) {
