@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XentoStay: AI Agents for Hotels & Resorts — Xentovia Tech</title>
+  <meta name="description" content="XentoStay powers hospitality operations with voice booking concierges, messaging-based abandoned cart recovery, automated campaign builders, and front-desk copilots.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="XentoStay: AI Agents for Hotels & Resorts — Xentovia Tech">
+  <meta property="og:description" content="Elevate hotel and resort operations with Voice booking assistants, automated guest engagement CDP, dynamic campaign composers, and front-office copilots.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xentovia.ai/solutions/xentostay/">
+  <meta property="og:image" content="https://xentovia.ai/favicon.png">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { inter: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            space: { 950: '#03050a', 900: '#060b18', 800: '#0a1128', 700: '#0f1a3a' },
+            accent: { 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5' },
+            glow: { purple: '#7c3aed', blue: '#3b82f6', cyan: '#06b6d4' }
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 6s ease-in-out 2s infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'glow-move': 'glowMove 15s ease-in-out infinite',
+            'glow-move-2': 'glowMove2 18s ease-in-out infinite',
+            'glow-move-3': 'glowMove3 20s ease-in-out infinite',
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            'shimmer': 'shimmer 3s ease-in-out infinite',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #03050a;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #03050a; }
+    ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 3px; }
+
+    @keyframes glowMove {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30vw, -15vh) scale(1.2); }
+      50% { transform: translate(-10vw, 25vh) scale(0.8); }
+      75% { transform: translate(-25vw, -10vh) scale(1.1); }
+    }
+    @keyframes glowMove2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(-20vw, 20vh) scale(0.9); }
+      50% { transform: translate(25vw, -10vh) scale(1.3); }
+      75% { transform: translate(10vw, 15vh) scale(1); }
+    }
+    @keyframes glowMove3 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(15vw, 10vh) scale(1.1); }
+      66% { transform: translate(-20vw, -20vh) scale(0.9); }
+    }
+
+    .glow-orb {
+      position: fixed; border-radius: 50%; filter: blur(120px);
+      pointer-events: none; z-index: 0; will-change: transform;
+    }
+    .glow-orb-1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(124,58,237,0.25) 0%, transparent 70%);
+      top: -10%; left: -5%; animation: glowMove 15s ease-in-out infinite;
+    }
+    .glow-orb-2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%);
+      top: 40%; right: -10%; animation: glowMove2 18s ease-in-out infinite;
+    }
+    .glow-orb-3 {
+      width: 450px; height: 450px;
+      background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%);
+      bottom: -5%; left: 30%; animation: glowMove3 20s ease-in-out infinite;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-on-scroll {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .glass:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(129, 140, 248, 0.2);
+    }
+
+    .bento-card {
+      position: relative; overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .bento-card::before {
+      content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+      background: linear-gradient(135deg, transparent 40%, rgba(129,140,248,0.3) 50%, transparent 60%);
+      background-size: 300% 300%;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      opacity: 0; transition: opacity 0.5s ease;
+    }
+    .bento-card:hover::before { opacity: 1; animation: shimmer 3s ease-in-out infinite; }
+    @keyframes shimmer {
+      0%, 100% { background-position: 100% 0%; }
+      50% { background-position: 0% 100%; }
+    }
+    .bento-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px -15px rgba(99, 102, 241, 0.15);
+    }
+
+    .icon-box {
+      width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
+      border-radius: 12px; background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(124,58,237,0.1));
+      border: 1px solid rgba(129, 140, 248, 0.15);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #e0e7ff 0%, #818cf8 40%, #c084fc 70%, #38bdf8 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .nav-blur {
+      background: rgba(3, 5, 10, 0.7);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    /* Nav dropdown panel needs a fully opaque base — page content sits behind it */
+    .nav-blur .glass {
+      background: #020617;
+    }
+
+    .cta-primary {
+      position: relative; background: linear-gradient(135deg, #6366f1, #7c3aed);
+      overflow: hidden; transition: all 0.3s ease;
+    }
+    .cta-primary::after {
+      content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, #7c3aed, #6366f1);
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .cta-primary:hover::after { opacity: 1; }
+    .cta-primary:hover {
+      box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(124, 58, 237, 0.2);
+      transform: translateY(-2px);
+    }
+    .cta-primary span { position: relative; z-index: 1; }
+
+    .section-divider {
+      height: 1px; background: linear-gradient(90deg, transparent, rgba(99,102,241,0.3), transparent);
+    }
+  </style>
+</head>
+<body class="font-inter antialiased">
+
+  <!-- Background Effects -->
+  <div class="glow-orb glow-orb-1" aria-hidden="true"></div>
+  <div class="glow-orb glow-orb-2" aria-hidden="true"></div>
+  <div class="glow-orb glow-orb-3" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav-blur fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 group">
+        <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
+        <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/#capabilities" class="text-sm text-slate-400 hover:text-white transition-colors">Capabilities</a>
+        <div class="relative group">
+          <button type="button" class="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-1" aria-haspopup="true">
+            Solutions
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform group-hover:rotate-180"></i>
+          </button>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[460px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div class="glass rounded-2xl p-2 shadow-2xl border border-white/10 grid grid-cols-1">
+            <a href="/solutions/axar/" class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center bg-cyan-500/10 border border-cyan-500/20 flex-shrink-0">
+                <i data-lucide="building" class="w-4 h-4 text-cyan-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">Axar</p>
+                <p class="text-xs text-slate-400 truncate">Handwritten records at scale</p>
+              </div>
+            </a>
+            <a href="/solutions/cargologix/" class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center bg-sky-500/10 border border-sky-500/20 flex-shrink-0">
+                <i data-lucide="ship" class="w-4 h-4 text-sky-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">CargologiX</p>
+                <p class="text-xs text-slate-400 truncate">Customs entries in 15 min</p>
+              </div>
+            </a>
+            <a href="/solutions/healthcare/" class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center bg-rose-500/10 border border-rose-500/20 flex-shrink-0">
+                <i data-lucide="heart-pulse" class="w-4 h-4 text-rose-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">Healthcare</p>
+                <p class="text-xs text-slate-400 truncate">Prior auth in hours, not days</p>
+              </div>
+            </a>
+            <a href="/solutions/insurance/" class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center bg-indigo-500/10 border border-indigo-500/20 flex-shrink-0">
+                <i data-lucide="umbrella" class="w-4 h-4 text-indigo-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">Insurance</p>
+                <p class="text-xs text-slate-400 truncate">Triage claims and FNOLs</p>
+              </div>
+            </a>
+            <a href="/solutions/manufacturing/" class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center bg-amber-500/10 border border-amber-500/20 flex-shrink-0">
+                <i data-lucide="factory" class="w-4 h-4 text-amber-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">Manufacturing</p>
+                <p class="text-xs text-slate-400 truncate">Catch defects before the line</p>
+              </div>
+            </a>
+            <a href="/solutions/mortgage/" class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center bg-amber-500/10 border border-amber-500/20 flex-shrink-0">
+                <i data-lucide="home" class="w-4 h-4 text-amber-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">Mortgage</p>
+                <p class="text-xs text-slate-400 truncate">Index loan files at packet speed</p>
+              </div>
+            </a>
+            <a href="/solutions/xentostay/" class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center bg-purple-500/10 border border-purple-500/20 flex-shrink-0">
+                <i data-lucide="hotel" class="w-4 h-4 text-purple-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">XentoStay</p>
+                <p class="text-xs text-slate-400 truncate">AI Agents for Hotels & Resorts</p>
+              </div>
+            </a>
+            </div>
+          </div>
+        </div>
+        <a href="/#how-it-works" class="text-sm text-slate-400 hover:text-white transition-colors">How It Works</a>
+        <a href="/#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a>
+        <a href="/#company" class="text-sm text-slate-400 hover:text-white transition-colors">Company</a>
+        <a href="/blog/" class="text-sm text-slate-400 hover:text-white transition-colors">Blog</a>
+        <a href="#contact" class="cta-primary px-5 py-2 rounded-lg text-sm font-semibold text-white">
+          <span class="flex items-center gap-1.5">
+            Book a Demo
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </span>
+        </a>
+      </div>
+
+      <button class="md:hidden text-slate-400 hover:text-white" id="mobileMenuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden px-6 pb-4 space-y-3" id="mobileMenu">
+      <a href="/#capabilities" class="block text-sm text-slate-400 hover:text-white py-2">Capabilities</a>
+      <details class="group/details">
+        <summary class="cursor-pointer list-none flex items-center justify-between py-2 text-sm text-slate-400 hover:text-white">
+          <span>Solutions</span>
+          <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-open/details:rotate-180"></i>
+        </summary>
+        <div class="pl-3 mt-1 space-y-0.5 border-l border-white/5">
+        <a href="/solutions/axar/" class="block py-1.5 text-sm text-slate-400 hover:text-white"><span class="text-slate-200">Axar</span> <span class="text-slate-400">&middot; Handwritten records at scale</span></a>
+        <a href="/solutions/cargologix/" class="block py-1.5 text-sm text-slate-400 hover:text-white"><span class="text-slate-200">CargologiX</span> <span class="text-slate-400">&middot; Customs entries in 15 min</span></a>
+        <a href="/solutions/healthcare/" class="block py-1.5 text-sm text-slate-400 hover:text-white"><span class="text-slate-200">Healthcare</span> <span class="text-slate-400">&middot; Prior auth in hours</span></a>
+        <a href="/solutions/insurance/" class="block py-1.5 text-sm text-slate-400 hover:text-white"><span class="text-slate-200">Insurance</span> <span class="text-slate-400">&middot; Triage claims and FNOLs</span></a>
+        <a href="/solutions/manufacturing/" class="block py-1.5 text-sm text-slate-400 hover:text-white"><span class="text-slate-200">Manufacturing</span> <span class="text-slate-400">&middot; Defect detection</span></a>
+        <a href="/solutions/mortgage/" class="block py-1.5 text-sm text-slate-400 hover:text-white"><span class="text-slate-200">Mortgage</span> <span class="text-slate-400">&middot; Index loan files</span></a>
+        <a href="/solutions/xentostay/" class="block py-1.5 text-sm text-slate-400 hover:text-white"><span class="text-slate-200">XentoStay</span> <span class="text-slate-400">&middot; AI Agents for Hotels</span></a>
+        </div>
+      </details>
+      <a href="/#how-it-works" class="block text-sm text-slate-400 hover:text-white py-2">How It Works</a>
+      <a href="/#security" class="block text-sm text-slate-400 hover:text-white py-2">Security</a>
+      <a href="/#company" class="block text-sm text-slate-400 hover:text-white py-2">Company</a>
+      <a href="/blog/" class="block text-sm text-slate-400 hover:text-white py-2">Blog</a>
+      <a href="#contact" class="block cta-primary px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">
+        <span>Book a Demo</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="relative z-10 pt-16">
+    <!-- Hero Section -->
+    <section class="relative py-20 lg:py-28 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium text-purple-300 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          XentoStay &middot; Production-Scale AI for Hospitality
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-6">
+          Autonomous AI Agents for <span class="gradient-text">Hotels & Resorts</span>
+        </h1>
+        <p class="text-lg text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+          From voice-based telephone bookings and WhatsApp campaign drafting to direct-booking recovery and front-office copilots, XentoStay orchestrates complex operations to drive direct revenue and simplify team workflows.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
+          <a href="#contact" class="cta-primary px-6 py-3 rounded-xl text-sm font-semibold text-white text-center">
+            <span>Request a Demo</span>
+          </a>
+          <a href="#features" class="glass px-6 py-3 rounded-xl text-sm font-medium text-slate-300 hover:text-white transition-all text-center">
+            Explore Capabilities
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="relative py-16">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="text-sm font-semibold text-purple-400 uppercase tracking-widest mb-3">Modular Engine</p>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Built for hospitality scale. <span class="gradient-text">Grounded in your data.</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Ops Copilot -->
+          <div class="bento-card glass rounded-2xl p-8">
+            <div class="icon-box mb-5">
+              <i data-lucide="cpu" class="w-5 h-5 text-purple-400"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">Ops Copilot</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-6">
+              The internal brain for hospitality staff. Grounded strictly in your property's dataset, the Copilot answers operational questions, drafts guest replies, and coordinates housekeeping or service-desk tickets. Confirmed-gated actions prevent unauthorized modifications.
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-500">
+              <span class="px-2 py-1 rounded bg-white/5 text-purple-300">Multi-Tool Registry</span>
+              <span class="px-2 py-1 rounded bg-white/5 text-purple-300">Confirm-Gated Execution</span>
+              <span class="px-2 py-1 rounded bg-white/5 text-purple-300">Strict Role Authorization</span>
+            </div>
+          </div>
+
+          <!-- Voice Concierge -->
+          <div class="bento-card glass rounded-2xl p-8">
+            <div class="icon-box mb-5">
+              <i data-lucide="phone" class="w-5 h-5 text-cyan-400"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">Voice Concierge</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-6">
+              Telephony-integrated AI booking assistant powered by Retell/LiveKit. Handles pricing quotes, guest profile verification, and room holds with direct access to availability APIs—reusing the same business logic as text flows.
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-500">
+              <span class="px-2 py-1 rounded bg-white/5 text-cyan-300">Retell API / LiveKit</span>
+              <span class="px-2 py-1 rounded bg-white/5 text-cyan-300">Real-Time Quotes</span>
+              <span class="px-2 py-1 rounded bg-white/5 text-cyan-300">Telephony holds</span>
+            </div>
+          </div>
+
+          <!-- Campaign Composer -->
+          <div class="bento-card glass rounded-2xl p-8">
+            <div class="icon-box mb-5">
+              <i data-lucide="pen-tool" class="w-5 h-5 text-indigo-400"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">AI Campaign Composer</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-6">
+              Structured marketing draft generation. Uses strict JSON schema-based outputs via LLM proxies to turn simple marketing briefs into Meta-submittable WhatsApp message templates with auto-formatted body components, buttons, and samples.
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-500">
+              <span class="px-2 py-1 rounded bg-white/5 text-indigo-300">Schema-Strict Drafting</span>
+              <span class="px-2 py-1 rounded bg-white/5 text-indigo-300">Meta Template Specs</span>
+              <span class="px-2 py-1 rounded bg-white/5 text-indigo-300">Defensive JSON Parsing</span>
+            </div>
+          </div>
+
+          <!-- Direct Booking Recovery -->
+          <div class="bento-card glass rounded-2xl p-8">
+            <div class="icon-box mb-5">
+              <i data-lucide="shopping-cart" class="w-5 h-5 text-rose-400"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">Direct-Booking Recovery</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-6">
+              Recapture direct revenue from abandoned carts. Built on a Guest CDP stream, the engine triggers consent-gated WhatsApp or email recovery templates with deep links prefilled with the guest's specific dates, room types, and rates.
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-500">
+              <span class="px-2 py-1 rounded bg-white/5 text-rose-300">Guest CDP Stream</span>
+              <span class="px-2 py-1 rounded bg-white/5 text-rose-300">Cart Prefilled Links</span>
+              <span class="px-2 py-1 rounded bg-white/5 text-rose-300">WhatsApp Opt-in Ledger</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Architecture -->
+    <section class="relative py-16">
+      <div class="section-divider mb-16"></div>
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-3xl font-extrabold text-white text-center mb-10">Technical Integration</h2>
+        <div class="glass rounded-2xl p-8 font-mono text-xs text-slate-300 overflow-x-auto leading-relaxed">
+          <p class="text-slate-500">// XentoStay Agent Pipeline Integration</p>
+          <p><span class="text-purple-400">POST</span> <span class="text-emerald-400">/api/v1/voice/webhook/retell</span></p>
+          <p class="text-slate-400">{</p>
+          <p>&nbsp;&nbsp;<span class="text-purple-400">"event"</span>: <span class="text-emerald-400">"call_analyzed"</span>,</p>
+          <p>&nbsp;&nbsp;<span class="text-purple-400">"call_id"</span>: <span class="text-emerald-400">"call_98x1203"</span>,</p>
+          <p>&nbsp;&nbsp;<span class="text-purple-400">"transcript"</span>: <span class="text-emerald-400">"Guest asking for a deluxe suite from July 20 to 23..."</span>,</p>
+          <p>&nbsp;&nbsp;<span class="text-purple-400">"structured_data"</span>: {</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">"room_type"</span>: <span class="text-emerald-400">"DELUXE"</span>,</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">"date_range"</span>: [<span class="text-emerald-400">"2026-07-20"</span>, <span class="text-emerald-400">"2026-07-23"</span>],</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">"auto_hold"</span>: <span class="text-cyan-400">true</span></p>
+          <p>&nbsp;&nbsp;}</p>
+          <p class="text-slate-400">}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form section -->
+    <section id="contact" class="relative py-20">
+      <div class="section-divider mb-16"></div>
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-extrabold text-white mb-6">See XentoStay in Action</h2>
+        <p class="text-slate-400 mb-8 max-w-xl mx-auto">
+          Schedule a live demo to see how XentoStay voice agents and copilots integrate directly with your PMS and reservation systems.
+        </p>
+        <a href="mailto:sales@xentovia.ai?subject=XentoStay%20Demo%20Request" class="cta-primary inline-flex px-8 py-3.5 rounded-xl text-sm font-semibold text-white">
+          <span class="flex items-center gap-2">
+            Schedule a Walkthrough
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-white/5 bg-space-950/80">
+    <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-slate-400">
+        &copy; 2026 Xentovia Tech Private Limited. All rights reserved.
+      </p>
+      <div class="flex items-center gap-5">
+        <a href="https://www.linkedin.com/company/xentovia-ai" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.95v5.66H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.28 2.38 4.28 5.48v6.26zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+        <a href="mailto:sales@xentovia.ai" class="text-slate-400 hover:text-white transition-colors" aria-label="Email">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Mobile Menu Toggle
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
