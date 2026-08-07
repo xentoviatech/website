@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SimplImex AI — Simplifying Import-Export Customs Filing with AI</title>
-  <meta name="description" content="SimplImex AI is an agentic AI customs broker platform for Indian CHAs that automates ICEGATE filing, eSANCHIT document processing, and Shipping Bill generation.">
+  <title>SimplImex AI — Fast & Accurate Customs Filing for CHAs & Freight Forwarders</title>
+  <meta name="description" content="SimplImex AI helps Indian CHAs and Freight Forwarders automate ICEGATE customs filing, eSANCHIT document uploads, and shipping bills in minutes with AI.">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="SimplImex AI — Simplifying Import-Export Customs Filing with AI">
-  <meta property="og:description" content="SimplImex AI is an agentic AI customs broker platform for Indian CHAs that automates ICEGATE filing, eSANCHIT document processing, and Shipping Bill generation.">
+  <meta property="og:title" content="SimplImex AI — Fast & Accurate Customs Filing for CHAs & Freight Forwarders">
+  <meta property="og:description" content="SimplImex AI helps Indian CHAs and Freight Forwarders automate ICEGATE customs filing, eSANCHIT document uploads, and shipping bills in minutes with AI.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://xentovia.ai/simplimex/">
-  <meta property="og:image" content="https://xentovia.ai/favicon.png">
+  <meta property="og:image" content="https://xentovia.ai/assets/simplimex_dashboard_preview.jpg">
 
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -36,8 +36,6 @@
             'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             'glow-move': 'glowMove 15s ease-in-out infinite',
             'glow-move-2': 'glowMove2 18s ease-in-out infinite',
-            'glow-move-3': 'glowMove3 20s ease-in-out infinite',
-            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
             'shimmer': 'shimmer 3s ease-in-out infinite',
           }
         }
@@ -79,11 +77,6 @@
       50% { transform: translate(25vw, -10vh) scale(1.3); }
       75% { transform: translate(10vw, 15vh) scale(1); }
     }
-    @keyframes glowMove3 {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(15vw, 10vh) scale(1.1); }
-      66% { transform: translate(-20vw, -20vh) scale(0.9); }
-    }
 
     .glow-orb {
       position: fixed; border-radius: 50%; filter: blur(120px);
@@ -91,23 +84,13 @@
     }
     .glow-orb-1 {
       width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(124,58,237,0.25) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(124,58,237,0.22) 0%, transparent 70%);
       top: -10%; left: -5%; animation: glowMove 15s ease-in-out infinite;
     }
     .glow-orb-2 {
       width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%);
       top: 40%; right: -10%; animation: glowMove2 18s ease-in-out infinite;
-    }
-    .glow-orb-3 {
-      width: 450px; height: 450px;
-      background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%);
-      bottom: -5%; left: 30%; animation: glowMove3 20s ease-in-out infinite;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     .animate-on-scroll {
@@ -123,7 +106,7 @@
     }
     .glass:hover {
       background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(129, 140, 248, 0.2);
+      border-color: rgba(129, 140, 248, 0.25);
     }
 
     .bento-card {
@@ -146,7 +129,7 @@
     }
     .bento-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 20px 60px -15px rgba(99, 102, 241, 0.15);
+      box-shadow: 0 20px 60px -15px rgba(99, 102, 241, 0.18);
     }
 
     .icon-box {
@@ -170,7 +153,7 @@
     }
 
     .nav-blur {
-      background: rgba(3, 5, 10, 0.7);
+      background: rgba(3, 5, 10, 0.75);
       backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
@@ -203,7 +186,6 @@
   <!-- Background Effects -->
   <div class="glow-orb glow-orb-1" aria-hidden="true"></div>
   <div class="glow-orb glow-orb-2" aria-hidden="true"></div>
-  <div class="glow-orb glow-orb-3" aria-hidden="true"></div>
 
   <!-- Navigation -->
   <nav class="nav-blur fixed top-0 left-0 right-0 z-50">
@@ -221,76 +203,39 @@
           </button>
           <div class="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[460px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
             <div class="glass rounded-2xl p-2 shadow-2xl border border-white/10 grid grid-cols-1">
-            <a href="/xentoaxar/" class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-9 h-9 rounded-lg flex items-center justify-center bg-cyan-500/10 border border-cyan-500/20 flex-shrink-0">
-                <i data-lucide="building" class="w-4 h-4 text-cyan-400"></i>
-              </div>
-              <div class="min-w-0">
-                <p class="text-sm font-semibold text-white">Axar</p>
-                <p class="text-xs text-slate-400 truncate">Handwritten records at scale</p>
-              </div>
-            </a>
-            <a href="/simplimex/" class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-9 h-9 rounded-lg flex items-center justify-center bg-sky-500/10 border border-sky-500/20 flex-shrink-0">
-                <i data-lucide="ship" class="w-4 h-4 text-sky-400"></i>
-              </div>
-              <div class="min-w-0">
-                <p class="text-sm font-semibold text-white">SimplImex AI</p>
-                <p class="text-xs text-slate-400 truncate">Customs entries in 15 min</p>
-              </div>
-            </a>
-            <a href="/solutions/healthcare/" class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-9 h-9 rounded-lg flex items-center justify-center bg-rose-500/10 border border-rose-500/20 flex-shrink-0">
-                <i data-lucide="heart-pulse" class="w-4 h-4 text-rose-400"></i>
-              </div>
-              <div class="min-w-0">
-                <p class="text-sm font-semibold text-white">Healthcare</p>
-                <p class="text-xs text-slate-400 truncate">Prior auth in hours, not days</p>
-              </div>
-            </a>
-            <a href="/solutions/insurance/" class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-9 h-9 rounded-lg flex items-center justify-center bg-indigo-500/10 border border-indigo-500/20 flex-shrink-0">
-                <i data-lucide="umbrella" class="w-4 h-4 text-indigo-400"></i>
-              </div>
-              <div class="min-w-0">
-                <p class="text-sm font-semibold text-white">Insurance</p>
-                <p class="text-xs text-slate-400 truncate">Triage claims and FNOLs</p>
-              </div>
-            </a>
-            <a href="/solutions/manufacturing/" class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-9 h-9 rounded-lg flex items-center justify-center bg-amber-500/10 border border-amber-500/20 flex-shrink-0">
-                <i data-lucide="factory" class="w-4 h-4 text-amber-400"></i>
-              </div>
-              <div class="min-w-0">
-                <p class="text-sm font-semibold text-white">Manufacturing</p>
-                <p class="text-xs text-slate-400 truncate">Catch defects before the line</p>
-              </div>
-            </a>
-            <a href="/solutions/mortgage/" class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-9 h-9 rounded-lg flex items-center justify-center bg-amber-500/10 border border-amber-500/20 flex-shrink-0">
-                <i data-lucide="home" class="w-4 h-4 text-amber-400"></i>
-              </div>
-              <div class="min-w-0">
-                <p class="text-sm font-semibold text-white">Mortgage</p>
-                <p class="text-xs text-slate-400 truncate">Index loan files at packet speed</p>
-              </div>
-            </a>
-            <a href="/solutions/xentostay/" class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-9 h-9 rounded-lg flex items-center justify-center bg-purple-500/10 border border-purple-500/20 flex-shrink-0">
-                <i data-lucide="hotel" class="w-4 h-4 text-purple-400"></i>
-              </div>
-              <div class="min-w-0">
-                <p class="text-sm font-semibold text-white">XentoStay</p>
-                <p class="text-xs text-slate-400 truncate">AI Agents for Hotels & Resorts</p>
-              </div>
-            </a>
+              <a href="/simplimex/" class="flex items-start gap-3 p-3 rounded-xl bg-white/10 transition-colors">
+                <div class="w-9 h-9 rounded-lg flex items-center justify-center bg-sky-500/10 border border-sky-500/20 flex-shrink-0">
+                  <i data-lucide="ship" class="w-4 h-4 text-sky-400"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white">SimplImex AI</p>
+                  <p class="text-xs text-slate-300 truncate">Customs entries filed in 15 min</p>
+                </div>
+              </a>
+              <a href="/xentoaxar/" class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
+                <div class="w-9 h-9 rounded-lg flex items-center justify-center bg-cyan-500/10 border border-cyan-500/20 flex-shrink-0">
+                  <i data-lucide="building" class="w-4 h-4 text-cyan-400"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white">Axar</p>
+                  <p class="text-xs text-slate-400 truncate">Handwritten records at scale</p>
+                </div>
+              </a>
+              <a href="/solutions/xentostay/" class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
+                <div class="w-9 h-9 rounded-lg flex items-center justify-center bg-purple-500/10 border border-purple-500/20 flex-shrink-0">
+                  <i data-lucide="hotel" class="w-4 h-4 text-purple-400"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white">XentoStay</p>
+                  <p class="text-xs text-slate-400 truncate">AI Agents for Hotels & Resorts</p>
+                </div>
+              </a>
             </div>
           </div>
         </div>
-        <a href="/#how-it-works" class="text-sm text-slate-400 hover:text-white transition-colors">How It Works</a>
-        <a href="/#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a>
-        <a href="/#company" class="text-sm text-slate-400 hover:text-white transition-colors">Company</a>
-        <a href="/blog/" class="text-sm text-slate-400 hover:text-white transition-colors">Blog</a>
+        <a href="#how-it-works" class="text-sm text-slate-400 hover:text-white transition-colors">How It Works</a>
+        <a href="#outcomes" class="text-sm text-slate-400 hover:text-white transition-colors">Results</a>
+        <a href="#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a>
         <a href="/#contact" class="cta-primary px-5 py-2 rounded-lg text-sm font-semibold text-white">
           <span class="flex items-center gap-1.5">Book a Demo <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></span>
         </a>
@@ -300,27 +245,11 @@
       </button>
     </div>
     <div class="md:hidden hidden px-6 pb-4 space-y-3" id="mobileMenu">
-      <a href="/#capabilities" class="block text-sm text-slate-400 hover:text-white py-2">Capabilities</a>
-      <details class="group/details">
-        <summary class="cursor-pointer list-none flex items-center justify-between py-2 text-sm text-slate-400 hover:text-white">
-          <span>Solutions</span>
-          <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-open/details:rotate-180"></i>
-        </summary>
-        <div class="pl-3 mt-1 space-y-0.5 border-l border-white/5">
-        <a href="/xentoaxar/" class="block py-1.5 text-sm text-slate-400 hover:text-white"><span class="text-slate-200">Axar</span> <span class="text-slate-400">&middot; Handwritten records at scale</span></a>
-        <a href="/simplimex/" class="block py-1.5 text-sm text-slate-400 hover:text-white"><span class="text-slate-200">SimplImex AI</span> <span class="text-slate-400">&middot; Customs entries in 15 min</span></a>
-        <a href="/solutions/healthcare/" class="block py-1.5 text-sm text-slate-400 hover:text-white"><span class="text-slate-200">Healthcare</span> <span class="text-slate-400">&middot; Prior auth in hours, not days</span></a>
-        <a href="/solutions/insurance/" class="block py-1.5 text-sm text-slate-400 hover:text-white"><span class="text-slate-200">Insurance</span> <span class="text-slate-400">&middot; Triage claims and FNOLs</span></a>
-        <a href="/solutions/manufacturing/" class="block py-1.5 text-sm text-slate-400 hover:text-white"><span class="text-slate-200">Manufacturing</span> <span class="text-slate-400">&middot; Catch defects before the line</span></a>
-        <a href="/solutions/mortgage/" class="block py-1.5 text-sm text-slate-400 hover:text-white"><span class="text-slate-200">Mortgage</span> <span class="text-slate-400">&middot; Index loan files at packet speed</span></a>
-        <a href="/solutions/xentostay/" class="block py-1.5 text-sm text-slate-400 hover:text-white"><span class="text-slate-200">XentoStay</span> <span class="text-slate-400">&middot; AI Agents for Hotels & Resorts</span></a>
-        </div>
-      </details>
-      <a href="/#how-it-works" class="block text-sm text-slate-400 hover:text-white py-2">How It Works</a>
-      <a href="/#security" class="block text-sm text-slate-400 hover:text-white py-2">Security</a>
-      <a href="/#company" class="block text-sm text-slate-400 hover:text-white py-2">Company</a>
-      <a href="/blog/" class="block text-sm text-slate-400 hover:text-white py-2">Blog</a>
-      <a href="/#contact" class="block cta-primary px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">
+      <a href="/simplimex/" class="block text-sm text-white font-medium py-1">SimplImex AI — Customs Filing</a>
+      <a href="#how-it-works" class="block text-sm text-slate-400 hover:text-white py-1">How It Works</a>
+      <a href="#outcomes" class="block text-sm text-slate-400 hover:text-white py-1">Results</a>
+      <a href="#security" class="block text-sm text-slate-400 hover:text-white py-1">Security</a>
+      <a href="/#contact" class="block cta-primary px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center mt-2">
         <span>Book a Demo</span>
       </a>
     </div>
@@ -328,51 +257,140 @@
 
   <main class="relative z-10">
 
-    <!-- Hero -->
-    <section class="grid-bg relative min-h-[80vh] flex items-center pt-16">
-      <div class="max-w-7xl mx-auto px-6 py-24 lg:py-32">
-        <div class="max-w-4xl mx-auto text-center">
-          <div class="animate-on-scroll inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium text-indigo-300 mb-8">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            The Agentic OS for Modern Trade
+    <!-- Hero Section -->
+    <section class="grid-bg relative pt-24 pb-16 lg:pt-32 lg:pb-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-4xl mx-auto text-center mb-12">
+          <div class="animate-on-scroll inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-semibold text-indigo-300 mb-6">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            AI Customs Filing for Indian CHAs & Freight Forwarders
           </div>
           <h1 class="animate-on-scroll text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight leading-[1.08] mb-6">
-            <span class="gradient-text">SimplImex AI.</span><br>
-            <span class="text-white">Simplifying Import-Export</span><br>
-            <span class="gradient-text">Customs Filing with AI.</span>
+            <span class="gradient-text">File Customs Entries</span><br>
+            <span class="text-white">in 15 Minutes, Not Hours.</span>
           </h1>
-          <p class="animate-on-scroll text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
-            SimplImex AI is an agentic AI customs broker platform for Indian CHAs (Custom House Agents) that automates ICEGATE filing, eSANCHIT document processing, and Shipping Bill generation.
+          <p class="animate-on-scroll text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed">
+            SimplImex AI automatically reads invoices & packing lists, verifies HS codes, uploads eSANCHIT documents, and drafts ICEGATE filings with zero hassle.
           </p>
-          <div class="animate-on-scroll flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="/#contact" class="cta-primary px-8 py-3.5 rounded-xl text-base font-semibold text-white w-full sm:w-auto">
-              <span class="flex items-center justify-center gap-2">Book a Demo <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+          <div class="animate-on-scroll flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+            <a href="mailto:sales@xentovia.ai?subject=SimplImex%20AI%20Demo%20Request" class="cta-primary px-8 py-4 rounded-xl text-base font-semibold text-white w-full sm:w-auto shadow-lg shadow-indigo-500/25">
+              <span class="flex items-center justify-center gap-2">Book a 30-Min Demo <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
             </a>
-            <a href="/#contact" class="group px-8 py-3.5 rounded-xl text-base font-medium text-slate-300 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all w-full sm:w-auto flex items-center justify-center gap-2">
-              <i data-lucide="message-circle" class="w-4 h-4 text-indigo-400 group-hover:text-indigo-300 transition-colors"></i>
-              Tell Us Your Problem
+            <a href="#workflow-demo" class="group px-8 py-4 rounded-xl text-base font-medium text-slate-300 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all w-full sm:w-auto flex items-center justify-center gap-2">
+              <i data-lucide="play-circle" class="w-5 h-5 text-sky-400 group-hover:text-sky-300 transition-colors"></i>
+              See How It Works
             </a>
+          </div>
+
+          <!-- Highlight Stats Banner -->
+          <div class="animate-on-scroll grid grid-cols-2 md:grid-cols-4 gap-4 p-6 glass rounded-2xl border border-white/10 max-w-4xl mx-auto">
+            <div>
+              <p class="text-2xl lg:text-3xl font-black gradient-text">15 Mins</p>
+              <p class="text-xs text-slate-400 font-medium">Filing Time Per Entry</p>
+            </div>
+            <div>
+              <p class="text-2xl lg:text-3xl font-black gradient-text">80% Less</p>
+              <p class="text-xs text-slate-400 font-medium">Manual Data Typing</p>
+            </div>
+            <div>
+              <p class="text-2xl lg:text-3xl font-black text-emerald-400">100%</p>
+              <p class="text-xs text-slate-400 font-medium">eSANCHIT Verified</p>
+            </div>
+            <div>
+              <p class="text-2xl lg:text-3xl font-black text-sky-400">Zero</p>
+              <p class="text-xs text-slate-400 font-medium">Document Mismatch Holds</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard Visual Preview -->
+        <div class="animate-on-scroll relative max-w-5xl mx-auto rounded-2xl overflow-hidden glass shadow-2xl shadow-indigo-500/20 ring-1 ring-white/10">
+          <div class="bg-slate-900/90 px-4 py-3 border-b border-white/10 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+              <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+              <span class="text-xs text-slate-400 font-mono ml-2">simplimex.xentovia.ai — Customs Workspace</span>
+            </div>
+            <span class="text-xs text-emerald-400 font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">LIVE ICEGATE CONNECTED</span>
+          </div>
+          <img src="/assets/simplimex_dashboard_preview.jpg" alt="SimplImex AI Customs Workspace Interface" class="w-full object-cover">
+        </div>
+      </div>
+    </section>
+
+    <!-- 3-Step Visual Workflow -->
+    <section id="workflow-demo" class="relative py-20 lg:py-28 scroll-mt-20">
+      <div class="section-divider mb-16"></div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">Simple 3-Step Process</p>
+          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+            How SimplImex AI <span class="gradient-text">Simplifies Your Work.</span>
+          </h2>
+          <p class="animate-on-scroll text-slate-300 max-w-2xl mx-auto text-base">
+            No technical knowledge needed. Simply drag and drop your shipping invoices and let AI prepare your entry for instant approval.
+          </p>
+        </div>
+
+        <!-- Workflow Graphic Image -->
+        <div class="animate-on-scroll max-w-5xl mx-auto mb-12 rounded-2xl overflow-hidden glass p-2 border border-white/10 shadow-2xl">
+          <img src="/assets/simplimex_workflow_graphic.jpg" alt="Automated Customs Filing Workflow Step 1 2 3" class="w-full rounded-xl">
+        </div>
+
+        <!-- 3 Step Cards -->
+        <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div class="animate-on-scroll glass rounded-2xl p-7 relative">
+            <span class="text-4xl font-black text-indigo-500/40 absolute top-4 right-6">01</span>
+            <div class="icon-box mb-4">
+              <i data-lucide="upload-cloud" class="w-5 h-5 text-indigo-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">1. Upload Documents</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Drop PDFs or scans of Commercial Invoices, Packing Lists, and Bills of Lading. The AI instantly reads all values and line items.
+            </p>
+          </div>
+
+          <div class="animate-on-scroll glass rounded-2xl p-7 relative">
+            <span class="text-4xl font-black text-sky-500/40 absolute top-4 right-6">02</span>
+            <div class="icon-box mb-4">
+              <i data-lucide="cpu" class="w-5 h-5 text-sky-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">2. AI Verifies & Calculates</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              AI automatically classifies correct HS Codes, checks duty rates, matches invoice amounts, and generates eSANCHIT uploads.
+            </p>
+          </div>
+
+          <div class="animate-on-scroll glass rounded-2xl p-7 relative">
+            <span class="text-4xl font-black text-emerald-500/40 absolute top-4 right-6">03</span>
+            <div class="icon-box mb-4">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">3. One-Click Approval</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Review extracted summary side-by-side with your document. Click approve to generate Shipping Bills or file to ICEGATE instantly.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Watch it work -->
-    <section id="video" class="relative py-24 lg:py-32 scroll-mt-20">
+    <!-- Watch 20-second Video Walkthrough -->
+    <section id="video" class="relative py-20 lg:py-28">
       <div class="section-divider mb-16"></div>
       <div class="max-w-5xl mx-auto px-6">
         <div class="text-center mb-10">
-          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Watch it work &middot; 20 seconds</p>
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">Watch It Live &middot; 20 Seconds</p>
           <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
-            What goes in. <span class="gradient-text">What comes out.</span>
+            See Documents Turned into <span class="gradient-text">Filed Customs Entries.</span>
           </h2>
-          <p class="animate-on-scroll text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            A 20-second walkthrough &mdash; from shipping documents to a broker-approved entry filed to ICEGATE (India's customs e-filing gateway),
-            on a live production workflow.
+          <p class="animate-on-scroll text-base text-slate-300 max-w-2xl mx-auto">
+            Watch a real shipping document processed and readied for ICEGATE filing in under 20 seconds.
           </p>
         </div>
 
-        <div class="animate-on-scroll relative aspect-video rounded-2xl overflow-hidden glass shadow-2xl shadow-indigo-500/10 ring-1 ring-white/5">
+        <div class="animate-on-scroll relative aspect-video rounded-2xl overflow-hidden glass shadow-2xl ring-1 ring-white/10">
           <button
             type="button"
             id="cargoVideoPlay"
@@ -380,23 +398,18 @@
             aria-label="Play 20-second SimplImex AI workflow video">
             <img
               src="/assets/simplimex_hero_mockup.jpg"
-              alt="SimplImex AI workflow preview &mdash; customs entries filed to ICEGATE in 15 minutes"
+              alt="SimplImex AI workflow preview video poster"
               loading="lazy"
               class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity">
-            <span aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent"></span>
+            <span aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></span>
             <span aria-hidden="true" class="absolute inset-0 flex items-center justify-center">
-              <span class="flex items-center justify-center w-20 h-20 rounded-full bg-indigo-500 group-hover:bg-indigo-400 group-hover:scale-105 transition-all shadow-2xl shadow-indigo-500/40">
+              <span class="flex items-center justify-center w-20 h-20 rounded-full bg-indigo-600 group-hover:bg-indigo-500 group-hover:scale-105 transition-all shadow-2xl shadow-indigo-500/50">
                 <i data-lucide="play" class="w-8 h-8 text-white ml-1"></i>
               </span>
             </span>
-            <span aria-hidden="true" class="absolute bottom-4 left-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur text-white text-xs font-mono">0:20</span>
+            <span aria-hidden="true" class="absolute bottom-4 left-4 px-3 py-1 rounded-full bg-black/80 backdrop-blur text-white text-xs font-mono">0:20</span>
           </button>
         </div>
-
-        <p class="animate-on-scroll text-center mt-6 text-sm text-slate-400">
-          <span class="font-mono text-xs text-slate-400 uppercase tracking-widest mr-2">Manual baseline</span>
-          2&ndash;4 hours per entry today &mdash; plus the 3&ndash;7 day customs hold when one field doesn't match.
-        </p>
       </div>
 
       <script>
@@ -406,7 +419,6 @@
           btn.addEventListener('click', function () {
             var video = document.createElement('video');
             video.src = '/assets/videos/cargologix-workflow.mp4';
-            video.poster = '/assets/videos/cargologix-workflow-poster.png';
             video.controls = true;
             video.autoplay = true;
             video.playsInline = true;
@@ -418,443 +430,269 @@
       </script>
     </section>
 
-    <!-- The Problem -->
-    <section class="relative py-24 lg:py-32">
-      <div class="section-divider mb-20"></div>
+    <!-- Why Existing Process Fails -->
+    <section class="relative py-20 lg:py-28">
+      <div class="section-divider mb-16"></div>
       <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
-          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">The Problem</p>
-          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
-            Customs documentation is <span class="gradient-text">broken at scale.</span>
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">The Common Bottlenecks</p>
+          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+            Why Manual Documentation <span class="gradient-text">Slows You Down.</span>
           </h2>
-          <p class="animate-on-scroll text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            Brokers, freight forwarders, and importers run on a flood of invoices, BOLs (bills of lading), packing lists,
-            and certificates of origin &mdash; in every format, language, and layout. Tariff volatility and
-            tightening sanctions enforcement mean every classification error is now expensive.
+          <p class="animate-on-scroll text-base text-slate-400 max-w-2xl mx-auto">
+            Traditional customs filing relies on hours of manual typing and constant cross-checking across different forms.
           </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="animate-on-scroll glass rounded-2xl p-8 text-center">
-            <div class="text-5xl font-black gradient-text mb-3">3&ndash;7d</div>
-            <p class="text-white font-semibold mb-2">Customs Holds Per Error</p>
-            <p class="text-sm text-slate-400 leading-relaxed">
-              A single documentation inconsistency &mdash; mismatched values, missing COO (certificate of origin), wrong HS code &mdash;
-              triggers customs holds that delay shipments by 3 to 7 days.
+        <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div class="animate-on-scroll glass rounded-2xl p-8 border border-rose-500/20 bg-rose-500/5">
+            <div class="w-12 h-12 rounded-xl bg-rose-500/10 flex items-center justify-center mb-5 border border-rose-500/30">
+              <i data-lucide="clock" class="w-6 h-6 text-rose-400"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">2 to 4 Hours Spent Per Shipment</h3>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Customs staff spend hours re-typing numbers from commercial invoices, certificates, and packing lists into eSANCHIT & ICEGATE.
             </p>
           </div>
-          <div class="animate-on-scroll glass rounded-2xl p-8 text-center">
-            <div class="text-5xl font-black gradient-text mb-3">2&ndash;4hr</div>
-            <p class="text-white font-semibold mb-2">Per Entry, Manually</p>
-            <p class="text-sm text-slate-400 leading-relaxed">
-              Coordinators read 4&ndash;6 documents per shipment, re-key 50+ fields into customs systems,
-              look up HS codes, and check sanctions lists by hand &mdash; on every single entry.
+
+          <div class="animate-on-scroll glass rounded-2xl p-8 border border-amber-500/20 bg-amber-500/5">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-5 border border-amber-500/30">
+              <i data-lucide="alert-triangle" class="w-6 h-6 text-amber-400"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">3 to 7 Day Customs Holds</h3>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              A single typo in an HS code, unit price, or consignee address triggers customs queries, leading to costly shipment delays.
             </p>
           </div>
-          <div class="animate-on-scroll glass rounded-2xl p-8 text-center">
-            <div class="text-5xl font-black gradient-text mb-3">10K+</div>
-            <p class="text-white font-semibold mb-2">Documents Per Branch / Month</p>
-            <p class="text-sm text-slate-400 leading-relaxed">
-              A single forwarder branch processes tens of thousands of shipping documents per month.
-              Shared inboxes overflow. Back-office cost spirals against thin margins.
+
+          <div class="animate-on-scroll glass rounded-2xl p-8 border border-indigo-500/20 bg-indigo-500/5">
+            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-5 border border-indigo-500/30">
+              <i data-lucide="layers" class="w-6 h-6 text-indigo-400"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Overflowing Documentation</h3>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Teams get overwhelmed managing thousands of email attachments, scanned invoices, and shipping bills every month.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- The Solution -->
-    <section class="relative py-24 lg:py-32">
-      <div class="section-divider mb-20"></div>
+    <!-- Key Features & Solved Problems -->
+    <section class="relative py-20 lg:py-28">
+      <div class="section-divider mb-16"></div>
       <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
-          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">The Solution</p>
-          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
-            Agentic AI that understands <span class="gradient-text">trade documents.</span>
-          </h2>
-          <p class="animate-on-scroll text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            Xentovia's AI agents read every customs document &mdash; multi-language, handwritten, scanned, EDI (electronic data interchange) &mdash;
-            extract structured data, classify HS codes, screen for sanctions, and prepare audit-ready filings.
-            Human reviewers see only the 10&ndash;20% that need judgment.
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
-            <div class="icon-box mb-5">
-              <i data-lucide="file-clock" class="w-5 h-5 text-sky-400"></i>
-            </div>
-            <h3 class="text-lg font-bold text-white mb-2">Customs Entry Preparation</h3>
-            <p class="text-sm text-slate-400 leading-relaxed">
-              Auto-draft customs declarations from invoice, BOL, and COO data. Pre-fill 50+ fields,
-              attach rationale, and route to a reviewer with one click.
-            </p>
-          </div>
-          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
-            <div class="icon-box mb-5">
-              <i data-lucide="tags" class="w-5 h-5 text-indigo-400"></i>
-            </div>
-            <h3 class="text-lg font-bold text-white mb-2">HS Code Classification</h3>
-            <p class="text-sm text-slate-400 leading-relaxed">
-              Suggest HS codes with confidence scores. Agents learn from each broker's historical
-              classifications to sharpen accuracy over time and reduce duty leakage.
-            </p>
-          </div>
-          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
-            <div class="icon-box mb-5">
-              <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-            </div>
-            <h3 class="text-lg font-bold text-white mb-2">Sanctions &amp; Trade Screening</h3>
-            <p class="text-sm text-slate-400 leading-relaxed">
-              Continuous checks against OFAC, EAR, ITAR, EU dual-use (the US and EU export-control regimes), and global sanctions lists.
-              Restricted parties caught before filing &mdash; not after a hold.
-            </p>
-          </div>
-          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
-            <div class="icon-box mb-5">
-              <i data-lucide="list-checks" class="w-5 h-5 text-emerald-400"></i>
-            </div>
-            <h3 class="text-lg font-bold text-white mb-2">Cross-Document Validation</h3>
-            <p class="text-sm text-slate-400 leading-relaxed">
-              Compare values, parties, and quantities across invoice, BOL, packing list, and COO.
-              Inconsistencies flagged pre-submission &mdash; no more customs holds for mismatched data.
-            </p>
-          </div>
-          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
-            <div class="icon-box mb-5">
-              <i data-lucide="user-check" class="w-5 h-5 text-amber-400"></i>
-            </div>
-            <h3 class="text-lg font-bold text-white mb-2">HITL Review Workflow</h3>
-            <p class="text-sm text-slate-400 leading-relaxed">
-              Low-confidence outputs route to your reviewer with side-by-side document viewer,
-              inline edit, and one-click approve. Reviewers handle only the 10&ndash;20% that need judgment.
-            </p>
-          </div>
-          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
-            <div class="icon-box mb-5">
-              <i data-lucide="scroll-text" class="w-5 h-5 text-cyan-400"></i>
-            </div>
-            <h3 class="text-lg font-bold text-white mb-2">Audit-Ready Trail</h3>
-            <p class="text-sm text-slate-400 leading-relaxed">
-              Every agent decision logged with reasoning, source documents, and reviewer actions.
-              Audit-ready trail for any regulator, any time &mdash; without a manual file pull.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Document Types -->
-    <section class="relative py-24 lg:py-32">
-      <div class="section-divider mb-20"></div>
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Document Types</p>
-          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
-            Built for the chaos of <span class="gradient-text">global shipping paperwork.</span>
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">Key Features</p>
+          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+            Everything Your CHA Operations Need <span class="gradient-text">In One Place.</span>
           </h2>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-          <div class="animate-on-scroll bento-card glass rounded-xl p-6">
-            <div class="icon-box mb-4 w-10 h-10">
-              <i data-lucide="file-text" class="w-4 h-4 text-indigo-400"></i>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
+            <div class="icon-box mb-5">
+              <i data-lucide="file-text" class="w-5 h-5 text-sky-400"></i>
             </div>
-            <h4 class="text-sm font-bold text-white mb-1">Commercial Invoices</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">Multi-line invoices in any language &mdash; values, parties, terms, and Incoterms extracted to structured JSON.</p>
+            <h3 class="text-lg font-bold text-white mb-2">Automated Invoice Reading</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Instantly extracts all line items, values, currencies, quantities, and descriptions from PDF invoices and scans.
+            </p>
           </div>
-          <div class="animate-on-scroll bento-card glass rounded-xl p-6">
-            <div class="icon-box mb-4 w-10 h-10">
-              <i data-lucide="truck" class="w-4 h-4 text-sky-400"></i>
+
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
+            <div class="icon-box mb-5">
+              <i data-lucide="tag" class="w-5 h-5 text-indigo-400"></i>
             </div>
-            <h4 class="text-sm font-bold text-white mb-1">Bills of Lading</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">Ocean, air, and road BOLs &mdash; consignor, consignee, vessel, container, and cargo details normalized.</p>
+            <h3 class="text-lg font-bold text-white mb-2">Smart HS Code Suggestions</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              AI suggests accurate 8-digit HS codes for items along with duty rates, learning from your historical filings.
+            </p>
           </div>
-          <div class="animate-on-scroll bento-card glass rounded-xl p-6">
-            <div class="icon-box mb-4 w-10 h-10">
-              <i data-lucide="award" class="w-4 h-4 text-amber-400"></i>
+
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
+            <div class="icon-box mb-5">
+              <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400"></i>
             </div>
-            <h4 class="text-sm font-bold text-white mb-1">Certificates of Origin</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">USMCA, EUR.1, GSP, FTA certificates &mdash; eligibility verified against goods classification.</p>
+            <h3 class="text-lg font-bold text-white mb-2">eSANCHIT Document Verification</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Formats and verifies supporting documents before uploading, ensuring smooth eSANCHIT IRN generation.
+            </p>
           </div>
-          <div class="animate-on-scroll bento-card glass rounded-xl p-6">
-            <div class="icon-box mb-4 w-10 h-10">
-              <i data-lucide="boxes" class="w-4 h-4 text-emerald-400"></i>
+
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
+            <div class="icon-box mb-5">
+              <i data-lucide="git-compare" class="w-5 h-5 text-amber-400"></i>
             </div>
-            <h4 class="text-sm font-bold text-white mb-1">Packing Lists</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">Line-item quantities, weights, dimensions, and marks reconciled against invoice and BOL.</p>
+            <h3 class="text-lg font-bold text-white mb-2">Cross-Document Mismatch Checks</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Compares quantities, weights, and values across invoice, packing list, and bill of lading to catch discrepancies before filing.
+            </p>
           </div>
-          <div class="animate-on-scroll bento-card glass rounded-xl p-6">
-            <div class="icon-box mb-4 w-10 h-10">
-              <i data-lucide="file-check" class="w-4 h-4 text-cyan-400"></i>
+
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
+            <div class="icon-box mb-5">
+              <i data-lucide="eye" class="w-5 h-5 text-cyan-400"></i>
             </div>
-            <h4 class="text-sm font-bold text-white mb-1">Customs Declarations</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">Entry summary, ABI/ACE filings, EU customs declarations &mdash; auto-drafted with rationale attached.</p>
+            <h3 class="text-lg font-bold text-white mb-2">Side-by-Side Review Screen</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Your staff can easily verify AI-extracted fields against the original invoice document in a simple split view.
+            </p>
           </div>
-          <div class="animate-on-scroll bento-card glass rounded-xl p-6">
-            <div class="icon-box mb-4 w-10 h-10">
-              <i data-lucide="key-round" class="w-4 h-4 text-rose-400"></i>
+
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
+            <div class="icon-box mb-5">
+              <i data-lucide="history" class="w-5 h-5 text-purple-400"></i>
             </div>
-            <h4 class="text-sm font-bold text-white mb-1">Licenses &amp; Permits</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">Export licenses, PGA forms, dual-use authorizations &mdash; checked against goods and destination.</p>
+            <h3 class="text-lg font-bold text-white mb-2">Complete Audit History</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Every document edit, approval, and filing timestamp is logged clearly for complete compliance peace of mind.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Key Outcomes -->
-    <section class="relative py-24 lg:py-32">
-      <div class="section-divider mb-20"></div>
+    <!-- Documents Handled -->
+    <section class="relative py-20 lg:py-28">
+      <div class="section-divider mb-16"></div>
       <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
-          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Key Outcomes</p>
-          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
-            Measurable impact on <span class="gradient-text">trade operations.</span>
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">Supported Documents</p>
+          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+            Handles All Your <span class="gradient-text">Shipping Paperwork.</span>
           </h2>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="animate-on-scroll glass rounded-2xl p-8 text-center">
-            <div class="icon-box mx-auto mb-5">
-              <i data-lucide="bot" class="w-5 h-5 text-indigo-400"></i>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+          <div class="animate-on-scroll glass rounded-xl p-5 border border-white/10 flex items-center gap-4">
+            <div class="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400 flex-shrink-0">
+              <i data-lucide="file-spreadsheet" class="w-5 h-5"></i>
             </div>
-            <div class="text-4xl font-black gradient-text mb-2">80%</div>
-            <p class="text-white font-semibold mb-2">Less Manual Entry</p>
-            <p class="text-sm text-slate-400 leading-relaxed">
-              Eliminate up to 80% of manual data entry across customs and trade workflows &mdash;
-              from invoice ingest to declaration filing.
-            </p>
-          </div>
-          <div class="animate-on-scroll glass rounded-2xl p-8 text-center">
-            <div class="icon-box mx-auto mb-5">
-              <i data-lucide="gauge" class="w-5 h-5 text-emerald-400"></i>
-            </div>
-            <div class="text-4xl font-black gradient-text mb-2">15min</div>
-            <p class="text-white font-semibold mb-2">Per Entry, Down From Hours</p>
-            <p class="text-sm text-slate-400 leading-relaxed">
-              Customs entry preparation drops from 2&ndash;4 hours to 15 minutes per shipment &mdash;
-              with cleaner data than the manual baseline.
-            </p>
-          </div>
-          <div class="animate-on-scroll glass rounded-2xl p-8 text-center">
-            <div class="icon-box mx-auto mb-5">
-              <i data-lucide="timer-reset" class="w-5 h-5 text-cyan-400"></i>
-            </div>
-            <div class="text-4xl font-black gradient-text mb-2">3&ndash;7d</div>
-            <p class="text-white font-semibold mb-2">Customs Holds Eliminated</p>
-            <p class="text-sm text-slate-400 leading-relaxed">
-              Cross-document validation catches inconsistencies pre-submission, removing the
-              3&ndash;7 day customs holds that documentation errors typically trigger.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Buyer Segments -->
-    <section class="relative py-24 lg:py-32">
-      <div class="section-divider mb-20"></div>
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Who We Serve</p>
-          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
-            One platform. <span class="gradient-text">Four buyers.</span>
-          </h2>
-          <p class="animate-on-scroll text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            Customs brokers, freight forwarders, importers/exporters, and 3PLs all live in the same
-            documents and workflows. Xentovia adapts to each &mdash; same agentic stack, different lens.
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
-            <div class="icon-box mb-5">
-              <i data-lucide="briefcase" class="w-5 h-5 text-indigo-400"></i>
-            </div>
-            <h3 class="text-base font-bold text-white mb-2">Customs Brokers</h3>
-            <p class="text-sm text-slate-400 leading-relaxed">
-              Entry filings, HS classification, PGA checks. Margin pressure forcing operational
-              overhaul &mdash; short decision cycles, fastest ROI.
-            </p>
-          </div>
-          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
-            <div class="icon-box mb-5">
-              <i data-lucide="ship" class="w-5 h-5 text-sky-400"></i>
-            </div>
-            <h3 class="text-base font-bold text-white mb-2">Freight Forwarders</h3>
-            <p class="text-sm text-slate-400 leading-relaxed">
-              Tens of thousands of documents per branch, per month. Shared inbox chaos and
-              back-office cost spiraling against thin margins.
-            </p>
-          </div>
-          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
-            <div class="icon-box mb-5">
-              <i data-lucide="globe" class="w-5 h-5 text-emerald-400"></i>
-            </div>
-            <h3 class="text-base font-bold text-white mb-2">Importers / Exporters</h3>
-            <p class="text-sm text-slate-400 leading-relaxed">
-              Mid-market shippers without dedicated compliance teams. Tariff volatility making
-              every classification error expensive in real time.
-            </p>
-          </div>
-          <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
-            <div class="icon-box mb-5">
-              <i data-lucide="warehouse" class="w-5 h-5 text-amber-400"></i>
-            </div>
-            <h3 class="text-base font-bold text-white mb-2">3PLs &amp; Warehouses</h3>
-            <p class="text-sm text-slate-400 leading-relaxed">
-              Invoice audits, BOL processing, exception handling. Margin recovery hiding
-              in plain sight inside accounts payable.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Compliance & Trade Security -->
-    <section class="relative py-24 lg:py-32">
-      <div class="section-divider mb-20"></div>
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Compliance &amp; Security</p>
-          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
-            Trade-compliant <span class="gradient-text">by design.</span>
-          </h2>
-          <p class="animate-on-scroll text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            Trade data is sensitive: shipper identities, commercial values, restricted-party exposure.
-            Xentovia is built for the regulatory bar that customs and export controls demand.
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="animate-on-scroll glass rounded-2xl p-8">
-            <div class="icon-box mb-5">
-              <i data-lucide="lock" class="w-5 h-5 text-emerald-400"></i>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-4">Data Protection</h3>
-            <div class="space-y-3">
-              <div class="flex items-center gap-3">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
-                <span class="text-sm text-slate-300">AES-256 encryption at rest and TLS 1.3 in transit</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
-                <span class="text-sm text-slate-300">Regional data residency (US / EU / APAC)</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
-                <span class="text-sm text-slate-300">Customer-isolated tenants and encrypted document storage</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
-                <span class="text-sm text-slate-300">Sensitive-data redaction available on extraction</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
-                <span class="text-sm text-slate-300">No model training on customer data</span>
-              </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Commercial Invoices</h4>
+              <p class="text-xs text-slate-400">Multi-item & multi-currency</p>
             </div>
           </div>
 
-          <div class="animate-on-scroll glass rounded-2xl p-8">
-            <div class="icon-box mb-5">
-              <i data-lucide="scroll-text" class="w-5 h-5 text-indigo-400"></i>
+          <div class="animate-on-scroll glass rounded-xl p-5 border border-white/10 flex items-center gap-4">
+            <div class="w-10 h-10 rounded-lg bg-sky-500/10 flex items-center justify-center text-sky-400 flex-shrink-0">
+              <i data-lucide="package" class="w-5 h-5"></i>
             </div>
-            <h3 class="text-xl font-bold text-white mb-4">Audit &amp; Trade Controls</h3>
-            <div class="space-y-3">
-              <div class="flex items-center gap-3">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
-                <span class="text-sm text-slate-300">OFAC, EAR, ITAR, and EU dual-use list screening</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
-                <span class="text-sm text-slate-300">Complete audit trails for every document and decision</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
-                <span class="text-sm text-slate-300">Role-based access controls (RBAC) for review &amp; release</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
-                <span class="text-sm text-slate-300">SOC 2 Type II (In Progress)</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
-                <span class="text-sm text-slate-300">Retention policies aligned with customs record-keeping rules</span>
-              </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Packing Lists</h4>
+              <p class="text-xs text-slate-400">Weights, boxes & dimensions</p>
+            </div>
+          </div>
+
+          <div class="animate-on-scroll glass rounded-xl p-5 border border-white/10 flex items-center gap-4">
+            <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 flex-shrink-0">
+              <i data-lucide="anchor" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Bills of Lading (BOL / AWB)</h4>
+              <p class="text-xs text-slate-400">Sea & Air shipment details</p>
+            </div>
+          </div>
+
+          <div class="animate-on-scroll glass rounded-xl p-5 border border-white/10 flex items-center gap-4">
+            <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 flex-shrink-0">
+              <i data-lucide="award" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Certificates of Origin</h4>
+              <p class="text-xs text-slate-400">Trade agreement verification</p>
+            </div>
+          </div>
+
+          <div class="animate-on-scroll glass rounded-xl p-5 border border-white/10 flex items-center gap-4">
+            <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 flex-shrink-0">
+              <i data-lucide="file-check" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">eSANCHIT Enclosures</h4>
+              <p class="text-xs text-slate-400">Automated IRN generation</p>
+            </div>
+          </div>
+
+          <div class="animate-on-scroll glass rounded-xl p-5 border border-white/10 flex items-center gap-4">
+            <div class="w-10 h-10 rounded-lg bg-rose-500/10 flex items-center justify-center text-rose-400 flex-shrink-0">
+              <i data-lucide="file-text" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Shipping Bills & BoE</h4>
+              <p class="text-xs text-slate-400">Drafted ready for filing</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Integration -->
-    <section class="relative py-24 lg:py-32">
-      <div class="section-divider mb-20"></div>
+    <!-- Security & Privacy (Simplified) -->
+    <section id="security" class="relative py-20 lg:py-28">
+      <div class="section-divider mb-16"></div>
       <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
-          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Integration</p>
-          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
-            Connects to your <span class="gradient-text">existing systems.</span>
+          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">Security & Privacy</p>
+          <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+            Your Documents Are <span class="gradient-text">Safe & Confidential.</span>
           </h2>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="animate-on-scroll bento-card glass rounded-2xl p-7 text-center">
-            <div class="icon-box mx-auto mb-5">
-              <i data-lucide="landmark" class="w-5 h-5 text-indigo-400"></i>
+        <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div class="animate-on-scroll glass rounded-2xl p-7 text-center">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mx-auto mb-4 border border-emerald-500/20">
+              <i data-lucide="lock" class="w-6 h-6 text-emerald-400"></i>
             </div>
-            <h3 class="text-base font-bold text-white mb-2">Customs Systems</h3>
+            <h3 class="text-lg font-bold text-white mb-2">Bank-Grade Encryption</h3>
             <p class="text-sm text-slate-400 leading-relaxed">
-              Submit declarations to ABI/ACE (US), CDS (UK), EU customs, AES, and other national filing
-              systems via direct API or partner integrations.
+              All your invoices and shipping files are encrypted with top-tier security standards both in transit and in storage.
             </p>
           </div>
-          <div class="animate-on-scroll bento-card glass rounded-2xl p-7 text-center">
-            <div class="icon-box mx-auto mb-5">
-              <i data-lucide="network" class="w-5 h-5 text-purple-400"></i>
+
+          <div class="animate-on-scroll glass rounded-2xl p-7 text-center">
+            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center mx-auto mb-4 border border-indigo-500/20">
+              <i data-lucide="user-x" class="w-6 h-6 text-indigo-400"></i>
             </div>
-            <h3 class="text-base font-bold text-white mb-2">Broker &amp; Forwarder TMS</h3>
+            <h3 class="text-lg font-bold text-white mb-2">No Unauthorized Access</h3>
             <p class="text-sm text-slate-400 leading-relaxed">
-              Integrate with CargoWise, Descartes, Magaya, and other transportation management
-              platforms via API, EDI, or batch transfer.
+              Your trade data belongs strictly to your business. We never train public AI models on your private documents.
             </p>
           </div>
-          <div class="animate-on-scroll bento-card glass rounded-2xl p-7 text-center">
-            <div class="icon-box mx-auto mb-5">
-              <i data-lucide="plug" class="w-5 h-5 text-cyan-400"></i>
+
+          <div class="animate-on-scroll glass rounded-2xl p-7 text-center">
+            <div class="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center mx-auto mb-4 border border-sky-500/20">
+              <i data-lucide="shield" class="w-6 h-6 text-sky-400"></i>
             </div>
-            <h3 class="text-base font-bold text-white mb-2">Custom Integration</h3>
+            <h3 class="text-lg font-bold text-white mb-2">Role-Based Team Control</h3>
             <p class="text-sm text-slate-400 leading-relaxed">
-              REST APIs, webhooks, SFTP, and email ingest. We adapt to your trade stack &mdash;
-              ERP, WMS, or in-house customs apps.
+              Easily assign custom review permissions for junior staff, senior CHA approvers, and management.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact CTA -->
+    <!-- Final Call to Action -->
     <section class="relative py-24 lg:py-32">
-      <div class="section-divider mb-20"></div>
+      <div class="section-divider mb-16"></div>
       <div class="max-w-3xl mx-auto px-6 text-center">
-        <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Get Started</p>
+        <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">Get Started Today</p>
         <h2 class="animate-on-scroll text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6">
-          Ready to put <span class="gradient-text">SimplImex AI</span> to work?
+          Ready to Speed Up Your <span class="gradient-text">Customs Filing?</span>
         </h2>
-        <p class="animate-on-scroll text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10">
-          See how SimplImex AI shrinks entry preparation from hours to minutes, eliminates
-          documentation-driven holds, and keeps your compliance team out of low-judgment work.
+        <p class="animate-on-scroll text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed mb-10">
+          See how SimplImex AI shrinks entry preparation from hours to minutes and eliminates costly customs documentation delays.
         </p>
         <div class="animate-on-scroll flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="/#contact" class="cta-primary px-8 py-3.5 rounded-xl text-sm font-semibold text-white">
-            <span class="flex items-center gap-2">Book a Demo <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+          <a href="mailto:sales@xentovia.ai?subject=SimplImex%20AI%20Demo%20Request" class="cta-primary px-8 py-4 rounded-xl text-base font-semibold text-white shadow-xl shadow-indigo-500/30">
+            <span class="flex items-center gap-2">Book a 30-Min Live Demo <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
           </a>
-          <a href="mailto:sales@xentovia.ai?subject=SimplImex%20AI%20Demo%20Request" class="group px-8 py-3.5 rounded-xl text-sm font-medium text-slate-300 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all flex items-center gap-2">
-            Schedule a Call <i data-lucide="phone" class="w-4 h-4"></i>
+          <a href="mailto:sales@xentovia.ai" class="group px-8 py-4 rounded-xl text-base font-medium text-slate-300 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all flex items-center gap-2">
+            Contact Sales Team <i data-lucide="mail" class="w-4 h-4 text-sky-400"></i>
           </a>
         </div>
-        <p class="text-xs text-slate-400 mt-6">30-minute call. No slides. Live demo with your shipping documents.</p>
+        <p class="text-xs text-slate-400 mt-6">Quick 30-minute call &middot; No complex setup &middot; Test with your own sample documents</p>
       </div>
     </section>
 
@@ -869,7 +707,7 @@
             <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
             <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
           </a>
-          <p class="text-sm text-slate-400 leading-relaxed mb-4">Agentic AI solutions for the enterprise.</p>
+          <p class="text-sm text-slate-400 leading-relaxed mb-4">Agentic AI solutions for trade & enterprise operations.</p>
           <a href="mailto:sales@xentovia.ai" class="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
             <i data-lucide="mail" class="w-3.5 h-3.5"></i> sales@xentovia.ai
           </a>
@@ -877,10 +715,10 @@
         <div>
           <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Product</h4>
           <ul class="space-y-2.5">
+            <li><a href="/simplimex/" class="text-sm text-white font-medium">SimplImex AI</a></li>
             <li><a href="/#capabilities" class="text-sm text-slate-400 hover:text-white transition-colors">Capabilities</a></li>
-            <li><a href="/#solutions" class="text-sm text-slate-400 hover:text-white transition-colors">Solutions</a></li>
-            <li><a href="/#how-it-works" class="text-sm text-slate-400 hover:text-white transition-colors">How It Works</a></li>
-            <li><a href="/#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a></li>
+            <li><a href="#how-it-works" class="text-sm text-slate-400 hover:text-white transition-colors">How It Works</a></li>
+            <li><a href="#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a></li>
           </ul>
         </div>
         <div>
@@ -897,7 +735,7 @@
           <ul class="space-y-2.5">
             <li><a href="/privacy/" class="text-sm text-slate-400 hover:text-white transition-colors">Privacy Policy</a></li>
             <li><a href="/terms/" class="text-sm text-slate-400 hover:text-white transition-colors">Terms of Service</a></li>
-            <li><a href="/#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a></li>
+            <li><a href="#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a></li>
             <li><a href="/dpa/" class="text-sm text-slate-400 hover:text-white transition-colors">DPA</a></li>
           </ul>
         </div>
@@ -936,7 +774,6 @@
     document.getElementById('mobileMenuBtn').addEventListener('click', () => {
       document.getElementById('mobileMenu').classList.toggle('hidden');
     });
-
 
     let lastScroll = 0;
     const nav = document.querySelector('nav');
