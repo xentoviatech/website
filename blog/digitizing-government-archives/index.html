@@ -165,7 +165,88 @@
 
       <div class="hidden md:flex items-center gap-8">
         <a href="/#capabilities" class="text-sm text-slate-400 hover:text-white transition-colors">Capabilities</a>
-        <a href="/#solutions" class="text-sm text-slate-400 hover:text-white transition-colors">Solutions</a>
+                <div class="relative group">
+          <button type="button" class="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-1" aria-haspopup="true">
+            Solutions
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform group-hover:rotate-180"></i>
+          </button>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[480px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div class="glass rounded-2xl p-2 shadow-2xl border border-white/10 grid grid-cols-1 gap-0.5">
+              <a href="/simplimex/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-sky-500/10 border border-sky-500/20 flex-shrink-0 mt-0.5">
+                  <i data-lucide="ship" class="w-4 h-4 text-sky-400"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white">Customs &amp; ICEGATE Filing</p>
+                  <p class="text-xs text-slate-400 truncate">SimplImex AI &middot; File entries in 15 min</p>
+                </div>
+              </a>
+              <a href="/xentoaxar/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-cyan-500/10 border border-cyan-500/20 flex-shrink-0 mt-0.5">
+                  <i data-lucide="building" class="w-4 h-4 text-cyan-400"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white">Handwritten Record Digitization</p>
+                  <p class="text-xs text-slate-400 truncate">XentoAxar &middot; Process physical records at scale</p>
+                </div>
+              </a>
+              <a href="/solutions/xentostay/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-purple-500/10 border border-purple-500/20 flex-shrink-0 mt-0.5">
+                  <i data-lucide="hotel" class="w-4 h-4 text-purple-400"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white">Hotel &amp; Resort Automation</p>
+                  <p class="text-xs text-slate-400 truncate">XentoStay &middot; AI voice &amp; booking agents</p>
+                </div>
+              </a>
+              <a href="/xentoscribe/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-emerald-500/10 border border-emerald-500/20 flex-shrink-0 mt-0.5">
+                  <i data-lucide="mic" class="w-4 h-4 text-emerald-400"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white">Medical Pathology Dictation</p>
+                  <p class="text-xs text-slate-400 truncate">XentoScribe &middot; AI dictation for doctors</p>
+                </div>
+              </a>
+              <a href="/solutions/healthcare/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-rose-500/10 border border-rose-500/20 flex-shrink-0 mt-0.5">
+                  <i data-lucide="heart-pulse" class="w-4 h-4 text-rose-400"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white">Healthcare Prior Authorization</p>
+                  <p class="text-xs text-slate-400 truncate">Prior auth in hours, not days</p>
+                </div>
+              </a>
+              <a href="/solutions/insurance/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-indigo-500/10 border border-indigo-500/20 flex-shrink-0 mt-0.5">
+                  <i data-lucide="umbrella" class="w-4 h-4 text-indigo-400"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white">Insurance Claims &amp; FNOL</p>
+                  <p class="text-xs text-slate-400 truncate">AI triage for claims &amp; losses</p>
+                </div>
+              </a>
+              <a href="/solutions/manufacturing/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-amber-500/10 border border-amber-500/20 flex-shrink-0 mt-0.5">
+                  <i data-lucide="factory" class="w-4 h-4 text-amber-400"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white">Manufacturing Quality Control</p>
+                  <p class="text-xs text-slate-400 truncate">Catch defects before the line</p>
+                </div>
+              </a>
+              <a href="/solutions/mortgage/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-yellow-500/10 border border-yellow-500/20 flex-shrink-0 mt-0.5">
+                  <i data-lucide="home" class="w-4 h-4 text-yellow-400"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white">Mortgage Loan File Indexing</p>
+                  <p class="text-xs text-slate-400 truncate">Index loan files at packet speed</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
         <a href="/#how-it-works" class="text-sm text-slate-400 hover:text-white transition-colors">How It Works</a>
         <a href="/#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a>
         <a href="/#company" class="text-sm text-slate-400 hover:text-white transition-colors">Company</a>
@@ -185,7 +266,22 @@
 
     <div class="md:hidden hidden px-6 pb-4 space-y-3" id="mobileMenu">
       <a href="/#capabilities" class="block text-sm text-slate-400 hover:text-white py-2">Capabilities</a>
-      <a href="/#solutions" class="block text-sm text-slate-400 hover:text-white py-2">Solutions</a>
+            <details class="group/details">
+        <summary class="cursor-pointer list-none flex items-center justify-between py-2 text-sm text-slate-400 hover:text-white">
+          <span>Solutions</span>
+          <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-open/details:rotate-180"></i>
+        </summary>
+        <div class="pl-3 mt-1 space-y-1 border-l border-white/10">
+          <a href="/simplimex/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Customs &amp; ICEGATE Filing</span> <span class="text-xs text-slate-400">&middot; SimplImex AI</span></a>
+          <a href="/xentoaxar/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Handwritten Record Digitization</span> <span class="text-xs text-slate-400">&middot; XentoAxar</span></a>
+          <a href="/solutions/xentostay/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Hotel &amp; Resort Automation</span> <span class="text-xs text-slate-400">&middot; XentoStay</span></a>
+          <a href="/xentoscribe/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Medical Pathology Dictation</span> <span class="text-xs text-slate-400">&middot; XentoScribe</span></a>
+          <a href="/solutions/healthcare/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Healthcare Prior Auth</span> <span class="text-xs text-slate-400">&middot; Prior auth in hours</span></a>
+          <a href="/solutions/insurance/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Insurance Claims &amp; FNOL</span> <span class="text-xs text-slate-400">&middot; AI triage</span></a>
+          <a href="/solutions/manufacturing/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Manufacturing Quality Control</span> <span class="text-xs text-slate-400">&middot; Defect inspection</span></a>
+          <a href="/solutions/mortgage/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Mortgage Loan File Indexing</span> <span class="text-xs text-slate-400">&middot; Packet speed</span></a>
+        </div>
+      </details>
       <a href="/#how-it-works" class="block text-sm text-slate-400 hover:text-white py-2">How It Works</a>
       <a href="/#security" class="block text-sm text-slate-400 hover:text-white py-2">Security</a>
       <a href="/#company" class="block text-sm text-slate-400 hover:text-white py-2">Company</a>
@@ -363,7 +459,88 @@
           <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Product</h4>
           <ul class="space-y-2.5">
             <li><a href="/#capabilities" class="text-sm text-slate-400 hover:text-white transition-colors">Capabilities</a></li>
-            <li><a href="/#solutions" class="text-sm text-slate-400 hover:text-white transition-colors">Solutions</a></li>
+            <li>        <div class="relative group">
+          <button type="button" class="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-1" aria-haspopup="true">
+            Solutions
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform group-hover:rotate-180"></i>
+          </button>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[480px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div class="glass rounded-2xl p-2 shadow-2xl border border-white/10 grid grid-cols-1 gap-0.5">
+              <a href="/simplimex/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-sky-500/10 border border-sky-500/20 flex-shrink-0 mt-0.5">
+                  <i data-lucide="ship" class="w-4 h-4 text-sky-400"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white">Customs &amp; ICEGATE Filing</p>
+                  <p class="text-xs text-slate-400 truncate">SimplImex AI &middot; File entries in 15 min</p>
+                </div>
+              </a>
+              <a href="/xentoaxar/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-cyan-500/10 border border-cyan-500/20 flex-shrink-0 mt-0.5">
+                  <i data-lucide="building" class="w-4 h-4 text-cyan-400"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white">Handwritten Record Digitization</p>
+                  <p class="text-xs text-slate-400 truncate">XentoAxar &middot; Process physical records at scale</p>
+                </div>
+              </a>
+              <a href="/solutions/xentostay/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-purple-500/10 border border-purple-500/20 flex-shrink-0 mt-0.5">
+                  <i data-lucide="hotel" class="w-4 h-4 text-purple-400"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white">Hotel &amp; Resort Automation</p>
+                  <p class="text-xs text-slate-400 truncate">XentoStay &middot; AI voice &amp; booking agents</p>
+                </div>
+              </a>
+              <a href="/xentoscribe/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-emerald-500/10 border border-emerald-500/20 flex-shrink-0 mt-0.5">
+                  <i data-lucide="mic" class="w-4 h-4 text-emerald-400"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white">Medical Pathology Dictation</p>
+                  <p class="text-xs text-slate-400 truncate">XentoScribe &middot; AI dictation for doctors</p>
+                </div>
+              </a>
+              <a href="/solutions/healthcare/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-rose-500/10 border border-rose-500/20 flex-shrink-0 mt-0.5">
+                  <i data-lucide="heart-pulse" class="w-4 h-4 text-rose-400"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white">Healthcare Prior Authorization</p>
+                  <p class="text-xs text-slate-400 truncate">Prior auth in hours, not days</p>
+                </div>
+              </a>
+              <a href="/solutions/insurance/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-indigo-500/10 border border-indigo-500/20 flex-shrink-0 mt-0.5">
+                  <i data-lucide="umbrella" class="w-4 h-4 text-indigo-400"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white">Insurance Claims &amp; FNOL</p>
+                  <p class="text-xs text-slate-400 truncate">AI triage for claims &amp; losses</p>
+                </div>
+              </a>
+              <a href="/solutions/manufacturing/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-amber-500/10 border border-amber-500/20 flex-shrink-0 mt-0.5">
+                  <i data-lucide="factory" class="w-4 h-4 text-amber-400"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white">Manufacturing Quality Control</p>
+                  <p class="text-xs text-slate-400 truncate">Catch defects before the line</p>
+                </div>
+              </a>
+              <a href="/solutions/mortgage/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-yellow-500/10 border border-yellow-500/20 flex-shrink-0 mt-0.5">
+                  <i data-lucide="home" class="w-4 h-4 text-yellow-400"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white">Mortgage Loan File Indexing</p>
+                  <p class="text-xs text-slate-400 truncate">Index loan files at packet speed</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div></li>
             <li><a href="/#how-it-works" class="text-sm text-slate-400 hover:text-white transition-colors">How It Works</a></li>
             <li><a href="/#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a></li>
           </ul>
