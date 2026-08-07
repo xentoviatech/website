@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XentovoX: AI Pathology Dictation — Xentovia Tech</title>
+    <meta name="description" content="Dictate pathology findings in 2 minutes. AI fills your template. Review, sign, export PDF/DOCX/FHIR. Built for Indian pathologists. Start free.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://xentovia.ai/xentovox/">
+    <meta property="og:title" content="XentovoX: AI Pathology Dictation — Xentovia Tech">
+    <meta property="og:description" content="Dictate pathology findings in 2 minutes. AI fills your template. Review, sign, export PDF/DOCX/FHIR. Built for Indian pathologists. Start free.">
+    <meta property="og:image" content="https://xentovia.ai/favicon.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://xentovia.ai/xentovox/">
+    <meta property="twitter:title" content="XentovoX: AI Pathology Dictation — Xentovia Tech">
+    <meta property="twitter:description" content="Dictate pathology findings in 2 minutes. AI fills your template. Review, sign, export PDF/DOCX/FHIR. Built for Indian pathologists. Start free.">
+    <meta property="twitter:image" content="https://xentovia.ai/favicon.png">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { inter: ['Inter', 'system-ui', 'sans-serif'] },
+                    colors: {
+                        space: { 950: '#03050a', 900: '#060b18', 800: '#0a1128', 700: '#0f1a3a' },
+                        accent: { 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5' },
+                        glow: { purple: '#7c3aed', blue: '#3b82f6', cyan: '#06b6d4' }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 2s infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glow-move': 'glowMove 15s ease-in-out infinite',
+                        'glow-move-2': 'glowMove2 18s ease-in-out infinite',
+                        'glow-move-3': 'glowMove3 20s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'shimmer': 'shimmer 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #03050a; color: #e2e8f0; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #03050a; }
+        ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 3px; }
+
+        /* Glow orb keyframes */
+        @keyframes glowMove { 0%, 100% { transform: translate(0, 0) scale(1); } 25% { transform: translate(30vw, -15vh) scale(1.2); } 50% { transform: translate(-10vw, 25vh) scale(0.8); } 75% { transform: translate(-25vw, -10vh) scale(1.1); } }
+        @keyframes glowMove2 { 0%, 100% { transform: translate(0, 0) scale(1); } 25% { transform: translate(-20vw, 20vh) scale(0.9); } 50% { transform: translate(25vw, -10vh) scale(1.3); } 75% { transform: translate(10vw, 15vh) scale(1); } }
+        @keyframes glowMove3 { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(15vw, 10vh) scale(1.1); } 66% { transform: translate(-20vw, -20vh) scale(0.9); } }
+
+        .glow-orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; will-change: transform; }
+        .glow-orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(124,58,237,0.25) 0%, transparent 70%); top: -10%; left: -5%; animation: glowMove 15s ease-in-out infinite; }
+        .glow-orb-2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%); top: 40%; right: -10%; animation: glowMove2 18s ease-in-out infinite; }
+        .glow-orb-3 { width: 450px; height: 450px; background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%); bottom: -5%; left: 30%; animation: glowMove3 20s ease-in-out infinite; }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+        .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.06); }
+        .glass:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(129, 140, 248, 0.2); }
+
+        .bento-card { position: relative; overflow: hidden; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .bento-card::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: linear-gradient(135deg, transparent 40%, rgba(129,140,248,0.3) 50%, transparent 60%); background-size: 300% 300%; -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity 0.5s ease; }
+        .bento-card:hover::before { opacity: 1; animation: shimmer 3s ease-in-out infinite; }
+        @keyframes shimmer { 0%, 100% { background-position: 100% 0%; } 50% { background-position: 0% 100%; } }
+        .bento-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px -15px rgba(99, 102, 241, 0.15); }
+
+        .icon-box { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(124,58,237,0.1)); border: 1px solid rgba(129, 140, 248, 0.15); }
+
+        .gradient-text { background: linear-gradient(135deg, #e0e7ff 0%, #818cf8 40%, #c084fc 70%, #38bdf8 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .grid-bg { background-image: linear-gradient(rgba(99,102,241,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.04) 1px, transparent 1px); background-size: 60px 60px; }
+
+        .nav-blur { background: rgba(3, 5, 10, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+        .cta-primary { position: relative; background: linear-gradient(135deg, #6366f1, #7c3aed); overflow: hidden; transition: all 0.3s ease; }
+        .cta-primary::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, #7c3aed, #6366f1); opacity: 0; transition: opacity 0.3s ease; }
+        .cta-primary:hover::after { opacity: 1; }
+        .cta-primary:hover { box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(124, 58, 237, 0.2); transform: translateY(-2px); }
+        .cta-primary span { position: relative; z-index: 1; }
+
+        .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(99,102,241,0.3), transparent); }
+
+        /* Dropdown custom styles */
+        .group:hover .group-hover\:block { display: block; }
+        .dropdown-menu { transform-origin: top; animation: dropdownMenu 0.2s ease-out forwards; }
+        @keyframes dropdownMenu { from { opacity: 0; transform: scaleY(0.95); } to { opacity: 1; transform: scaleY(1); } }
+
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; } .glow-orb { animation: none !important; } }
+    </style>
+</head>
+<body class="relative">
+    <!-- Background Elements -->
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 nav-blur transition-transform duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="/" class="flex items-center gap-2 group">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-xl group-hover:shadow-[0_0_15px_rgba(99,102,241,0.5)] transition-all">X</div>
+                        <span class="font-bold text-xl tracking-tight text-white">Xentovia</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/#capabilities" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Capabilities</a>
+                    
+                    <!-- Solutions Dropdown -->
+                    <div class="relative group">
+                        <button class="flex items-center gap-1 text-sm font-medium text-gray-300 hover:text-white transition-colors py-2">
+                            Solutions <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[600px] hidden group-hover:block dropdown-menu">
+                            <div class="glass rounded-xl p-6 grid grid-cols-2 gap-4 shadow-2xl border border-white/10">
+                                <a href="/solutions/axar/" class="flex items-start gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors group/item">
+                                    <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center shrink-0 group-hover/item:bg-cyan-500/20 transition-colors border border-cyan-500/20">
+                                        <i data-lucide="building" class="w-5 h-5 text-cyan-400"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium text-white mb-1">Axar</div>
+                                        <div class="text-xs text-gray-400 leading-snug">Enterprise operations & facility management AI</div>
+                                    </div>
+                                </a>
+                                <a href="/solutions/cargologix/" class="flex items-start gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors group/item">
+                                    <div class="w-10 h-10 rounded-lg bg-sky-500/10 flex items-center justify-center shrink-0 group-hover/item:bg-sky-500/20 transition-colors border border-sky-500/20">
+                                        <i data-lucide="ship" class="w-5 h-5 text-sky-400"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium text-white mb-1">CargologiX</div>
+                                        <div class="text-xs text-gray-400 leading-snug">Autonomous logistics & supply chain intelligence</div>
+                                    </div>
+                                </a>
+                                <a href="/solutions/healthcare/" class="flex items-start gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors group/item">
+                                    <div class="w-10 h-10 rounded-lg bg-rose-500/10 flex items-center justify-center shrink-0 group-hover/item:bg-rose-500/20 transition-colors border border-rose-500/20">
+                                        <i data-lucide="heart-pulse" class="w-5 h-5 text-rose-400"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium text-white mb-1">Healthcare</div>
+                                        <div class="text-xs text-gray-400 leading-snug">Clinical workflow & patient care automation</div>
+                                    </div>
+                                </a>
+                                <a href="/solutions/insurance/" class="flex items-start gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors group/item">
+                                    <div class="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center shrink-0 group-hover/item:bg-indigo-500/20 transition-colors border border-indigo-500/20">
+                                        <i data-lucide="umbrella" class="w-5 h-5 text-indigo-400"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium text-white mb-1">Insurance</div>
+                                        <div class="text-xs text-gray-400 leading-snug">Underwriting & claims processing AI</div>
+                                    </div>
+                                </a>
+                                <a href="/solutions/manufacturing/" class="flex items-start gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors group/item">
+                                    <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center shrink-0 group-hover/item:bg-amber-500/20 transition-colors border border-amber-500/20">
+                                        <i data-lucide="factory" class="w-5 h-5 text-amber-400"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium text-white mb-1">Manufacturing</div>
+                                        <div class="text-xs text-gray-400 leading-snug">Production optimization & predictive maintenance</div>
+                                    </div>
+                                </a>
+                                <a href="/solutions/mortgage/" class="flex items-start gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors group/item">
+                                    <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center shrink-0 group-hover/item:bg-amber-500/20 transition-colors border border-amber-500/20">
+                                        <i data-lucide="home" class="w-5 h-5 text-amber-400"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium text-white mb-1">Mortgage</div>
+                                        <div class="text-xs text-gray-400 leading-snug">Document extraction & origination automation</div>
+                                    </div>
+                                </a>
+                                <a href="/solutions/xentostay/" class="flex items-start gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors group/item">
+                                    <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center shrink-0 group-hover/item:bg-purple-500/20 transition-colors border border-purple-500/20">
+                                        <i data-lucide="hotel" class="w-5 h-5 text-purple-400"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium text-white mb-1">XentoStay</div>
+                                        <div class="text-xs text-gray-400 leading-snug">Hospitality revenue & guest experience AI</div>
+                                    </div>
+                                </a>
+                                <a href="/xentovox/" class="flex items-start gap-4 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors group/item border border-white/10 relative overflow-hidden">
+                                    <div class="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity"></div>
+                                    <div class="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center shrink-0 border border-emerald-500/30">
+                                        <i data-lucide="mic" class="w-5 h-5 text-emerald-400"></i>
+                                    </div>
+                                    <div class="relative">
+                                        <div class="font-medium text-white mb-1 flex items-center gap-2">XentovoX <span class="text-[10px] uppercase tracking-wider bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded">New</span></div>
+                                        <div class="text-xs text-gray-400 leading-snug">AI Pathology Dictation</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="/#how-it-works" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">How It Works</a>
+                    <a href="/#security" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Security</a>
+                    <a href="/#company" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Company</a>
+                    <a href="/blog/" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Blog</a>
+                </div>
+
+                <!-- CTA -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="mailto:sales@xentovia.ai?subject=XentovoX%20demo" class="px-5 py-2.5 text-sm font-medium text-white rounded-lg cta-primary shadow-[0_0_15px_rgba(99,102,241,0.3)]">
+                        <span>Book a Demo</span>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuBtn" class="text-gray-300 hover:text-white p-2">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden glass border-t border-white/10 max-h-[80vh] overflow-y-auto">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="/#capabilities" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-lg">Capabilities</a>
+                
+                <div class="py-2">
+                    <div class="px-3 text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Solutions</div>
+                    <a href="/solutions/axar/" class="block px-3 py-2 text-base text-gray-300 hover:text-white hover:bg-white/5 rounded-lg pl-6">Axar</a>
+                    <a href="/solutions/cargologix/" class="block px-3 py-2 text-base text-gray-300 hover:text-white hover:bg-white/5 rounded-lg pl-6">CargologiX</a>
+                    <a href="/solutions/healthcare/" class="block px-3 py-2 text-base text-gray-300 hover:text-white hover:bg-white/5 rounded-lg pl-6">Healthcare</a>
+                    <a href="/solutions/insurance/" class="block px-3 py-2 text-base text-gray-300 hover:text-white hover:bg-white/5 rounded-lg pl-6">Insurance</a>
+                    <a href="/solutions/manufacturing/" class="block px-3 py-2 text-base text-gray-300 hover:text-white hover:bg-white/5 rounded-lg pl-6">Manufacturing</a>
+                    <a href="/solutions/mortgage/" class="block px-3 py-2 text-base text-gray-300 hover:text-white hover:bg-white/5 rounded-lg pl-6">Mortgage</a>
+                    <a href="/solutions/xentostay/" class="block px-3 py-2 text-base text-gray-300 hover:text-white hover:bg-white/5 rounded-lg pl-6">XentoStay</a>
+                    <a href="/xentovox/" class="block px-3 py-2 text-base text-emerald-400 hover:bg-white/5 rounded-lg pl-6 font-medium bg-white/5 border border-white/5 mt-1">XentovoX <span class="ml-2 text-xs bg-emerald-500/20 px-2 py-0.5 rounded">New</span></a>
+                </div>
+
+                <a href="/#how-it-works" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-lg">How It Works</a>
+                <a href="/#security" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-lg">Security</a>
+                <a href="/#company" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-lg">Company</a>
+                <a href="/blog/" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-lg">Blog</a>
+                
+                <div class="pt-4 px-3">
+                    <a href="mailto:sales@xentovia.ai?subject=XentovoX%20demo" class="block w-full text-center px-5 py-3 text-base font-medium text-white rounded-lg cta-primary">
+                        <span>Book a Demo</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section class="relative min-h-[88vh] grid-bg pt-32 pb-20 overflow-hidden flex items-center">
+        <!-- Hero background image -->
+        <div class="absolute inset-0 z-0">
+            <img src="images/hero-dictation.jpg" alt="" class="w-full h-full object-cover opacity-15" aria-hidden="true">
+            <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, rgba(3,5,10,0.5) 0%, rgba(3,5,10,0.92) 60%, rgba(3,5,10,0.98) 100%);"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                <div class="animate-on-scroll">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border-emerald-500/30 bg-emerald-500/10 mb-6">
+                        <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
+                        <span class="text-sm font-medium text-emerald-300">For Pathology Labs</span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
+                        Dictate. AI fills the report. <br/>
+                        <span class="gradient-text">Signed in under 3 minutes.</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-xl leading-relaxed">
+                        Voice-first dictation for Indian pathologists. AI structures your findings into NABL-ready templates. Review, sign, export.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://xentovox.xentovia.ai" class="px-8 py-4 text-base font-medium text-white rounded-xl cta-primary text-center inline-flex items-center justify-center gap-2">
+                            <span>Start Free Trial</span> <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#how" class="px-8 py-4 text-base font-medium text-white rounded-xl glass border-white/20 hover:bg-white/10 transition-colors text-center inline-flex items-center justify-center gap-2">
+                            <i data-lucide="play" class="w-5 h-5"></i> <span>See how it works</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative lg:h-[600px] flex items-center justify-center animate-on-scroll" style="transition-delay: 0.2s;">
+                    <!-- Decorative background element for the card -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 via-indigo-500/20 to-transparent blur-3xl rounded-full"></div>
+                    
+                    <div class="w-full max-w-md glass rounded-2xl border border-white/10 shadow-2xl relative z-10 overflow-hidden bento-card">
+                        <!-- Card Header -->
+                        <div class="bg-black/40 px-6 py-4 border-b border-white/10 flex justify-between items-center">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-amber-500"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                            </div>
+                            <div class="text-xs font-medium text-gray-400 uppercase tracking-wider">Live dictation — illustrative</div>
+                            <div class="px-2 py-1 bg-emerald-500/20 border border-emerald-500/30 rounded text-[10px] font-bold text-emerald-400">AI-STRUCTURED</div>
+                        </div>
+                        
+                        <!-- Card Body -->
+                        <div class="p-6 space-y-4">
+                            <div class="flex justify-between items-center pb-4 border-b border-white/5">
+                                <div class="text-sm text-gray-400">Template</div>
+                                <div class="text-sm font-medium text-white bg-white/5 px-2 py-1 rounded">Histopathology Biopsy</div>
+                            </div>
+                            
+                            <div class="flex justify-between items-center pb-4 border-b border-white/5">
+                                <div class="text-sm text-gray-400">Dictation Time</div>
+                                <div class="text-sm font-medium text-emerald-400 flex items-center gap-1">
+                                    <i data-lucide="mic" class="w-3.5 h-3.5"></i> 2 min 14 sec
+                                </div>
+                            </div>
+
+                            <div class="flex justify-between items-center pb-4 border-b border-white/5">
+                                <div class="text-sm text-gray-400">Fields Filled</div>
+                                <div class="text-sm font-medium text-white">12 / 12</div>
+                            </div>
+
+                            <div class="space-y-2">
+                                <div class="text-sm text-gray-400">Gross Description</div>
+                                <div class="text-sm text-gray-200 bg-white/5 p-3 rounded-lg leading-relaxed relative group">
+                                    "Received multiple grayish-white tissue bits aggregating to 1.5x1x0.5 cm. Entirely submitted in one cassette."
+                                    <div class="absolute inset-0 border border-emerald-500/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-2">
+                                <div class="text-sm text-gray-400">Diagnosis</div>
+                                <div class="text-sm font-medium text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 p-3 rounded-lg leading-relaxed">
+                                    Well-differentiated squamous cell carcinoma.
+                                </div>
+                            </div>
+
+                            <div class="flex justify-between items-center pt-2">
+                                <div class="text-xs text-gray-500">Processing Complete</div>
+                                <div class="text-xs font-semibold text-emerald-400 flex items-center gap-1">
+                                    <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> Confidence: 97%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. The Problem -->
+    <section class="py-24 relative z-10">
+        <div class="section-divider"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
+            <div class="text-center mb-16 animate-on-scroll">
+                <span class="text-sm font-bold tracking-widest text-indigo-400 uppercase mb-4 block">THE PROBLEM</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Report writing is <span class="gradient-text">60%</span> of a pathologist's day.</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass bento-card rounded-2xl p-8 animate-on-scroll">
+                    <div class="w-12 h-12 rounded-xl bg-rose-500/20 border border-rose-500/30 flex items-center justify-center mb-6 text-rose-400">
+                        <i data-lucide="clock" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">15–30 minutes per report</h3>
+                    <p class="text-gray-400 leading-relaxed">Manual typing into templates wastes diagnostic time. Every minute spent formatting a document is a minute away from the microscope.</p>
+                </div>
+                <div class="glass bento-card rounded-2xl p-8 animate-on-scroll" style="transition-delay: 0.1s;">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center mb-6 text-amber-400">
+                        <i data-lucide="languages" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Dictation tools don't understand pathology</h3>
+                    <p class="text-gray-400 leading-relaxed">Generic speech-to-text can't handle IHC markers, synoptic fields, or complex medical terminology, leaving you to fix errors manually.</p>
+                </div>
+                <div class="glass bento-card rounded-2xl p-8 animate-on-scroll" style="transition-delay: 0.2s;">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center mb-6 text-indigo-400">
+                        <i data-lucide="file-x" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Reports stuck in Word docs</h3>
+                    <p class="text-gray-400 leading-relaxed">Unstructured text documents offer no data insights, no easy analytics on turnaround times, and no FHIR compliance for the future.</p>
+                </div>
+                <div class="glass bento-card rounded-2xl p-8 animate-on-scroll" style="transition-delay: 0.3s;">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center mb-6 text-cyan-400">
+                        <i data-lucide="smartphone" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Slide photos live on WhatsApp</h3>
+                    <p class="text-gray-400 leading-relaxed">There is no seamless connection between the microscope images you capture on your phone and the final patient case file on your desktop.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Solution / How XentovoX Works -->
+    <section id="how" class="py-24 relative z-10 bg-black/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <span class="text-sm font-bold tracking-widest text-indigo-400 uppercase mb-4 block">HOW IT WORKS</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Four steps. Under three minutes.</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+                <!-- Connecting line for desktop -->
+                <div class="hidden lg:block absolute top-12 left-12 right-12 h-[1px] bg-gradient-to-r from-emerald-500/0 via-indigo-500/30 to-cyan-500/0 z-0"></div>
+
+                <div class="relative z-10 animate-on-scroll">
+                    <div class="w-24 h-24 rounded-2xl glass border-emerald-500/30 flex items-center justify-center mb-6 mx-auto bg-emerald-500/10 shadow-[0_0_30px_rgba(16,185,129,0.15)] group hover:scale-105 transition-transform duration-300">
+                        <i data-lucide="mic" class="w-10 h-10 text-emerald-400 group-hover:animate-pulse"></i>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-xs font-bold text-emerald-400 tracking-wider mb-2">01 &middot; DICTATE</div>
+                        <p class="text-gray-400 text-sm leading-relaxed">Open a case, tap the mic, describe your findings. Works perfectly in English infused with Hindi medical terms.</p>
+                    </div>
+                </div>
+
+                <div class="relative z-10 animate-on-scroll" style="transition-delay: 0.1s;">
+                    <div class="w-24 h-24 rounded-2xl glass border-indigo-500/30 flex items-center justify-center mb-6 mx-auto bg-indigo-500/10 shadow-[0_0_30px_rgba(99,102,241,0.15)] group hover:scale-105 transition-transform duration-300">
+                        <i data-lucide="cpu" class="w-10 h-10 text-indigo-400"></i>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-xs font-bold text-indigo-400 tracking-wider mb-2">02 &middot; AI STRUCTURES</div>
+                        <p class="text-gray-400 text-sm leading-relaxed">Gemini AI fills every template field — gross, micro, diagnosis, IHC — with accurate field-level provenance instantly.</p>
+                    </div>
+                </div>
+
+                <div class="relative z-10 animate-on-scroll" style="transition-delay: 0.2s;">
+                    <div class="w-24 h-24 rounded-2xl glass border-violet-500/30 flex items-center justify-center mb-6 mx-auto bg-violet-500/10 shadow-[0_0_30px_rgba(139,92,246,0.15)] group hover:scale-105 transition-transform duration-300">
+                        <i data-lucide="pen-tool" class="w-10 h-10 text-violet-400"></i>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-xs font-bold text-violet-400 tracking-wider mb-2">03 &middot; REVIEW & SIGN</div>
+                        <p class="text-gray-400 text-sm leading-relaxed">Edit any field, re-dictate individual sections if needed, then digitally sign with a secure SHA-256 hash.</p>
+                    </div>
+                </div>
+
+                <div class="relative z-10 animate-on-scroll" style="transition-delay: 0.3s;">
+                    <div class="w-24 h-24 rounded-2xl glass border-cyan-500/30 flex items-center justify-center mb-6 mx-auto bg-cyan-500/10 shadow-[0_0_30px_rgba(6,182,212,0.15)] group hover:scale-105 transition-transform duration-300">
+                        <i data-lucide="download" class="w-10 h-10 text-cyan-400"></i>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-xs font-bold text-cyan-400 tracking-wider mb-2">04 &middot; EXPORT</div>
+                        <p class="text-gray-400 text-sm leading-relaxed">Export as PDF on your letterhead, DOCX, FHIR R4, JSON, or plain text. Easily send via WhatsApp or email.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Key Features -->
+    <section class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <span class="text-sm font-bold tracking-widest text-indigo-400 uppercase mb-4 block">CAPABILITIES</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Built for how pathologists actually work.</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="glass bento-card rounded-2xl p-8 animate-on-scroll">
+                    <div class="rounded-xl overflow-hidden ring-1 ring-white/10 mb-5">
+                        <img src="images/qr-handoff.jpg" alt="QR code microscope handoff from phone to desktop" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center mb-6 text-emerald-400">
+                        <i data-lucide="qr-code" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">QR Microscope Handoff</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Scan a QR code on your desktop. Phone camera opens instantly. Slide photos stream directly into the patient case file automatically.</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="glass bento-card rounded-2xl p-8 animate-on-scroll" style="transition-delay: 0.1s;">
+                    <div class="w-12 h-12 rounded-xl bg-violet-500/20 border border-violet-500/30 flex items-center justify-center mb-6 text-violet-400">
+                        <i data-lucide="message-square" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">AI Case Assistant</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Chat with an AI that knows your specific case context. Ask it to rephrase findings, check medical terminology, or fill missing fields.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass bento-card rounded-2xl p-8 animate-on-scroll" style="transition-delay: 0.2s;">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center mb-6 text-indigo-400">
+                        <i data-lucide="layout-template" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Custom Template Builder</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Drag-and-drop template editor. Support for Histopath, cytology, FNAC, synoptic reporting — easily build any format your lab uses.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass bento-card rounded-2xl p-8 animate-on-scroll">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center mb-6 text-cyan-400">
+                        <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Insights Dashboard</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Track report volumes, turnaround time (TAT), and dictation hours saved. Visually analyze diagnostic trends across different specialties.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="glass bento-card rounded-2xl p-8 animate-on-scroll" style="transition-delay: 0.1s;">
+                    <div class="rounded-xl overflow-hidden ring-1 ring-white/10 mb-5">
+                        <img src="images/report-export.jpg" alt="Structured pathology report with PDF, DOCX, and FHIR export formats" class="w-full h-48 object-cover object-top">
+                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center mb-6 text-amber-400">
+                        <i data-lucide="globe" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">FHIR R4 & ABDM Ready</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Export structured FHIR DiagnosticReport bundles natively. Fully prepared for integration with India's Ayushman Bharat Digital Mission.</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="glass bento-card rounded-2xl p-8 animate-on-scroll" style="transition-delay: 0.2s;">
+                    <div class="w-12 h-12 rounded-xl bg-rose-500/20 border border-rose-500/30 flex items-center justify-center mb-6 text-rose-400">
+                        <i data-lucide="book-open" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Specialty Vocabulary</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Includes a custom phonetic glossary plus extensive specialty term lists. Teach the AI to perfectly recognize your lab's unique terminology.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Before vs After -->
+    <section class="py-24 relative z-10 bg-black/30">
+        <div class="section-divider"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
+            <div class="text-center mb-16 animate-on-scroll">
+                <span class="text-sm font-bold tracking-widest text-indigo-400 uppercase mb-4 block">WHAT CHANGES</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Same microscope. <br class="hidden sm:block"/>Very different workflow.</h2>
+            </div>
+
+            <div class="animate-on-scroll rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl mb-12 max-w-4xl mx-auto">
+                <img src="images/before-after.jpg" alt="Before: cluttered desk with paper reports. After: clean desk with AI-powered pathology dashboard" class="w-full h-[300px] sm:h-[380px] lg:h-[420px] object-cover object-center">
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-16">
+                <!-- Today -->
+                <div class="glass rounded-3xl p-8 lg:p-12 border border-white/5 animate-on-scroll">
+                    <h3 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                        <span class="text-gray-500">Today</span>
+                    </h3>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <div class="w-6 h-6 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-400"></i>
+                            </div>
+                            <span class="text-gray-400 text-lg">15–30 minutes typing each report manually</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-6 h-6 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-400"></i>
+                            </div>
+                            <span class="text-gray-400 text-lg">Copy-paste into Word, fighting to fix formatting</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-6 h-6 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-400"></i>
+                            </div>
+                            <span class="text-gray-400 text-lg">Slide photos lost forever in WhatsApp gallery clutter</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-6 h-6 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-400"></i>
+                            </div>
+                            <span class="text-gray-400 text-lg">No actionable analytics on turnaround time</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- With XentovoX -->
+                <div class="relative rounded-3xl p-8 lg:p-12 bg-gradient-to-br from-indigo-900/40 to-emerald-900/20 border border-emerald-500/30 animate-on-scroll shadow-[0_0_50px_rgba(16,185,129,0.1)]">
+                    <div class="absolute top-0 right-0 p-4">
+                        <div class="animate-pulse w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_10px_#34d399]"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                        <span class="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">With XentovoX</span>
+                    </h3>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <div class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-500/30">
+                                <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                            </div>
+                            <span class="text-gray-200 text-lg font-medium">Dictate in 2 minutes, AI auto-fills the template</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-500/30">
+                                <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                            </div>
+                            <span class="text-gray-200 text-lg font-medium">One-click export: pristine PDF, DOCX, FHIR</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-500/30">
+                                <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                            </div>
+                            <span class="text-gray-200 text-lg font-medium">QR handoff — hi-res photos instantly linked to case</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-500/30">
+                                <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                            </div>
+                            <span class="text-gray-200 text-lg font-medium">Real-time TAT, volumes, and efficiency analytics</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Impact Stats -->
+    <section class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Large Stat -->
+                <div class="md:col-span-2 glass bento-card rounded-3xl p-10 flex flex-col justify-center animate-on-scroll">
+                    <div class="text-7xl lg:text-9xl font-black mb-4 tracking-tighter gradient-text">2 min</div>
+                    <div class="text-xl lg:text-2xl text-gray-300 font-medium">Average time from dictation to signed report</div>
+                </div>
+                
+                <!-- Smaller Stats Stack -->
+                <div class="grid grid-rows-4 gap-6 animate-on-scroll" style="transition-delay: 0.1s;">
+                    <div class="glass rounded-2xl p-6 flex items-center gap-4">
+                        <div class="text-4xl font-bold text-white">10x</div>
+                        <div class="text-sm text-gray-400 leading-tight">Faster than manual typing</div>
+                    </div>
+                    <div class="glass rounded-2xl p-6 flex items-center gap-4">
+                        <div class="text-4xl font-bold text-white">25+</div>
+                        <div class="text-sm text-gray-400 leading-tight">Template types supported natively</div>
+                    </div>
+                    <div class="glass rounded-2xl p-6 flex items-center gap-4">
+                        <div class="text-4xl font-bold text-white">5</div>
+                        <div class="text-sm text-gray-400 leading-tight">Export formats (PDF, DOCX, FHIR, JSON, TXT)</div>
+                    </div>
+                    <div class="glass rounded-2xl p-6 flex items-center gap-4 bg-indigo-900/20 border-indigo-500/30">
+                        <div class="text-4xl font-bold text-indigo-400">₹2k</div>
+                        <div class="text-sm text-gray-300 leading-tight">Starting price / month for Starter plan</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Pricing -->
+    <section class="py-24 relative z-10 bg-black/40">
+        <div class="section-divider"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
+            <div class="text-center mb-16 animate-on-scroll">
+                <span class="text-sm font-bold tracking-widest text-indigo-400 uppercase mb-4 block">PRICING</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Start free. Scale when ready.</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Free Trial -->
+                <div class="glass bento-card rounded-3xl p-8 flex flex-col animate-on-scroll">
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold text-white mb-2">Free Trial</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-bold text-white">₹0</span>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-2">Perfect to test the waters</p>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-1">
+                        <li class="flex items-center gap-3 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> 25 cases</li>
+                        <li class="flex items-center gap-3 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> No time limit</li>
+                        <li class="flex items-center gap-3 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> All core features</li>
+                    </ul>
+                    <a href="https://xentovox.xentovia.ai" class="block w-full py-3 text-center text-sm font-medium text-white glass border-white/20 rounded-xl hover:bg-white/10 transition-colors">Start Free</a>
+                </div>
+
+                <!-- Starter (Recommended) -->
+                <div class="bg-indigo-900/20 border border-indigo-500 bento-card rounded-3xl p-8 flex flex-col relative transform md:-translate-y-4 shadow-[0_0_40px_rgba(99,102,241,0.2)] animate-on-scroll" style="transition-delay: 0.1s;">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-indigo-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Recommended</div>
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold text-white mb-2">Starter</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-bold text-white">₹2,499</span>
+                            <span class="text-gray-400">/mo</span>
+                        </div>
+                        <p class="text-sm text-indigo-300 mt-2">For independent pathologists</p>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-1">
+                        <li class="flex items-center gap-3 text-gray-200 text-sm"><i data-lucide="check" class="w-4 h-4 text-indigo-400"></i> 100 reports / month</li>
+                        <li class="flex items-center gap-3 text-gray-200 text-sm"><i data-lucide="check" class="w-4 h-4 text-indigo-400"></i> All export formats</li>
+                        <li class="flex items-center gap-3 text-gray-200 text-sm"><i data-lucide="check" class="w-4 h-4 text-indigo-400"></i> 1 custom template</li>
+                    </ul>
+                    <a href="https://xentovox.xentovia.ai" class="block w-full py-3 text-center text-sm font-medium text-white cta-primary rounded-xl">Get Started</a>
+                </div>
+
+                <!-- Professional -->
+                <div class="glass bento-card rounded-3xl p-8 flex flex-col animate-on-scroll" style="transition-delay: 0.2s;">
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold text-white mb-2">Professional</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-bold text-white">₹5,999</span>
+                            <span class="text-gray-400">/mo</span>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-2">For high-volume practice</p>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-1">
+                        <li class="flex items-center gap-3 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> 300 reports / month</li>
+                        <li class="flex items-center gap-3 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Unlimited templates</li>
+                        <li class="flex items-center gap-3 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Advanced analytics</li>
+                        <li class="flex items-center gap-3 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> API access</li>
+                    </ul>
+                    <a href="https://xentovox.xentovia.ai" class="block w-full py-3 text-center text-sm font-medium text-white glass border-white/20 rounded-xl hover:bg-white/10 transition-colors">Get Started</a>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center text-gray-400 text-sm animate-on-scroll">
+                Need more? Lab Network plans from ₹12,000/seat/mo. <a href="mailto:sales@xentovia.ai" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4">Contact us.</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Trust & Security -->
+    <section class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <span class="text-sm font-bold tracking-widest text-indigo-400 uppercase mb-4 block">TRUST & COMPLIANCE</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Your patients' data. Our responsibility.</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass bento-card rounded-2xl p-8 flex items-start gap-6 animate-on-scroll">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center shrink-0 text-cyan-400">
+                        <i data-lucide="shield" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Documentation tool, not diagnostic AI</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">XentovoX helps you write reports faster. It never makes diagnostic decisions. You review, approve, and sign every single report.</p>
+                    </div>
+                </div>
+
+                <div class="glass bento-card rounded-2xl p-8 flex items-start gap-6 animate-on-scroll" style="transition-delay: 0.1s;">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center shrink-0 text-indigo-400">
+                        <i data-lucide="server" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Hosted in AWS Mumbai</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Patient data stays exclusively within India. Secured with AES-256 encryption at rest and enterprise-grade TLS in transit.</p>
+                    </div>
+                </div>
+
+                <div class="glass bento-card rounded-2xl p-8 flex items-start gap-6 animate-on-scroll">
+                    <div class="w-12 h-12 rounded-xl bg-violet-500/20 border border-violet-500/30 flex items-center justify-center shrink-0 text-violet-400">
+                        <i data-lucide="eye-off" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Privacy by design</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">No patient data is ever used for AI model training. Strictly isolated tenant data architectures and a comprehensive audit trail on every action.</p>
+                    </div>
+                </div>
+
+                <div class="glass bento-card rounded-2xl p-8 flex items-start gap-6 animate-on-scroll" style="transition-delay: 0.1s;">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center shrink-0 text-emerald-400">
+                        <i data-lucide="stamp" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Doctor signs, always</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Secure digital signature mechanism utilizing SHA-256 content hashing. Once signed, the report is frozen, legally binding, and tamper-evident.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. CTA Section -->
+    <section class="py-24 relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="glass rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden border border-white/10 animate-on-scroll">
+            <!-- Radial glow background -->
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-900/40 via-space-900/40 to-transparent"></div>
+            
+            <div class="relative z-10">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight">Ready to stop typing reports?</h2>
+                <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+                    Start with 25 free cases. No credit card required. Experience the future of pathology dictation today.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="https://xentovox.xentovia.ai" class="w-full sm:w-auto px-8 py-4 text-base font-medium text-white rounded-xl cta-primary shadow-[0_0_30px_rgba(99,102,241,0.3)] inline-block">
+                        Start Free Trial
+                    </a>
+                    <a href="mailto:sales@xentovia.ai?subject=XentovoX%20demo" class="w-full sm:w-auto px-8 py-4 text-base font-medium text-white rounded-xl glass border-white/20 hover:bg-white/10 transition-colors inline-block">
+                        Book a Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Footer -->
+    <footer class="border-t border-white/10 bg-black/50 pt-20 pb-10 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
+                <!-- Brand -->
+                <div class="col-span-2 md:col-span-1">
+                    <a href="/" class="flex items-center gap-2 group mb-4 inline-flex">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-xl">X</div>
+                        <span class="font-bold text-xl tracking-tight text-white">Xentovia</span>
+                    </a>
+                    <p class="text-gray-400 text-sm">Agentic AI for enterprise workflows.</p>
+                </div>
+
+                <!-- Products -->
+                <div>
+                    <h4 class="text-white font-semibold mb-6">Solutions</h4>
+                    <ul class="space-y-4">
+                        <li><a href="/solutions/axar/" class="text-gray-400 hover:text-white text-sm transition-colors">Axar</a></li>
+                        <li><a href="/solutions/cargologix/" class="text-gray-400 hover:text-white text-sm transition-colors">CargologiX</a></li>
+                        <li><a href="/solutions/healthcare/" class="text-gray-400 hover:text-white text-sm transition-colors">Healthcare</a></li>
+                        <li><a href="/xentovox/" class="text-emerald-400 hover:text-emerald-300 text-sm transition-colors font-medium">XentovoX</a></li>
+                        <li><a href="/solutions/xentostay/" class="text-gray-400 hover:text-white text-sm transition-colors">XentoStay</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="text-white font-semibold mb-6">Company</h4>
+                    <ul class="space-y-4">
+                        <li><a href="/#about" class="text-gray-400 hover:text-white text-sm transition-colors">About</a></li>
+                        <li><a href="/blog/" class="text-gray-400 hover:text-white text-sm transition-colors">Blog</a></li>
+                        <li><a href="/careers/" class="text-gray-400 hover:text-white text-sm transition-colors">Careers</a></li>
+                        <li><a href="/#security" class="text-gray-400 hover:text-white text-sm transition-colors">Security</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h4 class="text-white font-semibold mb-6">Legal</h4>
+                    <ul class="space-y-4">
+                        <li><a href="/privacy/" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a></li>
+                        <li><a href="/terms/" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a></li>
+                        <li><a href="/dpa/" class="text-gray-400 hover:text-white text-sm transition-colors">DPA</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-divider mb-8"></div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2026 Xentovia Tech Pvt. Ltd. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <!-- Social placeholders if needed in future -->
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Navbar scroll behavior
+        let lastScroll = 0;
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                navbar.classList.remove('-translate-y-full');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && currentScroll > 80) {
+                // Scrolling down
+                navbar.classList.add('-translate-y-full');
+            } else {
+                // Scrolling up
+                navbar.classList.remove('-translate-y-full');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let isMenuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenuBtn.innerHTML = '<i data-lucide="x" class="w-6 h-6"></i>';
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+            }
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
