@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XentoVoX: Agentic AI Voice & Telephony Platform — Xentovia Tech</title>
+    <meta name="description" content="Deploy sub-500ms AI voice agents for inbound & outbound calling, scheduling, and customer support. TCPA/BAA compliant, tool-grounded, native LiveKit + SIP integration.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://xentovia.ai/xentovox/">
+    <meta property="og:title" content="XentoVoX: Agentic AI Voice & Telephony Platform — Xentovia Tech">
+    <meta property="og:description" content="Deploy sub-500ms AI voice agents for inbound & outbound calling, scheduling, and customer support. TCPA/BAA compliant, tool-grounded, native LiveKit + SIP integration.">
+    <meta property="og:image" content="https://xentovia.ai/favicon.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://xentovia.ai/xentovox/">
+    <meta property="twitter:title" content="XentoVoX: Agentic AI Voice & Telephony Platform — Xentovia Tech">
+    <meta property="twitter:description" content="Deploy sub-500ms AI voice agents for inbound & outbound calling, scheduling, and customer support. TCPA/BAA compliant, tool-grounded, native LiveKit + SIP integration.">
+    <meta property="twitter:image" content="https://xentovia.ai/favicon.png">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    },
+                    colors: {
+                        space: { 950: '#03050a', 900: '#060b18', 800: '#0a1128', 700: '#0f1a3a' },
+                        accent: { 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7' },
+                        glow: { purple: '#8b5cf6', blue: '#3b82f6', cyan: '#06b6d4' }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #03050a; color: #e2e8f0; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #03050a; }
+        ::-webkit-scrollbar-thumb { background: #0ea5e9; border-radius: 3px; }
+
+        .glow-orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
+        .glow-orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(14,165,233,0.2) 0%, transparent 70%); top: -10%; left: -5%; }
+        .glow-orb-2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(139,92,246,0.18) 0%, transparent 70%); top: 40%; right: -10%; }
+
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.06); }
+        .glass:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(56, 189, 248, 0.25); }
+
+        .bento-card { position: relative; overflow: hidden; transition: all 0.4s ease; }
+        .bento-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px -15px rgba(14, 165, 233, 0.2); }
+
+        .icon-box { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: linear-gradient(135deg, rgba(14,165,233,0.15), rgba(139,92,246,0.1)); border: 1px solid rgba(56, 189, 248, 0.2); }
+    </style>
+</head>
+<body class="bg-space-950 text-slate-200 antialiased selection:bg-accent-500 selection:text-white">
+
+    <!-- Background Orbs -->
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-400 to-glow-purple flex items-center justify-center font-black text-space-950 text-xl tracking-tighter">
+                    XV
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-white text-lg tracking-tight group-hover:text-accent-400 transition-colors">XentoVoX</span>
+                    <span class="text-xs text-slate-400 font-mono">by Xentovia AI</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#features" class="hover:text-white transition-colors">Features</a>
+                <a href="#verticals" class="hover:text-white transition-colors">Verticals</a>
+                <a href="#compliance" class="hover:text-white transition-colors">Compliance</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="/simplimex/" class="text-xs text-slate-400 hover:text-white hidden lg:block">SimplImex AI →</a>
+                <a href="#demo" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-accent-500 to-glow-purple text-white font-semibold text-sm hover:shadow-lg hover:shadow-accent-500/25 transition-all">
+                    Request Demo
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-36 pb-24 px-6 max-w-7xl mx-auto z-10">
+        <div class="text-center max-w-4xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-accent-500/30 text-accent-400 text-xs font-mono mb-8">
+                <span class="w-2 h-2 rounded-full bg-accent-400 animate-pulse"></span>
+                White-Label & Enterprise AI Voice Engine
+            </div>
+
+            <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-tight mb-8">
+                Sub-500ms <span class="bg-gradient-to-r from-accent-400 via-glow-blue to-glow-purple bg-clip-text text-transparent">Agentic AI Voice</span> for Real Business
+            </h1>
+
+            <p class="text-lg md:text-xl text-slate-300 font-light leading-relaxed max-w-3xl mx-auto mb-12">
+                Deploy conversational voice agents over phone lines, WebRTC widgets, and SIP trunks. 
+                Tool-grounded, zero hallucination, TCPA/HIPAA compliant, and natively integrated with LiveKit.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#demo" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-accent-500 text-white font-bold hover:bg-accent-400 shadow-xl shadow-accent-500/20 transition-all text-center">
+                    Book Live Voice Demo
+                </a>
+            </div>
+        </div>
+
+        <!-- Metric Pill Banner -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-20">
+            <div class="glass p-6 rounded-2xl text-center border border-white/5">
+                <p class="text-3xl font-mono font-bold text-accent-400">&lt;500ms</p>
+                <p class="text-xs text-slate-400 mt-1 uppercase tracking-wider font-mono">Realtime Latency</p>
+            </div>
+            <div class="glass p-6 rounded-2xl text-center border border-white/5">
+                <p class="text-3xl font-mono font-bold text-glow-purple">100%</p>
+                <p class="text-xs text-slate-400 mt-1 uppercase tracking-wider font-mono">Tool-Only Grounded</p>
+            </div>
+            <div class="glass p-6 rounded-2xl text-center border border-white/5">
+                <p class="text-3xl font-mono font-bold text-accent-400">TCPA / BAA</p>
+                <p class="text-xs text-slate-400 mt-1 uppercase tracking-wider font-mono">Compliance Gate</p>
+            </div>
+            <div class="glass p-6 rounded-2xl text-center border border-white/5">
+                <p class="text-3xl font-mono font-bold text-glow-blue">LiveKit + SIP</p>
+                <p class="text-xs text-slate-400 mt-1 uppercase tracking-wider font-mono">Native Telephony</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 px-6 max-w-7xl mx-auto relative z-10 border-t border-white/5">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
+                Built for High-Stakes Operations
+            </h2>
+            <p class="text-slate-400 font-light">
+                Generic voicebots fail when handling complex appointments, prices, or regulatory requirements. 
+                XentoVoX brings deterministic reliability to every phone call.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass bento-card p-8 rounded-3xl">
+                <h3 class="text-xl font-bold text-white mb-3">Tool-Only Grounding</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    XentoVoX is prohibited from recalling pricing or availability from memory. Every slot and fee is verified via real-time connector tools before spoken to the caller.
+                </p>
+            </div>
+
+            <div class="glass bento-card p-8 rounded-3xl">
+                <h3 class="text-xl font-bold text-white mb-3">Inbound & Missed-Call-Text-Back</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Instantly answer inbound calls via SIP or WebRTC. If a line is busy, automated SMS text-back triggers an instant AI chat or callback funnel.
+                </p>
+            </div>
+
+            <div class="glass bento-card p-8 rounded-3xl">
+                <h3 class="text-xl font-bold text-white mb-3">TCPA & BAA Compliance</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Outbound calls pass an explicit pre-dial consent ledger. Healthcare tenants route through PHI-safe cascaded STT → BAA LLM → TTS pipelines automatically.
+                </p>
+            </div>
+
+            <div class="glass bento-card p-8 rounded-3xl">
+                <h3 class="text-xl font-bold text-white mb-3">Declarative Skill Packs</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Configure persona, tool parameters, house notes, and transfer logic in YAML. Deploy specialized agents for clinics, hotels, salons, or auto services in minutes.
+                </p>
+            </div>
+
+            <div class="glass bento-card p-8 rounded-3xl">
+                <h3 class="text-xl font-bold text-white mb-3">Post-Call QA & LLM Judge</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Every call transcript is analyzed post-hangup by deterministic metric rules and an LLM judge to score sentiment, ungrounded claims, and resolution rates.
+                </p>
+            </div>
+
+            <div class="glass bento-card p-8 rounded-3xl">
+                <h3 class="text-xl font-bold text-white mb-3">White-Label & Self-Hostable</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Zero hardcoded monorepo dependencies. XentoVoX runs stand-alone over clean port interfaces, ready for white-label enterprise deployment.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Verticals Section -->
+    <section id="verticals" class="py-24 px-6 max-w-7xl mx-auto relative z-10 border-t border-white/5">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
+                Tailored for Every High-Touch Industry
+            </h2>
+            <p class="text-slate-400 font-light">
+                Out-of-the-box skill packs designed for real-world booking, inquiry, and notification workflows.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="glass p-6 rounded-2xl border border-white/5">
+                <div class="text-accent-400 font-mono text-xs uppercase mb-2">Hospitality</div>
+                <h4 class="text-lg font-bold text-white mb-2">XentoStay Voice</h4>
+                <p class="text-slate-400 text-xs leading-relaxed">Front desk reservation agent, room service order taker, amenity booking, and guest inquiry assistant.</p>
+            </div>
+
+            <div class="glass p-6 rounded-2xl border border-white/5">
+                <div class="text-glow-purple font-mono text-xs uppercase mb-2">Healthcare</div>
+                <h4 class="text-lg font-bold text-white mb-2">Clinical Intake</h4>
+                <p class="text-slate-400 text-xs leading-relaxed">BAA-gated HIPAA pipeline for patient appointment scheduling, pre-visit instructions, and callback logging.</p>
+            </div>
+
+            <div class="glass p-6 rounded-2xl border border-white/5">
+                <div class="text-accent-400 font-mono text-xs uppercase mb-2">Home & Field Services</div>
+                <h4 class="text-lg font-bold text-white mb-2">Service Dispatcher</h4>
+                <p class="text-slate-400 text-xs leading-relaxed">Qualifies service leads, checks technician availability windows, and logs confirmed callout jobs.</p>
+            </div>
+
+            <div class="glass p-6 rounded-2xl border border-white/5">
+                <div class="text-glow-purple font-mono text-xs uppercase mb-2">Restaurants & Salons</div>
+                <h4 class="text-lg font-bold text-white mb-2">Table & Slot Booking</h4>
+                <p class="text-slate-400 text-xs leading-relaxed">Handles table reservations, party size checks, stylist slot booking, and missed-call SMS follow-ups.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-white/10 glass relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-400 to-glow-purple flex items-center justify-center font-bold text-space-950 text-sm">
+                    XV
+                </div>
+                <span class="text-slate-300 font-semibold text-sm">XentoVoX by Xentovia AI</span>
+            </div>
+            <p class="text-xs text-slate-500">© 2026 Xentovia AI. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-slate-400">
+                <a href="/" class="hover:text-white transition-colors">Xentovia Home</a>
+                <a href="/simplimex/" class="hover:text-white transition-colors">SimplImex AI</a>
+                <a href="/xentoscribe/" class="hover:text-white transition-colors">XentoScribe</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
