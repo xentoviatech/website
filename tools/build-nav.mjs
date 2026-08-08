@@ -40,12 +40,19 @@ function renderNav(page) {
   const deskCls = 'text-sm text-slate-400 hover:text-white transition-colors';
   const mobCls = 'block text-sm text-slate-400 hover:text-white py-2';
 
-  const solutionsDesktop = config.solutions.map((s) => {
+  /** Emit a group heading whenever `group` changes, so products read as products. */
+  const heading = (s, i, cls) =>
+    s.group && s.group !== config.solutions[i - 1]?.group
+      ? [`<p class="${cls} text-[11px] font-semibold uppercase tracking-wider text-slate-500">${esc(s.group)}</p>`]
+      : [];
+
+  const solutionsDesktop = config.solutions.map((s, i) => {
     const current = s.key === page.active;
     const wrap = current
       ? 'flex items-start gap-3 p-2.5 rounded-xl bg-white/[0.06] ring-1 ring-white/10 transition-colors'
       : 'flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors';
     return [
+      ...heading(s, i, 'px-2.5 pt-2 pb-1'),
       `<a href="${esc(s.href)}" class="${wrap}"${current ? ' aria-current="page"' : ''}>`,
       `  <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-${s.color}-500/10 border border-${s.color}-500/20 flex-shrink-0 mt-0.5">`,
       `    <i data-lucide="${esc(s.icon)}" class="w-4 h-4 text-${s.color}-400"></i>`,
@@ -58,7 +65,8 @@ function renderNav(page) {
     ];
   });
 
-  const solutionsMobile = config.solutions.map((s) => [
+  const solutionsMobile = config.solutions.map((s, i) => [
+    ...heading(s, i, 'pt-2 pb-0.5'),
     `<a href="${esc(s.href)}" class="block py-1 text-sm text-slate-300 hover:text-white"${s.key === page.active ? ' aria-current="page"' : ''}>` +
       `<span class="font-medium text-white">${esc(s.title)}</span> ` +
       `<span class="text-xs text-slate-400">&middot; ${esc(s.subtitleShort)}</span></a>`,

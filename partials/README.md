@@ -30,7 +30,8 @@ Pages remain fully self-contained, so GitHub Pages still deploys the repo as-is.
   the page's `<style>` for the CSS, add the path to `pages` in `nav.config.json`, run
   the script.
 - **New product** — add an entry to `solutions` in `nav.config.json`. It appears in
-  the dropdown on all pages at once.
+  the dropdown on all pages at once. `group` (`Products` / `By Industry`) prints a
+  heading whenever it changes, so keep entries of the same group adjacent.
 - **Per-product sub-nav** — add a `subnav` block to that page's entry. Only link to
   anchors that actually exist on the page; the old navbars accumulated dead ones
   (`#outcomes`, `#compliance`, `#demo`).

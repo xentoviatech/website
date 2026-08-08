@@ -434,7 +434,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
 
     <!-- Desktop -->
     <div class="hidden md:flex items-center gap-8">
-      <a href="/#capabilities" class="text-sm text-slate-400 hover:text-white transition-colors">Capabilities</a>
+
       <div class="relative group">
         <button type="button" class="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-1" aria-haspopup="true">
           Solutions
@@ -442,6 +442,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
         </button>
         <div class="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[480px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
           <div class="glass rounded-2xl p-2 shadow-2xl border border-white/10 grid grid-cols-1 gap-0.5">
+            <p class="px-2.5 pt-2 pb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-500">Products</p>
             <a href="/simplimex/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
               <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-sky-500/10 border border-sky-500/20 flex-shrink-0 mt-0.5">
                 <i data-lucide="ship" class="w-4 h-4 text-sky-400"></i>
@@ -487,6 +488,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
                 <p class="text-xs text-slate-400 truncate">XentoScribe · AI dictation for doctors</p>
               </div>
             </a>
+            <p class="px-2.5 pt-2 pb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-500">By Industry</p>
             <a href="/solutions/healthcare/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
               <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-rose-500/10 border border-rose-500/20 flex-shrink-0 mt-0.5">
                 <i data-lucide="heart-pulse" class="w-4 h-4 text-rose-400"></i>
@@ -526,7 +528,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </div>
         </div>
       </div>
-      <a href="/#how-it-works" class="text-sm text-slate-400 hover:text-white transition-colors">How It Works</a>
+      <a href="/#how-it-works" class="text-sm text-slate-400 hover:text-white transition-colors">Platform</a>
       <a href="/#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a>
       <a href="/#company" class="text-sm text-slate-400 hover:text-white transition-colors">Company</a>
       <a href="/blog/" class="text-sm text-slate-400 hover:text-white transition-colors">Blog</a>
@@ -545,25 +547,27 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
         <i data-lucide="x" class="w-5 h-5 site-nav-icon-close"></i>
       </summary>
       <div class="site-nav-panel px-6 pt-2 pb-5 space-y-3">
-        <a href="/#capabilities" class="block text-sm text-slate-400 hover:text-white py-2">Capabilities</a>
+
         <details class="group/details">
           <summary class="site-nav-submenu flex items-center justify-between py-2 text-sm text-slate-400 hover:text-white">
             <span>Solutions</span>
             <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-open/details:rotate-180"></i>
           </summary>
           <div class="pl-3 mt-1 space-y-1 border-l border-white/10">
+            <p class="pt-2 pb-0.5 text-[11px] font-semibold uppercase tracking-wider text-slate-500">Products</p>
             <a href="/simplimex/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Customs &amp; ICEGATE Filing</span> <span class="text-xs text-slate-400">&middot; SimplImex AI</span></a>
             <a href="/xentoaxar/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Handwritten Record Digitization</span> <span class="text-xs text-slate-400">&middot; XentoAxar</span></a>
             <a href="/xentovox/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">AI Voice Agents</span> <span class="text-xs text-slate-400">&middot; XentoVoX</span></a>
             <a href="/solutions/xentostay/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Hotel &amp; Resort Automation</span> <span class="text-xs text-slate-400">&middot; XentoStay</span></a>
             <a href="/xentoscribe/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Medical Pathology Dictation</span> <span class="text-xs text-slate-400">&middot; XentoScribe</span></a>
+            <p class="pt-2 pb-0.5 text-[11px] font-semibold uppercase tracking-wider text-slate-500">By Industry</p>
             <a href="/solutions/healthcare/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Healthcare Prior Authorization</span> <span class="text-xs text-slate-400">&middot; Prior auth in hours</span></a>
             <a href="/solutions/insurance/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Insurance Claims &amp; FNOL</span> <span class="text-xs text-slate-400">&middot; AI triage</span></a>
             <a href="/solutions/manufacturing/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Manufacturing Quality Control</span> <span class="text-xs text-slate-400">&middot; Defect inspection</span></a>
             <a href="/solutions/mortgage/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Mortgage Loan File Indexing</span> <span class="text-xs text-slate-400">&middot; Packet speed</span></a>
           </div>
         </details>
-        <a href="/#how-it-works" class="block text-sm text-slate-400 hover:text-white py-2">How It Works</a>
+        <a href="/#how-it-works" class="block text-sm text-slate-400 hover:text-white py-2">Platform</a>
         <a href="/#security" class="block text-sm text-slate-400 hover:text-white py-2">Security</a>
         <a href="/#company" class="block text-sm text-slate-400 hover:text-white py-2">Company</a>
         <a href="/blog/" class="block text-sm text-slate-400 hover:text-white py-2">Blog</a>
@@ -955,7 +959,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
             </div>
           </div>
         </div></li>
-            <li><a href="/#how-it-works" class="text-sm text-slate-400 hover:text-white transition-colors">How It Works</a></li>
+            <li><a href="/#how-it-works" class="text-sm text-slate-400 hover:text-white transition-colors">Platform</a></li>
             <li><a href="/#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a></li>
           </ul>
         </div>

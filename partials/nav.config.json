@@ -3,11 +3,9 @@
 
   "cta": { "href": "/#contact", "label": "Book a Demo" },
 
-  "linksBefore": [
-    { "label": "Capabilities", "href": "/#capabilities" }
-  ],
+  "linksBefore": [],
   "linksAfter": [
-    { "label": "How It Works", "href": "/#how-it-works" },
+    { "label": "Platform", "href": "/#how-it-works" },
     { "label": "Security", "href": "/#security" },
     { "label": "Company", "href": "/#company" },
     { "label": "Blog", "href": "/blog/" }
@@ -16,6 +14,7 @@
   "solutions": [
     {
       "key": "simplimex",
+      "group": "Products",
       "href": "/simplimex/",
       "title": "Customs & ICEGATE Filing",
       "subtitle": "SimplImex AI · File entries in 15 min",
@@ -25,6 +24,7 @@
     },
     {
       "key": "xentoaxar",
+      "group": "Products",
       "href": "/xentoaxar/",
       "title": "Handwritten Record Digitization",
       "subtitle": "XentoAxar · Process physical records at scale",
@@ -34,6 +34,7 @@
     },
     {
       "key": "xentovox",
+      "group": "Products",
       "href": "/xentovox/",
       "title": "AI Voice Agents",
       "subtitle": "XentoVoX · Sub-500ms conversational voice",
@@ -43,6 +44,7 @@
     },
     {
       "key": "xentostay",
+      "group": "Products",
       "href": "/solutions/xentostay/",
       "title": "Hotel & Resort Automation",
       "subtitle": "XentoStay · AI voice & booking agents",
@@ -52,6 +54,7 @@
     },
     {
       "key": "xentoscribe",
+      "group": "Products",
       "href": "/xentoscribe/",
       "title": "Medical Pathology Dictation",
       "subtitle": "XentoScribe · AI dictation for doctors",
@@ -61,6 +64,7 @@
     },
     {
       "key": "healthcare",
+      "group": "By Industry",
       "href": "/solutions/healthcare/",
       "title": "Healthcare Prior Authorization",
       "subtitle": "Prior auth in hours, not days",
@@ -70,6 +74,7 @@
     },
     {
       "key": "insurance",
+      "group": "By Industry",
       "href": "/solutions/insurance/",
       "title": "Insurance Claims & FNOL",
       "subtitle": "AI triage for claims & losses",
@@ -79,6 +84,7 @@
     },
     {
       "key": "manufacturing",
+      "group": "By Industry",
       "href": "/solutions/manufacturing/",
       "title": "Manufacturing Quality Control",
       "subtitle": "Catch defects before the line",
@@ -88,6 +94,7 @@
     },
     {
       "key": "mortgage",
+      "group": "By Industry",
       "href": "/solutions/mortgage/",
       "title": "Mortgage Loan File Indexing",
       "subtitle": "Index loan files at packet speed",
