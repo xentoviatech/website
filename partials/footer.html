@@ -1,0 +1,42 @@
+<!--
+  Site footer. Rendered into every page by tools/build-chrome.mjs.
+  The Solutions column is generated from `solutions` in chrome.config.json, so a
+  new product appears here and in the nav dropdown from a single edit.
+-->
+<footer class="site-footer relative z-10 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12 mb-12">
+
+      <div class="col-span-2 md:col-span-4 lg:col-span-1">
+        <a href="/" class="flex items-center gap-2.5 mb-4">
+          <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
+          <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+        </a>
+        <p class="text-sm text-slate-400 leading-relaxed mb-4">
+          {{TAGLINE}}
+        </p>
+        <a href="mailto:{{EMAIL}}" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
+          <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+          {{EMAIL}}
+        </a>
+      </div>
+
+{{COLUMNS}}
+    </div>
+
+    <div class="section-divider mb-8"></div>
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-slate-400">
+        {{COPYRIGHT}}
+      </p>
+      <div class="flex items-center gap-5">
+        <a href="{{LINKEDIN}}" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.95v5.66H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.28 2.38 4.28 5.48v6.26zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+        <a href="mailto:{{EMAIL}}" class="text-slate-400 hover:text-white transition-colors" aria-label="Email">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

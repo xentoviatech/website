@@ -1,4 +1,4 @@
-/* Global navigation. Source: partials/nav.css — regenerate with `node tools/build-nav.mjs`. */
+/* Shared page chrome. Source: partials/chrome.css — regenerate with `node tools/build-chrome.mjs`. */
 .nav-blur {
   background: rgba(3, 5, 10, 0.7);
   backdrop-filter: blur(20px);
@@ -58,6 +58,13 @@ html.nav-hidden .site-subnav { transform: translateY(-6.75rem); }
 .site-subnav-links { scrollbar-width: none; }
 .site-subnav-links::-webkit-scrollbar { display: none; }
 body.has-subnav { padding-top: 2.75rem; }
+
+/* Footer — self-contained so it renders identically on pages with their own palettes. */
+.site-footer { background: rgba(3, 5, 10, 0.8); }
+.site-footer .section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+}
 
 /* Keep in-page anchors clear of the fixed nav. */
 html { scroll-padding-top: 5rem; }

@@ -1,7 +1,46 @@
 {
-  "$comment": "Single source of truth for the site navigation. Edit this file (or nav.html / subnav.html / nav.css), then run `node tools/build-nav.mjs` to regenerate every page. CI fails if a page is out of sync.",
+  "$comment": "Single source of truth for the site nav and footer. Edit this file (or nav.html / subnav.html / footer.html / chrome.css), then run `node tools/build-chrome.mjs` to regenerate every page. CI fails if a page is out of sync.",
 
   "cta": { "href": "/#contact", "label": "Book a Demo" },
+
+  "footer": {
+    "tagline": "Agentic AI solutions for the enterprise.",
+    "email": "sales@xentovia.ai",
+    "linkedin": "https://www.linkedin.com/company/xentovia-ai",
+    "copyright": "© 2026 Xentovia Tech Private Limited. All rights reserved.",
+    "columns": [
+      {
+        "title": "Solutions",
+        "fromSolutions": "Products",
+        "links": [{ "label": "By industry", "href": "/#solutions" }]
+      },
+      {
+        "title": "Platform",
+        "links": [
+          { "label": "Capabilities", "href": "/#capabilities" },
+          { "label": "How it works", "href": "/#how-it-works" },
+          { "label": "Security", "href": "/#security" }
+        ]
+      },
+      {
+        "title": "Company",
+        "links": [
+          { "label": "About", "href": "/#company" },
+          { "label": "Blog", "href": "/blog/" },
+          { "label": "Careers", "href": "/careers/" },
+          { "label": "Contact", "href": "mailto:sales@xentovia.ai" }
+        ]
+      },
+      {
+        "title": "Legal",
+        "links": [
+          { "label": "Privacy Policy", "href": "/privacy/" },
+          { "label": "Terms of Service", "href": "/terms/" },
+          { "label": "DPA", "href": "/dpa/" }
+        ]
+      }
+    ]
+  },
 
   "linksBefore": [],
   "linksAfter": [

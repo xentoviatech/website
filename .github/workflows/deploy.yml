@@ -22,8 +22,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Verify navigation is in sync
-        run: node tools/build-nav.mjs --check
+      - name: Verify nav and footer are in sync
+        run: node tools/build-chrome.mjs --check
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
