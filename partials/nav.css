@@ -1,0 +1,64 @@
+/* Global navigation. Source: partials/nav.css — regenerate with `node tools/build-nav.mjs`. */
+.nav-blur {
+  background: rgba(3, 5, 10, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+/* The dropdown sits over page content, so it needs an opaque base. */
+.site-nav .glass { background: #020617; }
+
+/* Primary CTA — defined here so the nav renders correctly on every page. */
+.cta-primary {
+  position: relative;
+  background: linear-gradient(135deg, #6366f1, #7c3aed);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.cta-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #7c3aed, #6366f1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.cta-primary:hover::after { opacity: 1; }
+.cta-primary:hover {
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(124, 58, 237, 0.2);
+  transform: translateY(-2px);
+}
+.cta-primary span { position: relative; z-index: 1; }
+
+/* JS-free mobile menu */
+.site-nav-mobile > summary,
+.site-nav-mobile summary.site-nav-submenu { list-style: none; cursor: pointer; }
+.site-nav-mobile summary::-webkit-details-marker { display: none; }
+.site-nav-mobile:not([open]) .site-nav-icon-close,
+.site-nav-mobile[open] .site-nav-icon-open { display: none; }
+.site-nav-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 4rem;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+  /* Opaque: a nested backdrop-filter cannot blur through the nav's own. */
+  background: #020617;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Hide-on-scroll (see the script in partials/nav.html) */
+.site-nav, .site-subnav { transition: transform 0.3s ease; }
+html.nav-hidden .site-nav { transform: translateY(-100%); }
+html.nav-hidden .site-subnav { transform: translateY(-6.75rem); }
+
+/* Per-product sub-nav */
+.site-subnav { border-top: 1px solid rgba(255, 255, 255, 0.04); }
+.site-subnav-links { scrollbar-width: none; }
+.site-subnav-links::-webkit-scrollbar { display: none; }
+body.has-subnav { padding-top: 2.75rem; }
+
+/* Keep in-page anchors clear of the fixed nav. */
+html { scroll-padding-top: 5rem; }
+html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }

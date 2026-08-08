@@ -1,0 +1,79 @@
+<!--
+  Global navigation template. Rendered into every page by tools/build-nav.mjs.
+  Tokens are filled from nav.config.json. The mobile menu is JS-free (<details>),
+  so this markup carries no page-level script dependencies.
+-->
+<nav class="site-nav nav-blur fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2.5 group">
+      <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
+      <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+    </a>
+
+    <!-- Desktop -->
+    <div class="hidden md:flex items-center gap-8">
+{{LINKS_BEFORE_DESKTOP}}
+      <div class="relative group">
+        <button type="button" class="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-1" aria-haspopup="true">
+          Solutions
+          <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform group-hover:rotate-180"></i>
+        </button>
+        <div class="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[480px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+          <div class="glass rounded-2xl p-2 shadow-2xl border border-white/10 grid grid-cols-1 gap-0.5">
+{{SOLUTIONS_DESKTOP}}
+          </div>
+        </div>
+      </div>
+{{LINKS_AFTER_DESKTOP}}
+      <a href="{{CTA_HREF}}" class="cta-primary px-5 py-2 rounded-lg text-sm font-semibold text-white">
+        <span class="flex items-center gap-1.5">
+          {{CTA_LABEL}}
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </span>
+      </a>
+    </div>
+
+    <!-- Mobile -->
+    <details class="site-nav-mobile md:hidden">
+      <summary class="text-slate-400 hover:text-white p-2 -mr-2" role="button" aria-label="Toggle menu">
+        <i data-lucide="menu" class="w-5 h-5 site-nav-icon-open"></i>
+        <i data-lucide="x" class="w-5 h-5 site-nav-icon-close"></i>
+      </summary>
+      <div class="site-nav-panel px-6 pt-2 pb-5 space-y-3">
+{{LINKS_BEFORE_MOBILE}}
+        <details class="group/details">
+          <summary class="site-nav-submenu flex items-center justify-between py-2 text-sm text-slate-400 hover:text-white">
+            <span>Solutions</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-open/details:rotate-180"></i>
+          </summary>
+          <div class="pl-3 mt-1 space-y-1 border-l border-white/10">
+{{SOLUTIONS_MOBILE}}
+          </div>
+        </details>
+{{LINKS_AFTER_MOBILE}}
+        <a href="{{CTA_HREF}}" class="block cta-primary px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">
+          <span>{{CTA_LABEL}}</span>
+        </a>
+      </div>
+    </details>
+  </div>
+</nav>
+{{SUBNAV}}
+<script>
+  /* The nav is self-sufficient: it renders its own icons and needs nothing from the
+     page. Hide-on-scroll is decorative — the menu is <details> and works without JS. */
+  (function () {
+    if (window.lucide) {
+      lucide.createIcons();
+      addEventListener('DOMContentLoaded', function () { lucide.createIcons(); });
+    }
+    var root = document.documentElement, last = 0;
+    addEventListener('scroll', function () {
+      var y = window.scrollY;
+      if (!document.querySelector('.site-nav-mobile[open]')) {
+        root.classList.toggle('nav-hidden', y > last && y > 100);
+      }
+      last = y;
+    }, { passive: true });
+  })();
+</script>

@@ -1,0 +1,180 @@
+{
+  "$comment": "Single source of truth for the site navigation. Edit this file (or nav.html / subnav.html / nav.css), then run `node tools/build-nav.mjs` to regenerate every page. CI fails if a page is out of sync.",
+
+  "cta": { "href": "/#contact", "label": "Book a Demo" },
+
+  "linksBefore": [
+    { "label": "Capabilities", "href": "/#capabilities" }
+  ],
+  "linksAfter": [
+    { "label": "How It Works", "href": "/#how-it-works" },
+    { "label": "Security", "href": "/#security" },
+    { "label": "Company", "href": "/#company" },
+    { "label": "Blog", "href": "/blog/" }
+  ],
+
+  "solutions": [
+    {
+      "key": "simplimex",
+      "href": "/simplimex/",
+      "title": "Customs & ICEGATE Filing",
+      "subtitle": "SimplImex AI · File entries in 15 min",
+      "subtitleShort": "SimplImex AI",
+      "icon": "ship",
+      "color": "sky"
+    },
+    {
+      "key": "xentoaxar",
+      "href": "/xentoaxar/",
+      "title": "Handwritten Record Digitization",
+      "subtitle": "XentoAxar · Process physical records at scale",
+      "subtitleShort": "XentoAxar",
+      "icon": "building",
+      "color": "cyan"
+    },
+    {
+      "key": "xentovox",
+      "href": "/xentovox/",
+      "title": "AI Voice Agents",
+      "subtitle": "XentoVoX · Sub-500ms conversational voice",
+      "subtitleShort": "XentoVoX",
+      "icon": "phone-call",
+      "color": "blue"
+    },
+    {
+      "key": "xentostay",
+      "href": "/solutions/xentostay/",
+      "title": "Hotel & Resort Automation",
+      "subtitle": "XentoStay · AI voice & booking agents",
+      "subtitleShort": "XentoStay",
+      "icon": "hotel",
+      "color": "purple"
+    },
+    {
+      "key": "xentoscribe",
+      "href": "/xentoscribe/",
+      "title": "Medical Pathology Dictation",
+      "subtitle": "XentoScribe · AI dictation for doctors",
+      "subtitleShort": "XentoScribe",
+      "icon": "mic",
+      "color": "emerald"
+    },
+    {
+      "key": "healthcare",
+      "href": "/solutions/healthcare/",
+      "title": "Healthcare Prior Authorization",
+      "subtitle": "Prior auth in hours, not days",
+      "subtitleShort": "Prior auth in hours",
+      "icon": "heart-pulse",
+      "color": "rose"
+    },
+    {
+      "key": "insurance",
+      "href": "/solutions/insurance/",
+      "title": "Insurance Claims & FNOL",
+      "subtitle": "AI triage for claims & losses",
+      "subtitleShort": "AI triage",
+      "icon": "umbrella",
+      "color": "indigo"
+    },
+    {
+      "key": "manufacturing",
+      "href": "/solutions/manufacturing/",
+      "title": "Manufacturing Quality Control",
+      "subtitle": "Catch defects before the line",
+      "subtitleShort": "Defect inspection",
+      "icon": "factory",
+      "color": "amber"
+    },
+    {
+      "key": "mortgage",
+      "href": "/solutions/mortgage/",
+      "title": "Mortgage Loan File Indexing",
+      "subtitle": "Index loan files at packet speed",
+      "subtitleShort": "Packet speed",
+      "icon": "home",
+      "color": "yellow"
+    }
+  ],
+
+  "pages": {
+    "index.html": {},
+    "blog/index.html": {},
+    "blog/digitizing-government-archives/index.html": {},
+    "blog/human-in-the-loop-regulated-industries/index.html": {},
+    "blog/vision-agents-for-land-records/index.html": {},
+    "blog/why-vlms-are-replacing-ocr/index.html": {},
+    "careers/index.html": {},
+    "dpa/index.html": {},
+    "privacy/index.html": {},
+    "terms/index.html": {},
+    "solutions/healthcare/index.html": { "active": "healthcare" },
+    "solutions/insurance/index.html": { "active": "insurance" },
+    "solutions/manufacturing/index.html": { "active": "manufacturing" },
+    "solutions/mortgage/index.html": { "active": "mortgage" },
+
+    "simplimex/index.html": {
+      "active": "simplimex",
+      "subnav": {
+        "name": "SimplImex AI",
+        "href": "/simplimex/",
+        "links": [
+          { "label": "How It Works", "href": "#workflow-demo" },
+          { "label": "See It Work", "href": "#video" },
+          { "label": "Security", "href": "#security" }
+        ],
+        "cta": { "label": "Book a 30-Min Demo", "href": "#contact" }
+      }
+    },
+    "xentoaxar/index.html": {
+      "active": "xentoaxar",
+      "subnav": {
+        "name": "XentoAxar",
+        "href": "/xentoaxar/",
+        "links": [
+          { "label": "The Problem", "href": "#problem" },
+          { "label": "How It Works", "href": "#how" },
+          { "label": "Trust & Security", "href": "#trust" }
+        ],
+        "cta": { "label": "Book a Demo", "href": "#cta" }
+      }
+    },
+    "xentovox/index.html": {
+      "active": "xentovox",
+      "subnav": {
+        "name": "XentoVoX",
+        "href": "/xentovox/",
+        "links": [
+          { "label": "Features", "href": "#features" },
+          { "label": "Verticals", "href": "#verticals" }
+        ],
+        "cta": { "label": "Request Demo", "href": "/#contact" }
+      }
+    },
+    "xentoscribe/index.html": {
+      "active": "xentoscribe",
+      "subnav": {
+        "name": "XentoScribe",
+        "href": "/xentoscribe/",
+        "links": [
+          { "label": "How It Works", "href": "#how" },
+          { "label": "Pricing", "href": "#pricing" },
+          { "label": "Security", "href": "#security" }
+        ],
+        "cta": { "label": "Book a Demo", "href": "mailto:sales@xentovia.ai?subject=XentoScribe%20demo" }
+      }
+    },
+    "solutions/xentostay/index.html": {
+      "active": "xentostay",
+      "subnav": {
+        "name": "XentoStay",
+        "href": "/solutions/xentostay/",
+        "links": [
+          { "label": "Features", "href": "#features" },
+          { "label": "Integration", "href": "#integration" }
+        ],
+        "cta": { "label": "Book a Demo", "href": "#contact" }
+      }
+    }
+  }
+}

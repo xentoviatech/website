@@ -1,0 +1,17 @@
+<!--
+  Optional per-product sub-nav, rendered under the global nav on pages that
+  declare a "subnav" block in nav.config.json. Pages with a sub-nav get the
+  `has-subnav` class on <body> so nav.css can reserve the extra 2.75rem.
+-->
+<div class="site-subnav nav-blur fixed top-16 left-0 right-0 z-40">
+  <div class="max-w-7xl mx-auto px-6 h-11 flex items-center gap-6">
+    <a href="{{SUBNAV_HREF}}" class="text-sm font-semibold text-white whitespace-nowrap shrink-0" aria-current="page">{{SUBNAV_NAME}}</a>
+    <div class="site-subnav-links flex items-center gap-5 overflow-x-auto flex-1 min-w-0">
+{{SUBNAV_LINKS}}
+    </div>
+    <a href="{{SUBNAV_CTA_HREF}}" class="hidden sm:inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-300 hover:text-white transition-colors whitespace-nowrap shrink-0">
+      {{SUBNAV_CTA_LABEL}}
+      <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+    </a>
+  </div>
+</div>
