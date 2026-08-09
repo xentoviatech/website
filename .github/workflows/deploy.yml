@@ -28,6 +28,9 @@ jobs:
       - name: Verify the blog is in sync with content/blog
         run: node tools/build-blog.mjs --check
 
+      - name: Verify every internal link and asset resolves
+        run: node tools/check-links.mjs
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
