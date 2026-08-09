@@ -7,7 +7,7 @@ highlight: What Actually Removes Them
 ctaTitle: Want to see a filing prepared from raw documents?
 ctaText: Send us a real shipment file — invoice, packing list, bill of lading, certificates. We will show the reconciled declaration.
 ctaLabel: Book a Demo
-ctaHref: /simplimex/
+ctaHref: /simplimpex/
 ---
 
 Ask a customs broker where the time goes on an entry and the answer is almost never "filling in the declaration". Entering data into a filing system is mechanical and fast.

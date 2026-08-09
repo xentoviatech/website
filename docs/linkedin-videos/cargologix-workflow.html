@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>SimplImex AI — workflow animation</title>
+<title>SimplImpex AI — workflow animation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -322,7 +322,7 @@
     <div class="logo">
       <img src="../../favicon.png" alt="Xentovia" />
       <div class="wordmark">
-        <div class="name">SimplImex AI<span class="by">by Xentovia</span></div>
+        <div class="name">SimplImpex AI<span class="by">by Xentovia</span></div>
         <div class="tag">Customs entry automation</div>
       </div>
     </div>
@@ -337,7 +337,7 @@
 
   <!-- Persistent bottom bar -->
   <div class="bottom-bar">
-    <span>xentovia.ai/simplimex</span>
+    <span>xentovia.ai/simplimpex</span>
     <span>Customs · Healthcare · Insurance · Mortgage</span>
   </div>
 </div>
@@ -383,13 +383,13 @@ function fadeOut(t, start, dur) {
 // -- Scene 1: title (0-2000ms) --
 function sceneTitle() {
   sceneNum.textContent = '01';
-  sceneLabel.textContent = 'How SimplImex AI files a customs entry';
+  sceneLabel.textContent = 'How SimplImpex AI files a customs entry';
   const op = fadeIn(t, 0, 600) * fadeOut(t, 1600, 400);
   const y = lerp(40, 0, fadeIn(t, 0, 800));
   root.innerHTML = `
     <div class="title-block" style="opacity:${op}; transform: translate(-50%, calc(-50% + ${y}px));">
       <div class="pre">A workflow that used to take 2–4 hours</div>
-      <div class="h1"><span class="gradient-text">SimplImex AI</span></div>
+      <div class="h1"><span class="gradient-text">SimplImpex AI</span></div>
       <div class="sub">Customs entries in 15 minutes — broker-approved, audit-ready.</div>
     </div>`;
 }
@@ -427,7 +427,7 @@ function sceneDocs() {
 // -- Scene 3: AI processing (7000-12000ms) --
 function sceneAI() {
   sceneNum.textContent = '03';
-  sceneLabel.textContent = 'SimplImex AI agent reads, classifies, screens';
+  sceneLabel.textContent = 'SimplImpex AI agent reads, classifies, screens';
   const tScene = t - 7000; // 0-5000
   // Documents converge from left toward center over first 1500ms
   const conv = Math.min(1, tScene / 1500);
@@ -468,7 +468,7 @@ function sceneAI() {
   const coreOp = fadeIn(tScene, 600, 800);
   html += `
     <div class="ai-core" style="opacity:${coreOp}; transform: translate(-50%, -50%) scale(${corePulse});">
-      <div class="label-top">SimplImex AI agent</div>
+      <div class="label-top">SimplImpex AI agent</div>
       <div class="ring r3"></div>
       <div class="ring r2"></div>
       <div class="ring"></div>
@@ -495,7 +495,7 @@ function sceneAI() {
 // -- Scene 4: entry draft card (12000-15500ms) --
 function sceneEntry() {
   sceneNum.textContent = '04';
-  sceneLabel.textContent = 'SimplImex AI drafts the customs entry — line items, duties, citations';
+  sceneLabel.textContent = 'SimplImpex AI drafts the customs entry — line items, duties, citations';
   const tScene = t - 12000; // 0-3500
   const op = fadeIn(tScene, 0, 600);
   const scale = lerp(0.92, 1, easeOut(Math.min(1, tScene / 800)));
@@ -583,14 +583,14 @@ function sceneFiled() {
   } else {
     html += `
       <div class="final-stat" style="opacity:${statOp}; transform: translate(-50%, calc(-50% + ${statY}px));">
-        <div class="pre">SimplImex AI &middot; customs entries in production today</div>
+        <div class="pre">SimplImpex AI &middot; customs entries in production today</div>
         <div class="nums">
           <div class="before">2&ndash;4<span class="u">hrs</span></div>
           <div class="arrow">→</div>
           <div class="after gradient-text">15<span class="u">min</span></div>
         </div>
         <div class="cta">Same broker. Same compliance posture. Audit-ready.</div>
-        <div class="url">xentovia.ai/simplimex</div>
+        <div class="url">xentovia.ai/simplimpex</div>
       </div>`;
   }
 

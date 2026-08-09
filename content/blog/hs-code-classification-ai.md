@@ -7,7 +7,7 @@ highlight: Not a Text-Matching Task
 ctaTitle: Want classification assistance with an audit trail?
 ctaText: We will show you candidate classifications with reasoning, prior-decision history and confidence — with the decision staying yours.
 ctaLabel: Talk to Us
-ctaHref: /simplimex/
+ctaHref: /simplimpex/
 ---
 
 Tariff classification looks like a natural fit for automation: a product description on one side, a structured code hierarchy on the other, and a very large volume of repetitive decisions in between.

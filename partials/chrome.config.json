@@ -54,12 +54,12 @@
 
   "solutions": [
     {
-      "key": "simplimex",
+      "key": "simplimpex",
       "group": "Products",
-      "href": "/simplimex/",
+      "href": "/simplimpex/",
       "title": "Customs & ICEGATE Filing",
-      "subtitle": "SimplImex AI · File entries in 15 min",
-      "subtitleShort": "SimplImex AI",
+      "subtitle": "SimplImpex AI · File entries in 15 min",
+      "subtitleShort": "SimplImpex AI",
       "icon": "ship",
       "color": "sky"
     },
@@ -157,11 +157,11 @@
     "solutions/manufacturing/index.html": { "active": "manufacturing" },
     "solutions/mortgage/index.html": { "active": "mortgage" },
 
-    "simplimex/index.html": {
-      "active": "simplimex",
+    "simplimpex/index.html": {
+      "active": "simplimpex",
       "subnav": {
-        "name": "SimplImex AI",
-        "href": "/simplimex/",
+        "name": "SimplImpex AI",
+        "href": "/simplimpex/",
         "links": [
           { "label": "How It Works", "href": "#workflow-demo" },
           { "label": "See It Work", "href": "#video" },

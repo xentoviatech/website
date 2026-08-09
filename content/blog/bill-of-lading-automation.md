@@ -7,7 +7,7 @@ highlight: Not Just Data
 ctaTitle: Processing transport documents at volume?
 ctaText: We will run your bills of lading, sea waybills and air waybills and show extraction, reconciliation and exception handling.
 ctaLabel: Book a Demo
-ctaHref: /simplimex/
+ctaHref: /simplimpex/
 ---
 
 A bill of lading does three things at once: it receipts the goods, it evidences the contract of carriage, and — in its negotiable form — it functions as a document of title. That third role is why it is treated differently from every other document in a shipment file.

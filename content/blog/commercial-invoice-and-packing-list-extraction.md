@@ -7,7 +7,7 @@ highlight: The Line-Item Problem
 ctaTitle: Want line-level extraction that reconciles?
 ctaText: Send a set of supplier invoices and packing lists. We will show extracted lines, cross-document reconciliation and exceptions.
 ctaLabel: Book a Demo
-ctaHref: /simplimex/
+ctaHref: /simplimpex/
 ---
 
 Commercial invoices and packing lists are the workhorse documents of international trade, and they are deceptive. They look like structured business documents. Their headers extract easily. The impression is that this is a solved problem.
