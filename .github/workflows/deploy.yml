@@ -25,6 +25,9 @@ jobs:
       - name: Verify nav and footer are in sync
         run: node tools/build-chrome.mjs --check
 
+      - name: Verify the blog is in sync with content/blog
+        run: node tools/build-blog.mjs --check
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:

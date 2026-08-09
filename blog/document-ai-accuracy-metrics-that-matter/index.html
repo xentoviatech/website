@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Character Accuracy Is a Vanity Metric. Measure These Four Instead. — Xentovia Tech</title>
+  <meta name="description" content="A vendor quoting 99% accuracy is telling you almost nothing useful. Here are the four numbers that actually predict whether a document AI deployment will save money.">
+  <link rel="canonical" href="https://xentovia.ai/blog/document-ai-accuracy-metrics-that-matter/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Character Accuracy Is a Vanity Metric. Measure These Four Instead.">
+  <meta property="og:description" content="A vendor quoting 99% accuracy is telling you almost nothing useful. Here are the four numbers that actually predict whether a document AI deployment will save money.">
+  <meta property="og:url" content="https://xentovia.ai/blog/document-ai-accuracy-metrics-that-matter/">
+  <meta property="og:site_name" content="Xentovia Tech">
+  <meta property="article:published_time" content="2026-08-09">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Character Accuracy Is a Vanity Metric. Measure These Four Instead.">
+  <meta name="twitter:description" content="A vendor quoting 99% accuracy is telling you almost nothing useful. Here are the four numbers that actually predict whether a document AI deployment will save money.">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { inter: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            space: { 950: '#03050a', 900: '#060b18', 800: '#0a1128', 700: '#0f1a3a' },
+            accent: { 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5' },
+            glow: { purple: '#7c3aed', blue: '#3b82f6', cyan: '#06b6d4' }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #03050a;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #03050a; }
+    ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 3px; }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #e0e7ff 0%, #818cf8 40%, #c084fc 70%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: rgba(99, 102, 241, 0.15);
+      color: #818cf8;
+      border: 1px solid rgba(99, 102, 241, 0.25);
+    }
+
+    /* ── Article typography ─────────────────────────────────────────────── */
+    .post-content { font-size: 1rem; }
+    .post-content > *:first-child { margin-top: 0; }
+
+    .post-content h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 2.75rem;
+      margin-bottom: 1rem;
+      scroll-margin-top: 6rem;
+    }
+    .post-content h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-top: 1.75rem;
+      margin-bottom: 0.75rem;
+      scroll-margin-top: 6rem;
+    }
+    .post-content p { color: #94a3b8; line-height: 1.8; margin-bottom: 1rem; }
+    .post-content ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+    .post-content ol { list-style: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }
+    .post-content li { color: #94a3b8; line-height: 1.8; margin-bottom: 0.35rem; }
+    .post-content strong { color: #e2e8f0; font-weight: 600; }
+    .post-content em { color: #cbd5e1; }
+
+    .post-content a {
+      color: #818cf8;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .post-content a:hover { color: #a5b4fc; }
+
+    .post-content blockquote {
+      border-left: 2px solid rgba(99, 102, 241, 0.5);
+      background: rgba(99, 102, 241, 0.06);
+      border-radius: 0 0.75rem 0.75rem 0;
+      padding: 1rem 1.25rem;
+      margin: 1.75rem 0;
+    }
+    .post-content blockquote p { color: #cbd5e1; margin-bottom: 0; }
+
+    .post-content code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.875em;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 0.375rem;
+      padding: 0.1rem 0.35rem;
+      color: #c7d2fe;
+    }
+
+    .post-table-wrap { overflow-x: auto; margin: 1.75rem 0; }
+    .post-content table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      min-width: 34rem;
+    }
+    .post-content th, .post-content td {
+      text-align: left;
+      padding: 0.65rem 0.9rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      color: #94a3b8;
+      line-height: 1.6;
+      vertical-align: top;
+    }
+    .post-content th {
+      color: #e2e8f0;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.03);
+      white-space: nowrap;
+    }
+    .post-content tbody tr:last-child td { border-bottom: none; }
+
+    .post-content hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+      margin: 2.5rem 0;
+    }
+
+    /* Reading progress — decorative, degrades to nothing without JS. */
+    .read-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      z-index: 60;
+      background: linear-gradient(90deg, #6366f1, #7c3aed, #38bdf8);
+      transition: width 0.1s linear;
+    }
+  /* chrome:start — generated by tools/build-chrome.mjs from partials/chrome.css, do not edit */
+/* Shared page chrome. Source: partials/chrome.css — regenerate with `node tools/build-chrome.mjs`. */
+.nav-blur {
+  background: rgba(3, 5, 10, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+/* The dropdown sits over page content, so it needs an opaque base. */
+.site-nav .glass { background: #020617; }
+
+/* Primary CTA — defined here so the nav renders correctly on every page. */
+.cta-primary {
+  position: relative;
+  background: linear-gradient(135deg, #6366f1, #7c3aed);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.cta-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #7c3aed, #6366f1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.cta-primary:hover::after { opacity: 1; }
+.cta-primary:hover {
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(124, 58, 237, 0.2);
+  transform: translateY(-2px);
+}
+.cta-primary span { position: relative; z-index: 1; }
+
+/* JS-free mobile menu */
+.site-nav-mobile > summary,
+.site-nav-mobile summary.site-nav-submenu { list-style: none; cursor: pointer; }
+.site-nav-mobile summary::-webkit-details-marker { display: none; }
+.site-nav-mobile:not([open]) .site-nav-icon-close,
+.site-nav-mobile[open] .site-nav-icon-open { display: none; }
+.site-nav-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 4rem;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+  /* Opaque: a nested backdrop-filter cannot blur through the nav's own. */
+  background: #020617;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Hide-on-scroll (see the script in partials/nav.html) */
+.site-nav, .site-subnav { transition: transform 0.3s ease; }
+html.nav-hidden .site-nav { transform: translateY(-100%); }
+html.nav-hidden .site-subnav { transform: translateY(-6.75rem); }
+
+/* Per-product sub-nav */
+.site-subnav { border-top: 1px solid rgba(255, 255, 255, 0.04); }
+.site-subnav-links { scrollbar-width: none; }
+.site-subnav-links::-webkit-scrollbar { display: none; }
+body.has-subnav { padding-top: 2.75rem; }
+
+/* Footer — self-contained so it renders identically on pages with their own palettes. */
+.site-footer { background: rgba(3, 5, 10, 0.8); }
+.site-footer .section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+}
+
+/* Keep in-page anchors clear of the fixed nav. */
+html { scroll-padding-top: 5rem; }
+html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
+/* chrome:end */
+  </style>
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Character Accuracy Is a Vanity Metric. Measure These Four Instead.",
+  "description": "A vendor quoting 99% accuracy is telling you almost nothing useful. Here are the four numbers that actually predict whether a document AI deployment will save money.",
+  "datePublished": "2026-08-09",
+  "dateModified": "2026-08-09",
+  "mainEntityOfPage": "https://xentovia.ai/blog/document-ai-accuracy-metrics-that-matter/",
+  "url": "https://xentovia.ai/blog/document-ai-accuracy-metrics-that-matter/",
+  "keywords": "Document Intelligence, Evaluation, Procurement",
+  "author": {
+    "@type": "Organization",
+    "name": "Xentovia Tech"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xentovia Tech",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://xentovia.ai/favicon.png"
+    }
+  }
+}</script>
+</head>
+
+<body class="font-inter antialiased">
+
+<div class="read-bar" id="readBar"></div>
+
+<!-- nav:start — generated by tools/build-chrome.mjs from partials/nav.html, do not edit -->
+<nav class="site-nav nav-blur fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2.5 group">
+      <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
+      <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+    </a>
+
+    <!-- Desktop -->
+    <div class="hidden md:flex items-center gap-8">
+
+      <div class="relative group">
+        <button type="button" class="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-1" aria-haspopup="true">
+          Solutions
+          <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform group-hover:rotate-180"></i>
+        </button>
+        <div class="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[480px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+          <div class="glass rounded-2xl p-2 shadow-2xl border border-white/10 grid grid-cols-1 gap-0.5">
+            <p class="px-2.5 pt-2 pb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-500">Products</p>
+            <a href="/simplimex/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-sky-500/10 border border-sky-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="ship" class="w-4 h-4 text-sky-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">Customs &amp; ICEGATE Filing</p>
+                <p class="text-xs text-slate-400 truncate">SimplImex AI · File entries in 15 min</p>
+              </div>
+            </a>
+            <a href="/xentoaxar/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-cyan-500/10 border border-cyan-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="building" class="w-4 h-4 text-cyan-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">Handwritten Record Digitization</p>
+                <p class="text-xs text-slate-400 truncate">XentoAxar · Process physical records at scale</p>
+              </div>
+            </a>
+            <a href="/xentovox/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-blue-500/10 border border-blue-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="phone-call" class="w-4 h-4 text-blue-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">AI Voice Agents</p>
+                <p class="text-xs text-slate-400 truncate">XentoVoX · Sub-500ms conversational voice</p>
+              </div>
+            </a>
+            <a href="/solutions/xentostay/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-purple-500/10 border border-purple-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="hotel" class="w-4 h-4 text-purple-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">Hotel &amp; Resort Automation</p>
+                <p class="text-xs text-slate-400 truncate">XentoStay · AI voice &amp; booking agents</p>
+              </div>
+            </a>
+            <a href="/xentoscribe/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-emerald-500/10 border border-emerald-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="mic" class="w-4 h-4 text-emerald-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">Medical Pathology Dictation</p>
+                <p class="text-xs text-slate-400 truncate">XentoScribe · AI dictation for doctors</p>
+              </div>
+            </a>
+            <p class="px-2.5 pt-2 pb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-500">By Industry</p>
+            <a href="/solutions/healthcare/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-rose-500/10 border border-rose-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="heart-pulse" class="w-4 h-4 text-rose-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">Healthcare Prior Authorization</p>
+                <p class="text-xs text-slate-400 truncate">Prior auth in hours, not days</p>
+              </div>
+            </a>
+            <a href="/solutions/insurance/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-indigo-500/10 border border-indigo-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="umbrella" class="w-4 h-4 text-indigo-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">Insurance Claims &amp; FNOL</p>
+                <p class="text-xs text-slate-400 truncate">AI triage for claims &amp; losses</p>
+              </div>
+            </a>
+            <a href="/solutions/manufacturing/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-amber-500/10 border border-amber-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="factory" class="w-4 h-4 text-amber-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">Manufacturing Quality Control</p>
+                <p class="text-xs text-slate-400 truncate">Catch defects before the line</p>
+              </div>
+            </a>
+            <a href="/solutions/mortgage/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-yellow-500/10 border border-yellow-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="home" class="w-4 h-4 text-yellow-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">Mortgage Loan File Indexing</p>
+                <p class="text-xs text-slate-400 truncate">Index loan files at packet speed</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <a href="/#how-it-works" class="text-sm text-slate-400 hover:text-white transition-colors">Platform</a>
+      <a href="/#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a>
+      <a href="/#company" class="text-sm text-slate-400 hover:text-white transition-colors">Company</a>
+      <a href="/blog/" class="text-sm text-slate-400 hover:text-white transition-colors">Blog</a>
+      <a href="/#contact" class="cta-primary px-5 py-2 rounded-lg text-sm font-semibold text-white">
+        <span class="flex items-center gap-1.5">
+          Book a Demo
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </span>
+      </a>
+    </div>
+
+    <!-- Mobile -->
+    <details class="site-nav-mobile md:hidden">
+      <summary class="text-slate-400 hover:text-white p-2 -mr-2" role="button" aria-label="Toggle menu">
+        <i data-lucide="menu" class="w-5 h-5 site-nav-icon-open"></i>
+        <i data-lucide="x" class="w-5 h-5 site-nav-icon-close"></i>
+      </summary>
+      <div class="site-nav-panel px-6 pt-2 pb-5 space-y-3">
+
+        <details class="group/details">
+          <summary class="site-nav-submenu flex items-center justify-between py-2 text-sm text-slate-400 hover:text-white">
+            <span>Solutions</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-open/details:rotate-180"></i>
+          </summary>
+          <div class="pl-3 mt-1 space-y-1 border-l border-white/10">
+            <p class="pt-2 pb-0.5 text-[11px] font-semibold uppercase tracking-wider text-slate-500">Products</p>
+            <a href="/simplimex/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Customs &amp; ICEGATE Filing</span> <span class="text-xs text-slate-400">&middot; SimplImex AI</span></a>
+            <a href="/xentoaxar/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Handwritten Record Digitization</span> <span class="text-xs text-slate-400">&middot; XentoAxar</span></a>
+            <a href="/xentovox/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">AI Voice Agents</span> <span class="text-xs text-slate-400">&middot; XentoVoX</span></a>
+            <a href="/solutions/xentostay/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Hotel &amp; Resort Automation</span> <span class="text-xs text-slate-400">&middot; XentoStay</span></a>
+            <a href="/xentoscribe/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Medical Pathology Dictation</span> <span class="text-xs text-slate-400">&middot; XentoScribe</span></a>
+            <p class="pt-2 pb-0.5 text-[11px] font-semibold uppercase tracking-wider text-slate-500">By Industry</p>
+            <a href="/solutions/healthcare/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Healthcare Prior Authorization</span> <span class="text-xs text-slate-400">&middot; Prior auth in hours</span></a>
+            <a href="/solutions/insurance/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Insurance Claims &amp; FNOL</span> <span class="text-xs text-slate-400">&middot; AI triage</span></a>
+            <a href="/solutions/manufacturing/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Manufacturing Quality Control</span> <span class="text-xs text-slate-400">&middot; Defect inspection</span></a>
+            <a href="/solutions/mortgage/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Mortgage Loan File Indexing</span> <span class="text-xs text-slate-400">&middot; Packet speed</span></a>
+          </div>
+        </details>
+        <a href="/#how-it-works" class="block text-sm text-slate-400 hover:text-white py-2">Platform</a>
+        <a href="/#security" class="block text-sm text-slate-400 hover:text-white py-2">Security</a>
+        <a href="/#company" class="block text-sm text-slate-400 hover:text-white py-2">Company</a>
+        <a href="/blog/" class="block text-sm text-slate-400 hover:text-white py-2">Blog</a>
+        <a href="/#contact" class="block cta-primary px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">
+          <span>Book a Demo</span>
+        </a>
+      </div>
+    </details>
+  </div>
+</nav>
+
+<script>
+  /* The nav is self-sufficient: it renders its own icons and needs nothing from the
+     page. Hide-on-scroll is decorative — the menu is <details> and works without JS. */
+  (function () {
+    if (window.lucide) {
+      lucide.createIcons();
+      addEventListener('DOMContentLoaded', function () { lucide.createIcons(); });
+    }
+    var root = document.documentElement, last = 0;
+    addEventListener('scroll', function () {
+      var y = window.scrollY;
+      if (!document.querySelector('.site-nav-mobile[open]')) {
+        root.classList.toggle('nav-hidden', y > last && y > 100);
+      }
+      last = y;
+    }, { passive: true });
+  })();
+</script>
+<!-- nav:end -->
+
+  <main class="relative z-10 pt-24 pb-16">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <a href="/blog/" class="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-indigo-400 transition-colors mb-8">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        Back to Blog
+      </a>
+
+      <article>
+        <header class="mb-10">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="tag">Document Intelligence</span>
+            <span class="tag">Evaluation</span>
+            <span class="tag">Procurement</span>
+          </div>
+          <h1 class="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-white tracking-tight mb-4 leading-[1.15]">
+            Character Accuracy Is a <span class="gradient-text">Vanity Metric</span>. Measure These Four Instead.
+          </h1>
+          <p class="text-lg text-slate-400 leading-relaxed mb-5">A vendor quoting 99% accuracy is telling you almost nothing useful. Here are the four numbers that actually predict whether a document AI deployment will save money.</p>
+          <div class="flex items-center gap-3 text-sm text-slate-400">
+            <time datetime="2026-08-09">August 9, 2026</time>
+            <span class="w-1 h-1 rounded-full bg-slate-600"></span>
+            <span>6 min read</span>
+          </div>
+        </header>
+
+        <div class="glass rounded-2xl p-6 sm:p-10 post-content">
+          <p>Every document AI vendor quotes an accuracy figure, and almost every one of those figures is unfalsifiable. "99.2% accurate" invites an obvious question that rarely gets asked in the sales meeting: accurate at what, measured how, on which documents?</p>
+          <p>The number being quoted is usually character accuracy — the percentage of individual characters the system transcribes correctly. It is the easiest metric to make look good and the least connected to whether the deployment pays for itself. This post is about the four numbers that are connected, and how to make a vendor produce them.</p>
+          <h2 id="why-character-accuracy-misleads">Why character accuracy misleads</h2>
+          <p>Consider a policy number: <code>AX-4471-99B</code>. Eleven characters. A system that gets ten of them right scores 90.9% character accuracy, which sounds like a passing grade. But the field is wrong. The claim routes to the wrong policy, or fails validation and lands in an exception queue. From the business's point of view, that extraction was a total loss, not a 91% success.</p>
+          <p>Now scale that. A page with 2,000 characters and 30 fields might score 99% character accuracy while getting six fields wrong — because errors are not distributed evenly across a page. They cluster exactly where the document is hardest and the data matters most: handwritten margins, poorly scanned corners, low-contrast stamps, columns where the ruling has faded.</p>
+          <p>Character accuracy also rewards the wrong behaviour. A system that transcribes every character it sees will beat one that flags an illegible field as uncertain, even though the second system is far more useful in production, because it tells you where to look.</p>
+          <h2 id="the-four-numbers-to-ask-for">The four numbers to ask for</h2>
+          <h3 id="1-field-level-accuracy-per-field">1. Field-level accuracy, per field</h3>
+          <p>The percentage of extracted fields that exactly match a human-verified ground truth. Not per character, not per document — per field, and broken out by field name.</p>
+          <p>This breakdown is where the truth lives. A summary field accuracy of 94% can hide a <code>date_of_loss</code> field at 71% and a <code>claim_number</code> field at 99.8%. Those two failures have completely different costs. Insist on the per-field table, and insist that it includes the fields you actually care about rather than the easy ones.</p>
+          <p>Define "exact match" carefully in advance. Is <code>01/02/2026</code> a match for <code>2026-02-01</code>? Is <code>Acme Corp.</code> a match for <code>ACME CORPORATION</code>? Normalisation rules can move a headline number by several points, so agree on them before the benchmark runs, not after.</p>
+          <h3 id="2-straight-through-processing-stp-rate">2. Straight-through processing (STP) rate</h3>
+          <p>The percentage of documents that pass end to end with no human touching them at all.</p>
+          <p>STP is the metric that converts most directly into money, because the cost of a document is dominated by whether a person had to open it. A pipeline at 60% STP means 40% of your volume still needs staffing. Going from 60% to 80% halves that load; going from 94% to 96% barely moves it.</p>
+          <p>The trap is that STP is trivially gameable. Lower the confidence thresholds and everything sails through untouched — with errors in it. STP is only meaningful when reported alongside the next number.</p>
+          <h3 id="3-escaped-error-rate">3. Escaped error rate</h3>
+          <p>The percentage of documents that were auto-approved and were nonetheless wrong.</p>
+          <p>This is the number nobody volunteers, and it is the one that determines your risk exposure. In a regulated workflow, an escaped error is not an inconvenience; it is a mis-paid claim, an incorrect prior authorisation, a loan file that fails audit.</p>
+          <p>Measuring it takes deliberate effort, because by definition these documents were never reviewed. The standard approach is a blind sample: pull a random slice of auto-approved documents each week, have a reviewer verify them against the source, and track the error rate over time. Any vendor who has run a serious production deployment will already have this instrumentation. Ask to see it.</p>
+          <p>STP and escaped error rate move against each other. The pair of them, plotted together, is the real performance curve of a document AI system. A single point on that curve tells you nothing.</p>
+          <h3 id="4-cost-per-corrected-document">4. Cost per corrected document</h3>
+          <p>The all-in cost of getting one document to a state you would be willing to defend: inference cost, plus the reviewer minutes spent on the documents that needed review, plus the rework cost of errors caught downstream.</p>
+          <p>This is the number that decides build-versus-buy and vendor-versus-vendor. A system with lower field accuracy but a well-designed review interface can easily beat a more accurate system with a bad one, because reviewer seconds per exception dominates the arithmetic at volume.</p>
+          <p>A rough model:</p>
+          <pre><code>cost_per_doc = inference_cost
+                       + (1 - stp_rate) x review_minutes x loaded_hourly_rate / 60
+                       + escaped_error_rate x downstream_rework_cost</code></pre>
+          <p>Put your own numbers in it. The third term is the one that surprises people — a 2% escaped error rate on a workflow where each error costs a few hundred dollars to unwind will dominate everything else.</p>
+          <h2 id="how-to-run-the-benchmark">How to run the benchmark</h2>
+          <p>The metrics only mean something if the test set does.</p>
+          <ul>
+            <li><strong>Use your own documents.</strong> A vendor's demo corpus has been implicitly optimised against for months. Insist on a sample drawn from your real intake.</li>
+            <li><strong>Sample the tail, not the average.</strong> Take a stratified sample: clean scans, poor scans, the unusual formats, the vendor-specific variants, the ones your team complains about. If 15% of your volume is hard, make 15% of the test set hard.</li>
+            <li><strong>Include documents that should be rejected.</strong> Blank pages, duplicates, the wrong form type, a fax cover sheet. A system that confidently extracts fields from a page that is not the document it thinks it is will do real damage in production.</li>
+            <li><strong>Hold out the ground truth.</strong> Have your own team key the answers independently and keep them back. If the vendor is tuning against the answer key, you are measuring the wrong thing.</li>
+            <li><strong>Size it properly.</strong> A hundred documents is enough for a smell test and not enough for a decision on a field that appears in 5% of pages. If a field matters and it is rare, oversample it deliberately.</li>
+          </ul>
+          <h2 id="the-questions-that-separate-real-systems-from-demos">The questions that separate real systems from demos</h2>
+          <ul>
+            <li>Show me field-level accuracy per field, on our documents, with the normalisation rules written down.</li>
+            <li>Plot STP against escaped error rate as I vary the confidence threshold. What does the curve look like?</li>
+            <li>How do you measure escaped errors today in a live account?</li>
+            <li>When a new document variant appears, what changes — a prompt, a config, or an engineering ticket? How long does that take?</li>
+            <li>What does the reviewer see when a field is uncertain? Can I watch someone use it?</li>
+          </ul>
+          <p>That last question is worth more than most of the technical ones. Exception handling is where document AI deployments live or die, and a review interface that forces a person to hunt across a page for the field in question will quietly destroy the business case no matter how good the model is.</p>
+          <h2 id="where-accuracy-is-genuinely-the-wrong-frame">Where accuracy is genuinely the wrong frame</h2>
+          <p>Some workflows do not care about per-field accuracy at all. If you are routing documents to the right queue, what matters is classification accuracy and the cost asymmetry between the two kinds of mistake. If you are searching an archive, recall at a given precision matters more than exact extraction. If you are summarising for a human who will read the source anyway, faithfulness matters and field accuracy does not apply.</p>
+          <p>Match the metric to the decision the system is actually making. The point of all four numbers above is not to be rigorous for its own sake — it is that they are the ones you can put into a spreadsheet and defend to a CFO.</p>
+
+          <div class="mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="text-white text-lg font-semibold mb-2">Want these four numbers for your own documents?</p>
+            <p class="text-slate-400 mb-6">Send us a representative sample. We will report field accuracy, STP rate, escaped error rate and cost per corrected document — measured, not estimated.</p>
+            <a href="/#contact" class="cta-primary inline-block px-8 py-3 rounded-lg text-sm font-semibold text-white">
+              <span class="flex items-center gap-2">
+                Book a Demo
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <section class="mt-16">
+        <h2 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-5">Keep reading</h2>
+        <div class="grid gap-5 sm:grid-cols-3">
+          <a href="/blog/document-ai-total-cost-of-ownership/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Document Intelligence</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-indigo-300 transition-colors">The Real Total Cost of a Document AI Deployment</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Per-page pricing is the smallest line in the budget. Here is the full cost model, including the four categories that consistently get left out of business cases.</p>
+          </a>
+          <a href="/blog/acord-forms-automation/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Insurance</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-indigo-300 transition-colors">ACORD Forms Are Standardised. Your Inbound ACORDs Are Not.</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">A standard form should be the easy case for document AI. In practice ACORD submissions arrive in a dozen states of completeness and fidelity — here is how to handle the reality.</p>
+          </a>
+          <a href="/blog/bank-statement-analysis-ai/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Mortgage</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-indigo-300 transition-colors">Bank Statement Analysis Is a Classification Problem, Not an Extraction Problem</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Pulling transactions off a statement is the easy part. Deciding what each one means — income, transfer, business, recurring obligation — is where the accuracy actually matters.</p>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+<!-- footer:start — generated by tools/build-chrome.mjs from partials/footer.html, do not edit -->
+<footer class="site-footer relative z-10 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12 mb-12">
+
+      <div class="col-span-2 md:col-span-4 lg:col-span-1">
+        <a href="/" class="flex items-center gap-2.5 mb-4">
+          <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
+          <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+        </a>
+        <p class="text-sm text-slate-400 leading-relaxed mb-4">
+          Agentic AI solutions for the enterprise.
+        </p>
+        <a href="mailto:sales@xentovia.ai" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
+          <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+          sales@xentovia.ai
+        </a>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Solutions</h4>
+        <ul class="space-y-2.5">
+          <li><a href="/simplimex/" class="text-sm text-slate-400 hover:text-white transition-colors">SimplImex AI</a></li>
+          <li><a href="/xentoaxar/" class="text-sm text-slate-400 hover:text-white transition-colors">XentoAxar</a></li>
+          <li><a href="/xentovox/" class="text-sm text-slate-400 hover:text-white transition-colors">XentoVoX</a></li>
+          <li><a href="/solutions/xentostay/" class="text-sm text-slate-400 hover:text-white transition-colors">XentoStay</a></li>
+          <li><a href="/xentoscribe/" class="text-sm text-slate-400 hover:text-white transition-colors">XentoScribe</a></li>
+          <li><a href="/#solutions" class="text-sm text-slate-400 hover:text-white transition-colors">By industry</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Platform</h4>
+        <ul class="space-y-2.5">
+          <li><a href="/#capabilities" class="text-sm text-slate-400 hover:text-white transition-colors">Capabilities</a></li>
+          <li><a href="/#how-it-works" class="text-sm text-slate-400 hover:text-white transition-colors">How it works</a></li>
+          <li><a href="/#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Company</h4>
+        <ul class="space-y-2.5">
+          <li><a href="/#company" class="text-sm text-slate-400 hover:text-white transition-colors">About</a></li>
+          <li><a href="/blog/" class="text-sm text-slate-400 hover:text-white transition-colors">Blog</a></li>
+          <li><a href="/careers/" class="text-sm text-slate-400 hover:text-white transition-colors">Careers</a></li>
+          <li><a href="mailto:sales@xentovia.ai" class="text-sm text-slate-400 hover:text-white transition-colors">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Legal</h4>
+        <ul class="space-y-2.5">
+          <li><a href="/privacy/" class="text-sm text-slate-400 hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="/terms/" class="text-sm text-slate-400 hover:text-white transition-colors">Terms of Service</a></li>
+          <li><a href="/dpa/" class="text-sm text-slate-400 hover:text-white transition-colors">DPA</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-divider mb-8"></div>
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-slate-400">
+        &copy; 2026 Xentovia Tech Private Limited. All rights reserved.
+      </p>
+      <div class="flex items-center gap-5">
+        <a href="https://www.linkedin.com/company/xentovia-ai" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.95v5.66H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.28 2.38 4.28 5.48v6.26zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+        <a href="mailto:sales@xentovia.ai" class="text-slate-400 hover:text-white transition-colors" aria-label="Email">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- footer:end -->
+
+  <script>
+    lucide.createIcons();
+    (function () {
+      var bar = document.getElementById('readBar');
+      if (!bar) return;
+      addEventListener('scroll', function () {
+        var max = document.documentElement.scrollHeight - innerHeight;
+        bar.style.width = (max > 0 ? Math.min(100, (scrollY / max) * 100) : 0) + '%';
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>

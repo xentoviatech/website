@@ -1,0 +1,262 @@
+<!--
+  Blog post template. Rendered into blog/<slug>/index.html by tools/build-blog.mjs
+  from the markdown in content/blog/<slug>.md. Tokens are filled from that file's
+  front matter; the nav, footer and chrome CSS come from tools/build-chrome.mjs.
+-->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TITLE}} — Xentovia Tech</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <link rel="canonical" href="{{CANONICAL}}">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:url" content="{{CANONICAL}}">
+  <meta property="og:site_name" content="Xentovia Tech">
+  <meta property="article:published_time" content="{{DATE_ISO}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{TITLE}}">
+  <meta name="twitter:description" content="{{DESCRIPTION}}">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { inter: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            space: { 950: '#03050a', 900: '#060b18', 800: '#0a1128', 700: '#0f1a3a' },
+            accent: { 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5' },
+            glow: { purple: '#7c3aed', blue: '#3b82f6', cyan: '#06b6d4' }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #03050a;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #03050a; }
+    ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 3px; }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #e0e7ff 0%, #818cf8 40%, #c084fc 70%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: rgba(99, 102, 241, 0.15);
+      color: #818cf8;
+      border: 1px solid rgba(99, 102, 241, 0.25);
+    }
+
+    /* ── Article typography ─────────────────────────────────────────────── */
+    .post-content { font-size: 1rem; }
+    .post-content > *:first-child { margin-top: 0; }
+
+    .post-content h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 2.75rem;
+      margin-bottom: 1rem;
+      scroll-margin-top: 6rem;
+    }
+    .post-content h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-top: 1.75rem;
+      margin-bottom: 0.75rem;
+      scroll-margin-top: 6rem;
+    }
+    .post-content p { color: #94a3b8; line-height: 1.8; margin-bottom: 1rem; }
+    .post-content ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+    .post-content ol { list-style: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }
+    .post-content li { color: #94a3b8; line-height: 1.8; margin-bottom: 0.35rem; }
+    .post-content strong { color: #e2e8f0; font-weight: 600; }
+    .post-content em { color: #cbd5e1; }
+
+    .post-content a {
+      color: #818cf8;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .post-content a:hover { color: #a5b4fc; }
+
+    .post-content blockquote {
+      border-left: 2px solid rgba(99, 102, 241, 0.5);
+      background: rgba(99, 102, 241, 0.06);
+      border-radius: 0 0.75rem 0.75rem 0;
+      padding: 1rem 1.25rem;
+      margin: 1.75rem 0;
+    }
+    .post-content blockquote p { color: #cbd5e1; margin-bottom: 0; }
+
+    .post-content code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.875em;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 0.375rem;
+      padding: 0.1rem 0.35rem;
+      color: #c7d2fe;
+    }
+
+    .post-table-wrap { overflow-x: auto; margin: 1.75rem 0; }
+    .post-content table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      min-width: 34rem;
+    }
+    .post-content th, .post-content td {
+      text-align: left;
+      padding: 0.65rem 0.9rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      color: #94a3b8;
+      line-height: 1.6;
+      vertical-align: top;
+    }
+    .post-content th {
+      color: #e2e8f0;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.03);
+      white-space: nowrap;
+    }
+    .post-content tbody tr:last-child td { border-bottom: none; }
+
+    .post-content hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+      margin: 2.5rem 0;
+    }
+
+    /* Reading progress — decorative, degrades to nothing without JS. */
+    .read-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      z-index: 60;
+      background: linear-gradient(90deg, #6366f1, #7c3aed, #38bdf8);
+      transition: width 0.1s linear;
+    }
+  /* chrome:start — generated by tools/build-chrome.mjs from partials/chrome.css, do not edit */
+  /* chrome:end */
+  </style>
+
+  <script type="application/ld+json">{{JSONLD}}</script>
+</head>
+
+<body class="font-inter antialiased">
+
+<div class="read-bar" id="readBar"></div>
+
+<!-- nav:start — generated by tools/build-chrome.mjs from partials/nav.html, do not edit -->
+<!-- nav:end -->
+
+  <main class="relative z-10 pt-24 pb-16">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <a href="/blog/" class="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-indigo-400 transition-colors mb-8">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        Back to Blog
+      </a>
+
+      <article>
+        <header class="mb-10">
+          <div class="flex flex-wrap gap-2 mb-4">
+{{TAGS}}
+          </div>
+          <h1 class="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-white tracking-tight mb-4 leading-[1.15]">
+            {{TITLE_HTML}}
+          </h1>
+          <p class="text-lg text-slate-400 leading-relaxed mb-5">{{DESCRIPTION}}</p>
+          <div class="flex items-center gap-3 text-sm text-slate-400">
+            <time datetime="{{DATE_ISO}}">{{DATE_HUMAN}}</time>
+            <span class="w-1 h-1 rounded-full bg-slate-600"></span>
+            <span>{{READ_TIME}} min read</span>
+          </div>
+        </header>
+
+        <div class="glass rounded-2xl p-6 sm:p-10 post-content">
+{{BODY}}
+
+          <div class="mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="text-white text-lg font-semibold mb-2">{{CTA_TITLE}}</p>
+            <p class="text-slate-400 mb-6">{{CTA_TEXT}}</p>
+            <a href="{{CTA_HREF}}" class="cta-primary inline-block px-8 py-3 rounded-lg text-sm font-semibold text-white">
+              <span class="flex items-center gap-2">
+                {{CTA_LABEL}}
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+{{RELATED}}
+    </div>
+  </main>
+
+<!-- footer:start — generated by tools/build-chrome.mjs from partials/footer.html, do not edit -->
+<!-- footer:end -->
+
+  <script>
+    lucide.createIcons();
+    (function () {
+      var bar = document.getElementById('readBar');
+      if (!bar) return;
+      addEventListener('scroll', function () {
+        var max = document.documentElement.scrollHeight - innerHeight;
+        bar.style.width = (max > 0 ? Math.min(100, (scrollY / max) * 100) : 0) + '%';
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>

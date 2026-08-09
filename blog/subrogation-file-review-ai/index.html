@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finding Subrogation Opportunities Nobody Has Time to Look For — Xentovia Tech</title>
+  <meta name="description" content="Recovery potential is usually visible somewhere in the claim file. The problem is that reading every file is not economic — which is exactly the kind of problem document AI is suited to.">
+  <link rel="canonical" href="https://xentovia.ai/blog/subrogation-file-review-ai/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Finding Subrogation Opportunities Nobody Has Time to Look For">
+  <meta property="og:description" content="Recovery potential is usually visible somewhere in the claim file. The problem is that reading every file is not economic — which is exactly the kind of problem document AI is suited to.">
+  <meta property="og:url" content="https://xentovia.ai/blog/subrogation-file-review-ai/">
+  <meta property="og:site_name" content="Xentovia Tech">
+  <meta property="article:published_time" content="2026-08-09">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Finding Subrogation Opportunities Nobody Has Time to Look For">
+  <meta name="twitter:description" content="Recovery potential is usually visible somewhere in the claim file. The problem is that reading every file is not economic — which is exactly the kind of problem document AI is suited to.">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { inter: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            space: { 950: '#03050a', 900: '#060b18', 800: '#0a1128', 700: '#0f1a3a' },
+            accent: { 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5' },
+            glow: { purple: '#7c3aed', blue: '#3b82f6', cyan: '#06b6d4' }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #03050a;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #03050a; }
+    ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 3px; }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #e0e7ff 0%, #818cf8 40%, #c084fc 70%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: rgba(99, 102, 241, 0.15);
+      color: #818cf8;
+      border: 1px solid rgba(99, 102, 241, 0.25);
+    }
+
+    /* ── Article typography ─────────────────────────────────────────────── */
+    .post-content { font-size: 1rem; }
+    .post-content > *:first-child { margin-top: 0; }
+
+    .post-content h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 2.75rem;
+      margin-bottom: 1rem;
+      scroll-margin-top: 6rem;
+    }
+    .post-content h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-top: 1.75rem;
+      margin-bottom: 0.75rem;
+      scroll-margin-top: 6rem;
+    }
+    .post-content p { color: #94a3b8; line-height: 1.8; margin-bottom: 1rem; }
+    .post-content ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+    .post-content ol { list-style: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }
+    .post-content li { color: #94a3b8; line-height: 1.8; margin-bottom: 0.35rem; }
+    .post-content strong { color: #e2e8f0; font-weight: 600; }
+    .post-content em { color: #cbd5e1; }
+
+    .post-content a {
+      color: #818cf8;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .post-content a:hover { color: #a5b4fc; }
+
+    .post-content blockquote {
+      border-left: 2px solid rgba(99, 102, 241, 0.5);
+      background: rgba(99, 102, 241, 0.06);
+      border-radius: 0 0.75rem 0.75rem 0;
+      padding: 1rem 1.25rem;
+      margin: 1.75rem 0;
+    }
+    .post-content blockquote p { color: #cbd5e1; margin-bottom: 0; }
+
+    .post-content code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.875em;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 0.375rem;
+      padding: 0.1rem 0.35rem;
+      color: #c7d2fe;
+    }
+
+    .post-table-wrap { overflow-x: auto; margin: 1.75rem 0; }
+    .post-content table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      min-width: 34rem;
+    }
+    .post-content th, .post-content td {
+      text-align: left;
+      padding: 0.65rem 0.9rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      color: #94a3b8;
+      line-height: 1.6;
+      vertical-align: top;
+    }
+    .post-content th {
+      color: #e2e8f0;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.03);
+      white-space: nowrap;
+    }
+    .post-content tbody tr:last-child td { border-bottom: none; }
+
+    .post-content hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+      margin: 2.5rem 0;
+    }
+
+    /* Reading progress — decorative, degrades to nothing without JS. */
+    .read-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      z-index: 60;
+      background: linear-gradient(90deg, #6366f1, #7c3aed, #38bdf8);
+      transition: width 0.1s linear;
+    }
+  /* chrome:start — generated by tools/build-chrome.mjs from partials/chrome.css, do not edit */
+/* Shared page chrome. Source: partials/chrome.css — regenerate with `node tools/build-chrome.mjs`. */
+.nav-blur {
+  background: rgba(3, 5, 10, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+/* The dropdown sits over page content, so it needs an opaque base. */
+.site-nav .glass { background: #020617; }
+
+/* Primary CTA — defined here so the nav renders correctly on every page. */
+.cta-primary {
+  position: relative;
+  background: linear-gradient(135deg, #6366f1, #7c3aed);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.cta-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #7c3aed, #6366f1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.cta-primary:hover::after { opacity: 1; }
+.cta-primary:hover {
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(124, 58, 237, 0.2);
+  transform: translateY(-2px);
+}
+.cta-primary span { position: relative; z-index: 1; }
+
+/* JS-free mobile menu */
+.site-nav-mobile > summary,
+.site-nav-mobile summary.site-nav-submenu { list-style: none; cursor: pointer; }
+.site-nav-mobile summary::-webkit-details-marker { display: none; }
+.site-nav-mobile:not([open]) .site-nav-icon-close,
+.site-nav-mobile[open] .site-nav-icon-open { display: none; }
+.site-nav-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 4rem;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+  /* Opaque: a nested backdrop-filter cannot blur through the nav's own. */
+  background: #020617;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Hide-on-scroll (see the script in partials/nav.html) */
+.site-nav, .site-subnav { transition: transform 0.3s ease; }
+html.nav-hidden .site-nav { transform: translateY(-100%); }
+html.nav-hidden .site-subnav { transform: translateY(-6.75rem); }
+
+/* Per-product sub-nav */
+.site-subnav { border-top: 1px solid rgba(255, 255, 255, 0.04); }
+.site-subnav-links { scrollbar-width: none; }
+.site-subnav-links::-webkit-scrollbar { display: none; }
+body.has-subnav { padding-top: 2.75rem; }
+
+/* Footer — self-contained so it renders identically on pages with their own palettes. */
+.site-footer { background: rgba(3, 5, 10, 0.8); }
+.site-footer .section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+}
+
+/* Keep in-page anchors clear of the fixed nav. */
+html { scroll-padding-top: 5rem; }
+html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
+/* chrome:end */
+  </style>
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Finding Subrogation Opportunities Nobody Has Time to Look For",
+  "description": "Recovery potential is usually visible somewhere in the claim file. The problem is that reading every file is not economic — which is exactly the kind of problem document AI is suited to.",
+  "datePublished": "2026-08-09",
+  "dateModified": "2026-08-09",
+  "mainEntityOfPage": "https://xentovia.ai/blog/subrogation-file-review-ai/",
+  "url": "https://xentovia.ai/blog/subrogation-file-review-ai/",
+  "keywords": "Insurance, Document Intelligence, Human-in-the-Loop",
+  "author": {
+    "@type": "Organization",
+    "name": "Xentovia Tech"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xentovia Tech",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://xentovia.ai/favicon.png"
+    }
+  }
+}</script>
+</head>
+
+<body class="font-inter antialiased">
+
+<div class="read-bar" id="readBar"></div>
+
+<!-- nav:start — generated by tools/build-chrome.mjs from partials/nav.html, do not edit -->
+<nav class="site-nav nav-blur fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2.5 group">
+      <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
+      <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+    </a>
+
+    <!-- Desktop -->
+    <div class="hidden md:flex items-center gap-8">
+
+      <div class="relative group">
+        <button type="button" class="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-1" aria-haspopup="true">
+          Solutions
+          <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform group-hover:rotate-180"></i>
+        </button>
+        <div class="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[480px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+          <div class="glass rounded-2xl p-2 shadow-2xl border border-white/10 grid grid-cols-1 gap-0.5">
+            <p class="px-2.5 pt-2 pb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-500">Products</p>
+            <a href="/simplimex/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-sky-500/10 border border-sky-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="ship" class="w-4 h-4 text-sky-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">Customs &amp; ICEGATE Filing</p>
+                <p class="text-xs text-slate-400 truncate">SimplImex AI · File entries in 15 min</p>
+              </div>
+            </a>
+            <a href="/xentoaxar/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-cyan-500/10 border border-cyan-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="building" class="w-4 h-4 text-cyan-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">Handwritten Record Digitization</p>
+                <p class="text-xs text-slate-400 truncate">XentoAxar · Process physical records at scale</p>
+              </div>
+            </a>
+            <a href="/xentovox/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-blue-500/10 border border-blue-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="phone-call" class="w-4 h-4 text-blue-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">AI Voice Agents</p>
+                <p class="text-xs text-slate-400 truncate">XentoVoX · Sub-500ms conversational voice</p>
+              </div>
+            </a>
+            <a href="/solutions/xentostay/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-purple-500/10 border border-purple-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="hotel" class="w-4 h-4 text-purple-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">Hotel &amp; Resort Automation</p>
+                <p class="text-xs text-slate-400 truncate">XentoStay · AI voice &amp; booking agents</p>
+              </div>
+            </a>
+            <a href="/xentoscribe/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-emerald-500/10 border border-emerald-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="mic" class="w-4 h-4 text-emerald-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">Medical Pathology Dictation</p>
+                <p class="text-xs text-slate-400 truncate">XentoScribe · AI dictation for doctors</p>
+              </div>
+            </a>
+            <p class="px-2.5 pt-2 pb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-500">By Industry</p>
+            <a href="/solutions/healthcare/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-rose-500/10 border border-rose-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="heart-pulse" class="w-4 h-4 text-rose-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">Healthcare Prior Authorization</p>
+                <p class="text-xs text-slate-400 truncate">Prior auth in hours, not days</p>
+              </div>
+            </a>
+            <a href="/solutions/insurance/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-indigo-500/10 border border-indigo-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="umbrella" class="w-4 h-4 text-indigo-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">Insurance Claims &amp; FNOL</p>
+                <p class="text-xs text-slate-400 truncate">AI triage for claims &amp; losses</p>
+              </div>
+            </a>
+            <a href="/solutions/manufacturing/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-amber-500/10 border border-amber-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="factory" class="w-4 h-4 text-amber-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">Manufacturing Quality Control</p>
+                <p class="text-xs text-slate-400 truncate">Catch defects before the line</p>
+              </div>
+            </a>
+            <a href="/solutions/mortgage/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-yellow-500/10 border border-yellow-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="home" class="w-4 h-4 text-yellow-400"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">Mortgage Loan File Indexing</p>
+                <p class="text-xs text-slate-400 truncate">Index loan files at packet speed</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <a href="/#how-it-works" class="text-sm text-slate-400 hover:text-white transition-colors">Platform</a>
+      <a href="/#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a>
+      <a href="/#company" class="text-sm text-slate-400 hover:text-white transition-colors">Company</a>
+      <a href="/blog/" class="text-sm text-slate-400 hover:text-white transition-colors">Blog</a>
+      <a href="/#contact" class="cta-primary px-5 py-2 rounded-lg text-sm font-semibold text-white">
+        <span class="flex items-center gap-1.5">
+          Book a Demo
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </span>
+      </a>
+    </div>
+
+    <!-- Mobile -->
+    <details class="site-nav-mobile md:hidden">
+      <summary class="text-slate-400 hover:text-white p-2 -mr-2" role="button" aria-label="Toggle menu">
+        <i data-lucide="menu" class="w-5 h-5 site-nav-icon-open"></i>
+        <i data-lucide="x" class="w-5 h-5 site-nav-icon-close"></i>
+      </summary>
+      <div class="site-nav-panel px-6 pt-2 pb-5 space-y-3">
+
+        <details class="group/details">
+          <summary class="site-nav-submenu flex items-center justify-between py-2 text-sm text-slate-400 hover:text-white">
+            <span>Solutions</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-open/details:rotate-180"></i>
+          </summary>
+          <div class="pl-3 mt-1 space-y-1 border-l border-white/10">
+            <p class="pt-2 pb-0.5 text-[11px] font-semibold uppercase tracking-wider text-slate-500">Products</p>
+            <a href="/simplimex/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Customs &amp; ICEGATE Filing</span> <span class="text-xs text-slate-400">&middot; SimplImex AI</span></a>
+            <a href="/xentoaxar/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Handwritten Record Digitization</span> <span class="text-xs text-slate-400">&middot; XentoAxar</span></a>
+            <a href="/xentovox/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">AI Voice Agents</span> <span class="text-xs text-slate-400">&middot; XentoVoX</span></a>
+            <a href="/solutions/xentostay/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Hotel &amp; Resort Automation</span> <span class="text-xs text-slate-400">&middot; XentoStay</span></a>
+            <a href="/xentoscribe/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Medical Pathology Dictation</span> <span class="text-xs text-slate-400">&middot; XentoScribe</span></a>
+            <p class="pt-2 pb-0.5 text-[11px] font-semibold uppercase tracking-wider text-slate-500">By Industry</p>
+            <a href="/solutions/healthcare/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Healthcare Prior Authorization</span> <span class="text-xs text-slate-400">&middot; Prior auth in hours</span></a>
+            <a href="/solutions/insurance/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Insurance Claims &amp; FNOL</span> <span class="text-xs text-slate-400">&middot; AI triage</span></a>
+            <a href="/solutions/manufacturing/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Manufacturing Quality Control</span> <span class="text-xs text-slate-400">&middot; Defect inspection</span></a>
+            <a href="/solutions/mortgage/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Mortgage Loan File Indexing</span> <span class="text-xs text-slate-400">&middot; Packet speed</span></a>
+          </div>
+        </details>
+        <a href="/#how-it-works" class="block text-sm text-slate-400 hover:text-white py-2">Platform</a>
+        <a href="/#security" class="block text-sm text-slate-400 hover:text-white py-2">Security</a>
+        <a href="/#company" class="block text-sm text-slate-400 hover:text-white py-2">Company</a>
+        <a href="/blog/" class="block text-sm text-slate-400 hover:text-white py-2">Blog</a>
+        <a href="/#contact" class="block cta-primary px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">
+          <span>Book a Demo</span>
+        </a>
+      </div>
+    </details>
+  </div>
+</nav>
+
+<script>
+  /* The nav is self-sufficient: it renders its own icons and needs nothing from the
+     page. Hide-on-scroll is decorative — the menu is <details> and works without JS. */
+  (function () {
+    if (window.lucide) {
+      lucide.createIcons();
+      addEventListener('DOMContentLoaded', function () { lucide.createIcons(); });
+    }
+    var root = document.documentElement, last = 0;
+    addEventListener('scroll', function () {
+      var y = window.scrollY;
+      if (!document.querySelector('.site-nav-mobile[open]')) {
+        root.classList.toggle('nav-hidden', y > last && y > 100);
+      }
+      last = y;
+    }, { passive: true });
+  })();
+</script>
+<!-- nav:end -->
+
+  <main class="relative z-10 pt-24 pb-16">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <a href="/blog/" class="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-indigo-400 transition-colors mb-8">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        Back to Blog
+      </a>
+
+      <article>
+        <header class="mb-10">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="tag">Insurance</span>
+            <span class="tag">Document Intelligence</span>
+            <span class="tag">Human-in-the-Loop</span>
+          </div>
+          <h1 class="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-white tracking-tight mb-4 leading-[1.15]">
+            Finding Subrogation Opportunities <span class="gradient-text">Nobody Has Time</span> to Look For
+          </h1>
+          <p class="text-lg text-slate-400 leading-relaxed mb-5">Recovery potential is usually visible somewhere in the claim file. The problem is that reading every file is not economic — which is exactly the kind of problem document AI is suited to.</p>
+          <div class="flex items-center gap-3 text-sm text-slate-400">
+            <time datetime="2026-08-09">August 9, 2026</time>
+            <span class="w-1 h-1 rounded-full bg-slate-600"></span>
+            <span>5 min read</span>
+          </div>
+        </header>
+
+        <div class="glass rounded-2xl p-6 sm:p-10 post-content">
+          <p>Subrogation is one of the few functions in claims where the return is measured directly in recovered money. It is also one of the most consistently under-resourced, for a structural reason: identifying recovery potential requires reading the file, and reading every file is not economic.</p>
+          <p>So carriers screen. Referral rules based on loss type, severity thresholds, and adjuster judgement catch the obvious cases. The rest close without anyone having asked the question — not because the potential was not there, but because nobody had time to look.</p>
+          <p>That is a screening problem over unstructured documents, which is a good fit for automation in a way that many claims applications are not.</p>
+          <h2 id="what-the-indicators-look-like">What the indicators look like</h2>
+          <p>Recovery potential rarely appears as a field. It appears as facts distributed across documents:</p>
+          <ul>
+            <li>A police report identifying another party at fault, or noting a citation.</li>
+            <li>A repair estimate describing damage patterns consistent with a third-party impact.</li>
+            <li>A product involved in the loss, suggesting manufacturer or installer liability.</li>
+            <li>A contractor or service provider whose work preceded the loss.</li>
+            <li>A premises loss where the insured was not the owner.</li>
+            <li>A commercial relationship with contractual indemnity or a certificate of insurance naming another party.</li>
+            <li>Adjuster notes mentioning a third party in passing without a referral being made.</li>
+            <li>Another carrier already in correspondence on the same event.</li>
+          </ul>
+          <p>Each is a signal a person would recognise immediately on reading. None is reliably captured in structured claim data, which is why rules-based screening over the claims system misses them.</p>
+          <h2 id="the-screening-pipeline">The screening pipeline</h2>
+          <p><strong>Index the full file.</strong> Every document, classified, with text and structure extracted and retained. This is a prerequisite and it is where most of the work is.</p>
+          <p><strong>Extract entities.</strong> People, companies, vehicles, addresses, products, roles. The critical part is <em>role</em>: identifying a party as a third-party driver, a contractor, a property owner or a product manufacturer is what turns a name into a signal.</p>
+          <p><strong>Detect indicators as explicit rules over those entities.</strong> A third party is named and a liability-suggesting document type is present. A product is identified and the loss cause relates to it. A contractor performed work within a relevant window. Keep these as named, auditable rules rather than an opaque score — the referral team needs to know why a file surfaced.</p>
+          <p><strong>Score and rank.</strong> Combine indicators with recoverable amount and any applicable time limits into a priority order. The output is a queue, ordered by expected value.</p>
+          <p><strong>Present with evidence.</strong> This is where the design succeeds or fails. A referral suggestion that says "possible subrogation" is close to useless. One that says <em>"police report page 2 identifies a third-party driver cited for failure to yield; estimate totals $18,400; statute of limitations in this jurisdiction runs 14 months from the loss date"</em> — with links to the exact pages — can be actioned in a minute.</p>
+          <h2 id="time-limits-are-the-highest-value-output">Time limits are the highest-value output</h2>
+          <p>Recovery rights expire. Limitation periods vary by jurisdiction, by cause of action, and by the parties involved, and they run from dates that are themselves in the documents.</p>
+          <p>A system that tracks applicable deadlines per file and surfaces them before they lapse produces value independently of everything else. Files that were correctly referred but then sat, files that were identified late, files where the deadline was calculated from the wrong date — these are recoverable losses caused by administration rather than judgement.</p>
+          <p>Two cautions. Limitation analysis is a legal determination and the rules are genuinely intricate; the system should surface <em>candidate</em> deadlines with the basis for the calculation and route them to someone qualified, not present them as legal conclusions. And the calculation depends on extracted dates being right, so date fields in this workflow warrant tight thresholds and validation.</p>
+          <h2 id="retrospective-screening">Retrospective screening</h2>
+          <p>The most immediately compelling application is running the screen over recently closed files.</p>
+          <p>The cost is inference over documents you already hold. The output is a ranked list of files where recovery may still be available and the limitation period has not run. Some proportion will be genuine, and unlike most AI business cases the benefit is measurable in recovered money rather than in saved minutes.</p>
+          <p>It also produces something more useful than the recoveries themselves: a calibration of how much your current screening misses, and in which categories. That tells you whether to change the referral rules, the adjuster training, or both.</p>
+          <h2 id="design-constraints-worth-respecting">Design constraints worth respecting</h2>
+          <p><strong>Recommend, never decide.</strong> The system identifies candidates and assembles evidence. Whether to pursue recovery is a judgement involving legal merit, relationship considerations and commercial factors that are not in the documents.</p>
+          <p><strong>Precision matters more than recall here.</strong> A referral queue full of weak candidates trains the team to ignore it, and a discredited queue is worse than no queue. Better to surface fewer files with strong evidence and expand the criteria as the team's confidence grows.</p>
+          <p><strong>Make feedback trivial to give.</strong> Every referral the team rejects, with a reason, is exactly the signal needed to tune the rules. A one-click reason code on the referral screen will produce more improvement in three months than any amount of upfront modelling.</p>
+          <p><strong>Handle sensitive content carefully.</strong> Claim files contain medical records, personal data and privileged material. The same access controls, retention rules and audit requirements apply to the screening system as to the claims system itself — this is an area where a well-intentioned analytics project can create a genuine compliance problem.</p>
+          <h2 id="measuring-it">Measuring it</h2>
+          <ul>
+            <li><strong>Referral rate</strong> before and after, and the share of new referrals that came only from the automated screen.</li>
+            <li><strong>Acceptance rate</strong> of automated referrals by the recovery team — the direct measure of precision, and the number to watch first.</li>
+            <li><strong>Recovered amounts</strong> attributable to files surfaced by the screen.</li>
+            <li><strong>Missed-deadline rate</strong>, which should fall to near zero and stay there.</li>
+            <li><strong>Screening coverage</strong> — the share of closed files actually screened, which in most carriers starts far below 100% and is the underlying reason the opportunity exists.</li>
+          </ul>
+
+          <div class="mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="text-white text-lg font-semibold mb-2">Curious how much recovery you are leaving behind?</p>
+            <p class="text-slate-400 mb-6">We will screen a sample of closed files and show you what a systematic review surfaces.</p>
+            <a href="/#contact" class="cta-primary inline-block px-8 py-3 rounded-lg text-sm font-semibold text-white">
+              <span class="flex items-center gap-2">
+                Book a Demo
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <section class="mt-16">
+        <h2 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-5">Keep reading</h2>
+        <div class="grid gap-5 sm:grid-cols-3">
+          <a href="/blog/fnol-automation-guide/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Insurance</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-indigo-300 transition-colors">Automating FNOL Without Losing the Plot</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">First notice of loss is the highest-leverage automation target in claims and the easiest to get wrong. Here is what to automate, what to leave alone, and how to measure it.</p>
+          </a>
+          <a href="/blog/acord-forms-automation/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Insurance</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-indigo-300 transition-colors">ACORD Forms Are Standardised. Your Inbound ACORDs Are Not.</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">A standard form should be the easy case for document AI. In practice ACORD submissions arrive in a dozen states of completeness and fidelity — here is how to handle the reality.</p>
+          </a>
+          <a href="/blog/commercial-underwriting-submission-intake/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Insurance</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-indigo-300 transition-colors">Submission Intake Is the Real Bottleneck in Commercial Underwriting</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Underwriters spend a large share of their time assembling submissions rather than underwriting them. Automating intake raises quote capacity without touching a single pricing decision.</p>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+<!-- footer:start — generated by tools/build-chrome.mjs from partials/footer.html, do not edit -->
+<footer class="site-footer relative z-10 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12 mb-12">
+
+      <div class="col-span-2 md:col-span-4 lg:col-span-1">
+        <a href="/" class="flex items-center gap-2.5 mb-4">
+          <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
+          <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+        </a>
+        <p class="text-sm text-slate-400 leading-relaxed mb-4">
+          Agentic AI solutions for the enterprise.
+        </p>
+        <a href="mailto:sales@xentovia.ai" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
+          <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+          sales@xentovia.ai
+        </a>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Solutions</h4>
+        <ul class="space-y-2.5">
+          <li><a href="/simplimex/" class="text-sm text-slate-400 hover:text-white transition-colors">SimplImex AI</a></li>
+          <li><a href="/xentoaxar/" class="text-sm text-slate-400 hover:text-white transition-colors">XentoAxar</a></li>
+          <li><a href="/xentovox/" class="text-sm text-slate-400 hover:text-white transition-colors">XentoVoX</a></li>
+          <li><a href="/solutions/xentostay/" class="text-sm text-slate-400 hover:text-white transition-colors">XentoStay</a></li>
+          <li><a href="/xentoscribe/" class="text-sm text-slate-400 hover:text-white transition-colors">XentoScribe</a></li>
+          <li><a href="/#solutions" class="text-sm text-slate-400 hover:text-white transition-colors">By industry</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Platform</h4>
+        <ul class="space-y-2.5">
+          <li><a href="/#capabilities" class="text-sm text-slate-400 hover:text-white transition-colors">Capabilities</a></li>
+          <li><a href="/#how-it-works" class="text-sm text-slate-400 hover:text-white transition-colors">How it works</a></li>
+          <li><a href="/#security" class="text-sm text-slate-400 hover:text-white transition-colors">Security</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Company</h4>
+        <ul class="space-y-2.5">
+          <li><a href="/#company" class="text-sm text-slate-400 hover:text-white transition-colors">About</a></li>
+          <li><a href="/blog/" class="text-sm text-slate-400 hover:text-white transition-colors">Blog</a></li>
+          <li><a href="/careers/" class="text-sm text-slate-400 hover:text-white transition-colors">Careers</a></li>
+          <li><a href="mailto:sales@xentovia.ai" class="text-sm text-slate-400 hover:text-white transition-colors">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Legal</h4>
+        <ul class="space-y-2.5">
+          <li><a href="/privacy/" class="text-sm text-slate-400 hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="/terms/" class="text-sm text-slate-400 hover:text-white transition-colors">Terms of Service</a></li>
+          <li><a href="/dpa/" class="text-sm text-slate-400 hover:text-white transition-colors">DPA</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-divider mb-8"></div>
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-slate-400">
+        &copy; 2026 Xentovia Tech Private Limited. All rights reserved.
+      </p>
+      <div class="flex items-center gap-5">
+        <a href="https://www.linkedin.com/company/xentovia-ai" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.95v5.66H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.28 2.38 4.28 5.48v6.26zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+        <a href="mailto:sales@xentovia.ai" class="text-slate-400 hover:text-white transition-colors" aria-label="Email">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- footer:end -->
+
+  <script>
+    lucide.createIcons();
+    (function () {
+      var bar = document.getElementById('readBar');
+      if (!bar) return;
+      addEventListener('scroll', function () {
+        var max = document.documentElement.scrollHeight - innerHeight;
+        bar.style.width = (max > 0 ? Math.min(100, (scrollY / max) * 100) : 0) + '%';
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>

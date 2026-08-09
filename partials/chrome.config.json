@@ -1,6 +1,8 @@
 {
   "$comment": "Single source of truth for the site nav and footer. Edit this file (or nav.html / subnav.html / footer.html / chrome.css), then run `node tools/build-chrome.mjs` to regenerate every page. CI fails if a page is out of sync.",
 
+  "site": "https://xentovia.ai",
+
   "cta": { "href": "/#contact", "label": "Book a Demo" },
 
   "footer": {
@@ -146,10 +148,6 @@
   "pages": {
     "index.html": {},
     "blog/index.html": {},
-    "blog/digitizing-government-archives/index.html": {},
-    "blog/human-in-the-loop-regulated-industries/index.html": {},
-    "blog/vision-agents-for-land-records/index.html": {},
-    "blog/why-vlms-are-replacing-ocr/index.html": {},
     "careers/index.html": {},
     "dpa/index.html": {},
     "privacy/index.html": {},

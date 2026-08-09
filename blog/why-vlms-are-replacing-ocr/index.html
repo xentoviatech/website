@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Why Vision Language Models Are Replacing Traditional OCR in Enterprise — Xentovia Tech</title>
   <meta name="description" content="Traditional OCR breaks on handwritten text, mixed layouts, and context-dependent fields. Vision Language Models see documents the way humans do — and that changes everything for enterprise document processing.">
+  <link rel="canonical" href="https://xentovia.ai/blog/why-vlms-are-replacing-ocr/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Why Vision Language Models Are Replacing Traditional OCR in Enterprise">
+  <meta property="og:description" content="Traditional OCR breaks on handwritten text, mixed layouts, and context-dependent fields. Vision Language Models see documents the way humans do — and that changes everything for enterprise document processing.">
+  <meta property="og:url" content="https://xentovia.ai/blog/why-vlms-are-replacing-ocr/">
+  <meta property="og:site_name" content="Xentovia Tech">
+  <meta property="article:published_time" content="2026-03-28">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why Vision Language Models Are Replacing Traditional OCR in Enterprise">
+  <meta name="twitter:description" content="Traditional OCR breaks on handwritten text, mixed layouts, and context-dependent fields. Vision Language Models see documents the way humans do — and that changes everything for enterprise document processing.">
 
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -64,76 +75,6 @@
       -webkit-text-fill-color: transparent;
     }
 
-
-    .section-divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(99,102,241,0.3), transparent);
-    }
-
-    .cta-primary {
-      position: relative;
-      background: linear-gradient(135deg, #6366f1, #7c3aed);
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-    .cta-primary::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, #7c3aed, #6366f1);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .cta-primary:hover::after { opacity: 1; }
-    .cta-primary:hover {
-      box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(124, 58, 237, 0.2);
-      transform: translateY(-2px);
-    }
-    .cta-primary span { position: relative; z-index: 1; }
-
-    .legal-content h2 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #fff;
-      margin-top: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .legal-content h3 {
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: #e2e8f0;
-      margin-top: 1.5rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .legal-content p {
-      color: #94a3b8;
-      line-height: 1.8;
-      margin-bottom: 1rem;
-    }
-
-    .legal-content ul {
-      list-style: disc;
-      padding-left: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .legal-content li {
-      color: #94a3b8;
-      line-height: 1.8;
-      margin-bottom: 0.25rem;
-    }
-
-    .legal-content a {
-      color: #818cf8;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-    .legal-content a:hover {
-      color: #a5b4fc;
-    }
-
     .tag {
       display: inline-block;
       padding: 0.25rem 0.75rem;
@@ -143,6 +84,101 @@
       background: rgba(99, 102, 241, 0.15);
       color: #818cf8;
       border: 1px solid rgba(99, 102, 241, 0.25);
+    }
+
+    /* ── Article typography ─────────────────────────────────────────────── */
+    .post-content { font-size: 1rem; }
+    .post-content > *:first-child { margin-top: 0; }
+
+    .post-content h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 2.75rem;
+      margin-bottom: 1rem;
+      scroll-margin-top: 6rem;
+    }
+    .post-content h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-top: 1.75rem;
+      margin-bottom: 0.75rem;
+      scroll-margin-top: 6rem;
+    }
+    .post-content p { color: #94a3b8; line-height: 1.8; margin-bottom: 1rem; }
+    .post-content ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+    .post-content ol { list-style: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }
+    .post-content li { color: #94a3b8; line-height: 1.8; margin-bottom: 0.35rem; }
+    .post-content strong { color: #e2e8f0; font-weight: 600; }
+    .post-content em { color: #cbd5e1; }
+
+    .post-content a {
+      color: #818cf8;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .post-content a:hover { color: #a5b4fc; }
+
+    .post-content blockquote {
+      border-left: 2px solid rgba(99, 102, 241, 0.5);
+      background: rgba(99, 102, 241, 0.06);
+      border-radius: 0 0.75rem 0.75rem 0;
+      padding: 1rem 1.25rem;
+      margin: 1.75rem 0;
+    }
+    .post-content blockquote p { color: #cbd5e1; margin-bottom: 0; }
+
+    .post-content code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.875em;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 0.375rem;
+      padding: 0.1rem 0.35rem;
+      color: #c7d2fe;
+    }
+
+    .post-table-wrap { overflow-x: auto; margin: 1.75rem 0; }
+    .post-content table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      min-width: 34rem;
+    }
+    .post-content th, .post-content td {
+      text-align: left;
+      padding: 0.65rem 0.9rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      color: #94a3b8;
+      line-height: 1.6;
+      vertical-align: top;
+    }
+    .post-content th {
+      color: #e2e8f0;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.03);
+      white-space: nowrap;
+    }
+    .post-content tbody tr:last-child td { border-bottom: none; }
+
+    .post-content hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+      margin: 2.5rem 0;
+    }
+
+    /* Reading progress — decorative, degrades to nothing without JS. */
+    .read-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      z-index: 60;
+      background: linear-gradient(90deg, #6366f1, #7c3aed, #38bdf8);
+      transition: width 0.1s linear;
     }
   /* chrome:start — generated by tools/build-chrome.mjs from partials/chrome.css, do not edit */
 /* Shared page chrome. Source: partials/chrome.css — regenerate with `node tools/build-chrome.mjs`. */
@@ -218,9 +254,35 @@ html { scroll-padding-top: 5rem; }
 html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
 /* chrome:end */
   </style>
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Why Vision Language Models Are Replacing Traditional OCR in Enterprise",
+  "description": "Traditional OCR breaks on handwritten text, mixed layouts, and context-dependent fields. Vision Language Models see documents the way humans do — and that changes everything for enterprise document processing.",
+  "datePublished": "2026-03-28",
+  "dateModified": "2026-03-28",
+  "mainEntityOfPage": "https://xentovia.ai/blog/why-vlms-are-replacing-ocr/",
+  "url": "https://xentovia.ai/blog/why-vlms-are-replacing-ocr/",
+  "keywords": "Vision AI, Document Intelligence",
+  "author": {
+    "@type": "Organization",
+    "name": "Xentovia Tech"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xentovia Tech",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://xentovia.ai/favicon.png"
+    }
+  }
+}</script>
 </head>
 
 <body class="font-inter antialiased">
+
+<div class="read-bar" id="readBar"></div>
 
 <!-- nav:start — generated by tools/build-chrome.mjs from partials/nav.html, do not edit -->
 <nav class="site-nav nav-blur fixed top-0 left-0 right-0 z-50">
@@ -398,123 +460,105 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
 <!-- nav:end -->
 
   <main class="relative z-10 pt-24 pb-16">
-    <div class="max-w-4xl mx-auto px-6">
+    <div class="max-w-3xl mx-auto px-6">
 
-      <!-- Back to Blog -->
       <a href="/blog/" class="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-indigo-400 transition-colors mb-8">
         <i data-lucide="arrow-left" class="w-4 h-4"></i>
         Back to Blog
       </a>
 
-      <!-- Page Header -->
-      <div class="mb-12">
-        <div class="flex flex-wrap gap-2 mb-4">
-          <span class="tag">Vision AI</span>
-          <span class="tag">Document Intelligence</span>
+      <article>
+        <header class="mb-10">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="tag">Vision AI</span>
+            <span class="tag">Document Intelligence</span>
+          </div>
+          <h1 class="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-white tracking-tight mb-4 leading-[1.15]">
+            Why Vision Language Models Are Replacing Traditional <span class="gradient-text">OCR</span> in Enterprise
+          </h1>
+          <p class="text-lg text-slate-400 leading-relaxed mb-5">Traditional OCR breaks on handwritten text, mixed layouts, and context-dependent fields. Vision Language Models see documents the way humans do — and that changes everything for enterprise document processing.</p>
+          <div class="flex items-center gap-3 text-sm text-slate-400">
+            <time datetime="2026-03-28">March 28, 2026</time>
+            <span class="w-1 h-1 rounded-full bg-slate-600"></span>
+            <span>6 min read</span>
+          </div>
+        </header>
+
+        <div class="glass rounded-2xl p-6 sm:p-10 post-content">
+          <p>For decades, Optical Character Recognition has been the default answer to a straightforward question: how do you turn a picture of text into actual text a computer can process? OCR engines from Tesseract to ABBYY to cloud-based APIs have served that purpose adequately for printed, structured documents. But adequately is not the same as well, and the gap between the two has cost enterprises billions in manual rework, failed automation projects, and data quality issues that compound downstream.</p>
+          <p>Vision Language Models (VLMs) represent a fundamentally different approach. Instead of pattern-matching individual characters, VLMs perceive an entire document the way a human reader does — understanding layout, context, relationships between fields, and even the intent behind what was written. That shift from character recognition to document comprehension is why enterprises across insurance, healthcare, government, and financial services are moving away from OCR pipelines toward VLM-based extraction.</p>
+          <h2 id="where-traditional-ocr-falls-short">Where Traditional OCR Falls Short</h2>
+          <p>Traditional OCR was built for a world of typewritten forms and standardized templates. It works by segmenting an image into lines and characters, then matching those shapes against known glyphs. This approach has well-documented limitations that any enterprise team running OCR in production has encountered:</p>
+          <ul>
+            <li><strong>Template dependency:</strong> Most OCR systems require pre-defined templates that map zones on a page to specific fields. When a form layout changes — a new version, a different issuing authority, a slightly shifted column — the template breaks and extraction fails silently or produces garbage data.</li>
+            <li><strong>Handwritten text is essentially unsupported:</strong> OCR engines optimized for print achieve 95-99% character accuracy on clean scans. On handwritten text, especially cursive or non-Latin scripts, accuracy drops to 40-60%. For many real-world documents — medical forms, government registers, field notes — this makes OCR effectively useless.</li>
+            <li><strong>No contextual understanding:</strong> OCR extracts characters. It does not understand that "DOB" next to "12/03/1987" means a date of birth, or that a signature block separates two different sections of a legal document. Without semantic understanding, post-processing rules become brittle and expensive to maintain.</li>
+            <li><strong>Layout blindness:</strong> Multi-column layouts, tables with merged cells, margin annotations, stamps overlapping text — OCR struggles with all of these because it processes text linearly. Real documents are two-dimensional, and their spatial relationships carry meaning.</li>
+          </ul>
+          <h2 id="what-vlms-change">What VLMs Change</h2>
+          <p>Vision Language Models — models like Google's Gemini, OpenAI's GPT-4 with vision, and specialized document VLMs — process documents in a fundamentally different way. They take in the entire image and produce structured output based on a holistic understanding of what they see.</p>
+          <p>The key differences matter enormously in practice:</p>
+          <ul>
+            <li><strong>No templates required.</strong> A VLM can extract fields from a document it has never seen before. You describe what you want in natural language — "extract the property owner name, survey number, and area in acres" — and the model finds those fields regardless of where they appear on the page.</li>
+            <li><strong>Handwritten text comprehension.</strong> Because VLMs are trained on massive datasets of human-written content, they can read handwriting that would defeat any OCR engine. This includes cursive English, Devanagari script, mixed-language documents, and text written with varying ink quality on aged paper.</li>
+            <li><strong>Spatial and semantic awareness.</strong> VLMs understand that a value in the third column of a table row belongs to the header of that column. They understand that text below a "Remarks" heading is contextually different from text in a data field. They understand signatures, stamps, and crossed-out corrections.</li>
+            <li><strong>Contextual validation built in.</strong> A VLM can recognize that a date field contains an impossible value (month 15) or that a name field contains what appears to be an address. This kind of contextual error detection is something OCR pipelines only achieve with extensive post-processing rules.</li>
+          </ul>
+          <h2 id="a-real-world-comparison-government-land-records">A Real-World Comparison: Government Land Records</h2>
+          <p>In one of our deployments, we processed hundreds of thousands of handwritten government land records — registers maintained for decades by local revenue offices, written in regional scripts with varying handwriting quality, on paper that ranged from well-preserved to severely degraded.</p>
+          <p>When we benchmarked traditional OCR against our VLM pipeline on this dataset, the results were not close. OCR produced character-level accuracy below 50% on handwritten Devanagari entries, with field-level extraction accuracy (correctly identifying and extracting a complete field like "owner name" or "survey number") below 30%. The output required so much manual correction that it was faster to key the data in from scratch.</p>
+          <p>The VLM pipeline achieved field-level extraction accuracy above 85% on the same documents, with confidence scoring that allowed human reviewers to focus only on the 15-20% of fields where the model was uncertain. Total processing time per record dropped by more than 60% compared to manual digitization, and the accuracy of the final output — after human-in-the-loop review — exceeded 99%.</p>
+          <p>The difference was not just in accuracy. The VLM pipeline required no templates. When we encountered a new register format — different column order, different field labels, handwritten column headers — we updated the extraction prompt, not the code. That kind of adaptability is impossible with template-based OCR.</p>
+          <h2 id="when-ocr-is-still-the-right-answer">When OCR Is Still the Right Answer</h2>
+          <p>VLMs are not always necessary, and intellectual honesty matters when advising enterprise buyers. Here is where traditional OCR remains a perfectly good choice:</p>
+          <ul>
+            <li><strong>High-volume, simple printed forms:</strong> If you are processing millions of identical, cleanly printed invoices or shipping labels, a well-tuned OCR pipeline with template matching will be faster and cheaper per page.</li>
+            <li><strong>Structured data with fixed layouts:</strong> Machine-readable zones on passports, barcodes, QR codes — these are solved problems for OCR.</li>
+            <li><strong>Latency-critical applications:</strong> OCR engines can process a page in milliseconds. VLM inference currently takes seconds. For real-time applications where sub-second response is required, OCR may still be preferable.</li>
+          </ul>
+          <p>But for complex documents — handwritten content, variable layouts, multi-language text, documents where context matters for correct extraction — VLMs are not just better. They make extraction possible where it was not before.</p>
+          <h2 id="the-agentic-pipeline-advantage">The Agentic Pipeline Advantage</h2>
+          <p>Raw VLM extraction is powerful, but it is still just the first step. The real value emerges when you embed VLM extraction within an agentic pipeline — a system of specialized AI agents that work together to ensure accuracy and completeness.</p>
+          <p>In our architecture, the pipeline works like this: a VLM extracts fields from the document image. A validation agent checks the extracted data against business rules and cross-references between fields (does the total area equal the sum of individual plot areas?). An auto-correction agent attempts to resolve low-confidence extractions using contextual clues. And for fields that remain below the confidence threshold, a human reviewer sees the original image side-by-side with the extracted data and makes the final call.</p>
+          <p>This combination — VLM extraction, agentic validation, auto-correction, and human-in-the-loop review — is what delivers enterprise-grade accuracy. No single component does it alone. The VLM handles the hard perception problem. The agents handle the logic and consistency problem. And humans handle the judgment problem.</p>
+          <p>If your organization is still running OCR pipelines on documents that require manual correction rates above 20%, it is worth evaluating what a VLM-based approach could do for your throughput, accuracy, and total cost of processing.</p>
+
+          <div class="mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="text-white text-lg font-semibold mb-2">Ready to move beyond OCR?</p>
+            <p class="text-slate-400 mb-6">See how our VLM-powered document intelligence pipeline can work on your documents.</p>
+            <a href="/#contact" class="cta-primary inline-block px-8 py-3 rounded-lg text-sm font-semibold text-white">
+              <span class="flex items-center gap-2">
+                Book a Demo
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </span>
+            </a>
+          </div>
         </div>
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4 leading-tight">
-          Why Vision Language Models Are Replacing Traditional <span class="gradient-text">OCR</span> in Enterprise
-        </h1>
-        <div class="flex items-center gap-3 text-sm text-slate-400">
-          <time datetime="2026-03-28">March 28, 2026</time>
-          <span class="w-1 h-1 rounded-full bg-slate-600"></span>
-          <span>8 min read</span>
-        </div>
-      </div>
+      </article>
 
-      <!-- Content -->
-      <div class="glass rounded-2xl p-8 sm:p-12 legal-content">
-
-        <p>
-          For decades, Optical Character Recognition has been the default answer to a straightforward question: how do you turn a picture of text into actual text a computer can process? OCR engines from Tesseract to ABBYY to cloud-based APIs have served that purpose adequately for printed, structured documents. But adequately is not the same as well, and the gap between the two has cost enterprises billions in manual rework, failed automation projects, and data quality issues that compound downstream.
-        </p>
-        <p>
-          Vision Language Models (VLMs) represent a fundamentally different approach. Instead of pattern-matching individual characters, VLMs perceive an entire document the way a human reader does — understanding layout, context, relationships between fields, and even the intent behind what was written. That shift from character recognition to document comprehension is why enterprises across insurance, healthcare, government, and financial services are moving away from OCR pipelines toward VLM-based extraction.
-        </p>
-
-        <h2>Where Traditional OCR Falls Short</h2>
-        <p>
-          Traditional OCR was built for a world of typewritten forms and standardized templates. It works by segmenting an image into lines and characters, then matching those shapes against known glyphs. This approach has well-documented limitations that any enterprise team running OCR in production has encountered:
-        </p>
-        <ul>
-          <li><strong class="text-slate-200">Template dependency:</strong> Most OCR systems require pre-defined templates that map zones on a page to specific fields. When a form layout changes — a new version, a different issuing authority, a slightly shifted column — the template breaks and extraction fails silently or produces garbage data.</li>
-          <li><strong class="text-slate-200">Handwritten text is essentially unsupported:</strong> OCR engines optimized for print achieve 95-99% character accuracy on clean scans. On handwritten text, especially cursive or non-Latin scripts, accuracy drops to 40-60%. For many real-world documents — medical forms, government registers, field notes — this makes OCR effectively useless.</li>
-          <li><strong class="text-slate-200">No contextual understanding:</strong> OCR extracts characters. It does not understand that "DOB" next to "12/03/1987" means a date of birth, or that a signature block separates two different sections of a legal document. Without semantic understanding, post-processing rules become brittle and expensive to maintain.</li>
-          <li><strong class="text-slate-200">Layout blindness:</strong> Multi-column layouts, tables with merged cells, margin annotations, stamps overlapping text — OCR struggles with all of these because it processes text linearly. Real documents are two-dimensional, and their spatial relationships carry meaning.</li>
-        </ul>
-
-        <h2>What VLMs Change</h2>
-        <p>
-          Vision Language Models — models like Google's Gemini, OpenAI's GPT-4 with vision, and specialized document VLMs — process documents in a fundamentally different way. They take in the entire image and produce structured output based on a holistic understanding of what they see.
-        </p>
-        <p>
-          The key differences matter enormously in practice:
-        </p>
-        <ul>
-          <li><strong class="text-slate-200">No templates required.</strong> A VLM can extract fields from a document it has never seen before. You describe what you want in natural language — "extract the property owner name, survey number, and area in acres" — and the model finds those fields regardless of where they appear on the page.</li>
-          <li><strong class="text-slate-200">Handwritten text comprehension.</strong> Because VLMs are trained on massive datasets of human-written content, they can read handwriting that would defeat any OCR engine. This includes cursive English, Devanagari script, mixed-language documents, and text written with varying ink quality on aged paper.</li>
-          <li><strong class="text-slate-200">Spatial and semantic awareness.</strong> VLMs understand that a value in the third column of a table row belongs to the header of that column. They understand that text below a "Remarks" heading is contextually different from text in a data field. They understand signatures, stamps, and crossed-out corrections.</li>
-          <li><strong class="text-slate-200">Contextual validation built in.</strong> A VLM can recognize that a date field contains an impossible value (month 15) or that a name field contains what appears to be an address. This kind of contextual error detection is something OCR pipelines only achieve with extensive post-processing rules.</li>
-        </ul>
-
-        <h2>A Real-World Comparison: Government Land Records</h2>
-        <p>
-          In one of our deployments, we processed hundreds of thousands of handwritten government land records — registers maintained for decades by local revenue offices, written in regional scripts with varying handwriting quality, on paper that ranged from well-preserved to severely degraded.
-        </p>
-        <p>
-          When we benchmarked traditional OCR against our VLM pipeline on this dataset, the results were not close. OCR produced character-level accuracy below 50% on handwritten Devanagari entries, with field-level extraction accuracy (correctly identifying and extracting a complete field like "owner name" or "survey number") below 30%. The output required so much manual correction that it was faster to key the data in from scratch.
-        </p>
-        <p>
-          The VLM pipeline achieved field-level extraction accuracy above 85% on the same documents, with confidence scoring that allowed human reviewers to focus only on the 15-20% of fields where the model was uncertain. Total processing time per record dropped by more than 60% compared to manual digitization, and the accuracy of the final output — after human-in-the-loop review — exceeded 99%.
-        </p>
-        <p>
-          The difference was not just in accuracy. The VLM pipeline required no templates. When we encountered a new register format — different column order, different field labels, handwritten column headers — we updated the extraction prompt, not the code. That kind of adaptability is impossible with template-based OCR.
-        </p>
-
-        <h2>When OCR Is Still the Right Answer</h2>
-        <p>
-          VLMs are not always necessary, and intellectual honesty matters when advising enterprise buyers. Here is where traditional OCR remains a perfectly good choice:
-        </p>
-        <ul>
-          <li><strong class="text-slate-200">High-volume, simple printed forms:</strong> If you are processing millions of identical, cleanly printed invoices or shipping labels, a well-tuned OCR pipeline with template matching will be faster and cheaper per page.</li>
-          <li><strong class="text-slate-200">Structured data with fixed layouts:</strong> Machine-readable zones on passports, barcodes, QR codes — these are solved problems for OCR.</li>
-          <li><strong class="text-slate-200">Latency-critical applications:</strong> OCR engines can process a page in milliseconds. VLM inference currently takes seconds. For real-time applications where sub-second response is required, OCR may still be preferable.</li>
-        </ul>
-        <p>
-          But for complex documents — handwritten content, variable layouts, multi-language text, documents where context matters for correct extraction — VLMs are not just better. They make extraction possible where it was not before.
-        </p>
-
-        <h2>The Agentic Pipeline Advantage</h2>
-        <p>
-          Raw VLM extraction is powerful, but it is still just the first step. The real value emerges when you embed VLM extraction within an agentic pipeline — a system of specialized AI agents that work together to ensure accuracy and completeness.
-        </p>
-        <p>
-          In our architecture, the pipeline works like this: a VLM extracts fields from the document image. A validation agent checks the extracted data against business rules and cross-references between fields (does the total area equal the sum of individual plot areas?). An auto-correction agent attempts to resolve low-confidence extractions using contextual clues. And for fields that remain below the confidence threshold, a human reviewer sees the original image side-by-side with the extracted data and makes the final call.
-        </p>
-        <p>
-          This combination — VLM extraction, agentic validation, auto-correction, and human-in-the-loop review — is what delivers enterprise-grade accuracy. No single component does it alone. The VLM handles the hard perception problem. The agents handle the logic and consistency problem. And humans handle the judgment problem.
-        </p>
-        <p>
-          If your organization is still running OCR pipelines on documents that require manual correction rates above 20%, it is worth evaluating what a VLM-based approach could do for your throughput, accuracy, and total cost of processing.
-        </p>
-
-        <!-- CTA -->
-        <div class="mt-12 pt-8 border-t border-white/10 text-center">
-          <p class="text-white text-lg font-semibold mb-2">Ready to move beyond OCR?</p>
-          <p class="text-slate-400 mb-6">See how our VLM-powered document intelligence pipeline can work on your documents.</p>
-          <a href="/#contact" class="cta-primary inline-block px-8 py-3 rounded-lg text-sm font-semibold text-white">
-            <span class="flex items-center gap-2">
-              Book a Demo
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </span>
+      <section class="mt-16">
+        <h2 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-5">Keep reading</h2>
+        <div class="grid gap-5 sm:grid-cols-3">
+          <a href="/blog/archival-scanning-standards/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">GovTech</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-indigo-300 transition-colors">Scan Once, Extract Many Times: Capture Standards That Do Not Age</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Capture settings chosen for today's extraction pipeline will constrain every future one. Here is how to scan so the images outlive the software that reads them.</p>
+          </a>
+          <a href="/blog/handwriting-recognition-in-2026/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Vision AI</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-indigo-300 transition-colors">The State of Handwriting Recognition in 2026</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Handwriting was the wall that stopped a generation of digitization projects. Vision language models moved it — but not uniformly, and knowing where the remaining hard cases are decides whether a project succeeds.</p>
+          </a>
+          <a href="/blog/land-record-digitization-playbook/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">GovTech</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-indigo-300 transition-colors">A Practical Playbook for Land Record Digitization Programmes</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Most land record programmes fail on sequencing and scope rather than on technology. Here is the order of operations that keeps them on schedule.</p>
           </a>
         </div>
-
-      </div>
+      </section>
     </div>
   </main>
 
-  <!-- Footer -->
 <!-- footer:start — generated by tools/build-chrome.mjs from partials/footer.html, do not edit -->
 <footer class="site-footer relative z-10 border-t border-white/5">
   <div class="max-w-7xl mx-auto px-6 py-16">
@@ -592,6 +636,14 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
 
   <script>
     lucide.createIcons();
+    (function () {
+      var bar = document.getElementById('readBar');
+      if (!bar) return;
+      addEventListener('scroll', function () {
+        var max = document.documentElement.scrollHeight - innerHeight;
+        bar.style.width = (max > 0 ? Math.min(100, (scrollY / max) * 100) : 0) + '%';
+      }, { passive: true });
+    })();
   </script>
 
 </body>
