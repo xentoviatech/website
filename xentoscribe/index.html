@@ -91,6 +91,8 @@
         .glass:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(129, 140, 248, 0.2); }
 
         .bento-card { position: relative; overflow: hidden; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        /* Featured pricing card: badge is pulled 50% above the card edge, so it must not be clipped. */
+        .bento-card.pricing-featured { overflow: visible; }
         .bento-card::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: linear-gradient(135deg, transparent 40%, rgba(129,140,248,0.3) 50%, transparent 60%); background-size: 300% 300%; -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity 0.5s ease; }
         .bento-card:hover::before { opacity: 1; animation: shimmer 3s ease-in-out infinite; }
         @keyframes shimmer { 0%, 100% { background-position: 100% 0%; } 50% { background-position: 0% 100%; } }
@@ -796,7 +798,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
                 </div>
 
                 <!-- Starter (Recommended) -->
-                <div class="bg-indigo-900/20 border border-indigo-500 bento-card rounded-3xl p-8 flex flex-col relative transform md:-translate-y-4 shadow-[0_0_40px_rgba(99,102,241,0.2)] animate-on-scroll" style="transition-delay: 0.1s;">
+                <div class="bg-indigo-900/20 border border-indigo-500 bento-card pricing-featured rounded-3xl p-8 flex flex-col relative transform md:-translate-y-4 shadow-[0_0_40px_rgba(99,102,241,0.2)] animate-on-scroll" style="transition-delay: 0.1s;">
                     <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-indigo-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Recommended</div>
                     <div class="mb-8">
                         <h3 class="text-xl font-semibold text-white mb-2">Starter</h3>
