@@ -2,3 +2,10 @@
 print/cards/out/*.pdf
 print/cards-dark/out/*.pdf
 print/cards-hero/out/*.pdf
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
