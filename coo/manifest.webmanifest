@@ -1,0 +1,21 @@
+{
+  "name": "Rajnee Dubey — Xentovia",
+  "short_name": "Rajnee · Xentovia",
+  "description": "Digital business card for Rajnee Dubey, COO & Co-Founder at Xentovia.",
+  "start_url": "/coo/",
+  "scope": "/coo/",
+  "id": "/coo/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#03050a",
+  "theme_color": "#03050a",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "511x511",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

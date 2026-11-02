@@ -1,7 +1,7 @@
 // Minimal cache-first service worker for the /ceo/ digital business card.
 // Scope: /ceo/ (derived from this file's location).
 
-const CACHE = 'ceo-card-v3';
+const CACHE = 'ceo-card-v4';
 const ASSETS = [
   '/ceo/',
   '/ceo/index.html',
@@ -20,7 +20,7 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys()
-      .then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
+      .then((keys) => Promise.all(keys.filter((k) => k.startsWith('ceo-card-') && k !== CACHE).map((k) => caches.delete(k))))
       .then(() => self.clients.claim())
   );
 });
