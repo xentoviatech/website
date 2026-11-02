@@ -1,7 +1,7 @@
 // Minimal cache-first service worker for the /coo/ digital business card.
 // Scope: /coo/ (derived from this file's location).
 
-const CACHE = 'coo-card-v1';
+const CACHE = 'coo-card-v3';
 const ASSETS = [
   '/coo/',
   '/coo/index.html',
