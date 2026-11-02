@@ -1,7 +1,7 @@
 {
-  "name": "Santosh Kumar — Xentovia",
-  "short_name": "Santosh · Xentovia",
-  "description": "Santosh Kumar, CTO & Co-Founder at Xentovia.",
+  "name": "CTO — Xentovia",
+  "short_name": "CTO · Xentovia",
+  "description": "Office of the CTO, Xentovia.",
   "start_url": "/cto/",
   "scope": "/cto/",
   "id": "/cto/",
@@ -11,12 +11,6 @@
   "theme_color": "#03050a",
   "categories": ["business", "productivity"],
   "icons": [
-    {
-      "src": "/assets/team/sk.jpg",
-      "sizes": "800x800",
-      "type": "image/jpeg",
-      "purpose": "any"
-    },
     {
       "src": "/favicon.png",
       "sizes": "511x511",

@@ -1,12 +1,11 @@
 // Minimal cache-first service worker for the /cto/ digital business card.
 // Scope: /cto/ (derived from this file's location).
 
-const CACHE = 'cto-card-v1';
+const CACHE = 'cto-card-v2';
 const ASSETS = [
   '/cto/',
   '/cto/index.html',
   '/cto/manifest.webmanifest',
-  '/assets/team/sk.jpg',
   '/favicon.png',
   '/favicon.ico',
 ];
