@@ -6,6 +6,7 @@ const ASSETS = [
   '/coo/',
   '/coo/index.html',
   '/coo/manifest.webmanifest',
+  '/assets/team/rd.jpg',
   '/favicon.png',
   '/favicon.ico',
 ];

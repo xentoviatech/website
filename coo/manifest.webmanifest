@@ -12,6 +12,12 @@
   "categories": ["business", "productivity"],
   "icons": [
     {
+      "src": "/assets/team/rd.jpg",
+      "sizes": "864x1152",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
       "src": "/favicon.png",
       "sizes": "511x511",
       "type": "image/png",

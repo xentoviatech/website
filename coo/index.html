@@ -14,7 +14,7 @@
   <meta property="og:type" content="profile" />
   <meta property="og:url" content="https://xentovia.ai/coo/" />
   <link rel="canonical" href="https://xentovia.ai/coo/" />
-  <meta property="og:image" content="https://xentovia.ai/favicon.png" />
+  <meta property="og:image" content="https://xentovia.ai/assets/team/rd.jpg" />
 
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -29,7 +29,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Rajnee · Xentovia" />
-  <link rel="apple-touch-icon" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/team/rd.jpg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/team/rd.jpg" />
+  <link rel="apple-touch-icon" sizes="512x512" href="/assets/team/rd.jpg" />
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -259,30 +261,21 @@
       box-shadow: 0 12px 30px -10px rgba(0,0,0,0.6);
     }
 
-    .avatar-initials {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background:
-        radial-gradient(120% 120% at 30% 20%, rgba(129,140,248,0.28) 0%, transparent 55%),
-        linear-gradient(160deg, #0f1a3a 0%, #0a1128 55%, #060b18 100%);
-      font-family: 'Instrument Serif', ui-serif, Georgia, serif;
-      font-size: 60px;
-      font-weight: 400;
-      letter-spacing: 0.02em;
-      line-height: 1;
-      color: #e0e7ff;
-      user-select: none;
+    /* rd.jpg is a 3:4 selfie with the face right of centre: clip to the
+       circle, then zoom and shift so the face sits in the ring. */
+    .avatar-clip {
+      position: relative;
+      z-index: 2;
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #0a1128;
+      box-shadow: 0 12px 30px -10px rgba(0,0,0,0.6);
     }
-    .avatar-initials span {
-      background: linear-gradient(135deg, #c7d2fe 0%, #a5f3fc 100%);
-      -webkit-background-clip: text;
-              background-clip: text;
-      color: transparent;
-      padding-top: 4px;
-    }
-    @media (max-height: 700px) {
-      .avatar-initials { font-size: 48px; }
+    .avatar-clip .avatar {
+      border-radius: 0;
+      box-shadow: none;
+      transform: scale(1.4) translate(-14%, 5%);
     }
 
     /* ── Identity ─────────────────────────────────────────────── */
@@ -559,8 +552,16 @@
     </header>
 
     <div class="avatar-wrap" aria-hidden="false">
-      <div class="avatar avatar-initials" role="img" aria-label="Rajnee Dubey">
-        <span aria-hidden="true">RD</span>
+      <div class="avatar-clip">
+      <img
+        class="avatar"
+        src="/assets/team/rd.jpg"
+        alt="Portrait of Rajnee Dubey"
+        width="124"
+        height="124"
+        loading="eager"
+        decoding="async"
+      />
       </div>
     </div>
 
