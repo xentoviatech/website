@@ -1,5 +1,6 @@
 {
   "_readme": "ID-card verification register. One entry per issued XT number. To revoke a card set status to \"revoked\" (or \"expired\") and push to main; the page stops showing the person as active within minutes. Never reuse a number. Photo = assets/verify/<ID>.jpg, the same photo printed on the card.",
+  "XT-0010": {"name": "Dileep Singh", "relation": "Independent contractor", "status": "active", "photo": "/assets/verify/XT-0010.jpg"},
   "XT-0011": {"name": "Shivam Kumar", "relation": "Employee", "status": "active", "photo": "/assets/verify/XT-0011.jpg"},
   "XT-0012": {"name": "Sourav Kumar Roy", "relation": "Employee", "status": "active", "photo": "/assets/verify/XT-0012.jpg"}
 }
