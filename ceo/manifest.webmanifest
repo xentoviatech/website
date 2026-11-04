@@ -7,8 +7,8 @@
   "id": "/ceo/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#03050a",
-  "theme_color": "#03050a",
+  "background_color": "#13296B",
+  "theme_color": "#13296B",
   "categories": ["business", "productivity"],
   "icons": [
     {

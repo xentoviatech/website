@@ -38,9 +38,9 @@
         extend: {
           fontFamily: { inter: ['Inter', 'system-ui', 'sans-serif'] },
           colors: {
-            space: { 950: '#03050a', 900: '#060b18', 800: '#0a1128', 700: '#0f1a3a' },
-            accent: { 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5' },
-            glow: { purple: '#7c3aed', blue: '#3b82f6', cyan: '#06b6d4' }
+            space: { 950: '#13296B', 900: '#13296B', 800: '#0E2059', 700: '#0E2059' },
+            accent: { 400: '#C9A6D6', 500: '#6B2178', 600: '#571A62' },
+            glow: { purple: '#6B2178', blue: '#C9A6D6', cyan: '#C9A6D6' }
           },
           animation: {
             'float': 'float 6s ease-in-out infinite',
@@ -71,15 +71,15 @@
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
-      background: #03050a;
+      background: var(--xv-navy);
       color: #e2e8f0;
       overflow-x: hidden;
     }
 
     /* ── Scrollbar ── */
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #03050a; }
-    ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 3px; }
+    ::-webkit-scrollbar-track { background: var(--xv-navy); }
+    ::-webkit-scrollbar-thumb { background: var(--xv-purple); border-radius: 3px; }
 
     /* ── Moving Glow Orbs ── */
     @keyframes glowMove {
@@ -110,19 +110,19 @@
     }
     .glow-orb-1 {
       width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(124,58,237,0.25) 0%, transparent 70%);
+      background: none;
       top: -10%; left: -5%;
       animation: glowMove 15s ease-in-out infinite;
     }
     .glow-orb-2 {
       width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%);
+      background: none;
       top: 40%; right: -10%;
       animation: glowMove2 18s ease-in-out infinite;
     }
     .glow-orb-3 {
       width: 450px; height: 450px;
-      background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%);
+      background: none;
       bottom: -5%; left: 30%;
       animation: glowMove3 20s ease-in-out infinite;
     }
@@ -145,7 +145,7 @@
     .particle {
       position: absolute;
       width: 2px; height: 2px;
-      background: rgba(129, 140, 248, 0.6);
+      background: rgba(var(--xv-lilac-rgb), 0.6);
       border-radius: 50%;
       animation: particleDrift linear infinite;
     }
@@ -179,7 +179,7 @@
     }
     .glass:hover {
       background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(129, 140, 248, 0.2);
+      border-color: rgba(var(--xv-lilac-rgb), 0.2);
     }
 
     /* ── Bento Hover Glow ── */
@@ -194,12 +194,8 @@
       inset: 0;
       border-radius: inherit;
       padding: 1px;
-      background: linear-gradient(135deg, transparent 40%, rgba(129,140,248,0.3) 50%, transparent 60%);
+      background: none;
       background-size: 300% 300%;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
       opacity: 0;
       transition: opacity 0.5s ease;
     }
@@ -214,7 +210,7 @@
 
     .bento-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 20px 60px -15px rgba(99, 102, 241, 0.15);
+      box-shadow: 0 20px 60px -15px rgba(var(--xv-lilac-rgb), 0.15);
     }
 
     /* ── Icon Box ── */
@@ -222,23 +218,18 @@
       width: 48px; height: 48px;
       display: flex; align-items: center; justify-content: center;
       border-radius: 12px;
-      background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(124,58,237,0.1));
-      border: 1px solid rgba(129, 140, 248, 0.15);
+      background: rgba(var(--xv-lilac-rgb), 0.14);
+      border: 1px solid rgba(var(--xv-lilac-rgb), 0.15);
     }
 
     /* ── Gradient Text ── */
     .gradient-text {
-      background: linear-gradient(135deg, #e0e7ff 0%, #818cf8 40%, #c084fc 70%, #38bdf8 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--xv-lilac);
     }
 
     /* ── Hero Grid Lines ── */
     .grid-bg {
-      background-image:
-        linear-gradient(rgba(99,102,241,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(99,102,241,0.04) 1px, transparent 1px);
+      background-image: none;
       background-size: 60px 60px;
     }
 
@@ -246,7 +237,7 @@
     /* ── CTA Button ── */
     .cta-primary {
       position: relative;
-      background: linear-gradient(135deg, #6366f1, #7c3aed);
+      background: var(--xv-purple);
       overflow: hidden;
       transition: all 0.3s ease;
     }
@@ -254,13 +245,13 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      background: var(--xv-purple-hover);
       opacity: 0;
       transition: opacity 0.3s ease;
     }
     .cta-primary:hover::after { opacity: 1; }
     .cta-primary:hover {
-      box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(124, 58, 237, 0.2);
+      box-shadow: none;
       transform: translateY(-2px);
     }
     .cta-primary span { position: relative; z-index: 1; }
@@ -268,7 +259,7 @@
     /* ── Section Divider ── */
     .section-divider {
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(99,102,241,0.3), transparent);
+      background: rgba(var(--xv-lilac-rgb), 0.22);
     }
 
     /* ── API Tabs ── */
@@ -277,9 +268,9 @@
       border-bottom: 2px solid transparent;
     }
     .api-tab.active {
-      color: #818cf8;
-      border-bottom-color: #6366f1;
-      background: rgba(99, 102, 241, 0.05);
+      color: var(--xv-lilac);
+      border-bottom-color: var(--xv-purple);
+      background: rgba(var(--xv-lilac-rgb), 0.05);
     }
     .api-tab:hover:not(.active) {
       color: #cbd5e1;
@@ -288,18 +279,18 @@
   /* chrome:start — generated by tools/build-chrome.mjs from partials/chrome.css, do not edit */
 /* Shared page chrome. Source: partials/chrome.css — regenerate with `node tools/build-chrome.mjs`. */
 .nav-blur {
-  background: rgba(3, 5, 10, 0.7);
+  background: rgba(var(--xv-navy-rgb), 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 /* The dropdown sits over page content, so it needs an opaque base. */
-.site-nav .glass { background: #020617; }
+.site-nav .glass { background: var(--xv-navy-deep); }
 
 /* Primary CTA — defined here so the nav renders correctly on every page. */
 .cta-primary {
   position: relative;
-  background: linear-gradient(135deg, #6366f1, #7c3aed);
+  background: var(--xv-purple);
   overflow: hidden;
   transition: all 0.3s ease;
 }
@@ -307,13 +298,13 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #7c3aed, #6366f1);
+  background: var(--xv-purple-hover);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 .cta-primary:hover::after { opacity: 1; }
 .cta-primary:hover {
-  box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(124, 58, 237, 0.2);
+  box-shadow: none;
   transform: translateY(-2px);
 }
 .cta-primary span { position: relative; z-index: 1; }
@@ -332,7 +323,7 @@
   max-height: calc(100vh - 4rem);
   overflow-y: auto;
   /* Opaque: a nested backdrop-filter cannot blur through the nav's own. */
-  background: #020617;
+  background: var(--xv-navy-deep);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -347,11 +338,12 @@ html.nav-hidden .site-subnav { transform: translateY(-6.75rem); }
 .site-subnav-links::-webkit-scrollbar { display: none; }
 body.has-subnav { padding-top: 2.75rem; }
 
-/* Footer — self-contained so it renders identically on pages with their own palettes. */
-.site-footer { background: rgba(3, 5, 10, 0.8); }
+/* Footer — self-contained so it renders identically on pages with their own palettes.
+   Colours come from /assets/brand/brand.css (linked in every page head). */
+.site-footer { background: var(--xv-navy-deep); }
 .site-footer .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+  background: rgba(var(--xv-lilac-rgb), 0.22);
 }
 
 /* Keep in-page anchors clear of the fixed nav. */
@@ -359,6 +351,8 @@ html { scroll-padding-top: 5rem; }
 html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
 /* chrome:end */
   </style>
+  <link rel="stylesheet" href="/assets/brand/brand.css">
+  <script src="/assets/brand/tailwind-brand.js"></script>
 </head>
 
 <body class="font-inter antialiased">
@@ -372,9 +366,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
 <!-- nav:start — generated by tools/build-chrome.mjs from partials/nav.html, do not edit -->
 <nav class="site-nav nav-blur fixed top-0 left-0 right-0 z-50">
   <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="/" class="flex items-center gap-2.5 group">
-      <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
-      <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+    <a href="/" class="flex items-center -ml-2">
+      <img src="/assets/brand/logo/xentovia-horizontal-dark.svg" alt="Xentovia — Agentic AI for Enterprise" width="160" height="52" class="h-[52px] w-auto">
     </a>
 
     <!-- Desktop -->
@@ -389,8 +382,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <div class="glass rounded-2xl p-2 shadow-2xl border border-white/10 grid grid-cols-1 gap-0.5">
             <p class="px-2.5 pt-2 pb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-500">Products</p>
             <a href="/simplimpex/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-sky-500/10 border border-sky-500/20 flex-shrink-0 mt-0.5">
-                <i data-lucide="ship" class="w-4 h-4 text-sky-400"></i>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-brand-500/10 border border-brand-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="ship" class="w-4 h-4 text-brand-400"></i>
               </div>
               <div class="min-w-0">
                 <p class="text-sm font-semibold text-white">Customs &amp; ICEGATE Filing</p>
@@ -398,8 +391,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               </div>
             </a>
             <a href="/xentoaxar/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-cyan-500/10 border border-cyan-500/20 flex-shrink-0 mt-0.5">
-                <i data-lucide="building" class="w-4 h-4 text-cyan-400"></i>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-brand-500/10 border border-brand-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="building" class="w-4 h-4 text-brand-400"></i>
               </div>
               <div class="min-w-0">
                 <p class="text-sm font-semibold text-white">Handwritten Record Digitization</p>
@@ -407,8 +400,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               </div>
             </a>
             <a href="/xentovox/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-blue-500/10 border border-blue-500/20 flex-shrink-0 mt-0.5">
-                <i data-lucide="phone-call" class="w-4 h-4 text-blue-400"></i>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-brand-500/10 border border-brand-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="phone-call" class="w-4 h-4 text-brand-400"></i>
               </div>
               <div class="min-w-0">
                 <p class="text-sm font-semibold text-white">AI Voice Agents</p>
@@ -416,8 +409,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               </div>
             </a>
             <a href="/solutions/xentostay/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-purple-500/10 border border-purple-500/20 flex-shrink-0 mt-0.5">
-                <i data-lucide="hotel" class="w-4 h-4 text-purple-400"></i>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-brand-500/10 border border-brand-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="hotel" class="w-4 h-4 text-brand-400"></i>
               </div>
               <div class="min-w-0">
                 <p class="text-sm font-semibold text-white">Hotel &amp; Resort Automation</p>
@@ -425,8 +418,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               </div>
             </a>
             <a href="/xentoscribe/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-emerald-500/10 border border-emerald-500/20 flex-shrink-0 mt-0.5">
-                <i data-lucide="mic" class="w-4 h-4 text-emerald-400"></i>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-brand-500/10 border border-brand-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="mic" class="w-4 h-4 text-brand-400"></i>
               </div>
               <div class="min-w-0">
                 <p class="text-sm font-semibold text-white">Medical Pathology Dictation</p>
@@ -435,8 +428,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
             </a>
             <p class="px-2.5 pt-2 pb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-500">By Industry</p>
             <a href="/solutions/healthcare/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-rose-500/10 border border-rose-500/20 flex-shrink-0 mt-0.5">
-                <i data-lucide="heart-pulse" class="w-4 h-4 text-rose-400"></i>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-brand-500/10 border border-brand-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="heart-pulse" class="w-4 h-4 text-brand-400"></i>
               </div>
               <div class="min-w-0">
                 <p class="text-sm font-semibold text-white">Healthcare Prior Authorization</p>
@@ -444,8 +437,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               </div>
             </a>
             <a href="/solutions/insurance/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-indigo-500/10 border border-indigo-500/20 flex-shrink-0 mt-0.5">
-                <i data-lucide="umbrella" class="w-4 h-4 text-indigo-400"></i>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-brand-500/10 border border-brand-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="umbrella" class="w-4 h-4 text-brand-400"></i>
               </div>
               <div class="min-w-0">
                 <p class="text-sm font-semibold text-white">Insurance Claims &amp; FNOL</p>
@@ -453,8 +446,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               </div>
             </a>
             <a href="/solutions/manufacturing/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-amber-500/10 border border-amber-500/20 flex-shrink-0 mt-0.5">
-                <i data-lucide="factory" class="w-4 h-4 text-amber-400"></i>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-brand-500/10 border border-brand-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="factory" class="w-4 h-4 text-brand-400"></i>
               </div>
               <div class="min-w-0">
                 <p class="text-sm font-semibold text-white">Manufacturing Quality Control</p>
@@ -462,8 +455,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               </div>
             </a>
             <a href="/solutions/mortgage/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-yellow-500/10 border border-yellow-500/20 flex-shrink-0 mt-0.5">
-                <i data-lucide="home" class="w-4 h-4 text-yellow-400"></i>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-brand-500/10 border border-brand-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="home" class="w-4 h-4 text-brand-400"></i>
               </div>
               <div class="min-w-0">
                 <p class="text-sm font-semibold text-white">Mortgage Loan File Indexing</p>
@@ -566,10 +559,10 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
       }
       .hero-dot[data-active="true"] {
         width: 36px;
-        background: linear-gradient(90deg, #6366f1, #06b6d4);
+        background: var(--xv-lilac);
       }
       .hero-dot:hover { background: rgba(148, 163, 184, 0.6); }
-      .hero-dot[data-active="true"]:hover { background: linear-gradient(90deg, #818cf8, #67e8f9); }
+      .hero-dot[data-active="true"]:hover { background: none; }
       @media (prefers-reduced-motion: reduce) {
         .hero-slide-stack > .hero-slide { transition: none; }
       }
@@ -585,7 +578,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <div class="hero-slide" data-active="true" data-slide="0"
                role="group" aria-roledescription="slide" aria-label="1 of 2: Axar">
             <div class="max-w-4xl mx-auto text-center">
-              <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium text-cyan-300 mb-8">
+              <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium text-navy-300 mb-8">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                 Axar &middot; Vision AI for unstructured documents
               </div>
@@ -602,7 +595,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
                   <span class="flex items-center justify-center gap-2">Book a 30-min walkthrough <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
                 </a>
                 <a href="/xentoaxar/" class="group px-8 py-3.5 rounded-xl text-base font-medium text-slate-300 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all w-full sm:w-auto flex items-center justify-center gap-2">
-                  <i data-lucide="arrow-right" class="w-4 h-4 text-cyan-400 group-hover:text-cyan-300 transition-colors"></i>
+                  <i data-lucide="arrow-right" class="w-4 h-4 text-navy-400 group-hover:text-navy-300 transition-colors"></i>
                   See Axar
                 </a>
               </div>
@@ -613,7 +606,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <div class="hero-slide" data-active="false" data-slide="1"
                role="group" aria-roledescription="slide" aria-label="2 of 2: SimplImpex AI">
             <div class="max-w-4xl mx-auto text-center">
-              <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium text-indigo-300 mb-8">
+              <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium text-brand-300 mb-8">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                 SimplImpex AI &middot; Customs entries in production today
               </div>
@@ -631,7 +624,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
                   <span class="flex items-center justify-center gap-2">Book a 30-min demo <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
                 </a>
                 <a href="/simplimpex/#video" class="group px-8 py-3.5 rounded-xl text-base font-medium text-slate-300 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all w-full sm:w-auto flex items-center justify-center gap-2">
-                  <i data-lucide="play-circle" class="w-4 h-4 text-indigo-400 group-hover:text-indigo-300 transition-colors"></i>
+                  <i data-lucide="play-circle" class="w-4 h-4 text-brand-400 group-hover:text-brand-300 transition-colors"></i>
                   Watch the 20-second walkthrough
                 </a>
               </div>
@@ -652,13 +645,13 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
         <div class="max-w-4xl mx-auto text-center mt-10">
           <p class="text-sm text-slate-400 mb-10 max-w-2xl mx-auto">
             We also build agentic AI for healthcare, insurance, mortgage, and manufacturing &mdash;
-            <a href="#solutions" class="text-indigo-400 hover:text-indigo-300 underline-offset-2 hover:underline">see all solutions</a>.
+            <a href="#solutions" class="text-brand-400 hover:text-brand-300 underline-offset-2 hover:underline">see all solutions</a>.
           </p>
 
           <!-- Proof Strip (real production stats, no fabricated logos) -->
           <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-slate-400">
             <span class="flex items-center gap-1.5">
-              <i data-lucide="timer" class="w-3.5 h-3.5 text-sky-400"></i>
+              <i data-lucide="timer" class="w-3.5 h-3.5 text-navy-400"></i>
               <b class="text-white font-semibold">15-minute</b> customs filings<sup class="text-slate-500 ml-0.5">1</sup>
             </span>
             <span class="flex items-center gap-1.5">
@@ -666,11 +659,11 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               <b class="text-white font-semibold">50&ndash;75%</b> prior auth automated<sup class="text-slate-500 ml-0.5">1</sup>
             </span>
             <span class="flex items-center gap-1.5">
-              <i data-lucide="scroll-text" class="w-3.5 h-3.5 text-cyan-400"></i>
+              <i data-lucide="scroll-text" class="w-3.5 h-3.5 text-navy-400"></i>
               Audit trail on every decision
             </span>
             <span class="flex items-center gap-1.5">
-              <i data-lucide="globe" class="w-3.5 h-3.5 text-purple-400"></i>
+              <i data-lucide="globe" class="w-3.5 h-3.5 text-brand-400"></i>
               Multi-region &middot; US &middot; EU &middot; India
             </span>
           </div>
@@ -736,7 +729,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
       <div class="max-w-7xl mx-auto px-6">
 
         <div class="text-center mb-16">
-          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">Watch it work</p>
+          <p class="animate-on-scroll text-sm font-semibold text-brand-400 uppercase tracking-widest mb-3">Watch it work</p>
           <h2 class="animate-on-scroll text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
             What goes in. <span class="gradient-text">What comes out.</span>
           </h2>
@@ -751,18 +744,18 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <!-- Demo 1: SimplImpex AI -->
           <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
             <div class="flex items-center justify-between mb-5">
-              <span class="text-[11px] font-mono text-sky-400 uppercase tracking-widest">SimplImpex AI</span>
+              <span class="text-[11px] font-mono text-navy-400 uppercase tracking-widest">SimplImpex AI</span>
               <span class="text-[11px] font-mono text-emerald-400 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20">IN PRODUCTION</span>
             </div>
             <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-4 mb-5">
               <div class="text-center">
-                <div class="icon-box mx-auto mb-3"><i data-lucide="file-stack" class="w-5 h-5 text-sky-400"></i></div>
+                <div class="icon-box mx-auto mb-3"><i data-lucide="file-stack" class="w-5 h-5 text-navy-400"></i></div>
                 <p class="text-[11px] font-mono text-slate-400 uppercase tracking-wider mb-1">Input</p>
                 <p class="text-xs text-slate-300 leading-snug">50 commercial invoices, BOLs, packing lists, certificates of origin</p>
               </div>
               <div class="flex flex-col items-center gap-1">
-                <i data-lucide="arrow-right" class="w-4 h-4 text-sky-400"></i>
-                <span class="text-[11px] font-mono text-sky-300 whitespace-nowrap">~15 min</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 text-navy-400"></i>
+                <span class="text-[11px] font-mono text-navy-300 whitespace-nowrap">~15 min</span>
               </div>
               <div class="text-center">
                 <div class="icon-box mx-auto mb-3"><i data-lucide="file-check-2" class="w-5 h-5 text-emerald-400"></i></div>
@@ -772,7 +765,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
             </div>
             <div class="border-t border-white/5 pt-4 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between text-xs">
               <span class="text-slate-400">Manual baseline: 2&ndash;4 hours per entry</span>
-              <a href="/simplimpex/" class="text-sky-400 hover:text-sky-300 font-medium inline-flex items-center gap-1">
+              <a href="/simplimpex/" class="text-navy-400 hover:text-navy-300 font-medium inline-flex items-center gap-1">
                 Walkthrough <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
               </a>
             </div>
@@ -811,18 +804,18 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <!-- Demo 3: Insurance / Claims -->
           <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
             <div class="flex items-center justify-between mb-5">
-              <span class="text-[11px] font-mono text-indigo-300 uppercase tracking-widest">Insurance</span>
-              <span class="text-[11px] font-mono text-cyan-400 px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/20">AVAILABLE</span>
+              <span class="text-[11px] font-mono text-brand-300 uppercase tracking-widest">Insurance</span>
+              <span class="text-[11px] font-mono text-navy-400 px-2 py-0.5 rounded bg-navy-500/10 border border-navy-500/20">AVAILABLE</span>
             </div>
             <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-4 mb-5">
               <div class="text-center">
-                <div class="icon-box mx-auto mb-3"><i data-lucide="file-image" class="w-5 h-5 text-indigo-400"></i></div>
+                <div class="icon-box mx-auto mb-3"><i data-lucide="file-image" class="w-5 h-5 text-brand-400"></i></div>
                 <p class="text-[11px] font-mono text-slate-400 uppercase tracking-wider mb-1">Input</p>
                 <p class="text-xs text-slate-300 leading-snug">FNOL (first notice of loss) form + claim photos + medical records</p>
               </div>
               <div class="flex flex-col items-center gap-1">
-                <i data-lucide="arrow-right" class="w-4 h-4 text-indigo-400"></i>
-                <span class="text-[11px] font-mono text-indigo-300 whitespace-nowrap">~30 sec</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 text-brand-400"></i>
+                <span class="text-[11px] font-mono text-brand-300 whitespace-nowrap">~30 sec</span>
               </div>
               <div class="text-center">
                 <div class="icon-box mx-auto mb-3"><i data-lucide="badge-check" class="w-5 h-5 text-emerald-400"></i></div>
@@ -832,7 +825,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
             </div>
             <div class="border-t border-white/5 pt-4 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between text-xs">
               <span class="text-slate-400">Manual baseline: 30+ minutes per claim</span>
-              <a href="/solutions/insurance/" class="text-indigo-400 hover:text-indigo-300 font-medium inline-flex items-center gap-1">
+              <a href="/solutions/insurance/" class="text-brand-400 hover:text-brand-300 font-medium inline-flex items-center gap-1">
                 Walkthrough <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
               </a>
             </div>
@@ -842,7 +835,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
             <div class="flex items-center justify-between mb-5">
               <span class="text-[11px] font-mono text-amber-400 uppercase tracking-widest">Mortgage</span>
-              <span class="text-[11px] font-mono text-cyan-400 px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/20">AVAILABLE</span>
+              <span class="text-[11px] font-mono text-navy-400 px-2 py-0.5 rounded bg-navy-500/10 border border-navy-500/20">AVAILABLE</span>
             </div>
             <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-4 mb-5">
               <div class="text-center">
@@ -871,7 +864,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
         </div>
 
         <p class="animate-on-scroll text-center text-sm text-slate-400 mt-10">
-          Don't see your workflow? <a href="#contact" class="text-indigo-400 hover:text-indigo-300 transition-colors">Tell us your input, we'll show you the output</a>.
+          Don't see your workflow? <a href="#contact" class="text-brand-400 hover:text-brand-300 transition-colors">Tell us your input, we'll show you the output</a>.
         </p>
       </div>
     </section>
@@ -883,7 +876,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
 
         <!-- Section Header -->
         <div class="text-center mb-16">
-          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">Core Capabilities</p>
+          <p class="animate-on-scroll text-sm font-semibold text-brand-400 uppercase tracking-widest mb-3">Core Capabilities</p>
           <h2 class="animate-on-scroll text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
             Three pillars. One <span class="gradient-text">agentic platform.</span>
           </h2>
@@ -900,7 +893,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
             <div class="flex flex-col h-full">
               <div class="flex items-start justify-between mb-6">
                 <div class="icon-box">
-                  <i data-lucide="scan-text" class="w-5 h-5 text-indigo-400"></i>
+                  <i data-lucide="scan-text" class="w-5 h-5 text-brand-400"></i>
                 </div>
                 <div class="flex items-center gap-2">
                   <span class="text-[11px] font-mono text-emerald-400 px-2 py-0.5 rounded-md bg-emerald-500/10 border border-emerald-500/20">IN PRODUCTION</span>
@@ -914,19 +907,19 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
 
               <div class="mt-auto space-y-2">
                 <div class="flex items-center gap-2 text-xs text-slate-400">
-                  <i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i>
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400"></i>
                   Handwritten &amp; printed text (multi-language)
                 </div>
                 <div class="flex items-center gap-2 text-xs text-slate-400">
-                  <i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i>
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400"></i>
                   Tables, forms, mixed layouts
                 </div>
                 <div class="flex items-center gap-2 text-xs text-slate-400">
-                  <i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i>
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400"></i>
                   Structured JSON output
                 </div>
                 <div class="flex items-center gap-2 text-xs text-slate-400">
-                  <i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i>
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400"></i>
                   Auto-correction &amp; cross-validation
                 </div>
               </div>
@@ -938,10 +931,10 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
             <div class="flex flex-col h-full">
               <div class="flex items-start justify-between mb-6">
                 <div class="icon-box">
-                  <i data-lucide="eye" class="w-5 h-5 text-cyan-400"></i>
+                  <i data-lucide="eye" class="w-5 h-5 text-navy-400"></i>
                 </div>
                 <div class="flex items-center gap-2">
-                  <span class="text-[11px] font-mono text-cyan-400 px-2 py-0.5 rounded-md bg-cyan-500/10 border border-cyan-500/20">AVAILABLE</span>
+                  <span class="text-[11px] font-mono text-navy-400 px-2 py-0.5 rounded-md bg-navy-500/10 border border-navy-500/20">AVAILABLE</span>
                 </div>
               </div>
 
@@ -952,19 +945,19 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
 
               <div class="mt-auto space-y-2">
                 <div class="flex items-center gap-2 text-xs text-slate-400">
-                  <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i>
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-navy-400"></i>
                   Defect detection &amp; quality grading
                 </div>
                 <div class="flex items-center gap-2 text-xs text-slate-400">
-                  <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i>
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-navy-400"></i>
                   Damage assessment from photos
                 </div>
                 <div class="flex items-center gap-2 text-xs text-slate-400">
-                  <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i>
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-navy-400"></i>
                   Image classification &amp; comparison
                 </div>
                 <div class="flex items-center gap-2 text-xs text-slate-400">
-                  <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i>
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-navy-400"></i>
                   Video frame analysis
                 </div>
               </div>
@@ -976,10 +969,10 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
             <div class="flex flex-col h-full">
               <div class="flex items-start justify-between mb-6">
                 <div class="icon-box">
-                  <i data-lucide="brain" class="w-5 h-5 text-purple-400"></i>
+                  <i data-lucide="brain" class="w-5 h-5 text-brand-400"></i>
                 </div>
                 <div class="flex items-center gap-2">
-                  <span class="text-[11px] font-mono text-purple-400 px-2 py-0.5 rounded-md bg-purple-500/10 border border-purple-500/20">AVAILABLE</span>
+                  <span class="text-[11px] font-mono text-brand-400 px-2 py-0.5 rounded-md bg-brand-500/10 border border-brand-500/20">AVAILABLE</span>
                 </div>
               </div>
 
@@ -990,19 +983,19 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
 
               <div class="mt-auto space-y-2">
                 <div class="flex items-center gap-2 text-xs text-slate-400">
-                  <i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i>
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400"></i>
                   Multi-model orchestration
                 </div>
                 <div class="flex items-center gap-2 text-xs text-slate-400">
-                  <i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i>
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400"></i>
                   Decision logic with guardrails
                 </div>
                 <div class="flex items-center gap-2 text-xs text-slate-400">
-                  <i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i>
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400"></i>
                   Domain-specific reasoning chains
                 </div>
                 <div class="flex items-center gap-2 text-xs text-slate-400">
-                  <i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i>
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400"></i>
                   API-driven workflow integration
                 </div>
               </div>
@@ -1021,7 +1014,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
 
         <!-- Section Header -->
         <div class="text-center mb-16">
-          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">Solutions</p>
+          <p class="animate-on-scroll text-sm font-semibold text-brand-400 uppercase tracking-widest mb-3">Solutions</p>
           <h2 class="animate-on-scroll text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
             Real problems. <span class="gradient-text">Verified results.</span>
           </h2>
@@ -1034,19 +1027,19 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
         <!-- SimplImpex AI — flagship (live in India) -->
-        <a href="/simplimpex/" class="animate-on-scroll bento-card glass rounded-2xl p-7 group block no-underline relative ring-1 ring-sky-500/30 hover:ring-sky-400/60 transition-all">
+        <a href="/simplimpex/" class="animate-on-scroll bento-card glass rounded-2xl p-7 group block no-underline relative ring-1 ring-navy-500/30 hover:ring-navy-400/60 transition-all">
           <span class="absolute top-4 right-4 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-[11px] font-mono uppercase tracking-widest">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Live in India
           </span>
           <div class="flex flex-col h-full">
             <div class="icon-box mb-5">
-              <i data-lucide="ship" class="w-5 h-5 text-sky-400"></i>
+              <i data-lucide="ship" class="w-5 h-5 text-navy-400"></i>
             </div>
-            <p class="text-[11px] font-mono text-sky-400 uppercase tracking-widest mb-1">SimplImpex AI</p>
+            <p class="text-[11px] font-mono text-navy-400 uppercase tracking-widest mb-1">SimplImpex AI</p>
             <h3 class="text-lg font-bold text-white mb-2 pr-24">File customs entries in 15 minutes.</h3>
             <div class="flex flex-wrap gap-1.5 mb-3">
-              <span class="text-[11px] font-mono text-indigo-300 px-1.5 py-0.5 rounded bg-indigo-500/10">Document Intelligence</span>
-              <span class="text-[11px] font-mono text-purple-300 px-1.5 py-0.5 rounded bg-purple-500/10">Workflow Agents</span>
+              <span class="text-[11px] font-mono text-brand-300 px-1.5 py-0.5 rounded bg-brand-500/10">Document Intelligence</span>
+              <span class="text-[11px] font-mono text-brand-300 px-1.5 py-0.5 rounded bg-brand-500/10">Workflow Agents</span>
             </div>
             <p class="text-sm text-slate-400 mb-4 leading-relaxed">
               SimplImpex AI automates customs entry preparation, HS classification, and sanctions screening across brokers, forwarders, and importers.
@@ -1054,7 +1047,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
             <p class="text-xs text-slate-400 mb-4">
               Commercial invoices &middot; BOLs &middot; HS codes &middot; OFAC/EAR screening
             </p>
-            <span class="mt-auto inline-flex items-center gap-1 text-xs font-medium text-sky-400 group-hover:text-sky-300 transition-colors">
+            <span class="mt-auto inline-flex items-center gap-1 text-xs font-medium text-navy-400 group-hover:text-navy-300 transition-colors">
               Explore solution
               <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </span>
@@ -1062,19 +1055,19 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
         </a>
 
         <!-- Axar — flagship (production scale on government land records) -->
-        <a href="/xentoaxar/" class="animate-on-scroll bento-card glass rounded-2xl p-7 group block no-underline relative ring-1 ring-cyan-500/30 hover:ring-cyan-400/60 transition-all">
+        <a href="/xentoaxar/" class="animate-on-scroll bento-card glass rounded-2xl p-7 group block no-underline relative ring-1 ring-navy-500/30 hover:ring-navy-400/60 transition-all">
           <span class="absolute top-4 right-4 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-[11px] font-mono uppercase tracking-widest">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> In production
           </span>
           <div class="flex flex-col h-full">
             <div class="icon-box mb-5">
-              <i data-lucide="building" class="w-5 h-5 text-cyan-400"></i>
+              <i data-lucide="building" class="w-5 h-5 text-navy-400"></i>
             </div>
-            <p class="text-[11px] font-mono text-cyan-400 uppercase tracking-widest mb-1">Axar &middot; Public Sector</p>
+            <p class="text-[11px] font-mono text-navy-400 uppercase tracking-widest mb-1">Axar &middot; Public Sector</p>
             <h3 class="text-lg font-bold text-white mb-2 pr-24">Digitize handwritten records at scale.</h3>
             <div class="flex flex-wrap gap-1.5 mb-3">
-              <span class="text-[11px] font-mono text-indigo-300 px-1.5 py-0.5 rounded bg-indigo-500/10">Document Intelligence</span>
-              <span class="text-[11px] font-mono text-cyan-300 px-1.5 py-0.5 rounded bg-cyan-500/10">Visual AI</span>
+              <span class="text-[11px] font-mono text-brand-300 px-1.5 py-0.5 rounded bg-brand-500/10">Document Intelligence</span>
+              <span class="text-[11px] font-mono text-navy-300 px-1.5 py-0.5 rounded bg-navy-500/10">Visual AI</span>
             </div>
             <p class="text-sm text-slate-400 mb-4 leading-relaxed">
               Decades-old handwritten registers, mixed-script forms, faded archives &mdash; turned into clean structured data. Reviewer-approved, audit-grade.
@@ -1082,7 +1075,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
             <p class="text-xs text-slate-400 italic mb-4">
               Currently processing handwritten government land records in production.
             </p>
-            <span class="mt-auto inline-flex items-center gap-1 text-xs font-medium text-cyan-400 group-hover:text-cyan-300 transition-colors">
+            <span class="mt-auto inline-flex items-center gap-1 text-xs font-medium text-navy-400 group-hover:text-navy-300 transition-colors">
               Read case study
               <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </span>
@@ -1093,13 +1086,13 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <a href="/solutions/insurance/" class="animate-on-scroll bento-card glass rounded-2xl p-7 group block no-underline">
             <div class="flex flex-col h-full">
               <div class="icon-box mb-5">
-                <i data-lucide="shield" class="w-5 h-5 text-indigo-400"></i>
+                <i data-lucide="shield" class="w-5 h-5 text-brand-400"></i>
               </div>
-              <p class="text-[11px] font-mono text-indigo-400 uppercase tracking-widest mb-1">Insurance</p>
+              <p class="text-[11px] font-mono text-brand-400 uppercase tracking-widest mb-1">Insurance</p>
               <h3 class="text-lg font-bold text-white mb-2">Triage claims and FNOLs in seconds.</h3>
               <div class="flex flex-wrap gap-1.5 mb-3">
-                <span class="text-[11px] font-mono text-indigo-300 px-1.5 py-0.5 rounded bg-indigo-500/10">Document Intelligence</span>
-                <span class="text-[11px] font-mono text-purple-300 px-1.5 py-0.5 rounded bg-purple-500/10">Workflow Agents</span>
+                <span class="text-[11px] font-mono text-brand-300 px-1.5 py-0.5 rounded bg-brand-500/10">Document Intelligence</span>
+                <span class="text-[11px] font-mono text-brand-300 px-1.5 py-0.5 rounded bg-brand-500/10">Workflow Agents</span>
               </div>
               <p class="text-sm text-slate-400 mb-4 leading-relaxed">
                 Extract and validate claims documents, automate submission triage, and accelerate underwriting decisions.
@@ -1107,7 +1100,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               <p class="text-xs text-slate-400 mb-4">
                 FNOL forms &middot; Medical records &middot; Policy applications &middot; Repair estimates
               </p>
-              <span class="mt-auto inline-flex items-center gap-1 text-xs font-medium text-indigo-400 group-hover:text-indigo-300 transition-colors">
+              <span class="mt-auto inline-flex items-center gap-1 text-xs font-medium text-brand-400 group-hover:text-brand-300 transition-colors">
                 Explore solution
                 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
               </span>
@@ -1123,8 +1116,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               <p class="text-[11px] font-mono text-rose-400 uppercase tracking-widest mb-1">Healthcare</p>
               <h3 class="text-lg font-bold text-white mb-2">Draft prior authorizations in hours, not days.</h3>
               <div class="flex flex-wrap gap-1.5 mb-3">
-                <span class="text-[11px] font-mono text-indigo-300 px-1.5 py-0.5 rounded bg-indigo-500/10">Document Intelligence</span>
-                <span class="text-[11px] font-mono text-purple-300 px-1.5 py-0.5 rounded bg-purple-500/10">Workflow Agents</span>
+                <span class="text-[11px] font-mono text-brand-300 px-1.5 py-0.5 rounded bg-brand-500/10">Document Intelligence</span>
+                <span class="text-[11px] font-mono text-brand-300 px-1.5 py-0.5 rounded bg-brand-500/10">Workflow Agents</span>
               </div>
               <p class="text-sm text-slate-400 mb-4 leading-relaxed">
                 Process clinical notes, assemble prior auth packages, and extract structured data from medical records.
@@ -1148,8 +1141,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               <p class="text-[11px] font-mono text-amber-400 uppercase tracking-widest mb-1">Mortgage &amp; Lending</p>
               <h3 class="text-lg font-bold text-white mb-2">Index loan files at packet speed.</h3>
               <div class="flex flex-wrap gap-1.5 mb-3">
-                <span class="text-[11px] font-mono text-indigo-300 px-1.5 py-0.5 rounded bg-indigo-500/10">Document Intelligence</span>
-                <span class="text-[11px] font-mono text-purple-300 px-1.5 py-0.5 rounded bg-purple-500/10">Workflow Agents</span>
+                <span class="text-[11px] font-mono text-brand-300 px-1.5 py-0.5 rounded bg-brand-500/10">Document Intelligence</span>
+                <span class="text-[11px] font-mono text-brand-300 px-1.5 py-0.5 rounded bg-brand-500/10">Workflow Agents</span>
               </div>
               <p class="text-sm text-slate-400 mb-4 leading-relaxed">
                 Index loan files, verify income and assets, and automate compliance document checks.
@@ -1173,7 +1166,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               <p class="text-[11px] font-mono text-emerald-400 uppercase tracking-widest mb-1">Manufacturing</p>
               <h3 class="text-lg font-bold text-white mb-2">Catch defects before the line moves.</h3>
               <div class="flex flex-wrap gap-1.5 mb-3">
-                <span class="text-[11px] font-mono text-cyan-300 px-1.5 py-0.5 rounded bg-cyan-500/10">Visual AI</span>
+                <span class="text-[11px] font-mono text-navy-300 px-1.5 py-0.5 rounded bg-navy-500/10">Visual AI</span>
               </div>
               <p class="text-sm text-slate-400 mb-4 leading-relaxed">
                 Detect defects, grade quality, and monitor production lines with vision AI agents that learn your standards.
@@ -1189,17 +1182,17 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </a>
 
           <!-- Card: XentoStay (Hospitality) -->
-          <a href="/solutions/xentostay/" class="animate-on-scroll bento-card glass rounded-2xl p-7 group block no-underline relative ring-1 ring-purple-500/20 hover:ring-purple-400/50 transition-all">
+          <a href="/solutions/xentostay/" class="animate-on-scroll bento-card glass rounded-2xl p-7 group block no-underline relative ring-1 ring-brand-500/20 hover:ring-brand-400/50 transition-all">
             <div class="flex flex-col h-full">
               <div class="icon-box mb-5">
-                <i data-lucide="hotel" class="w-5 h-5 text-purple-400"></i>
+                <i data-lucide="hotel" class="w-5 h-5 text-brand-400"></i>
               </div>
-              <p class="text-[11px] font-mono text-purple-400 uppercase tracking-widest mb-1">XentoStay &middot; Hospitality</p>
+              <p class="text-[11px] font-mono text-brand-400 uppercase tracking-widest mb-1">XentoStay &middot; Hospitality</p>
               <h3 class="text-lg font-bold text-white mb-2">AI Agents for Hotels and Resorts.</h3>
               <div class="flex flex-wrap gap-1.5 mb-3">
-                <span class="text-[11px] font-mono text-indigo-300 px-1.5 py-0.5 rounded bg-indigo-500/10">Voice Concierge</span>
-                <span class="text-[11px] font-mono text-purple-300 px-1.5 py-0.5 rounded bg-purple-500/10">Ops Copilot</span>
-                <span class="text-[11px] font-mono text-cyan-300 px-1.5 py-0.5 rounded bg-cyan-500/10">Guest CDP</span>
+                <span class="text-[11px] font-mono text-brand-300 px-1.5 py-0.5 rounded bg-brand-500/10">Voice Concierge</span>
+                <span class="text-[11px] font-mono text-brand-300 px-1.5 py-0.5 rounded bg-brand-500/10">Ops Copilot</span>
+                <span class="text-[11px] font-mono text-navy-300 px-1.5 py-0.5 rounded bg-navy-500/10">Guest CDP</span>
               </div>
               <p class="text-sm text-slate-400 mb-4 leading-relaxed">
                 Automate guest communication, prefill abandoned booking carts, compose WhatsApp marketing templates, and handle real-time voice reservation calls.
@@ -1207,7 +1200,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               <p class="text-xs text-slate-400 mb-4">
                 Voice booking holds &middot; Abandoned cart recovery &middot; Structured campaigns &middot; Front-office copilot
               </p>
-              <span class="mt-auto inline-flex items-center gap-1 text-xs font-medium text-purple-400 group-hover:text-purple-300 transition-colors">
+              <span class="mt-auto inline-flex items-center gap-1 text-xs font-medium text-brand-400 group-hover:text-brand-300 transition-colors">
                 Explore solution
                 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
               </span>
@@ -1215,7 +1208,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </a>
 
           <!-- Card: Your Industry -->
-          <div class="animate-on-scroll bento-card glass rounded-2xl p-7 group border border-dashed border-white/10 hover:border-indigo-500/30">
+          <div class="animate-on-scroll bento-card glass rounded-2xl p-7 group border border-dashed border-white/10 hover:border-brand-500/30">
             <div class="flex flex-col h-full">
               <div class="icon-box mb-5">
                 <i data-lucide="message-circle" class="w-5 h-5 text-slate-400"></i>
@@ -1228,7 +1221,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
                 If you have complex documents, visual data, or manual workflows draining your team &mdash; we should talk.
                 We build custom agentic solutions for problems that off-the-shelf tools can't handle.
               </p>
-              <a href="#contact" class="mt-auto text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1.5">
+              <a href="#contact" class="mt-auto text-sm font-medium text-brand-400 hover:text-brand-300 transition-colors flex items-center gap-1.5">
                 Tell Us Your Problem
                 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
               </a>
@@ -1247,7 +1240,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
         <div class="grid lg:grid-cols-2 gap-16 items-start">
 
           <div>
-            <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">Platform</p>
+            <p class="animate-on-scroll text-sm font-semibold text-brand-400 uppercase tracking-widest mb-3">Platform</p>
             <h2 class="animate-on-scroll text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-6">
               Agentic pipelines that deliver <span class="gradient-text">verified results</span>
             </h2>
@@ -1257,8 +1250,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
 
             <div class="space-y-5">
               <div class="animate-on-scroll flex items-start gap-4">
-                <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <i data-lucide="upload" class="w-4 h-4 text-indigo-400"></i>
+                <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i data-lucide="upload" class="w-4 h-4 text-brand-400"></i>
                 </div>
                 <div>
                   <h4 class="text-base font-semibold text-white mb-1">Ingest</h4>
@@ -1266,8 +1259,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
                 </div>
               </div>
               <div class="animate-on-scroll flex items-start gap-4">
-                <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <i data-lucide="eye" class="w-4 h-4 text-purple-400"></i>
+                <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i data-lucide="eye" class="w-4 h-4 text-brand-400"></i>
                 </div>
                 <div>
                   <h4 class="text-base font-semibold text-white mb-1">Understand</h4>
@@ -1275,8 +1268,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
                 </div>
               </div>
               <div class="animate-on-scroll flex items-start gap-4">
-                <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <i data-lucide="cpu" class="w-4 h-4 text-cyan-400"></i>
+                <div class="w-10 h-10 rounded-xl bg-navy-500/10 border border-navy-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i data-lucide="cpu" class="w-4 h-4 text-navy-400"></i>
                 </div>
                 <div>
                   <h4 class="text-base font-semibold text-white mb-1">Extract &amp; Process</h4>
@@ -1318,23 +1311,23 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
             <div class="glass rounded-2xl p-6 border border-white/10 shadow-2xl relative overflow-hidden">
               <div class="absolute top-0 right-0 p-3">
                 <span class="flex h-2 w-2 relative">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
                 </span>
               </div>
               <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-6 flex items-center gap-2">
-                <i data-lucide="activity" class="w-4 h-4 text-indigo-400"></i>
+                <i data-lucide="activity" class="w-4 h-4 text-brand-400"></i>
                 Agent Lifecycle Pipeline
               </h3>
 
-              <div class="space-y-6 relative before:absolute before:inset-0 before:left-5 before:top-2 before:bottom-2 before:w-[1px] before:bg-gradient-to-b before:from-indigo-500 before:via-purple-500 before:to-emerald-500">
+              <div class="space-y-6 relative before:absolute before:inset-0 before:left-5 before:top-2 before:bottom-2 before:w-[1px] before:bg-brand-300/40">
                 <!-- Step 1 -->
                 <div class="relative pl-10 flex gap-4">
-                  <div class="absolute left-3 w-5 h-5 rounded-full bg-space-950 border-2 border-indigo-500 flex items-center justify-center -translate-x-1/2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+                  <div class="absolute left-3 w-5 h-5 rounded-full bg-space-950 border-2 border-brand-500 flex items-center justify-center -translate-x-1/2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>
                   </div>
                   <div>
-                    <h4 class="text-xs font-mono font-bold text-indigo-400 uppercase tracking-widest mb-1">Step 1: Raw Ingestion</h4>
+                    <h4 class="text-xs font-mono font-bold text-brand-400 uppercase tracking-widest mb-1">Step 1: Raw Ingestion</h4>
                     <p class="text-sm text-white font-semibold mb-0.5">Commercial invoices, clinical scans, or audio</p>
                     <p class="text-xs text-slate-400">Payload accepted via S3 hook, SFTP, email, or direct API</p>
                   </div>
@@ -1342,11 +1335,11 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
 
                 <!-- Step 2 -->
                 <div class="relative pl-10 flex gap-4">
-                  <div class="absolute left-3 w-5 h-5 rounded-full bg-space-950 border-2 border-indigo-400 flex items-center justify-center -translate-x-1/2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-indigo-300"></span>
+                  <div class="absolute left-3 w-5 h-5 rounded-full bg-space-950 border-2 border-brand-400 flex items-center justify-center -translate-x-1/2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-300"></span>
                   </div>
                   <div>
-                    <h4 class="text-xs font-mono font-bold text-indigo-300 uppercase tracking-widest mb-1">Step 2: Multi-Agent Analysis</h4>
+                    <h4 class="text-xs font-mono font-bold text-brand-300 uppercase tracking-widest mb-1">Step 2: Multi-Agent Analysis</h4>
                     <p class="text-sm text-white font-semibold mb-0.5">Layout segmentation &amp; extraction</p>
                     <p class="text-xs text-slate-400">VLMs read Devanagari handwriting, tables, and mixed fields</p>
                   </div>
@@ -1354,11 +1347,11 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
 
                 <!-- Step 3 -->
                 <div class="relative pl-10 flex gap-4">
-                  <div class="absolute left-3 w-5 h-5 rounded-full bg-space-950 border-2 border-purple-500 flex items-center justify-center -translate-x-1/2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+                  <div class="absolute left-3 w-5 h-5 rounded-full bg-space-950 border-2 border-brand-500 flex items-center justify-center -translate-x-1/2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>
                   </div>
                   <div>
-                    <h4 class="text-xs font-mono font-bold text-purple-400 uppercase tracking-widest mb-1">Step 3: Self-Correction Loop</h4>
+                    <h4 class="text-xs font-mono font-bold text-brand-400 uppercase tracking-widest mb-1">Step 3: Self-Correction Loop</h4>
                     <p class="text-sm text-white font-semibold mb-0.5">Cross-validation and confidence scoring</p>
                     <p class="text-xs text-slate-400">Inconsistencies prompt auto-correction verification routines</p>
                   </div>
@@ -1401,7 +1394,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
         <div class="grid lg:grid-cols-2 gap-16 items-start">
 
           <div>
-            <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">Security &amp; AI Governance</p>
+            <p class="animate-on-scroll text-sm font-semibold text-brand-400 uppercase tracking-widest mb-3">Security &amp; AI Governance</p>
             <h2 class="animate-on-scroll text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-6">
               Built for the <span class="gradient-text">2026 regulatory bar.</span>
             </h2>
@@ -1424,27 +1417,27 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               <span class="text-[11px] text-slate-400">AES-256 + TLS 1.3</span>
             </div>
             <div class="glass rounded-xl p-5 flex flex-col items-center gap-2.5 text-center">
-              <i data-lucide="layers" class="w-6 h-6 text-indigo-400"></i>
+              <i data-lucide="layers" class="w-6 h-6 text-brand-400"></i>
               <span class="text-sm text-white font-medium">Tenant Isolation</span>
               <span class="text-[11px] text-slate-400">Schema-per-tenant, zero cross-access</span>
             </div>
             <div class="glass rounded-xl p-5 flex flex-col items-center gap-2.5 text-center">
-              <i data-lucide="scroll-text" class="w-6 h-6 text-cyan-400"></i>
+              <i data-lucide="scroll-text" class="w-6 h-6 text-navy-400"></i>
               <span class="text-sm text-white font-medium">Agent Audit Trail</span>
               <span class="text-[11px] text-slate-400">Every reasoning step logged</span>
             </div>
             <div class="glass rounded-xl p-5 flex flex-col items-center gap-2.5 text-center">
-              <i data-lucide="globe" class="w-6 h-6 text-purple-400"></i>
+              <i data-lucide="globe" class="w-6 h-6 text-brand-400"></i>
               <span class="text-sm text-white font-medium">Data Residency</span>
               <span class="text-[11px] text-slate-400">US, EU, or India</span>
             </div>
             <div class="glass rounded-xl p-5 flex flex-col items-center gap-2.5 text-center">
-              <i data-lucide="globe-2" class="w-6 h-6 text-cyan-400"></i>
+              <i data-lucide="globe-2" class="w-6 h-6 text-navy-400"></i>
               <span class="text-sm text-white font-medium">GDPR &amp; EU AI Act</span>
               <span class="text-[11px] text-slate-400">Aligned by design</span>
             </div>
             <div class="glass rounded-xl p-5 flex flex-col items-center gap-2.5 text-center">
-              <i data-lucide="binary" class="w-6 h-6 text-indigo-400"></i>
+              <i data-lucide="binary" class="w-6 h-6 text-brand-400"></i>
               <span class="text-sm text-white font-medium">NIST AI RMF</span>
               <span class="text-[11px] text-slate-400">Govern, Map, Measure, Manage</span>
             </div>
@@ -1461,7 +1454,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
 
         <!-- Section Header -->
         <div class="text-center mb-16">
-          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">Why Xentovia</p>
+          <p class="animate-on-scroll text-sm font-semibold text-brand-400 uppercase tracking-widest mb-3">Why Xentovia</p>
           <h2 class="animate-on-scroll text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
             We don't just talk about AI agents. <span class="gradient-text">We ship them.</span>
           </h2>
@@ -1476,7 +1469,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <!-- Block 1: Vision AI -->
           <div class="animate-on-scroll glass rounded-2xl p-7">
             <div class="icon-box mb-5">
-              <i data-lucide="scan-text" class="w-5 h-5 text-indigo-400"></i>
+              <i data-lucide="scan-text" class="w-5 h-5 text-brand-400"></i>
             </div>
             <h3 class="text-lg font-bold text-white mb-3">Vision AI &mdash; Government Record Digitization</h3>
             <p class="text-sm text-slate-400 leading-relaxed mb-5">
@@ -1484,9 +1477,9 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               Multi-step extraction with auto-correction and human review, delivered in government-mandated export formats.
             </p>
             <div class="flex flex-wrap gap-1.5">
-              <span class="text-[11px] font-mono text-indigo-300 px-2 py-0.5 rounded bg-indigo-500/10">Vision Language Models</span>
-              <span class="text-[11px] font-mono text-purple-300 px-2 py-0.5 rounded bg-purple-500/10">Agentic Pipeline</span>
-              <span class="text-[11px] font-mono text-cyan-300 px-2 py-0.5 rounded bg-cyan-500/10">Handwritten OCR</span>
+              <span class="text-[11px] font-mono text-brand-300 px-2 py-0.5 rounded bg-brand-500/10">Vision Language Models</span>
+              <span class="text-[11px] font-mono text-brand-300 px-2 py-0.5 rounded bg-brand-500/10">Agentic Pipeline</span>
+              <span class="text-[11px] font-mono text-navy-300 px-2 py-0.5 rounded bg-navy-500/10">Handwritten OCR</span>
               <span class="text-[11px] font-mono text-emerald-300 px-2 py-0.5 rounded bg-emerald-500/10">HITL Dashboard</span>
             </div>
           </div>
@@ -1494,16 +1487,16 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <!-- Block 2: AI Agent Framework -->
           <div class="animate-on-scroll glass rounded-2xl p-7">
             <div class="icon-box mb-5">
-              <i data-lucide="cpu" class="w-5 h-5 text-cyan-400"></i>
+              <i data-lucide="cpu" class="w-5 h-5 text-navy-400"></i>
             </div>
             <h3 class="text-lg font-bold text-white mb-3">AI Agent Architecture &mdash; Reusable Tech Framework</h3>
             <p class="text-sm text-slate-400 leading-relaxed mb-5">
               We developed a proprietary agentic workflow framework that orchestrates multi-agent task execution. Featuring persistent memory state, self-correction feedback loops, dynamic tool calling, and structured output formatting.
             </p>
             <div class="flex flex-wrap gap-1.5">
-              <span class="text-[11px] font-mono text-indigo-300 px-2 py-0.5 rounded bg-indigo-500/10">Multi-Agent Orchestration</span>
-              <span class="text-[11px] font-mono text-purple-300 px-2 py-0.5 rounded bg-purple-500/10">Self-Correction Loops</span>
-              <span class="text-[11px] font-mono text-cyan-300 px-2 py-0.5 rounded bg-cyan-500/10">Dynamic Tooling</span>
+              <span class="text-[11px] font-mono text-brand-300 px-2 py-0.5 rounded bg-brand-500/10">Multi-Agent Orchestration</span>
+              <span class="text-[11px] font-mono text-brand-300 px-2 py-0.5 rounded bg-brand-500/10">Self-Correction Loops</span>
+              <span class="text-[11px] font-mono text-navy-300 px-2 py-0.5 rounded bg-navy-500/10">Dynamic Tooling</span>
               <span class="text-[11px] font-mono text-emerald-300 px-2 py-0.5 rounded bg-emerald-500/10">Structured Output</span>
             </div>
           </div>
@@ -1511,16 +1504,16 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <!-- Block 3: Security & Compliance -->
           <div class="animate-on-scroll glass rounded-2xl p-7">
             <div class="icon-box mb-5">
-              <i data-lucide="shield-check" class="w-5 h-5 text-purple-400"></i>
+              <i data-lucide="shield-check" class="w-5 h-5 text-brand-400"></i>
             </div>
             <h3 class="text-lg font-bold text-white mb-3">Enterprise AI Security</h3>
             <p class="text-sm text-slate-400 leading-relaxed mb-5">
               We design our agentic pipelines around enterprise safety protocols. Featuring strict tenant data isolation, real-time safety guardrails, end-to-end data encryption, and transparent audit trails mapping every reasoning step.
             </p>
             <div class="flex flex-wrap gap-1.5">
-              <span class="text-[11px] font-mono text-indigo-300 px-2 py-0.5 rounded bg-indigo-500/10">Schema Tenant Isolation</span>
-              <span class="text-[11px] font-mono text-purple-300 px-2 py-0.5 rounded bg-purple-500/10">Reasoning Audit Logs</span>
-              <span class="text-[11px] font-mono text-cyan-300 px-2 py-0.5 rounded bg-cyan-500/10">AES-256 Encryption</span>
+              <span class="text-[11px] font-mono text-brand-300 px-2 py-0.5 rounded bg-brand-500/10">Schema Tenant Isolation</span>
+              <span class="text-[11px] font-mono text-brand-300 px-2 py-0.5 rounded bg-brand-500/10">Reasoning Audit Logs</span>
+              <span class="text-[11px] font-mono text-navy-300 px-2 py-0.5 rounded bg-navy-500/10">AES-256 Encryption</span>
               <span class="text-[11px] font-mono text-emerald-300 px-2 py-0.5 rounded bg-emerald-500/10">NIST AI Framework</span>
             </div>
           </div>
@@ -1528,29 +1521,29 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
 
         <!-- Leadership -->
         <div class="text-center mb-10">
-          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-3">Leadership</p>
+          <p class="animate-on-scroll text-sm font-semibold text-brand-400 uppercase tracking-widest mb-3">Leadership</p>
           <h3 class="animate-on-scroll text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             The team behind <span class="gradient-text">Xentovia</span>
           </h3>
         </div>
         <div class="animate-on-scroll max-w-3xl mx-auto mb-10 grid md:grid-cols-2 gap-6">
           <div class="glass rounded-2xl p-8 flex flex-col items-center text-center gap-4">
-            <img src="assets/team/avr.jpg" alt="A V Ramachandran" class="w-28 h-28 rounded-full object-cover ring-2 ring-indigo-500/30 flex-shrink-0">
+            <img src="assets/team/avr.jpg" alt="A V Ramachandran" class="w-28 h-28 rounded-full object-cover ring-2 ring-brand-500/30 flex-shrink-0">
             <div>
               <h3 class="text-xl font-bold text-white">A V Ramachandran</h3>
-              <p class="text-sm text-indigo-400 font-medium">CEO &amp; Co-Founder</p>
+              <p class="text-sm text-brand-400 font-medium">CEO &amp; Co-Founder</p>
             </div>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="A V Ramachandran on LinkedIn" class="text-slate-400 hover:text-indigo-400 transition-colors">
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="A V Ramachandran on LinkedIn" class="text-slate-400 hover:text-brand-400 transition-colors">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.95v5.66H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.28 2.38 4.28 5.48v6.26zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
             </a>
           </div>
           <div class="glass rounded-2xl p-8 flex flex-col items-center text-center gap-4">
-            <img src="assets/team/rd.jpg" alt="Rajnee Dubey" class="w-28 h-28 rounded-full object-cover ring-2 ring-purple-500/30 flex-shrink-0">
+            <img src="assets/team/rd.jpg" alt="Rajnee Dubey" class="w-28 h-28 rounded-full object-cover ring-2 ring-brand-500/30 flex-shrink-0">
             <div>
               <h3 class="text-xl font-bold text-white">Rajnee Dubey</h3>
-              <p class="text-sm text-purple-400 font-medium">COO &amp; Co-Founder</p>
+              <p class="text-sm text-brand-400 font-medium">COO &amp; Co-Founder</p>
             </div>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Rajnee Dubey on LinkedIn" class="text-slate-400 hover:text-purple-400 transition-colors">
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Rajnee Dubey on LinkedIn" class="text-slate-400 hover:text-brand-400 transition-colors">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.95v5.66H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.28 2.38 4.28 5.48v6.26zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
             </a>
           </div>
@@ -1585,7 +1578,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
       <div class="max-w-5xl mx-auto px-6">
 
         <div class="text-center mb-16">
-          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Get Started</p>
+          <p class="animate-on-scroll text-sm font-semibold text-brand-400 uppercase tracking-widest mb-4">Get Started</p>
           <h2 class="animate-on-scroll text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6">
             Have a problem that needs <span class="gradient-text">AI agents?</span>
           </h2>
@@ -1600,7 +1593,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <!-- Book a Demo -->
           <div class="glass rounded-2xl p-8 text-center">
             <div class="icon-box mx-auto mb-5">
-              <i data-lucide="calendar" class="w-5 h-5 text-indigo-400"></i>
+              <i data-lucide="calendar" class="w-5 h-5 text-brand-400"></i>
             </div>
             <h3 class="text-xl font-bold text-white mb-3">Book a Demo</h3>
             <p class="text-sm text-slate-400 mb-6 leading-relaxed">
@@ -1618,18 +1611,18 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <!-- Tell Us Your Problem -->
           <div class="glass rounded-2xl p-8">
             <div class="icon-box mx-auto mb-5 md:mx-0">
-              <i data-lucide="message-circle" class="w-5 h-5 text-cyan-400"></i>
+              <i data-lucide="message-circle" class="w-5 h-5 text-navy-400"></i>
             </div>
             <h3 class="text-xl font-bold text-white mb-3 text-center md:text-left">Tell Us Your Problem</h3>
             <form id="contact-form" class="space-y-4" novalidate>
               <input type="text" name="name" required autocomplete="name" placeholder="Name"
-                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400 text-sm focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/25 transition-all">
+                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400 text-sm focus:outline-none focus:border-brand-500/50 focus:ring-1 focus:ring-brand-500/25 transition-all">
               <input type="email" name="email" required autocomplete="email" placeholder="Work email"
-                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400 text-sm focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/25 transition-all">
+                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400 text-sm focus:outline-none focus:border-brand-500/50 focus:ring-1 focus:ring-brand-500/25 transition-all">
               <input type="text" name="company" autocomplete="organization" placeholder="Company"
-                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400 text-sm focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/25 transition-all">
+                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400 text-sm focus:outline-none focus:border-brand-500/50 focus:ring-1 focus:ring-brand-500/25 transition-all">
               <textarea name="message" required rows="3" placeholder="Describe your problem"
-                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400 text-sm focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/25 transition-all resize-none"></textarea>
+                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400 text-sm focus:outline-none focus:border-brand-500/50 focus:ring-1 focus:ring-brand-500/25 transition-all resize-none"></textarea>
               <!-- Honeypot. Hidden from people, irresistible to bots; the API rejects any
                    submission that fills it. aria-hidden + tabindex keep it away from
                    screen readers and keyboard tabbing. -->
@@ -1662,12 +1655,11 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12 mb-12">
 
       <div class="col-span-2 md:col-span-4 lg:col-span-1">
-        <a href="/" class="flex items-center gap-2.5 mb-4">
-          <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
-          <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+        <a href="/" class="inline-flex mb-3 -ml-3">
+          <img src="/assets/brand/logo/xentovia-horizontal-dark.svg" alt="Xentovia — Agentic AI for Enterprise" width="210" height="68" class="h-[68px] w-auto">
         </a>
         <p class="text-sm text-slate-400 leading-relaxed mb-4">
-          Agentic AI solutions for the enterprise.
+          Agentic AI for Enterprise.
         </p>
         <a href="mailto:sales@xentovia.ai" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
           <i data-lucide="mail" class="w-3.5 h-3.5"></i>
@@ -1849,7 +1841,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           if (!res.ok) throw new Error('HTTP ' + res.status);
 
           btn.innerHTML = '<span class="flex items-center justify-center gap-2"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Message sent</span>';
-          btn.style.background = 'linear-gradient(135deg, #059669, #10b981)';
+          btn.style.background = '#059669';
           form.querySelectorAll('input, textarea').forEach(i => { i.value = ''; i.disabled = true; });
           say('Thanks — we respond within 24 hours.');
         } catch (err) {

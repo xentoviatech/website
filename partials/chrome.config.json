@@ -6,7 +6,7 @@
   "cta": { "href": "/#contact", "label": "Book a Demo" },
 
   "footer": {
-    "tagline": "Agentic AI solutions for the enterprise.",
+    "tagline": "Agentic AI for Enterprise.",
     "email": "sales@xentovia.ai",
     "linkedin": "https://www.linkedin.com/company/xentovia-ai",
     "copyright": "© 2026 Xentovia Tech Private Limited. All rights reserved.",
@@ -61,7 +61,7 @@
       "subtitle": "SimplImpex AI · File entries in 15 min",
       "subtitleShort": "SimplImpex AI",
       "icon": "ship",
-      "color": "sky"
+      "color": "brand"
     },
     {
       "key": "xentoaxar",
@@ -71,7 +71,7 @@
       "subtitle": "XentoAxar · Process physical records at scale",
       "subtitleShort": "XentoAxar",
       "icon": "building",
-      "color": "cyan"
+      "color": "brand"
     },
     {
       "key": "xentovox",
@@ -81,7 +81,7 @@
       "subtitle": "XentoVoX · Sub-500ms conversational voice",
       "subtitleShort": "XentoVoX",
       "icon": "phone-call",
-      "color": "blue"
+      "color": "brand"
     },
     {
       "key": "xentostay",
@@ -91,7 +91,7 @@
       "subtitle": "XentoStay · AI voice & booking agents",
       "subtitleShort": "XentoStay",
       "icon": "hotel",
-      "color": "purple"
+      "color": "brand"
     },
     {
       "key": "xentoscribe",
@@ -101,7 +101,7 @@
       "subtitle": "XentoScribe · AI dictation for doctors",
       "subtitleShort": "XentoScribe",
       "icon": "mic",
-      "color": "emerald"
+      "color": "brand"
     },
     {
       "key": "healthcare",
@@ -111,7 +111,7 @@
       "subtitle": "Prior auth in hours, not days",
       "subtitleShort": "Prior auth in hours",
       "icon": "heart-pulse",
-      "color": "rose"
+      "color": "brand"
     },
     {
       "key": "insurance",
@@ -121,7 +121,7 @@
       "subtitle": "AI triage for claims & losses",
       "subtitleShort": "AI triage",
       "icon": "umbrella",
-      "color": "indigo"
+      "color": "brand"
     },
     {
       "key": "manufacturing",
@@ -131,7 +131,7 @@
       "subtitle": "Catch defects before the line",
       "subtitleShort": "Defect inspection",
       "icon": "factory",
-      "color": "amber"
+      "color": "brand"
     },
     {
       "key": "mortgage",
@@ -141,7 +141,7 @@
       "subtitle": "Index loan files at packet speed",
       "subtitleShort": "Packet speed",
       "icon": "home",
-      "color": "yellow"
+      "color": "brand"
     }
   ],
 
