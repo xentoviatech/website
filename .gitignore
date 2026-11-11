@@ -2,3 +2,20 @@
 print/cards/out/*.pdf
 print/cards-dark/out/*.pdf
 print/cards-hero/out/*.pdf
+
+# local-only files and folders (added 2026-11-11)
+.env
+.env.*
+node_modules/
+__pycache__/
+.venv/
+.superpowers/
+.claude/worktrees/
+backups/
+secrets/
+logs/
+*.log
+*.bak-*
+*.eml
+.DS_Store
+/videos/
