@@ -1,17 +1,17 @@
 /* Shared page chrome. Source: partials/chrome.css — regenerate with `node tools/build-chrome.mjs`. */
 .nav-blur {
-  background: rgba(3, 5, 10, 0.7);
+  background: rgba(var(--xv-navy-rgb), 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 /* The dropdown sits over page content, so it needs an opaque base. */
-.site-nav .glass { background: #020617; }
+.site-nav .glass { background: var(--xv-navy-deep); }
 
 /* Primary CTA — defined here so the nav renders correctly on every page. */
 .cta-primary {
   position: relative;
-  background: linear-gradient(135deg, #6366f1, #7c3aed);
+  background: var(--xv-purple);
   overflow: hidden;
   transition: all 0.3s ease;
 }
@@ -19,13 +19,13 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #7c3aed, #6366f1);
+  background: var(--xv-purple-hover);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 .cta-primary:hover::after { opacity: 1; }
 .cta-primary:hover {
-  box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(124, 58, 237, 0.2);
+  box-shadow: none;
   transform: translateY(-2px);
 }
 .cta-primary span { position: relative; z-index: 1; }
@@ -44,7 +44,7 @@
   max-height: calc(100vh - 4rem);
   overflow-y: auto;
   /* Opaque: a nested backdrop-filter cannot blur through the nav's own. */
-  background: #020617;
+  background: var(--xv-navy-deep);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -59,11 +59,12 @@ html.nav-hidden .site-subnav { transform: translateY(-6.75rem); }
 .site-subnav-links::-webkit-scrollbar { display: none; }
 body.has-subnav { padding-top: 2.75rem; }
 
-/* Footer — self-contained so it renders identically on pages with their own palettes. */
-.site-footer { background: rgba(3, 5, 10, 0.8); }
+/* Footer — self-contained so it renders identically on pages with their own palettes.
+   Colours come from /assets/brand/brand.css (linked in every page head). */
+.site-footer { background: var(--xv-navy-deep); }
 .site-footer .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+  background: rgba(var(--xv-lilac-rgb), 0.22);
 }
 
 /* Keep in-page anchors clear of the fixed nav. */

@@ -1,0 +1,66 @@
+/*
+ * Xentovia brand tokens — the single source for colour and heading type on xentovia.ai.
+ * Source of truth: xv-platform docs/brand/xentovia/BRAND.md.
+ *
+ * Every page links this file last in <head>, so these rules win over page styles of
+ * equal specificity. Page CSS refers to the tokens (var(--xv-…)); Tailwind utility
+ * classes get the same palette from /assets/brand/tailwind-brand.js — keep the two in step.
+ *
+ * Solid colours only: no gradients, gradient text or glows.
+ */
+
+@font-face {
+  font-family: 'Liberation Serif';
+  src: url('/assets/brand/fonts/LiberationSerif-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Liberation Serif';
+  src: url('/assets/brand/fonts/LiberationSerif-BoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Liberation Serif';
+  src: url('/assets/brand/fonts/LiberationSerif-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Brand */
+  --xv-navy: #13296B;          /* primary; page and section background */
+  --xv-purple: #6B2178;        /* accent; primary buttons and CTAs */
+  --xv-lilac: #C9A6D6;         /* accent and highlight text on navy */
+  --xv-slate: #3E4C6B;         /* tagline slate; secondary text on light */
+  --xv-white: #FFFFFF;
+
+  /* Derived shades (same hues, for depth and states) */
+  --xv-navy-deep: #0E2059;     /* raised panels, dropdowns, footer */
+  --xv-purple-hover: #571A62;  /* primary button hover */
+  --xv-lilac-soft: #E3D2EA;    /* hover/emphasis text on navy */
+  --xv-light: #F5F6FA;         /* light sections */
+
+  /* Channel triplets for translucent tints: rgba(var(--xv-lilac-rgb), 0.2) */
+  --xv-navy-rgb: 19, 41, 107;
+  --xv-navy-deep-rgb: 14, 32, 89;
+  --xv-purple-rgb: 107, 33, 120;
+  --xv-lilac-rgb: 201, 166, 214;
+  --xv-lilac-soft-rgb: 227, 210, 234;
+
+  /* Type */
+  --xv-font-heading: 'Liberation Serif', 'Times New Roman', Times, serif;
+}
+
+/* Headings: Liberation Serif Bold. */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--xv-font-heading);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+::selection { background: var(--xv-purple); color: var(--xv-white); }

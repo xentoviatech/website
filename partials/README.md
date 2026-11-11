@@ -62,7 +62,7 @@ title: The headline, used in the tab, the card and the JSON-LD
 description: One or two sentences. Shown under the h1, on the card, and as the meta description.
 date: 2026-08-09
 tags: [Document Intelligence, Evaluation]
-highlight: a phrase from the title to render in the gradient
+highlight: a phrase from the title to render in the highlight colour
 ctaTitle: Optional — overrides the default closing CTA
 ctaText: Optional
 ctaLabel: Optional

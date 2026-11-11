@@ -26,9 +26,9 @@
         extend: {
           fontFamily: { inter: ['Inter', 'system-ui', 'sans-serif'] },
           colors: {
-            space: { 950: '#03050a', 900: '#060b18', 800: '#0a1128', 700: '#0f1a3a' },
-            accent: { 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5' },
-            glow: { purple: '#7c3aed', blue: '#3b82f6', cyan: '#06b6d4' }
+            space: { 950: '#13296B', 900: '#13296B', 800: '#0E2059', 700: '#0E2059' },
+            accent: { 400: '#C9A6D6', 500: '#6B2178', 600: '#571A62' },
+            glow: { purple: '#6B2178', blue: '#C9A6D6', cyan: '#C9A6D6' }
           },
           animation: {
             'float': 'float 6s ease-in-out infinite',
@@ -58,14 +58,14 @@
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
-      background: #03050a;
+      background: var(--xv-navy);
       color: #e2e8f0;
       overflow-x: hidden;
     }
 
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #03050a; }
-    ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 3px; }
+    ::-webkit-scrollbar-track { background: var(--xv-navy); }
+    ::-webkit-scrollbar-thumb { background: var(--xv-purple); border-radius: 3px; }
 
     @keyframes glowMove {
       0%, 100% { transform: translate(0, 0) scale(1); }
@@ -91,17 +91,17 @@
     }
     .glow-orb-1 {
       width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(124,58,237,0.25) 0%, transparent 70%);
+      background: none;
       top: -10%; left: -5%; animation: glowMove 15s ease-in-out infinite;
     }
     .glow-orb-2 {
       width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%);
+      background: none;
       top: 40%; right: -10%; animation: glowMove2 18s ease-in-out infinite;
     }
     .glow-orb-3 {
       width: 450px; height: 450px;
-      background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%);
+      background: none;
       bottom: -5%; left: 30%; animation: glowMove3 20s ease-in-out infinite;
     }
 
@@ -123,7 +123,7 @@
     }
     .glass:hover {
       background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(129, 140, 248, 0.2);
+      border-color: rgba(var(--xv-lilac-rgb), 0.2);
     }
 
     .bento-card {
@@ -132,11 +132,8 @@
     }
     .bento-card::before {
       content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
-      background: linear-gradient(135deg, transparent 40%, rgba(129,140,248,0.3) 50%, transparent 60%);
+      background: none;
       background-size: 300% 300%;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor; mask-composite: exclude;
       opacity: 0; transition: opacity 0.5s ease;
     }
     .bento-card:hover::before { opacity: 1; animation: shimmer 3s ease-in-out infinite; }
@@ -146,65 +143,62 @@
     }
     .bento-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 20px 60px -15px rgba(99, 102, 241, 0.15);
+      box-shadow: 0 20px 60px -15px rgba(var(--xv-lilac-rgb), 0.15);
     }
 
     .icon-box {
       width: 48px; height: 48px;
       display: flex; align-items: center; justify-content: center;
       border-radius: 12px;
-      background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(124,58,237,0.1));
-      border: 1px solid rgba(129, 140, 248, 0.15);
+      background: rgba(var(--xv-lilac-rgb), 0.14);
+      border: 1px solid rgba(var(--xv-lilac-rgb), 0.15);
     }
 
     .gradient-text {
-      background: linear-gradient(135deg, #e0e7ff 0%, #818cf8 40%, #c084fc 70%, #38bdf8 100%);
-      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      color: var(--xv-lilac);
     }
 
     .grid-bg {
-      background-image:
-        linear-gradient(rgba(99,102,241,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(99,102,241,0.04) 1px, transparent 1px);
+      background-image: none;
       background-size: 60px 60px;
     }
 
 
     .cta-primary {
-      position: relative; background: linear-gradient(135deg, #6366f1, #7c3aed);
+      position: relative; background: var(--xv-purple);
       overflow: hidden; transition: all 0.3s ease;
     }
     .cta-primary::after {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      background: var(--xv-purple-hover);
       opacity: 0; transition: opacity 0.3s ease;
     }
     .cta-primary:hover::after { opacity: 1; }
     .cta-primary:hover {
-      box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(124, 58, 237, 0.2);
+      box-shadow: none;
       transform: translateY(-2px);
     }
     .cta-primary span { position: relative; z-index: 1; }
 
     .section-divider {
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(99,102,241,0.3), transparent);
+      background: rgba(var(--xv-lilac-rgb), 0.22);
     }
   /* chrome:start — generated by tools/build-chrome.mjs from partials/chrome.css, do not edit */
 /* Shared page chrome. Source: partials/chrome.css — regenerate with `node tools/build-chrome.mjs`. */
 .nav-blur {
-  background: rgba(3, 5, 10, 0.7);
+  background: rgba(var(--xv-navy-rgb), 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 /* The dropdown sits over page content, so it needs an opaque base. */
-.site-nav .glass { background: #020617; }
+.site-nav .glass { background: var(--xv-navy-deep); }
 
 /* Primary CTA — defined here so the nav renders correctly on every page. */
 .cta-primary {
   position: relative;
-  background: linear-gradient(135deg, #6366f1, #7c3aed);
+  background: var(--xv-purple);
   overflow: hidden;
   transition: all 0.3s ease;
 }
@@ -212,13 +206,13 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #7c3aed, #6366f1);
+  background: var(--xv-purple-hover);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 .cta-primary:hover::after { opacity: 1; }
 .cta-primary:hover {
-  box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(124, 58, 237, 0.2);
+  box-shadow: none;
   transform: translateY(-2px);
 }
 .cta-primary span { position: relative; z-index: 1; }
@@ -237,7 +231,7 @@
   max-height: calc(100vh - 4rem);
   overflow-y: auto;
   /* Opaque: a nested backdrop-filter cannot blur through the nav's own. */
-  background: #020617;
+  background: var(--xv-navy-deep);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -252,11 +246,12 @@ html.nav-hidden .site-subnav { transform: translateY(-6.75rem); }
 .site-subnav-links::-webkit-scrollbar { display: none; }
 body.has-subnav { padding-top: 2.75rem; }
 
-/* Footer — self-contained so it renders identically on pages with their own palettes. */
-.site-footer { background: rgba(3, 5, 10, 0.8); }
+/* Footer — self-contained so it renders identically on pages with their own palettes.
+   Colours come from /assets/brand/brand.css (linked in every page head). */
+.site-footer { background: var(--xv-navy-deep); }
 .site-footer .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+  background: rgba(var(--xv-lilac-rgb), 0.22);
 }
 
 /* Keep in-page anchors clear of the fixed nav. */
@@ -264,6 +259,8 @@ html { scroll-padding-top: 5rem; }
 html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
 /* chrome:end */
   </style>
+  <link rel="stylesheet" href="/assets/brand/brand.css">
+  <script src="/assets/brand/tailwind-brand.js"></script>
 </head>
 
 <body class="font-inter antialiased">
@@ -276,9 +273,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
 <!-- nav:start — generated by tools/build-chrome.mjs from partials/nav.html, do not edit -->
 <nav class="site-nav nav-blur fixed top-0 left-0 right-0 z-50">
   <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="/" class="flex items-center gap-2.5 group">
-      <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
-      <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+    <a href="/" class="flex items-center -ml-2">
+      <img src="/assets/brand/logo/xentovia-horizontal-dark.svg" alt="Xentovia — Agentic AI for Enterprise" width="160" height="52" class="h-[52px] w-auto">
     </a>
 
     <!-- Desktop -->
@@ -293,8 +289,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <div class="glass rounded-2xl p-2 shadow-2xl border border-white/10 grid grid-cols-1 gap-0.5">
             <p class="px-2.5 pt-2 pb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-500">Products</p>
             <a href="/simplimpex/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-sky-500/10 border border-sky-500/20 flex-shrink-0 mt-0.5">
-                <i data-lucide="ship" class="w-4 h-4 text-sky-400"></i>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-brand-500/10 border border-brand-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="ship" class="w-4 h-4 text-brand-400"></i>
               </div>
               <div class="min-w-0">
                 <p class="text-sm font-semibold text-white">Customs &amp; ICEGATE Filing</p>
@@ -302,8 +298,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               </div>
             </a>
             <a href="/xentoaxar/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-cyan-500/10 border border-cyan-500/20 flex-shrink-0 mt-0.5">
-                <i data-lucide="building" class="w-4 h-4 text-cyan-400"></i>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-brand-500/10 border border-brand-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="building" class="w-4 h-4 text-brand-400"></i>
               </div>
               <div class="min-w-0">
                 <p class="text-sm font-semibold text-white">Handwritten Record Digitization</p>
@@ -311,8 +307,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               </div>
             </a>
             <a href="/xentovox/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-blue-500/10 border border-blue-500/20 flex-shrink-0 mt-0.5">
-                <i data-lucide="phone-call" class="w-4 h-4 text-blue-400"></i>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-brand-500/10 border border-brand-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="phone-call" class="w-4 h-4 text-brand-400"></i>
               </div>
               <div class="min-w-0">
                 <p class="text-sm font-semibold text-white">AI Voice Agents</p>
@@ -320,8 +316,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               </div>
             </a>
             <a href="/solutions/xentostay/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-purple-500/10 border border-purple-500/20 flex-shrink-0 mt-0.5">
-                <i data-lucide="hotel" class="w-4 h-4 text-purple-400"></i>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-brand-500/10 border border-brand-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="hotel" class="w-4 h-4 text-brand-400"></i>
               </div>
               <div class="min-w-0">
                 <p class="text-sm font-semibold text-white">Hotel &amp; Resort Automation</p>
@@ -329,8 +325,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               </div>
             </a>
             <a href="/xentoscribe/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-emerald-500/10 border border-emerald-500/20 flex-shrink-0 mt-0.5">
-                <i data-lucide="mic" class="w-4 h-4 text-emerald-400"></i>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-brand-500/10 border border-brand-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="mic" class="w-4 h-4 text-brand-400"></i>
               </div>
               <div class="min-w-0">
                 <p class="text-sm font-semibold text-white">Medical Pathology Dictation</p>
@@ -339,8 +335,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
             </a>
             <p class="px-2.5 pt-2 pb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-500">By Industry</p>
             <a href="/solutions/healthcare/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-rose-500/10 border border-rose-500/20 flex-shrink-0 mt-0.5">
-                <i data-lucide="heart-pulse" class="w-4 h-4 text-rose-400"></i>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-brand-500/10 border border-brand-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="heart-pulse" class="w-4 h-4 text-brand-400"></i>
               </div>
               <div class="min-w-0">
                 <p class="text-sm font-semibold text-white">Healthcare Prior Authorization</p>
@@ -348,8 +344,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               </div>
             </a>
             <a href="/solutions/insurance/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-indigo-500/10 border border-indigo-500/20 flex-shrink-0 mt-0.5">
-                <i data-lucide="umbrella" class="w-4 h-4 text-indigo-400"></i>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-brand-500/10 border border-brand-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="umbrella" class="w-4 h-4 text-brand-400"></i>
               </div>
               <div class="min-w-0">
                 <p class="text-sm font-semibold text-white">Insurance Claims &amp; FNOL</p>
@@ -357,8 +353,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               </div>
             </a>
             <a href="/solutions/manufacturing/" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-amber-500/10 border border-amber-500/20 flex-shrink-0 mt-0.5">
-                <i data-lucide="factory" class="w-4 h-4 text-amber-400"></i>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-brand-500/10 border border-brand-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="factory" class="w-4 h-4 text-brand-400"></i>
               </div>
               <div class="min-w-0">
                 <p class="text-sm font-semibold text-white">Manufacturing Quality Control</p>
@@ -366,8 +362,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               </div>
             </a>
             <a href="/solutions/mortgage/" class="flex items-start gap-3 p-2.5 rounded-xl bg-white/[0.06] ring-1 ring-white/10 transition-colors" aria-current="page">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-yellow-500/10 border border-yellow-500/20 flex-shrink-0 mt-0.5">
-                <i data-lucide="home" class="w-4 h-4 text-yellow-400"></i>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-brand-500/10 border border-brand-500/20 flex-shrink-0 mt-0.5">
+                <i data-lucide="home" class="w-4 h-4 text-brand-400"></i>
               </div>
               <div class="min-w-0">
                 <p class="text-sm font-semibold text-white">Mortgage Loan File Indexing</p>
@@ -454,7 +450,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
     <section class="grid-bg relative min-h-[80vh] flex items-center pt-16">
       <div class="max-w-7xl mx-auto px-6 py-24 lg:py-32">
         <div class="max-w-4xl mx-auto text-center">
-          <div class="animate-on-scroll inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium text-indigo-300 mb-8">
+          <div class="animate-on-scroll inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium text-brand-300 mb-8">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
             Mortgage &amp; Lending Solutions
           </div>
@@ -473,7 +469,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
               <span class="flex items-center justify-center gap-2">Book a Demo <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
             </a>
             <a href="/#contact" class="group px-8 py-3.5 rounded-xl text-base font-medium text-slate-300 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all w-full sm:w-auto flex items-center justify-center gap-2">
-              <i data-lucide="message-circle" class="w-4 h-4 text-indigo-400 group-hover:text-indigo-300 transition-colors"></i>
+              <i data-lucide="message-circle" class="w-4 h-4 text-brand-400 group-hover:text-brand-300 transition-colors"></i>
               Tell Us Your Problem
             </a>
           </div>
@@ -486,7 +482,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
       <div class="section-divider mb-20"></div>
       <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
-          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Watch it work</p>
+          <p class="animate-on-scroll text-sm font-semibold text-brand-400 uppercase tracking-widest mb-4">Watch it work</p>
           <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
             What goes in. <span class="gradient-text">What comes out.</span>
           </h2>
@@ -528,7 +524,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
       <div class="section-divider mb-20"></div>
       <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
-          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">The Problem</p>
+          <p class="animate-on-scroll text-sm font-semibold text-brand-400 uppercase tracking-widest mb-4">The Problem</p>
           <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
             Loan files are growing. <span class="gradient-text">Manual processing isn't.</span>
           </h2>
@@ -573,7 +569,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
       <div class="section-divider mb-20"></div>
       <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
-          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">The Solution</p>
+          <p class="animate-on-scroll text-sm font-semibold text-brand-400 uppercase tracking-widest mb-4">The Solution</p>
           <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
             Agentic AI built for <span class="gradient-text">mortgage documents.</span>
           </h2>
@@ -587,7 +583,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
             <div class="icon-box mb-5">
-              <i data-lucide="scan-line" class="w-5 h-5 text-indigo-400"></i>
+              <i data-lucide="scan-line" class="w-5 h-5 text-brand-400"></i>
             </div>
             <h3 class="text-lg font-bold text-white mb-2">Intelligent Document Intake</h3>
             <p class="text-sm text-slate-400 leading-relaxed">
@@ -597,7 +593,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </div>
           <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
             <div class="icon-box mb-5">
-              <i data-lucide="layers" class="w-5 h-5 text-purple-400"></i>
+              <i data-lucide="layers" class="w-5 h-5 text-brand-400"></i>
             </div>
             <h3 class="text-lg font-bold text-white mb-2">Auto-Classification</h3>
             <p class="text-sm text-slate-400 leading-relaxed">
@@ -607,7 +603,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </div>
           <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
             <div class="icon-box mb-5">
-              <i data-lucide="file-search" class="w-5 h-5 text-cyan-400"></i>
+              <i data-lucide="file-search" class="w-5 h-5 text-navy-400"></i>
             </div>
             <h3 class="text-lg font-bold text-white mb-2">VLM-Powered Extraction</h3>
             <p class="text-sm text-slate-400 leading-relaxed">
@@ -637,7 +633,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </div>
           <div class="animate-on-scroll bento-card glass rounded-2xl p-7">
             <div class="icon-box mb-5">
-              <i data-lucide="arrow-right-circle" class="w-5 h-5 text-blue-400"></i>
+              <i data-lucide="arrow-right-circle" class="w-5 h-5 text-navy-400"></i>
             </div>
             <h3 class="text-lg font-bold text-white mb-2">LOS Delivery</h3>
             <p class="text-sm text-slate-400 leading-relaxed">
@@ -654,7 +650,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
       <div class="section-divider mb-20"></div>
       <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
-          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Document Types</p>
+          <p class="animate-on-scroll text-sm font-semibold text-brand-400 uppercase tracking-widest mb-4">Document Types</p>
           <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
             The complete <span class="gradient-text">mortgage document stack.</span>
           </h2>
@@ -663,21 +659,21 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
           <div class="animate-on-scroll bento-card glass rounded-xl p-6">
             <div class="icon-box mb-4 w-10 h-10">
-              <i data-lucide="file-text" class="w-4 h-4 text-indigo-400"></i>
+              <i data-lucide="file-text" class="w-4 h-4 text-brand-400"></i>
             </div>
             <h4 class="text-sm font-bold text-white mb-1">Loan Applications (1003)</h4>
             <p class="text-xs text-slate-400 leading-relaxed">Uniform Residential Loan Application with borrower info, employment, assets, and liabilities.</p>
           </div>
           <div class="animate-on-scroll bento-card glass rounded-xl p-6">
             <div class="icon-box mb-4 w-10 h-10">
-              <i data-lucide="receipt" class="w-4 h-4 text-purple-400"></i>
+              <i data-lucide="receipt" class="w-4 h-4 text-brand-400"></i>
             </div>
             <h4 class="text-sm font-bold text-white mb-1">W-2s & Pay Stubs</h4>
             <p class="text-xs text-slate-400 leading-relaxed">Income verification documents with employer details, earnings, and withholding data.</p>
           </div>
           <div class="animate-on-scroll bento-card glass rounded-xl p-6">
             <div class="icon-box mb-4 w-10 h-10">
-              <i data-lucide="calculator" class="w-4 h-4 text-cyan-400"></i>
+              <i data-lucide="calculator" class="w-4 h-4 text-navy-400"></i>
             </div>
             <h4 class="text-sm font-bold text-white mb-1">Tax Returns</h4>
             <p class="text-xs text-slate-400 leading-relaxed">1040s, schedules, and business returns with income, deductions, and self-employment data.</p>
@@ -712,7 +708,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
       <div class="section-divider mb-20"></div>
       <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
-          <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Key Outcomes</p>
+          <p class="animate-on-scroll text-sm font-semibold text-brand-400 uppercase tracking-widest mb-4">Key Outcomes</p>
           <h2 class="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
             Close faster. <span class="gradient-text">With fewer errors.</span>
           </h2>
@@ -732,7 +728,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </div>
           <div class="animate-on-scroll glass rounded-2xl p-8 text-center">
             <div class="icon-box mx-auto mb-5">
-              <i data-lucide="trending-up" class="w-5 h-5 text-indigo-400"></i>
+              <i data-lucide="trending-up" class="w-5 h-5 text-brand-400"></i>
             </div>
             <div class="text-4xl font-black gradient-text mb-2">2-3x</div>
             <p class="text-white font-semibold mb-2">Processor Productivity</p>
@@ -799,7 +795,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <!-- Integration -->
           <div class="animate-on-scroll glass rounded-2xl p-8">
             <div class="icon-box mb-5">
-              <i data-lucide="plug" class="w-5 h-5 text-indigo-400"></i>
+              <i data-lucide="plug" class="w-5 h-5 text-brand-400"></i>
             </div>
             <h3 class="text-xl font-bold text-white mb-4">LOS & Platform Integration</h3>
             <p class="text-sm text-slate-400 leading-relaxed mb-6">
@@ -837,7 +833,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
     <section class="relative py-24 lg:py-32">
       <div class="section-divider mb-20"></div>
       <div class="max-w-3xl mx-auto px-6 text-center">
-        <p class="animate-on-scroll text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Get Started</p>
+        <p class="animate-on-scroll text-sm font-semibold text-brand-400 uppercase tracking-widest mb-4">Get Started</p>
         <h2 class="animate-on-scroll text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6">
           Ready to modernize your <span class="gradient-text">loan processing?</span>
         </h2>
@@ -866,12 +862,11 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12 mb-12">
 
       <div class="col-span-2 md:col-span-4 lg:col-span-1">
-        <a href="/" class="flex items-center gap-2.5 mb-4">
-          <img src="/favicon.png" alt="Xentovia Logo" class="w-8 h-8 rounded-lg">
-          <span class="text-lg font-bold tracking-tight text-white">Xentovia</span>
+        <a href="/" class="inline-flex mb-3 -ml-3">
+          <img src="/assets/brand/logo/xentovia-horizontal-dark.svg" alt="Xentovia — Agentic AI for Enterprise" width="210" height="68" class="h-[68px] w-auto">
         </a>
         <p class="text-sm text-slate-400 leading-relaxed mb-4">
-          Agentic AI solutions for the enterprise.
+          Agentic AI for Enterprise.
         </p>
         <a href="mailto:sales@xentovia.ai" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
           <i data-lucide="mail" class="w-3.5 h-3.5"></i>
