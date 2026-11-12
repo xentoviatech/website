@@ -787,6 +787,53 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
     </section>
 
 
+    <!-- ── Continuity loop (self-hosted, muted; plays only while in view) ── -->
+    <style>
+      .xv-loop {
+        position: relative; overflow: hidden; border-radius: 1rem;
+        background: var(--xv-navy);
+        border: 1px solid rgba(var(--xv-lilac-rgb), 0.3);
+      }
+      .xv-light .xv-loop { border-color: rgba(var(--xv-navy-rgb), 0.14); }
+      .xv-loop video {
+        display: block; width: 100%; height: auto; aspect-ratio: 16 / 9;
+        background: var(--xv-navy);
+      }
+      .xv-loop-caption { font-family: var(--xv-font-heading); }
+      .xv-loop-toggle {
+        position: absolute; right: 12px; bottom: 12px;
+        width: 40px; height: 40px; border-radius: 999px;
+        display: flex; align-items: center; justify-content: center;
+        background: var(--xv-navy-deep); color: var(--xv-white);
+        border: 1px solid rgba(var(--xv-lilac-rgb), 0.5); cursor: pointer;
+      }
+      .xv-loop-toggle[hidden] { display: none; }
+      .xv-loop-toggle:hover { background: var(--xv-purple); }
+      .xv-loop-toggle:focus-visible { outline: 2px solid var(--xv-lilac); outline-offset: 2px; }
+      .xv-loop-toggle .xv-loop-icon-play,
+      .xv-loop-toggle[data-state="paused"] .xv-loop-icon-pause { display: none; }
+      .xv-loop-toggle[data-state="paused"] .xv-loop-icon-play { display: block; }
+    </style>
+    <section id="continuity" class="relative pb-14 lg:pb-20" aria-labelledby="continuity-title">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 id="continuity-title" class="animate-on-scroll text-center text-2xl sm:text-3xl font-bold text-white tracking-tight mb-6">
+          Your business shouldn't stop when one person is away.
+        </h2>
+        <div class="animate-on-scroll xv-loop" data-loop>
+          <video width="1280" height="720" muted loop playsinline controls preload="none"
+                 poster="/assets/videos/xentovia-continuity-poster.webp"
+                 aria-label="Animation: a missed call, a WhatsApp enquiry, an invoice and a new joiner are each handled while a colleague is out of office.">
+            <source src="/assets/videos/xentovia-continuity-720.mp4" type="video/mp4">
+          </video>
+          <button type="button" class="xv-loop-toggle" hidden aria-label="Pause video">
+              <svg class="xv-loop-icon-pause" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+              <svg class="xv-loop-icon-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg>
+            </button>
+        </div>
+      </div>
+    </section>
+
+
     <!-- ── Watch It Work (concrete input -> output) ── -->
     <section id="watch-it-work" class="relative py-14 lg:py-20 xv-light">
       <div class="max-w-7xl mx-auto px-6">
@@ -1269,6 +1316,25 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
             </div>
           </a>
 
+          <!-- Hospitality loop. A card is a one-column link, too narrow for the video's text and
+               unable to hold a play control, so the loop takes the full row under the XentoStay card. -->
+          <figure class="animate-on-scroll md:col-span-2 lg:col-span-3 grid grid-cols-1 lg:grid-cols-3 gap-5 items-center m-0">
+            <div class="xv-loop lg:col-span-2" data-loop>
+              <video width="1280" height="720" muted loop playsinline controls preload="none"
+                     poster="/assets/videos/xentovia-resorts-poster.webp"
+                     aria-label="Animation: a resort's late-night call is answered, the enquiry is saved and a callback is booked.">
+                <source src="/assets/videos/xentovia-resorts-720.mp4" type="video/mp4">
+              </video>
+              <button type="button" class="xv-loop-toggle" hidden aria-label="Pause video">
+                <svg class="xv-loop-icon-pause" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+                <svg class="xv-loop-icon-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg>
+              </button>
+            </div>
+            <figcaption class="xv-loop-caption text-2xl font-bold text-white tracking-tight lg:px-2">
+              Hotels and resorts: the late-night call, answered.
+            </figcaption>
+          </figure>
+
           <!-- Card: Your Industry -->
           <div class="animate-on-scroll bento-card glass rounded-2xl p-7 group border border-dashed border-white/10 hover:border-brand-500/30 lg:col-span-2">
             <div class="flex flex-col h-full">
@@ -1743,6 +1809,51 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
       { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
     );
     document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+    // ── Ambient video loops ──
+    // Muted loops play only while on screen. With reduced motion (or if the browser
+    // refuses autoplay) nothing moves: the poster and native controls stay.
+    (function () {
+      var loops = document.querySelectorAll('[data-loop]');
+      if (!loops.length || !('IntersectionObserver' in window)) return;
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var video = entry.target;
+          if (!entry.isIntersecting) { video.pause(); return; }
+          if (video.dataset.userPaused === 'true') return;
+          var started = video.play();
+          if (started && started.catch) started.catch(function () {
+            video.controls = true;
+            var btn = video.parentNode.querySelector('.xv-loop-toggle');
+            if (btn) btn.hidden = true;
+            io.unobserve(video);
+          });
+        });
+      }, { threshold: 0.35 });
+
+      loops.forEach(function (wrap) {
+        var video = wrap.querySelector('video');
+        var btn = wrap.querySelector('.xv-loop-toggle');
+        if (!video || !btn) return;
+        video.muted = true;
+        video.controls = false;
+        btn.hidden = false;
+        function sync() {
+          btn.dataset.state = video.paused ? 'paused' : 'playing';
+          btn.setAttribute('aria-label', video.paused ? 'Play video' : 'Pause video');
+        }
+        btn.addEventListener('click', function () {
+          if (video.paused) { video.dataset.userPaused = 'false'; video.play(); }
+          else { video.dataset.userPaused = 'true'; video.pause(); }
+        });
+        video.addEventListener('play', sync);
+        video.addEventListener('pause', sync);
+        sync();
+        io.observe(video);
+      });
+    })();
 
 
 
