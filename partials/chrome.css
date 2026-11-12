@@ -3,7 +3,14 @@
   background: rgba(var(--xv-navy-rgb), 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+/* Once the page has scrolled the bar goes opaque and lifts off the content
+   (class set by the script in partials/nav.html). */
+html.nav-scrolled .nav-blur {
+  background: var(--xv-navy-deep);
+  box-shadow: 0 10px 24px -14px rgba(7, 16, 44, 0.75);
 }
 /* The dropdown sits over page content, so it needs an opaque base. */
 .site-nav .glass { background: var(--xv-navy-deep); }
@@ -29,6 +36,12 @@
   transform: translateY(-2px);
 }
 .cta-primary span { position: relative; z-index: 1; }
+
+/* The same CTA on a navy ground. Purple on navy is 1.36:1, so the button edge
+   disappears; lilac is 6.36:1 against navy, and navy text on lilac is the same
+   pair. Hover goes to white. */
+.cta-primary.cta-on-navy { background: var(--xv-lilac); color: var(--xv-navy); }
+.cta-primary.cta-on-navy::after { background: var(--xv-white); }
 
 /* JS-free mobile menu */
 .site-nav-mobile > summary,

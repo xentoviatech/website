@@ -24,7 +24,7 @@
         </div>
       </div>
 {{LINKS_AFTER_DESKTOP}}
-      <a href="{{CTA_HREF}}" class="cta-primary px-5 py-2 rounded-lg text-sm font-semibold text-white">
+      <a href="{{CTA_HREF}}" class="cta-primary cta-on-navy px-5 py-2 rounded-lg text-sm font-semibold">
         <span class="flex items-center gap-1.5">
           {{CTA_LABEL}}
           <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
@@ -50,7 +50,7 @@
           </div>
         </details>
 {{LINKS_AFTER_MOBILE}}
-        <a href="{{CTA_HREF}}" class="block cta-primary px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">
+        <a href="{{CTA_HREF}}" class="block cta-primary cta-on-navy px-5 py-2.5 rounded-lg text-sm font-semibold text-center">
           <span>{{CTA_LABEL}}</span>
         </a>
       </div>
@@ -67,8 +67,11 @@
       addEventListener('DOMContentLoaded', function () { lucide.createIcons(); });
     }
     var root = document.documentElement, last = 0;
+    function mark() { root.classList.toggle('nav-scrolled', window.scrollY > 8); }
+    mark();
     addEventListener('scroll', function () {
       var y = window.scrollY;
+      mark();
       if (!document.querySelector('.site-nav-mobile[open]')) {
         root.classList.toggle('nav-hidden', y > last && y > 100);
       }
