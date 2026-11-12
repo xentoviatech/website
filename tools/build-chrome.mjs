@@ -149,6 +149,9 @@ export function renderFooter() {
     TAGLINE: esc(f.tagline),
     EMAIL: esc(f.email),
     LINKEDIN: esc(f.linkedin),
+    PHONE_TEL: esc(f.phone.tel),
+    PHONE_DISPLAY: esc(f.phone.display),
+    WHATSAPP: esc(f.phone.whatsapp),
     COPYRIGHT: esc(f.copyright).replace('©', '&copy;'),
     COLUMNS: indent(columns.flat(), '      '),
   });
