@@ -796,7 +796,7 @@ dd a{color:var(--lilac)}
     <div class="ctas"><button class="btn btn-p" id="talk" aria-controls="call" aria-expanded="false">Start a video call</button><a class="btn btn-l" href="/#contact">Book a demo</a></div>
   </div>
   <div class="callwin" aria-label="Recorded example of an agent on a call">
-    <div class="vid" id="heroVid" data-clip="/assets/video/xentovia-agent-hi.mp4" data-poster="/assets/video/xentovia-agent-hi-poster.jpg"><span class="livepill">● AI agent, recorded</span><div class="face">X</div><div class="wave"><i></i><i></i><i></i><i></i><i></i></div><span class="note2">AI agent</span></div>
+    <div class="vid" id="heroVid" data-clip="/assets/video/mira-hi.mp4" data-poster="/assets/video/mira-hi-poster.jpg"><span class="livepill">● Mira, AI agent</span><div class="face">X</div><div class="wave"><i></i><i></i><i></i><i></i><i></i></div><span class="note2">AI agent</span></div>
     <div class="capt" id="capt" aria-live="polite"></div>
     <div class="acts" id="acts"></div>
   </div>
@@ -934,7 +934,7 @@ let li=0;function stepA(){const c=document.getElementById('capt'),a=document.get
  const x=document.createElement('span');x.textContent=A[li];a.appendChild(x);li=(li+1)%L.length}
 // Recorded clip: set data-clip (and data-poster) on #heroVid to a self-hosted MP4. Muted, loops only while on screen.
 const HV=document.getElementById('heroVid'),clip=HV&&HV.dataset.clip;
-if(clip){const v=document.createElement('video');v.src=clip;if(HV.dataset.poster)v.poster=HV.dataset.poster;v.muted=true;v.loop=true;v.playsInline=true;v.setAttribute('aria-label','Recorded example of an AI agent taking a call in Hindi');
+if(clip){const v=document.createElement('video');v.src=clip;if(HV.dataset.poster)v.poster=HV.dataset.poster;v.muted=true;v.loop=true;v.playsInline=true;v.setAttribute('aria-label','Mira, Xentovia's AI agent, introducing herself in Hindi');
  HV.querySelector('.face').remove();HV.querySelector('.wave').remove();HV.appendChild(v);
  const cw=HV.closest('.callwin');cw.querySelector('.capt').hidden=true;cw.querySelector('.acts').hidden=true;
  const sb=document.createElement('button');sb.type='button';sb.className='sound';sb.textContent='Turn sound on';
