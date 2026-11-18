@@ -792,8 +792,8 @@ dd a{color:var(--lilac)}
 <div class="heroA" id="hero"><div class="wrap grid">
   <div>
     <h1>Meet the agent that takes your calls.</h1>
-    <p>It speaks Hindi and English, books the appointment, logs the lead and hands the hard ones to your team, at enterprise volume. Talk to it now.</p>
-    <div class="ctas"><button class="btn btn-p" id="talk" aria-controls="call" aria-expanded="false">Start a video call</button><a class="btn btn-l" href="/#contact">Book a demo</a></div>
+    <p>It speaks Hindi and English, books the appointment, logs the lead and hands the hard ones to your team, at enterprise volume. Talk to her now.</p>
+    <div class="ctas"><button class="btn btn-p" id="talk" aria-controls="call" aria-expanded="false">Talk to Mira</button><a class="btn btn-l" href="/#contact">Book a demo</a></div>
   </div>
   <div class="callwin" aria-label="Recorded example of an agent on a call">
     <div class="vid" id="heroVid" data-clip="/assets/video/mira-hi.mp4?v=2" data-poster="/assets/video/mira-hi-poster.jpg?v=2"><span class="livepill">● Mira, AI agent</span><div class="face">X</div><div class="wave"><i></i><i></i><i></i><i></i><i></i></div><span class="note2">AI agent</span></div>
@@ -906,8 +906,8 @@ dd a{color:var(--lilac)}
   <a class="btn" href="/#contact">Start a 30-day pilot</a>
 </div></div>
 
-<div class="call" id="call" role="dialog" aria-label="Call with a Xentovia AI agent">
-  <div class="vid" id="callVid"><div class="face">X</div><div id="callStatus" aria-live="polite">Connecting you to an AI agent…</div><div class="say" id="callNote" hidden></div></div>
+<div class="call" id="call" role="dialog" aria-label="Voice call with Mira, Xentovia’s AI agent">
+  <div class="vid" id="callVid"><div class="face">X</div><div id="callStatus" aria-live="polite">Connecting you to Mira…</div><div class="say" id="callNote" hidden></div></div>
   <div class="ctl"><div class="langs"><span>हिंदी</span><span>English</span></div><span id="tmr">3:00 left</span><button class="end" id="end">End call</button></div>
   <div class="guard">You are talking to an AI agent. The call ends after 3 minutes.</div>
 </div>
@@ -966,7 +966,7 @@ function endCall(){clearInterval(tm);tm=null;if(room){room.disconnect();room=nul
 async function startCall(){
  call.classList.add('open');talk.setAttribute('aria-expanded','true');talk.disabled=true;note.hidden=true;tmrEl.textContent='3:00 left';
  if(!VOICE_DEMO.token){fallback('The live demo is opening soon.');talk.disabled=false;return}
- say('Connecting you to an AI agent…');
+ say('Connecting you to Mira…');
  try{
   const [r]=await Promise.all([fetch(VOICE_DEMO.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:VOICE_DEMO.token})}),loadLK()]);
   if(!r.ok)throw new Error('busy');
