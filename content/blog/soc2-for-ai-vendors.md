@@ -5,7 +5,7 @@ date: 2026-08-09
 tags: [Security, Procurement, Compliance]
 highlight: Does and Does Not
 ctaTitle: Going through security review with us?
-ctaText: We will provide the report, the subprocessor list and answers to the questions the report does not cover.
+ctaText: We will send our security answers and subprocessor list, and answer the AI-specific questions a SOC 2 report would not cover.
 ctaLabel: Talk to Us
 ctaHref: /#contact
 ---

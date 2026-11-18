@@ -94,7 +94,7 @@ export function renderNav(page) {
     ...heading(s, i, 'pt-2 pb-0.5'),
     `<a href="${esc(s.href)}" class="block py-1 text-sm text-slate-300 hover:text-white"${s.key === page.active ? ' aria-current="page"' : ''}>` +
       `<span class="font-medium text-white">${esc(s.title)}</span> ` +
-      `<span class="text-xs text-slate-400">&middot; ${esc(s.subtitleShort)}</span></a>`,
+      `<span class="text-xs text-slate-400">&middot; ${esc(s.subtitle)}</span></a>`,
   ]);
 
   return fill(navTemplate, {

@@ -5,7 +5,7 @@ date: 2026-03-18
 tags: [Human-in-the-Loop, Compliance]
 highlight: Regulated Industries
 ctaTitle: Building AI for a regulated industry?
-ctaText: Learn how our HITL architecture delivers automation with the auditability your compliance team requires.
+ctaText: See how our HITL architecture keeps a person and an audit trail in the loop, and judge whether it fits what your compliance team needs.
 ctaLabel: Book a Demo
 ctaHref: /#contact
 ---
@@ -65,7 +65,7 @@ This audit trail is not just a compliance checkbox. It is a competitive advantag
 HITL solutions cost more than fully automated alternatives. The human review component adds labor cost, the review interface adds development cost, and the audit logging adds infrastructure cost. Enterprise buyers in regulated industries pay that premium willingly, and here is why:
 
 - **Reduced liability:** An error caught by a human reviewer before it enters a downstream system costs a fraction of an error that makes it into a regulatory filing, a claims decision, or a mortgage closing.
-- **Regulatory compliance:** HITL provides documented human oversight that satisfies regulatory requirements across HIPAA, SOX, state insurance regulations, and CFPB guidelines. The alternative — responding to a regulatory inquiry with "the AI did it automatically" — is not a viable compliance posture.
+- **Regulatory compliance:** HITL provides documented human oversight that supports the human-oversight expectations in HIPAA, SOX, state insurance regulations, and CFPB guidance; it does not by itself make a workflow compliant. The alternative — responding to a regulatory inquiry with "the AI did it automatically" — is not a viable compliance posture.
 - **Client trust:** Enterprise clients in insurance, healthcare, and financial services evaluate AI vendors not just on speed and cost, but on risk. A vendor that can demonstrate human oversight, audit trails, and configurable review thresholds wins over a vendor that promises full automation with a black-box confidence score.
 
 The market is clear: in regulated industries, trust is worth paying for. And trust, in this context, means that a human was in the loop.

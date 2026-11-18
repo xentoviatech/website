@@ -7,7 +7,7 @@ highlight: The Real Bottleneck
 ctaTitle: Want more quote capacity without more underwriters?
 ctaText: We will run your submission inbox and show what a clean, complete, pre-validated file looks like on arrival.
 ctaLabel: Book a Demo
-ctaHref: /#contact
+ctaHref: /solutions/insurance/
 ---
 
 Commercial underwriting capacity is usually described as an underwriter problem. It is more often a submission problem.

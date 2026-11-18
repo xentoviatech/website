@@ -7,7 +7,7 @@ highlight: Do Not Summarise
 ctaTitle: Have record review as a bottleneck?
 ctaText: We will index a sample record set and show you evidence-first retrieval — every answer linked to the page it came from.
 ctaLabel: Book a Demo
-ctaHref: /#contact
+ctaHref: /solutions/healthcare/
 ---
 
 Medical record review appears in many workflows: disability and life underwriting, claims adjudication, independent medical review, litigation support, care management, clinical research screening. The shape is always the same. A large volume of records, a specific set of questions, and a reviewer whose time is expensive.

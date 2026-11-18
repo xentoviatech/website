@@ -7,7 +7,7 @@ highlight: Not an Extraction Problem
 ctaTitle: Want transaction-level analysis you can audit?
 ctaText: Send us a set of statements. We will return classified transactions, income streams and flagged anomalies, each traceable to its line on the page.
 ctaLabel: Book a Demo
-ctaHref: /#contact
+ctaHref: /solutions/mortgage/
 ---
 
 Bank statements are used across lending and financial services to verify income, confirm assets, assess affordability, identify obligations and detect risk. They arrive as PDFs from thousands of institutions, each with its own layout, and as scans of printed statements.

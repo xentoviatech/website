@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>From Handwritten Records to Structured Data: Lessons from Digitizing Government Archives — Xentovia Tech</title>
-  <meta name="description" content="Millions of handwritten government records sit in paper archives worldwide. Here is what we learned building a VLM-powered pipeline to digitize them at scale — and what it means for any document-heavy enterprise.">
+  <title>From Handwritten Records to Structured Data: How a VLM Pipeline for Government Archives Is Built — Xentovia Tech</title>
+  <meta name="description" content="Millions of handwritten government records sit in paper archives worldwide. Here is how a VLM-powered pipeline to digitize them is put together, stage by stage, and what the design means for any document-heavy enterprise.">
   <link rel="canonical" href="https://xentovia.ai/blog/digitizing-government-archives/">
 
   <meta property="og:type" content="article">
-  <meta property="og:title" content="From Handwritten Records to Structured Data: Lessons from Digitizing Government Archives">
-  <meta property="og:description" content="Millions of handwritten government records sit in paper archives worldwide. Here is what we learned building a VLM-powered pipeline to digitize them at scale — and what it means for any document-heavy enterprise.">
+  <meta property="og:title" content="From Handwritten Records to Structured Data: How a VLM Pipeline for Government Archives Is Built">
+  <meta property="og:description" content="Millions of handwritten government records sit in paper archives worldwide. Here is how a VLM-powered pipeline to digitize them is put together, stage by stage, and what the design means for any document-heavy enterprise.">
   <meta property="og:url" content="https://xentovia.ai/blog/digitizing-government-archives/">
   <meta property="og:site_name" content="Xentovia Tech">
   <meta property="article:published_time" content="2026-03-07">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="From Handwritten Records to Structured Data: Lessons from Digitizing Government Archives">
-  <meta name="twitter:description" content="Millions of handwritten government records sit in paper archives worldwide. Here is what we learned building a VLM-powered pipeline to digitize them at scale — and what it means for any document-heavy enterprise.">
+  <meta name="twitter:title" content="From Handwritten Records to Structured Data: How a VLM Pipeline for Government Archives Is Built">
+  <meta name="twitter:description" content="Millions of handwritten government records sit in paper archives worldwide. Here is how a VLM-powered pipeline to digitize them is put together, stage by stage, and what the design means for any document-heavy enterprise.">
 
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -269,13 +269,13 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
   <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "From Handwritten Records to Structured Data: Lessons from Digitizing Government Archives",
-  "description": "Millions of handwritten government records sit in paper archives worldwide. Here is what we learned building a VLM-powered pipeline to digitize them at scale — and what it means for any document-heavy enterprise.",
+  "headline": "From Handwritten Records to Structured Data: How a VLM Pipeline for Government Archives Is Built",
+  "description": "Millions of handwritten government records sit in paper archives worldwide. Here is how a VLM-powered pipeline to digitize them is put together, stage by stage, and what the design means for any document-heavy enterprise.",
   "datePublished": "2026-03-07",
   "dateModified": "2026-03-07",
   "mainEntityOfPage": "https://xentovia.ai/blog/digitizing-government-archives/",
   "url": "https://xentovia.ai/blog/digitizing-government-archives/",
-  "keywords": "Case Study, GovTech",
+  "keywords": "GovTech, Vision AI, Document Intelligence",
   "author": {
     "@type": "Organization",
     "name": "Xentovia Tech"
@@ -409,14 +409,14 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </summary>
           <div class="pl-3 mt-1 space-y-1 border-l border-white/10">
             <p class="pt-2 pb-0.5 text-[11px] font-semibold uppercase tracking-wider text-slate-500">Platforms</p>
-            <a href="/xentovox/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Front Desk agents</span> <span class="text-xs text-slate-400">&middot; Front Desk</span></a>
-            <a href="/xentoaxar/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Document AI</span> <span class="text-xs text-slate-400">&middot; Document AI</span></a>
-            <a href="/#platforms" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Vision AI</span> <span class="text-xs text-slate-400">&middot; Vision AI</span></a>
-            <a href="/#platforms" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Business Ops</span> <span class="text-xs text-slate-400">&middot; Business Ops</span></a>
+            <a href="/xentovox/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Front Desk agents</span> <span class="text-xs text-slate-400">&middot; Voice, WhatsApp, chat and video</span></a>
+            <a href="/xentoaxar/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Document AI</span> <span class="text-xs text-slate-400">&middot; Documents and handwritten records</span></a>
+            <a href="/#platforms" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Vision AI</span> <span class="text-xs text-slate-400">&middot; Detection, counts and site evidence</span></a>
+            <a href="/#platforms" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Business Ops</span> <span class="text-xs text-slate-400">&middot; HR, hiring and expenses agents</span></a>
             <p class="pt-2 pb-0.5 text-[11px] font-semibold uppercase tracking-wider text-slate-500">Industry products</p>
-            <a href="/xentoscribe/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">XentoScribe</span> <span class="text-xs text-slate-400">&middot; XentoScribe</span></a>
-            <a href="/simplimpex/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">SimplImpex</span> <span class="text-xs text-slate-400">&middot; SimplImpex</span></a>
-            <a href="/solutions/xentostay/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">XentoStay</span> <span class="text-xs text-slate-400">&middot; XentoStay</span></a>
+            <a href="/xentoscribe/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">XentoScribe</span> <span class="text-xs text-slate-400">&middot; Pathology reporting for labs</span></a>
+            <a href="/simplimpex/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">SimplImpex</span> <span class="text-xs text-slate-400">&middot; Customs filing for CHAs</span></a>
+            <a href="/solutions/xentostay/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">XentoStay</span> <span class="text-xs text-slate-400">&middot; Reservations desk for resorts</span></a>
           </div>
         </details>
         <a href="/#security" class="block text-sm text-slate-400 hover:text-white py-2">Security</a>
@@ -465,61 +465,62 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
       <article>
         <header class="mb-10">
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="tag">Case Study</span>
             <span class="tag">GovTech</span>
+            <span class="tag">Vision AI</span>
+            <span class="tag">Document Intelligence</span>
           </div>
           <h1 class="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-white tracking-tight mb-4 leading-[1.15]">
-            From Handwritten Records to Structured Data: Lessons from Digitizing <span class="gradient-text">Government Archives</span>
+            From Handwritten Records to Structured Data: How a VLM Pipeline for <span class="gradient-text">Government Archives</span> Is Built
           </h1>
-          <p class="text-lg text-slate-400 leading-relaxed mb-5">Millions of handwritten government records sit in paper archives worldwide. Here is what we learned building a VLM-powered pipeline to digitize them at scale — and what it means for any document-heavy enterprise.</p>
+          <p class="text-lg text-slate-400 leading-relaxed mb-5">Millions of handwritten government records sit in paper archives worldwide. Here is how a VLM-powered pipeline to digitize them is put together, stage by stage, and what the design means for any document-heavy enterprise.</p>
           <div class="flex items-center gap-3 text-sm text-slate-400">
             <time datetime="2026-03-07">March 7, 2026</time>
             <span class="w-1 h-1 rounded-full bg-slate-600"></span>
-            <span>8 min read</span>
+            <span>9 min read</span>
           </div>
         </header>
 
         <div class="glass rounded-2xl p-6 sm:p-10 post-content">
           <p>Across governments worldwide, there are millions of handwritten records sitting in physical archives. Land ownership registers, court proceedings, tax assessments, birth and death records, property mutation logs — decades of critical civic data recorded by hand in bound registers, stored in district offices, and accessed only by physically visiting the archive and flipping through pages.</p>
           <p>The value of digitizing these records is obvious. Land records alone underpin property transactions, tax collection, dispute resolution, and infrastructure planning. When they exist only on paper, every transaction that depends on them is slow, opaque, and susceptible to fraud. But the scale of the problem is enormous, and the technical challenges of converting handwritten, multilingual, decades-old documents into structured digital data have defeated most attempts.</p>
-          <p>We built a pipeline to do this. Here is what we learned.</p>
+          <p>This post walks through how a pipeline that does this is built, and why each stage is there.</p>
           <h2 id="why-traditional-digitization-fails">Why Traditional Digitization Fails</h2>
           <p>The standard approach to large-scale document digitization is to scan everything, run OCR, and then fix errors manually. For government archives with handwritten records, every step of this process breaks down.</p>
           <p>Scanning is the easy part, though even here there are complications — bound registers cannot be fed through automatic document feeders, aged paper tears easily, and varying page sizes require manual scanner adjustment. But the real failure point is extraction.</p>
           <p>OCR was designed for printed text in Latin scripts. Handwritten Devanagari, Telugu, Tamil, or Bangla script — the languages in which most Indian government records are maintained — is not a problem OCR engines were built to solve. Character-level accuracy on handwritten regional scripts typically falls below 50%, which means more than half of all extracted characters are wrong. At that error rate, the OCR output is less useful than no output at all, because someone must now compare it character-by-character against the original image — a task slower than just reading the original and typing the data.</p>
           <p>Manual data entry is the fallback, and it is what most digitization projects have relied on. But at scale — hundreds of thousands or millions of records — manual entry is prohibitively expensive and slow. A trained operator can digitize perhaps 40-60 records per day with acceptable accuracy. At that rate, a district archive with 500,000 records would take a team of 20 operators over a year to complete, at a cost that most government agencies cannot justify.</p>
-          <h2 id="our-approach-vlm-extraction-with-agentic-validation">Our Approach: VLM Extraction with Agentic Validation</h2>
-          <p>We built a five-stage pipeline that combines vision language model extraction with agentic validation and human-in-the-loop review. Each stage addresses a specific failure mode of traditional digitization.</p>
+          <h2 id="the-approach-vlm-extraction-with-agentic-validation">The Approach: VLM Extraction with Agentic Validation</h2>
+          <p>The pipeline has five stages and that combines vision language model extraction with agentic validation and human-in-the-loop review. Each stage addresses a specific failure mode of traditional digitization.</p>
           <h3 id="stage-1-intelligent-page-classification">Stage 1: Intelligent Page Classification</h3>
           <p>Government archives contain multiple types of registers — land ownership records, mutation registers, revenue collection logs — each with different column structures and field definitions. Before extraction can begin, the system must identify what type of document it is looking at.</p>
-          <p>Our classification model examines each scanned page and categorizes it by register type, identifying the column structure and expected fields. This happens before any text extraction, so the VLM receives context about what it should be looking for on each page. The classifier also detects blank pages, separator pages, and index pages that should be skipped rather than processed.</p>
+          <p>A classification model examines each scanned page and categorizes it by register type, identifying the column structure and expected fields. This happens before any text extraction, so the VLM receives context about what it should be looking for on each page. The classifier also detects blank pages, separator pages, and index pages that should be skipped rather than processed.</p>
           <h3 id="stage-2-vlm-powered-extraction">Stage 2: VLM-Powered Extraction</h3>
           <p>The core extraction uses a vision language model that receives the page image along with a structured prompt describing the expected fields for that register type. The VLM reads the handwritten content and produces structured JSON output with field names, values, and confidence scores.</p>
-          <p>The key technical decisions here were around prompt engineering and image preprocessing. We found that OpenCV-based preprocessing — deskewing, contrast enhancement, noise reduction, and adaptive binarization — improved VLM accuracy by 8-12% on degraded documents. The preprocessing does not alter the content; it makes the content more legible to the model, the same way adjusting brightness on a photo helps a human read faded text.</p>
+          <p>The key technical decisions here are prompt design and image preprocessing. OpenCV-based preprocessing — deskewing, contrast enhancement, noise reduction, and adaptive binarization — tends to help most on degraded pages, and how much it helps should be measured on your own documents by running the same labelled sample with and without it. The preprocessing does not alter the content; it makes the content more legible to the model, the same way adjusting brightness on a photo helps a human read faded text.</p>
           <h3 id="stage-3-agentic-validation-and-cross-referencing">Stage 3: Agentic Validation and Cross-Referencing</h3>
-          <p>Raw VLM output, even at 85%+ field-level accuracy, is not sufficient for government record systems where data integrity has legal implications. Our validation layer uses specialized agents that apply domain-specific rules:</p>
+          <p>Raw VLM output, however accurate, is not sufficient on its own for government record systems where data integrity has legal implications. The validation layer uses specialized agents that apply domain-specific rules:</p>
           <ul>
             <li><strong>Format validation:</strong> Survey numbers follow specific patterns per district. Dates must fall within plausible ranges. Area measurements must use consistent units.</li>
             <li><strong>Cross-field validation:</strong> The total area of a property must equal the sum of its subdivisions. Transaction dates must be chronologically consistent within a register. Buyer names in mutation records should match seller names in the corresponding previous entry.</li>
             <li><strong>Cross-page stitching:</strong> Many register entries span multiple pages. The stitching agent identifies continuation markers and merges split entries into complete records, handling cases where a row starts on one page and ends on the next.</li>
           </ul>
           <h3 id="stage-4-auto-correction">Stage 4: Auto-Correction</h3>
-          <p>When the validation agents identify inconsistencies, an auto-correction agent attempts to resolve them using contextual clues. If a survey number is extracted as "142/3A" but the format for that district requires a slash followed by exactly two digits, and the surrounding entries suggest this should be "142/3A" in a district where the format includes alphanumeric suffixes, the agent can confirm the extraction is actually correct despite the initial format flag. Conversely, if a date is extracted as "32/07/1998" — an impossible day — the agent checks whether the handwriting could plausibly be "22/07/1998" by re-examining the original image region.</p>
-          <p>Auto-correction resolves approximately 30-40% of validation flags without human intervention. The remaining flags are routed to human review.</p>
+          <p>When the validation agents identify inconsistencies, an auto-correction agent attempts to resolve them using contextual clues. Suppose a survey number is extracted as "142/3A" and is flagged because the generic format rule expects digits only after the slash. If the district's own register uses alphanumeric subdivision suffixes, and the neighbouring entries on the same page read "142/3B" and "142/3C", the agent can clear the flag: the extraction was right and the rule was too narrow. Conversely, if a date is extracted as "32/07/1998" — an impossible day — the agent checks whether the handwriting could plausibly be "22/07/1998" by re-examining the original image region.</p>
+          <p>Whatever auto-correction cannot resolve with evidence from the page goes to human review. It should never guess: a correction it cannot justify from the image or the surrounding entries is a flag for a person.</p>
           <h3 id="stage-5-human-in-the-loop-review">Stage 5: Human-in-the-Loop Review</h3>
           <p>The HITL interface is purpose-built for this workflow. Reviewers see the original scanned page with the relevant region highlighted on the left, and the extracted field data on the right. Confidence indicators use color coding: green for high-confidence accepted fields, yellow for auto-corrected fields, and red for fields requiring human judgment.</p>
           <p>Reviewers can confirm, edit, or reject individual fields. They can also flag entire records for re-extraction if the scan quality is too poor, or mark records as illegible if the original handwriting cannot be read by either the model or a human. Every action is logged with a timestamp and reviewer ID for audit purposes.</p>
-          <p>In production, approximately 15-20% of extracted fields require human review. The review interface is designed so that a trained operator can review and finalize a complete record in 60-90 seconds, compared to 8-15 minutes for full manual data entry. This represents a 5-8x throughput improvement while maintaining accuracy above 99%.</p>
-          <h2 id="technical-challenges-we-solved">Technical Challenges We Solved</h2>
-          <p>Several challenges specific to government archive digitization required purpose-built solutions:</p>
+          <p>The economics come from this stage. For illustration, assume 15-20% of fields go to review and a record has ten fields: the reviewer checks one or two fields per record and confirms the rest at a glance, instead of typing all ten. If that took 90 seconds per record against 10 minutes (600 seconds) for full manual entry, throughput per operator would rise about 6.7 times. These are assumptions to show the arithmetic, not measurements; the real review rate and time per record have to be measured on a labelled sample of your own registers.</p>
+          <h2 id="technical-challenges-to-plan-for">Technical Challenges to Plan For</h2>
+          <p>Several challenges specific to government archive digitization need purpose-built handling:</p>
           <ul>
-            <li><strong>Ink and paper degradation:</strong> Records from the 1960s and 1970s are often written in iron gall ink that has faded to near-invisibility, on paper that has yellowed, stained, or partially deteriorated. Our preprocessing pipeline uses multiple enhancement strategies and selects the best result per-region rather than per-page, because degradation is often uneven across a single page.</li>
-            <li><strong>Multi-language content:</strong> A single register page might contain field headers in English, data entries in Devanagari, and annotations in a third language. The VLM handles this natively — it does not need separate models or modes for different scripts — but our validation rules needed to be language-aware to correctly parse dates, numbers, and names in each script.</li>
+            <li><strong>Ink and paper degradation:</strong> Records from the 1960s and 1970s are often written in iron gall ink that has faded to near-invisibility, on paper that has yellowed, stained, or partially deteriorated. A good preprocessing stage tries multiple enhancement strategies and selects the best result per-region rather than per-page, because degradation is often uneven across a single page.</li>
+            <li><strong>Multi-language content:</strong> A single register page might contain field headers in English, data entries in Devanagari, and annotations in a third language. The VLM handles this natively — it does not need separate models or modes for different scripts — but the validation rules need to be language-aware to correctly parse dates, numbers, and names in each script.</li>
             <li><strong>Stamps and annotations overlapping data:</strong> Government records frequently have official stamps, signatures, and margin annotations that overlap with data fields. The VLM is generally capable of reading text beneath or around stamps, but in severe cases the validation layer flags these for human review rather than guessing.</li>
-            <li><strong>Government-format export:</strong> The final output must conform to specific database schemas defined by government IT systems. These schemas vary by state and department. Our export layer transforms the extracted data into the required format, including generating checksums and validation reports that the receiving system expects.</li>
+            <li><strong>Government-format export:</strong> The final output must conform to specific database schemas defined by government IT systems. These schemas vary by state and department. The export layer transforms the extracted data into the required format, including generating checksums and validation reports that the receiving system expects.</li>
           </ul>
           <h2 id="lessons-that-apply-to-any-document-heavy-enterprise">Lessons That Apply to Any Document-Heavy Enterprise</h2>
-          <p>While this project was specific to government archives, the lessons we learned apply broadly to any enterprise dealing with complex document processing — insurance carriers processing handwritten claim forms, healthcare organizations digitizing patient records, financial institutions handling legacy documents.</p>
+          <p>Although this design is specific to government archives, the lessons apply broadly to any enterprise dealing with complex document processing — insurance carriers processing handwritten claim forms, healthcare organizations digitizing patient records, financial institutions handling legacy documents.</p>
           <ul>
             <li><strong>Start with the hardest documents.</strong> If your pipeline can handle degraded handwritten records in non-Latin scripts, it can handle everything else. Starting with easy documents and hoping to tackle hard ones later is how digitization projects stall — the hard documents are where the volume lives and where the value is.</li>
             <li><strong>Build validation into the pipeline, not after it.</strong> Catching errors during extraction is orders of magnitude cheaper than catching them after the data has entered downstream systems. Every validation rule you add during pipeline development saves exponentially more manual effort in production.</li>
@@ -527,11 +528,11 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
             <li><strong>Export in the customer's format, not yours.</strong> The most technically elegant JSON schema is worthless if the receiving system expects a flat CSV with specific column names and date formats. Understanding the customer's data format requirements — and building export adapters for them — is as important as getting the extraction right.</li>
             <li><strong>Measure field-level accuracy, not character-level.</strong> A character-level accuracy of 95% can mean a field-level accuracy of 70% or lower, because a single wrong character in a name or number makes the entire field wrong. Field-level accuracy is what determines whether the extracted data is actually usable.</li>
           </ul>
-          <p>Government archive digitization is one of the most challenging document processing problems in existence. The combination of handwritten content, non-Latin scripts, decades-old paper quality, and the legal stakes of getting it wrong means that any solution must be technically sophisticated, rigorously validated, and honest about its limitations. The pipeline we built — and continue to refine — proves that it is possible to do this at scale, with accuracy that meets government requirements, at a cost that makes large-scale digitization economically viable.</p>
+          <p>Government archive digitization is one of the hardest document processing problems there is. Handwritten content, non-Latin scripts, decades-old paper and the legal stakes of getting it wrong mean any solution must be technically careful, rigorously validated, and honest about its limits. The design above is how to make it tractable; whether it meets a given department's accuracy bar is something to measure on that department's registers before anyone promises it.</p>
 
           <div class="mt-12 pt-8 border-t border-white/10 text-center">
             <p class="text-white text-lg font-semibold mb-2">Have documents that need to become data?</p>
-            <p class="text-slate-400 mb-6">Whether it is government archives, medical records, or insurance forms — let us show you what our pipeline can do.</p>
+            <p class="text-slate-400 mb-6">Whether it is government archives, medical records, or insurance forms, bring a sample and we will run the pipeline on it with you.</p>
             <a href="/#contact" class="cta-primary inline-block px-8 py-3 rounded-lg text-sm font-semibold text-white">
               <span class="flex items-center gap-2">
                 Book a Demo

@@ -6,7 +6,7 @@ weight: 40
 tags: [Voice AI, Evaluation, Agentic AI]
 highlight: Latency Budget
 ctaTitle: Want to hear the difference latency makes?
-ctaText: XentoVoX runs sub-500ms response in production. Book a call and judge it by ear.
+ctaText: Call XentoVoX and judge the latency yourself, by ear.
 ctaLabel: Book a Demo
 ctaHref: /xentovox/
 ---

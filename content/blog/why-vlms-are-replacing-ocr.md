@@ -33,15 +33,15 @@ The key differences matter enormously in practice:
 - **Spatial and semantic awareness.** VLMs understand that a value in the third column of a table row belongs to the header of that column. They understand that text below a "Remarks" heading is contextually different from text in a data field. They understand signatures, stamps, and crossed-out corrections.
 - **Contextual validation built in.** A VLM can recognize that a date field contains an impossible value (month 15) or that a name field contains what appears to be an address. This kind of contextual error detection is something OCR pipelines only achieve with extensive post-processing rules.
 
-## A Real-World Comparison: Government Land Records
+## A Worked Example: Handwritten Government Land Records
 
-In one of our deployments, we processed hundreds of thousands of handwritten government land records — registers maintained for decades by local revenue offices, written in regional scripts with varying handwriting quality, on paper that ranged from well-preserved to severely degraded.
+Consider a typical digitization target: land registers maintained for decades by local revenue offices, written in regional scripts with varying handwriting quality, on paper that ranges from well-preserved to severely degraded.
 
-When we benchmarked traditional OCR against our VLM pipeline on this dataset, the results were not close. OCR produced character-level accuracy below 50% on handwritten Devanagari entries, with field-level extraction accuracy (correctly identifying and extracting a complete field like "owner name" or "survey number") below 30%. The output required so much manual correction that it was faster to key the data in from scratch.
+This is where the gap between the two approaches is widest. Character-level OCR on handwritten Devanagari commonly falls below 50% accuracy, and field-level accuracy (correctly extracting a complete field such as "owner name" or "survey number") is lower still, because one wrong character spoils the whole field. Output at that level usually takes longer to correct than to key in from scratch.
 
-The VLM pipeline achieved field-level extraction accuracy above 85% on the same documents, with confidence scoring that allowed human reviewers to focus only on the 15-20% of fields where the model was uncertain. Total processing time per record dropped by more than 60% compared to manual digitization, and the accuracy of the final output — after human-in-the-loop review — exceeded 99%.
+A VLM pipeline changes the shape of the work rather than eliminating it. The model extracts whole fields with a confidence score for each, and reviewers look only at the fields the model is unsure of. For illustration, if 15-20% of fields fall below the review threshold, reviewers check one or two fields in a ten-field record instead of typing all ten, and that is where the time saving comes from. The real share depends on your documents and has to be measured on a labelled sample of them before anyone quotes a number.
 
-The difference was not just in accuracy. The VLM pipeline required no templates. When we encountered a new register format — different column order, different field labels, handwritten column headers — we updated the extraction prompt, not the code. That kind of adaptability is impossible with template-based OCR.
+The other difference is adaptability. A VLM pipeline needs no templates. When a new register format turns up — different column order, different field labels, handwritten column headers — you update the extraction prompt, not the code. Template-based OCR cannot do that.
 
 ## When OCR Is Still the Right Answer
 
@@ -57,7 +57,7 @@ But for complex documents — handwritten content, variable layouts, multi-langu
 
 Raw VLM extraction is powerful, but it is still just the first step. The real value emerges when you embed VLM extraction within an agentic pipeline — a system of specialized AI agents that work together to ensure accuracy and completeness.
 
-In our architecture, the pipeline works like this: a VLM extracts fields from the document image. A validation agent checks the extracted data against business rules and cross-references between fields (does the total area equal the sum of individual plot areas?). An auto-correction agent attempts to resolve low-confidence extractions using contextual clues. And for fields that remain below the confidence threshold, a human reviewer sees the original image side-by-side with the extracted data and makes the final call.
+In a well-designed architecture, the pipeline works like this: a VLM extracts fields from the document image. A validation agent checks the extracted data against business rules and cross-references between fields (does the total area equal the sum of individual plot areas?). An auto-correction agent attempts to resolve low-confidence extractions using contextual clues. And for fields that remain below the confidence threshold, a human reviewer sees the original image side-by-side with the extracted data and makes the final call.
 
 This combination — VLM extraction, agentic validation, auto-correction, and human-in-the-loop review — is what delivers enterprise-grade accuracy. No single component does it alone. The VLM handles the hard perception problem. The agents handle the logic and consistency problem. And humans handle the judgment problem.
 

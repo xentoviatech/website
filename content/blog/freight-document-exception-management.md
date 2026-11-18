@@ -7,7 +7,7 @@ highlight: Not the Resolution
 ctaTitle: Want your document exceptions surfaced automatically?
 ctaText: We will run a week of your operational documents and show you what a reconciled exception queue looks like.
 ctaLabel: Book a Demo
-ctaHref: /#contact
+ctaHref: /simplimpex/
 ---
 
 Freight forwarding and logistics operations are exception-driven. When everything matches, the shipment moves without anyone thinking about it. The work is entirely in the cases where something does not match: a weight discrepancy, a missing document, a rate that does not agree with the contract, a delivery that did not happen as scheduled.

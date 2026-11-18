@@ -7,7 +7,7 @@ highlight: Without Losing the Plot
 ctaTitle: Want to see FNOL intake automated end to end?
 ctaText: Bring a week of real notices — email, PDF, ACORD, phone transcripts. We will show you what gets through untouched.
 ctaLabel: Book a Demo
-ctaHref: /#contact
+ctaHref: /solutions/insurance/
 ---
 
 First notice of loss is where a claim's entire trajectory is set. Severity is estimated, coverage is checked, an adjuster is assigned, reserves are posted, and the customer forms their opinion of your company. Everything that happens later is shaped by decisions made in the first hours.

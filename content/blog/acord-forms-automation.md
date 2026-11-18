@@ -7,7 +7,7 @@ highlight: Are Not
 ctaTitle: Want your ACORD intake measured honestly?
 ctaText: Send us a month of real submissions. We will report per-field accuracy across every variant you receive.
 ctaLabel: Book a Demo
-ctaHref: /#contact
+ctaHref: /solutions/insurance/
 ---
 
 On paper, ACORD forms should be the simplest possible document AI problem. A standardised industry form, defined layout, named fields, published versions. Point a template at it and go.

@@ -7,7 +7,7 @@ highlight: Model Governance
 ctaTitle: Need governance artefacts for your risk committee?
 ctaText: We provide the documentation, monitoring and audit trail that model risk reviews ask for. Ask us what the package contains.
 ctaLabel: Talk to Us
-ctaHref: /#contact
+ctaHref: /solutions/insurance/
 ---
 
 Insurance supervisors across major markets have converged on a broadly similar expectation: an insurer using AI in its operations should be able to explain what the system does, demonstrate that it is monitored, show that consumers are not being unfairly disadvantaged, and produce evidence rather than assurances.

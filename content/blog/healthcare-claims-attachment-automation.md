@@ -7,7 +7,7 @@ highlight: The Unstructured Half
 ctaTitle: Want your attachment workflow measured?
 ctaText: Send us a sample of the documentation you receive or submit. We will show classification, extraction and completeness checking on it.
 ctaLabel: Book a Demo
-ctaHref: /#contact
+ctaHref: /solutions/healthcare/
 ---
 
 Healthcare claims transactions themselves are highly standardised and largely electronic. The supporting documentation is neither.

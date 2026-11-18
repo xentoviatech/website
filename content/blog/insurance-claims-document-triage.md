@@ -7,7 +7,7 @@ highlight: Before Anyone Reads It
 ctaTitle: Want your claim files triaged automatically?
 ctaText: We will run a sample of real claim correspondence and show you the routing, the completeness checks and the exceptions.
 ctaLabel: Book a Demo
-ctaHref: /#contact
+ctaHref: /solutions/insurance/
 ---
 
 A claim of any complexity accumulates a file: the loss notice, photographs, repair estimates, invoices, medical records, police reports, correspondence, coverage documents, expert reports, legal notices. They arrive over weeks, from different senders, through different channels, in no particular order.

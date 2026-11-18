@@ -7,7 +7,7 @@ highlight: Nobody Has Time
 ctaTitle: Curious how much recovery you are leaving behind?
 ctaText: We will screen a sample of closed files and show you what a systematic review surfaces.
 ctaLabel: Book a Demo
-ctaHref: /#contact
+ctaHref: /solutions/insurance/
 ---
 
 Subrogation is one of the few functions in claims where the return is measured directly in recovered money. It is also one of the most consistently under-resourced, for a structural reason: identifying recovery potential requires reading the file, and reading every file is not economic.

@@ -31,6 +31,12 @@ jobs:
       - name: Verify every internal link and asset resolves
         run: node tools/check-links.mjs
 
+      - name: Stage the public site without internal files
+        run: >-
+          rsync -a ./ _site/
+          --exclude=/_site --exclude=/.git --exclude=/.github --exclude='/*.md'
+          --exclude=/content --exclude=/tools --exclude=/partials --exclude=/test-results
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
@@ -39,7 +45,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment

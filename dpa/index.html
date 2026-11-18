@@ -336,14 +336,14 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </summary>
           <div class="pl-3 mt-1 space-y-1 border-l border-white/10">
             <p class="pt-2 pb-0.5 text-[11px] font-semibold uppercase tracking-wider text-slate-500">Platforms</p>
-            <a href="/xentovox/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Front Desk agents</span> <span class="text-xs text-slate-400">&middot; Front Desk</span></a>
-            <a href="/xentoaxar/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Document AI</span> <span class="text-xs text-slate-400">&middot; Document AI</span></a>
-            <a href="/#platforms" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Vision AI</span> <span class="text-xs text-slate-400">&middot; Vision AI</span></a>
-            <a href="/#platforms" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Business Ops</span> <span class="text-xs text-slate-400">&middot; Business Ops</span></a>
+            <a href="/xentovox/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Front Desk agents</span> <span class="text-xs text-slate-400">&middot; Voice, WhatsApp, chat and video</span></a>
+            <a href="/xentoaxar/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Document AI</span> <span class="text-xs text-slate-400">&middot; Documents and handwritten records</span></a>
+            <a href="/#platforms" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Vision AI</span> <span class="text-xs text-slate-400">&middot; Detection, counts and site evidence</span></a>
+            <a href="/#platforms" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">Business Ops</span> <span class="text-xs text-slate-400">&middot; HR, hiring and expenses agents</span></a>
             <p class="pt-2 pb-0.5 text-[11px] font-semibold uppercase tracking-wider text-slate-500">Industry products</p>
-            <a href="/xentoscribe/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">XentoScribe</span> <span class="text-xs text-slate-400">&middot; XentoScribe</span></a>
-            <a href="/simplimpex/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">SimplImpex</span> <span class="text-xs text-slate-400">&middot; SimplImpex</span></a>
-            <a href="/solutions/xentostay/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">XentoStay</span> <span class="text-xs text-slate-400">&middot; XentoStay</span></a>
+            <a href="/xentoscribe/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">XentoScribe</span> <span class="text-xs text-slate-400">&middot; Pathology reporting for labs</span></a>
+            <a href="/simplimpex/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">SimplImpex</span> <span class="text-xs text-slate-400">&middot; Customs filing for CHAs</span></a>
+            <a href="/solutions/xentostay/" class="block py-1 text-sm text-slate-300 hover:text-white"><span class="font-medium text-white">XentoStay</span> <span class="text-xs text-slate-400">&middot; Reservations desk for resorts</span></a>
           </div>
         </details>
         <a href="/#security" class="block text-sm text-slate-400 hover:text-white py-2">Security</a>
@@ -390,7 +390,7 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
         <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
           Data Processing <span class="gradient-text">Agreement</span>
         </h1>
-        <p class="text-slate-500 text-sm">Last updated: April 1, 2026</p>
+        <p class="text-slate-500 text-sm">Last updated: November 18, 2026</p>
       </div>
 
       <!-- Content -->
@@ -576,9 +576,9 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
 
         <h3>4.3 Infrastructure Security</h3>
         <ul>
-          <li><strong class="text-slate-200">Tenant Isolation:</strong> Customer data is logically isolated at the infrastructure level, ensuring strict separation between tenants.</li>
+          <li><strong class="text-slate-200">Tenant Isolation:</strong> Customer data is isolated per organisation at the database level (row-level security), not only in the application.</li>
           <li><strong class="text-slate-200">Network Security:</strong> Firewalls, intrusion detection systems, and network segmentation protect the processing environment.</li>
-          <li><strong class="text-slate-200">Vulnerability Management:</strong> Regular vulnerability scanning and penetration testing are conducted, with critical vulnerabilities remediated promptly.</li>
+          <li><strong class="text-slate-200">Vulnerability Management:</strong> Hosts and dependencies are kept patched, and critical vulnerabilities are remediated promptly.</li>
         </ul>
 
         <h3>4.4 Monitoring and Logging</h3>
@@ -610,8 +610,13 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           following Sub-processors. This list is current as of the date of this DPA:
         </p>
         <ul>
-          <li><strong class="text-slate-200">Amazon Web Services (AWS)</strong> — Cloud infrastructure, compute, storage, and database services. Processing locations: United States, with availability in EU and Asia-Pacific regions as configured by the Customer.</li>
-          <li><strong class="text-slate-200">Google Cloud Platform (Gemini API)</strong> — AI model inference via Google's Gemini API for document understanding, classification, and data extraction. Processing locations: United States.</li>
+          <li><strong class="text-slate-200">OVHcloud</strong> — Hosting: compute, storage and databases for the Services. Processing location: India (Mumbai).</li>
+          <li><strong class="text-slate-200">Anthropic, Google (Gemini API), OpenAI</strong> — AI model inference for agent conversations, document understanding, classification and extraction, called through Xentovia's own model gateway. Processing locations: United States and other regions where the provider operates.</li>
+          <li><strong class="text-slate-200">ElevenLabs, Sarvam AI</strong> — Speech recognition and speech synthesis for voice agents. Processing locations: as operated by each provider (Sarvam AI: India).</li>
+          <li><strong class="text-slate-200">Plivo</strong> — Telephony for inbound and outbound voice calls, where the Customer uses voice agents.</li>
+          <li><strong class="text-slate-200">Meta Platforms (WhatsApp Business Platform)</strong> — WhatsApp messaging, where the Customer enables the WhatsApp channel.</li>
+          <li><strong class="text-slate-200">Google Workspace</strong> — Email delivery and receipt for notifications and mailboxes the Customer connects.</li>
+          <li><strong class="text-slate-200">Anam</strong> — Video avatar rendering, where the Customer enables an avatar agent.</li>
         </ul>
 
         <h3>5.2 Sub-processor Changes</h3>
@@ -640,9 +645,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           processed in the following jurisdictions:
         </p>
         <ul>
-          <li><strong class="text-slate-200">India</strong> — Xentovia's primary operations and engineering team are based in India.</li>
-          <li><strong class="text-slate-200">United States</strong> — Cloud infrastructure (AWS) and AI model inference (Google Cloud / Gemini API).</li>
-          <li><strong class="text-slate-200">European Union</strong> — Available as a processing region upon Customer request for AWS-hosted services.</li>
+          <li><strong class="text-slate-200">India</strong> — Hosting of the Services (OVHcloud, Mumbai) and Xentovia's operations and engineering team.</li>
+          <li><strong class="text-slate-200">United States and other provider regions</strong> — AI model inference and speech processing by the Sub-processors listed in section 5.1, limited to the content each request needs.</li>
         </ul>
 
         <h3>6.2 Transfer Mechanisms</h3>
@@ -760,7 +764,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
         <ul>
           <li><strong class="text-slate-200">Privacy Email:</strong> <a href="mailto:privacy@xentovia.ai">privacy@xentovia.ai</a></li>
           <li><strong class="text-slate-200">General Inquiries:</strong> <a href="mailto:sales@xentovia.ai">sales@xentovia.ai</a></li>
-          <li><strong class="text-slate-200">Entity:</strong> Xentovia Tech Private Limited</li>
+          <li><strong class="text-slate-200">Entity:</strong> Xentovia Tech Private Limited (CIN U62011KA2026PTC216822)</li>
+          <li><strong class="text-slate-200">Registered office:</strong> SY No 30/3, United Suncity, KR Puram, Bengaluru 560067, Karnataka, India</li>
         </ul>
 
       </div>

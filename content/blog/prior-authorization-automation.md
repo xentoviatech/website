@@ -7,7 +7,7 @@ highlight: Not the Decision
 ctaTitle: Want prior auth packets assembled automatically?
 ctaText: We will run your intake — faxes, portal submissions, clinical attachments — and show you what a complete, indexed request looks like on arrival.
 ctaLabel: Book a Demo
-ctaHref: /#contact
+ctaHref: /solutions/healthcare/
 ---
 
 Prior authorization consumes an enormous amount of administrative effort on both sides of the transaction, and almost none of it is the clinical judgement the process exists to apply.

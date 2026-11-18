@@ -7,7 +7,7 @@ highlight: Different Problems
 ctaTitle: Deciding between ambient capture and structured dictation?
 ctaText: We build structured dictation for high-precision specialties. Happy to help you work out which of your departments needs which.
 ctaLabel: Talk to Us
-ctaHref: /#contact
+ctaHref: /xentoscribe/
 ---
 
 Two categories of clinical voice product are frequently compared as though they were alternatives: ambient documentation, which listens to a clinical encounter and drafts a note, and structured dictation, where a clinician deliberately dictates into a defined report format.

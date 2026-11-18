@@ -7,7 +7,7 @@ highlight: Without Creating a HIPAA Problem
 ctaTitle: Need a BAA and a deployment model that satisfies your privacy office?
 ctaText: We will walk your security and privacy teams through data flows, subprocessors, retention and deployment options.
 ctaLabel: Talk to Us
-ctaHref: /#contact
+ctaHref: /solutions/healthcare/
 ---
 
 Clinical documents are among the most valuable targets for document AI and the least forgiving. The content is protected health information, the handling requirements are specific, and the consequences of getting it wrong are regulatory rather than merely operational.
