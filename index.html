@@ -733,6 +733,8 @@ dd a{color:var(--lilac)}
 .callwin .wave{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:4px;align-items:flex-end;height:28px}
 .callwin .wave i{width:4px;height:6px;background:var(--lilac);border-radius:2px}
 .callwin .livepill{position:absolute;top:14px;left:14px;font-size:13px;background:rgba(0,0,0,.3);padding:4px 10px;border-radius:999px}
+.callwin [hidden]{display:none}
+.callwin .sound{align-self:flex-start;background:var(--lilac);color:var(--navy);border:0;border-radius:6px;padding:9px 14px;font:700 14px Arial,sans-serif;cursor:pointer}
 .callwin .vid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:14px}
 .callwin .vid .livepill,.callwin .vid .note2{z-index:1}
 .callwin .note2{position:absolute;bottom:14px;right:14px;font-size:12px;color:var(--muted)}
@@ -794,7 +796,7 @@ dd a{color:var(--lilac)}
     <div class="ctas"><button class="btn btn-p" id="talk" aria-controls="call" aria-expanded="false">Start a video call</button><a class="btn btn-l" href="/#contact">Book a demo</a></div>
   </div>
   <div class="callwin" aria-label="Recorded example of an agent on a call">
-    <div class="vid" id="heroVid" data-clip="" data-poster=""><span class="livepill">● Example call</span><div class="face">X</div><div class="wave"><i></i><i></i><i></i><i></i><i></i></div><span class="note2">AI agent</span></div>
+    <div class="vid" id="heroVid" data-clip="/assets/video/xentovia-agent-hi.mp4" data-poster="/assets/video/xentovia-agent-hi-poster.jpg"><span class="livepill">● AI agent, recorded</span><div class="face">X</div><div class="wave"><i></i><i></i><i></i><i></i><i></i></div><span class="note2">AI agent</span></div>
     <div class="capt" id="capt" aria-live="polite"></div>
     <div class="acts" id="acts"></div>
   </div>
@@ -934,8 +936,12 @@ let li=0;function stepA(){const c=document.getElementById('capt'),a=document.get
 const HV=document.getElementById('heroVid'),clip=HV&&HV.dataset.clip;
 if(clip){const v=document.createElement('video');v.src=clip;if(HV.dataset.poster)v.poster=HV.dataset.poster;v.muted=true;v.loop=true;v.playsInline=true;v.setAttribute('aria-label','Recorded example of an AI agent taking a call in Hindi');
  HV.querySelector('.face').remove();HV.querySelector('.wave').remove();HV.appendChild(v);
+ const cw=HV.closest('.callwin');cw.querySelector('.capt').hidden=true;cw.querySelector('.acts').hidden=true;
+ const sb=document.createElement('button');sb.type='button';sb.className='sound';sb.textContent='Turn sound on';
+ sb.addEventListener('click',()=>{v.muted=!v.muted;sb.textContent=v.muted?'Turn sound on':'Turn sound off';if(!v.muted){v.currentTime=0;v.play().catch(()=>{})}});
+ cw.querySelector('.capt').after(sb);
  if(!reduce&&'IntersectionObserver' in window){new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?v.play().catch(()=>{}):v.pause()),{threshold:.3}).observe(v)}}
-if(reduce){L.forEach(()=>stepA())}else{stepA();setInterval(stepA,2600)}
+if(!clip){if(reduce){L.forEach(()=>stepA())}else{stepA();setInterval(stepA,2600)}}
 const EV=["Mumbai: call answered in Marathi, booking made","Delhi: invoice read, 1 field flagged for review","Bengaluru: web enquiry qualified, routed to sales","Pune: truck 41 logged out, record sealed","Chennai: shipping bill drafted from documents","Hyderabad: WhatsApp lead captured at 2:14 am"];
 let n=0,e=0;const big=document.getElementById('big'),tick=document.getElementById('tick');
 const setBig=v=>big.firstChild.nodeValue=v.toLocaleString('en-IN');
