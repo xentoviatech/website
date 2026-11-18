@@ -707,16 +707,16 @@ dd a{color:var(--lilac)}
   section{padding:72px 0}
 }
 
-.call{position:fixed;right:24px;bottom:24px;width:360px;background:var(--deep);border-radius:16px;color:#DCE3F5;box-shadow:0 0 0 1px rgba(255,255,255,.12);overflow:hidden;z-index:10;display:none}
+.call{position:fixed;right:24px;bottom:96px;width:360px;background:var(--deep);border-radius:16px;color:#DCE3F5;box-shadow:0 0 0 1px rgba(255,255,255,.12);overflow:hidden;z-index:10;display:none}
 .call.open{display:block}
 .call .vid{height:300px;background:#1B3480;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;font-size:14px;text-align:center;padding:16px}
-.call .face{width:120px;height:120px;border-radius:50%;background:#2A4596;display:flex;align-items:center;justify-content:center;font:700 48px 'Liberation Serif',serif;color:#fff}
+.call .face{width:120px;height:120px;border-radius:50%;background:#2A4596;display:flex;align-items:center;justify-content:center;font:700 48px 'Liberation Serif',serif;color:#fff;background:url(/assets/video/mira-hi-poster.jpg?v=2) 50% 30%/cover;color:transparent}
 .call .say{background:rgba(0,0,0,.25);border-radius:8px;padding:10px 12px;color:#fff;font-size:15px}
 .call .ctl{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;font-size:14px}
 .call .end{background:#B3261E;color:#fff;border:0;border-radius:6px;padding:9px 14px;font:700 14px Arial,sans-serif;cursor:pointer}
 .call .langs{display:flex;gap:6px}.call .langs span{border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:3px 10px;font-size:13px}
 .call .guard{font-size:12px;color:var(--muted);padding:0 16px 14px}
-@media (max-width:600px){.call{left:12px;right:12px;width:auto;bottom:12px}}
+@media (max-width:600px){.call{left:12px;right:12px;width:auto;bottom:84px}}
 
 /* hero A */
 .heroA{background:var(--navy);color:#fff;padding:136px 0 96px}
@@ -975,12 +975,12 @@ async function startCall(){
   room.on(LK.RoomEvent.TrackSubscribed,(track)=>{const el=track.attach();
    if(track.kind==='video'){cv.querySelector('.face').hidden=true;el.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:14px';cv.prepend(el)}
    else{el.hidden=true;document.body.appendChild(el);media.push(el)}});
-  room.on(LK.RoomEvent.ParticipantConnected,()=>say('Agent connected. Say namaste.'));
+  room.on(LK.RoomEvent.ParticipantConnected,()=>say('Mira is listening. Say namaste.'));
   room.on(LK.RoomEvent.Disconnected,()=>{if(room)endCall()});
   const ice=d.turn_credentials?[{urls:d.turn_credentials.urls,username:d.turn_credentials.username,credential:d.turn_credentials.password}]:undefined;
   await room.connect(d.livekit_url,d.livekit_token,ice?{rtcConfig:{iceServers:ice}}:{});
   await room.localParticipant.setMicrophoneEnabled(true);
-  say(room.remoteParticipants.size?'Agent connected. Say namaste.':'Waiting for the agent…');
+  say(room.remoteParticipants.size?'Mira is listening. Say namaste.':'Waiting for the agent…');
   let left=VOICE_DEMO.maxSeconds;
   tm=setInterval(()=>{left--;tmrEl.textContent=Math.floor(left/60)+':'+String(left%60).padStart(2,'0')+' left';if(left<=0)endCall()},1000);
  }catch(e){if(room){room.disconnect();room=null}
