@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Xentovia — Agentic AI for Enterprise</title>
-  <meta name="description" content="AI agents that answer calls in Indian languages, read and digitise documents, and record site evidence at enterprise volume. Your teams approve only the exceptions.">
+  <meta name="description" content="AI agents that answer calls in your customers’ languages, read and digitise documents, and record site evidence at enterprise volume. Your teams approve only the exceptions.">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://xentovia.ai/">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Xentovia — Agentic AI for Enterprise">
-  <meta property="og:description" content="AI agents that answer calls in Indian languages, read and digitise documents, and record site evidence at enterprise volume. Your teams approve only the exceptions.">
+  <meta property="og:description" content="AI agents that answer calls in your customers’ languages, read and digitise documents, and record site evidence at enterprise volume. Your teams approve only the exceptions.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://xentovia.ai/">
   <meta property="og:image" content="https://xentovia.ai/assets/brand/og-home.png">
@@ -22,7 +22,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Xentovia — Agentic AI for Enterprise">
-  <meta name="twitter:description" content="AI agents that answer calls in Indian languages, read and digitise documents, and record site evidence at enterprise volume. Your teams approve only the exceptions.">
+  <meta name="twitter:description" content="AI agents that answer calls in your customers’ languages, read and digitise documents, and record site evidence at enterprise volume. Your teams approve only the exceptions.">
   <meta name="twitter:image" content="https://xentovia.ai/assets/brand/og-home.png">
 
   <!-- Favicons -->
@@ -792,7 +792,7 @@ dd a{color:var(--lilac)}
 <div class="heroA" id="hero"><div class="wrap grid">
   <div>
     <h1>Meet the agent that takes your calls.</h1>
-    <p>It speaks Hindi and English, books the appointment, logs the lead and hands the hard ones to your team, at enterprise volume. Talk to her now.</p>
+    <p>She speaks your customers’ language, books the appointment, logs the lead and hands the hard ones to your team, at enterprise volume. Talk to her now.</p>
     <div class="ctas"><button class="btn btn-p" id="talk" aria-controls="call" aria-expanded="false">Talk to Mira</button><a class="btn btn-l" href="/#contact">Book a demo</a></div>
   </div>
   <div class="callwin" aria-label="Recorded example of an agent on a call">
@@ -837,7 +837,7 @@ dd a{color:var(--lilac)}
     </div>
     <ul class="capsl">
       <li><div><b>Invoices, bills and filings</b>Read, checked against your records, exported to Tally or filed.</div><em>Live</em></li>
-      <li><div><b>Voice and contact centre</b>Calls answered in Indian languages, with booking and hand-off.</div><em>Live</em></li>
+      <li><div><b>Voice and contact centre</b>Calls answered in your customers’ languages, with booking and hand-off.</div><em>Live</em></li>
       <li><div><b>Enquiry capture</b>WhatsApp, web chat and ad leads, qualified and routed.</div><em>Live</em></li>
       <li><div><b>Dictation to reports</b>Spoken findings become a structured, signed report.</div><em>Live</em></li>
       <li><div><b>Inbox agents</b>Shared mailboxes read, sorted and turned into records.</div><em>Live</em></li>
@@ -867,7 +867,7 @@ dd a{color:var(--lilac)}
     <div class="p main">
       <h3>Front Desk</h3>
       <p>One agent that answers every channel your customers use, books and qualifies, and hands over with the full conversation.</p>
-      <div class="chans"><span>Voice</span><span>WhatsApp</span><span>Web chat</span><span>Video</span><span>Hindi and regional languages</span></div>
+      <div class="chans"><span>Voice</span><span>WhatsApp</span><span>Web chat</span><span>Video</span><span>Multilingual</span></div>
       <div class="unit"><b>Priced per conversation handled</b></div>
     </div>
     <div class="p"><h3>Document AI</h3><p>Invoices, forms, handwritten registers and dictation become checked, structured data. Every field links to where it was read.</p><div class="unit"><b>Per document</b></div></div>
@@ -883,7 +883,7 @@ dd a{color:var(--lilac)}
   <h2>Built for enterprise trust.</h2>
   <p class="lead" style="color:#DCE3F5">What your security and compliance teams will ask about.</p>
   <dl>
-    <div><dt>Your data stays in India</dt><dd>Hosted in Mumbai. Each organisation is isolated at the database level, not only in the app.</dd></div>
+    <div><dt>Hosted in India</dt><dd>Runs in a Mumbai data centre. Each organisation is isolated at the database level, not only in the app.</dd></div>
     <div><dt>Every decision is on record</dt><dd>Transcripts, extracted fields with their source, approvals and every admin action.</dd></div>
     <div><dt>No lock-in to one AI model</dt><dd>All model traffic runs through our own gateway, so we move to the best model without changing your setup.</dd></div>
     <div><dt>Built on published research</dt><dd>Our CTO's peer-reviewed work in computer vision and explainable AI, Springer Nature 2026. <a href="/research/">Read the research</a></dd></div>
@@ -927,7 +927,7 @@ function show(i){tabs.forEach((t,j)=>t.setAttribute('aria-selected',j===i));
  document.getElementById('b').textContent=P[i][0];document.getElementById('a').textContent=P[i][1];document.getElementById('s').textContent=P[i][2];}
 tabs.forEach((t,i)=>t.addEventListener('click',()=>show(i)));show(0);
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const L=[["Caller","Namaste, kal subah doctor se milna hai."],["Agent","Ji zaroor. Kal 11 baje Dr. Mehta free hain, book kar doon?"],["Caller","Haan, kar dijiye."],["Agent","Ho gaya. Confirmation WhatsApp par bhej diya hai."]];
+const L=[["Caller","Hi, I’d like to see the doctor tomorrow morning."],["Agent","Of course. The doctor is free at 11. Shall I book it?"],["Caller","Yes, please."],["Agent","Done. I’ve sent the confirmation on WhatsApp."]];
 const A=["Patient matched","Slot held, Thu 11:00","Appointment booked","WhatsApp confirmation sent"];
 let li=0;function stepA(){const c=document.getElementById('capt'),a=document.getElementById('acts');
  c.innerHTML='<span class="who">'+L[li][0]+'</span>'+L[li][1];if(li===0)a.innerHTML='';
@@ -975,12 +975,12 @@ async function startCall(){
   room.on(LK.RoomEvent.TrackSubscribed,(track)=>{const el=track.attach();
    if(track.kind==='video'){cv.querySelector('.face').hidden=true;el.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:14px';cv.prepend(el)}
    else{el.hidden=true;document.body.appendChild(el);media.push(el)}});
-  room.on(LK.RoomEvent.ParticipantConnected,()=>say('Mira is listening. Say hello in English or Hindi.'));
+  room.on(LK.RoomEvent.ParticipantConnected,()=>say('Mira is listening. Say hello.'));
   room.on(LK.RoomEvent.Disconnected,()=>{if(room)endCall()});
   const ice=d.turn_credentials?[{urls:d.turn_credentials.urls,username:d.turn_credentials.username,credential:d.turn_credentials.password}]:undefined;
   await room.connect(d.livekit_url,d.livekit_token,ice?{rtcConfig:{iceServers:ice}}:{});
   await room.localParticipant.setMicrophoneEnabled(true);
-  say(room.remoteParticipants.size?'Mira is listening. Say hello in English or Hindi.':'Waiting for the agent…');
+  say(room.remoteParticipants.size?'Mira is listening. Say hello.':'Waiting for the agent…');
   let left=VOICE_DEMO.maxSeconds;
   tm=setInterval(()=>{left--;tmrEl.textContent=Math.floor(left/60)+':'+String(left%60).padStart(2,'0')+' left';if(left<=0)endCall()},1000);
  }catch(e){if(room){room.disconnect();room=null}
@@ -1130,7 +1130,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&call.classList.cont
         <p class="lead">Talk to our agent right now, or tell us about the process and our team will set up a demo on your real volume.</p>
         <div class="grid2">
           <div class="pane">
-            <div class="mira"><img src="/assets/video/mira-hi-poster.jpg" alt="Mira, Xentovia’s AI agent"><div><b>Mira</b><span class="small">Xentovia’s AI agent, Hindi and English</span></div></div>
+            <div class="mira"><img src="/assets/video/mira-hi-poster.jpg" alt="Mira, Xentovia’s AI agent"><div><b>Mira</b><span class="small">Xentovia’s AI agent</span></div></div>
             <h3>Talk to Mira now</h3>
             <p>Ask her anything about how agents would handle your calls, enquiries or documents. A 3-minute voice call in your browser.</p>
             <button type="button" class="btnl" id="talk2">Talk to Mira</button>
