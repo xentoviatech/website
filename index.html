@@ -987,6 +987,7 @@ async function startCall(){
   fallback(e&&e.name==='NotAllowedError'?'Allow the microphone to talk to the agent.':'All our demo agents are busy right now.');talk.disabled=false}
 }
 talk.addEventListener('click',startCall);
+const talk2=document.getElementById('talk2');if(talk2)talk2.addEventListener('click',startCall);
 document.getElementById('end').addEventListener('click',endCall);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&call.classList.contains('open'))endCall()});
 </script>
@@ -1092,55 +1093,51 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&call.classList.cont
 
 
     <!-- ── Contact CTA ── -->
-    <section id="contact" class="relative py-14 lg:py-20">
-      <div class="max-w-5xl mx-auto px-6">
-
-        <div class="text-center mb-10">
-          <p class="animate-on-scroll text-sm font-semibold text-brand-400 uppercase tracking-widest mb-4">Get Started</p>
-          <h2 class="animate-on-scroll text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6">
-            Have a problem that needs <span class="gradient-text">AI agents?</span>
-          </h2>
-          <p class="animate-on-scroll text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Whether it's messy documents, visual inspection, or manual workflows draining your team &mdash;
-            tell us what you're dealing with. We'll tell you if we can help.
-          </p>
-        </div>
-
-        <div class="animate-on-scroll grid md:grid-cols-2 gap-8">
-
-          <!-- Book a Demo -->
-          <div class="glass rounded-2xl p-8 text-center">
-            <div class="icon-box mx-auto mb-5">
-              <i data-lucide="calendar" class="w-5 h-5 text-brand-400"></i>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">Book a Demo</h3>
-            <p class="text-sm text-slate-400 mb-6 leading-relaxed">
-              See our agentic pipelines in action with your document types.
-            </p>
-            <a href="mailto:sales@xentovia.ai?subject=Demo%20Request" class="cta-primary cta-on-navy inline-flex px-8 py-3.5 rounded-xl text-sm font-semibold">
-              <span class="flex items-center gap-2">
-                Book a Demo
-                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              </span>
-            </a>
-            <p class="text-xs text-slate-400 mt-4">30-minute call. No slides. Live demo with your documents.</p>
+    <section id="contact" class="ct">
+      <style>
+        .ct{background:#0D1D4F;color:#DCE3F5;padding:112px 0}
+        .ct .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+        .ct h2{font:700 clamp(34px,3.6vw,52px)/1.08 'Liberation Serif','Times New Roman',serif;color:#fff;max-width:18em;letter-spacing:-.01em}
+        .ct .lead{font-size:19px;max-width:36em;margin:20px 0 56px;color:#DCE3F5}
+        .ct .grid2{display:grid;grid-template-columns:1fr 1.2fr;gap:32px}
+        .ct .pane{background:#13296B;border-radius:16px;padding:36px}
+        .ct .pane h3{font:700 28px/1.2 'Liberation Serif','Times New Roman',serif;color:#fff;margin-bottom:10px}
+        .ct .pane p{font-size:16px;margin-bottom:24px}
+        .ct .mira{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+        .ct .mira img{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:50% 25%}
+        .ct .mira b{display:block;color:#fff;font-size:17px}
+        .ct .btnl{display:inline-block;background:#C9A6D6;color:#13296B;font:700 15px Arial,sans-serif;padding:13px 22px;border-radius:6px;border:0;cursor:pointer}
+        .ct .btnl:hover{background:#fff}
+        .ct form{display:grid;gap:12px}
+        .ct .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        .ct input,.ct textarea{width:100%;padding:13px 14px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:#fff;font:15px Arial,sans-serif}
+        .ct input::placeholder,.ct textarea::placeholder{color:#AAB6D6}
+        .ct input:focus,.ct textarea:focus{outline:2px solid #C9A6D6;outline-offset:1px}
+        .ct button[type=submit]{background:#C9A6D6;color:#13296B;font:700 15px Arial,sans-serif;padding:14px;border:0;border-radius:6px;cursor:pointer}
+        .ct button[type=submit]:hover{background:#fff}
+        .ct .small{font-size:13px;color:#AAB6D6}
+        @media (max-width:900px){.ct .grid2,.ct .two{grid-template-columns:1fr}.ct{padding:72px 0}}
+      </style>
+      <div class="wrap">
+        <h2>Talk to Mira, or book a demo with our team.</h2>
+        <p class="lead">Talk to our agent right now, or tell us about the process and our team will set up a demo on your real volume.</p>
+        <div class="grid2">
+          <div class="pane">
+            <div class="mira"><img src="/assets/video/mira-hi-poster.jpg" alt="Mira, Xentovia’s AI agent"><div><b>Mira</b><span class="small">Xentovia’s AI agent, Hindi and English</span></div></div>
+            <h3>Talk to Mira now</h3>
+            <p>Ask her anything about how agents would handle your calls, enquiries or documents. A 3-minute voice call in your browser.</p>
+            <button type="button" class="btnl" id="talk2">Talk to Mira</button>
           </div>
-
-          <!-- Tell Us Your Problem -->
-          <div class="glass rounded-2xl p-8">
-            <div class="icon-box mx-auto mb-5 md:mx-0">
-              <i data-lucide="message-circle" class="w-5 h-5 text-navy-400"></i>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3 text-center md:text-left">Tell Us Your Problem</h3>
-            <form id="contact-form" class="space-y-4" novalidate>
-              <input type="text" name="name" required autocomplete="name" placeholder="Name"
-                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400 text-sm focus:outline-none focus:border-brand-500/50 focus:ring-1 focus:ring-brand-500/25 transition-all">
-              <input type="email" name="email" required autocomplete="email" placeholder="Work email"
-                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400 text-sm focus:outline-none focus:border-brand-500/50 focus:ring-1 focus:ring-brand-500/25 transition-all">
-              <input type="text" name="company" autocomplete="organization" placeholder="Company"
-                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400 text-sm focus:outline-none focus:border-brand-500/50 focus:ring-1 focus:ring-brand-500/25 transition-all">
-              <textarea name="message" required rows="3" placeholder="Describe your problem"
-                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400 text-sm focus:outline-none focus:border-brand-500/50 focus:ring-1 focus:ring-brand-500/25 transition-all resize-none"></textarea>
+          <div class="pane">
+            <h3>Book a demo</h3>
+            <p>Tell us the process you want to hand over. We respond within 24 hours.</p>
+            <form id="contact-form" novalidate>
+              <div class="two">
+                <input type="text" name="name" required autocomplete="name" placeholder="Name" aria-label="Name">
+                <input type="email" name="email" required autocomplete="email" placeholder="Work email" aria-label="Work email">
+              </div>
+              <input type="text" name="company" autocomplete="organization" placeholder="Company" aria-label="Company">
+              <textarea name="message" required rows="3" placeholder="What process do you want to hand over?" aria-label="What process do you want to hand over?"></textarea>
               <!-- Honeypot. Hidden from people, irresistible to bots; the API rejects any
                    submission that fills it. aria-hidden + tabindex keep it away from
                    screen readers and keyboard tabbing. -->
@@ -1149,18 +1146,11 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&call.classList.cont
                   <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
                 </label>
               </div>
-              <button type="submit" class="w-full px-6 py-3.5 rounded-xl text-sm font-semibold text-white border border-lilac/60 hover:border-lilac hover:bg-white/10 transition-all">
-                <span class="flex items-center justify-center gap-2">
-                  Submit
-                  <i data-lucide="send" class="w-4 h-4"></i>
-                </span>
-              </button>
+              <button type="submit">Request a demo</button>
               <p id="contact-status" role="status" aria-live="polite" class="text-sm text-slate-300 hidden"></p>
             </form>
-            <p class="text-xs text-slate-400 mt-3 text-center md:text-left">We respond within 24 hours.</p>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -1381,7 +1371,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&call.classList.cont
         const email = (data.email || '').trim();
         const message = (data.message || '').trim();
         if (!name || !email || !message) {
-          say('Please fill in your name, work email and a short description.', 'bad');
+          say('Please fill in your name, work email and the process you want to hand over.', 'bad');
           return;
         }
 
