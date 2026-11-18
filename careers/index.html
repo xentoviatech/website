@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Careers — Xentovia Tech</title>
-  <meta name="description" content="Join Xentovia Tech. Build agentic AI solutions that ship to production. Open role: business development for the US and international markets.">
+  <meta name="description" content="Join Xentovia Tech. Build agentic AI solutions that ship to production. See our open roles.">
 
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -410,10 +410,16 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
       <!-- Open Positions -->
       <div class="mb-8">
         <h2 class="text-2xl font-bold text-white mb-2">Open Positions</h2>
-        <p class="text-slate-400 text-sm">1 role currently open</p>
+        <p id="jobs-count" class="text-slate-400 text-sm">Open roles</p>
       </div>
 
-      <div class="space-y-6">
+      <div id="jobs-list" class="space-y-6">
+        <!-- Roles opened in the Xentovia platform (People → Recruitment, "List on the careers page")
+             are rendered here by the script at the end of this page. -->
+        <noscript>
+          <p class="text-slate-400">See all open roles at
+            <a class="text-brand-400 underline" href="https://app.xentovia.ai/careers/xentovia">app.xentovia.ai/careers/xentovia</a>.</p>
+        </noscript>
 
         <!-- Business Development (US and international markets) -->
         <div class="glass rounded-2xl p-8 sm:p-10">
@@ -544,6 +550,83 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
 
   <script>
     lucide.createIcons();
+  </script>
+
+  <!-- Live job list: every open role listed in the platform's careers page appears here. Apply opens
+       the platform's application form (CV upload), so applications land directly in the ATS. -->
+  <script>
+  (function () {
+    var BASE = 'https://app.xentovia.ai';
+    var SLUG = 'xentovia';
+    var API = BASE + '/api/people/public/careers/' + SLUG;
+    var list = document.getElementById('jobs-list');
+    var count = document.getElementById('jobs-count');
+    var staticCards = list.querySelectorAll(':scope > .glass').length;
+    var TYPES = { full_time: 'Full-time', part_time: 'Part-time', contract: 'Contract', internship: 'Internship', freelance: 'Freelance' };
+
+    function el(tag, cls, text) {
+      var e = document.createElement(tag);
+      if (cls) e.className = cls;
+      if (text) e.textContent = text;
+      return e;
+    }
+    function meta(icon, text) {
+      var s = el('span', 'flex items-center gap-1.5 text-slate-400');
+      var i = el('i', 'w-3.5 h-3.5 text-brand-400'); i.setAttribute('data-lucide', icon);
+      s.appendChild(i); s.appendChild(document.createTextNode(text));
+      return s;
+    }
+    function excerpt(md) {
+      var t = (md || '').replace(/[#*_>`\[\]()-]+/g, ' ').replace(/\s+/g, ' ').trim();
+      return t.length > 320 ? t.slice(0, 317).replace(/\s+\S*$/, '') + '…' : t;
+    }
+    function setCount(n) {
+      count.textContent = n === 1 ? '1 role currently open' : n + ' roles currently open';
+    }
+    function card(job, detail) {
+      var c = el('div', 'glass rounded-2xl p-8 sm:p-10');
+      c.appendChild(el('h3', 'text-xl font-bold text-white mb-2', job.title));
+      var m = el('div', 'flex flex-wrap items-center gap-3 text-sm mb-4');
+      if (job.location) m.appendChild(meta('map-pin', job.location));
+      m.appendChild(meta('clock', TYPES[job.employment_type] || 'Full-time'));
+      c.appendChild(m);
+      var d = excerpt(detail && detail.job && detail.job.description_md);
+      if (d) c.appendChild(el('p', 'text-slate-400 leading-relaxed mb-6', d));
+      var a = el('a', 'apply-btn', 'Apply ');
+      a.href = BASE + '/careers/' + SLUG + '/' + encodeURIComponent(job.slug);
+      a.target = '_blank'; a.rel = 'noopener';
+      var i = el('i', 'w-4 h-4'); i.setAttribute('data-lucide', 'arrow-right'); a.appendChild(i);
+      c.appendChild(a);
+      return c;
+    }
+
+    setCount(staticCards);
+    fetch(API + '?limit=50', { credentials: 'omit' })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (body) {
+        var jobs = (body.jobs && body.jobs.items) || [];
+        return Promise.all(jobs.map(function (j) {
+          return fetch(API + '/' + encodeURIComponent(j.slug), { credentials: 'omit' })
+            .then(function (r) { return r.ok ? r.json() : null; })
+            .catch(function () { return null; })
+            .then(function (d) { return card(j, d); });
+        }));
+      })
+      .then(function (cards) {
+        var first = list.querySelector(':scope > .glass');
+        cards.forEach(function (c) { list.insertBefore(c, first); });
+        setCount(cards.length + staticCards);
+        if (window.lucide) lucide.createIcons();
+      })
+      .catch(function () {
+        var p = el('p', 'text-slate-400');
+        p.appendChild(document.createTextNode('More roles may be open: see '));
+        var a = el('a', 'text-brand-400 underline', 'app.xentovia.ai/careers/xentovia');
+        a.href = BASE + '/careers/' + SLUG;
+        p.appendChild(a);
+        list.appendChild(p);
+      });
+  })();
   </script>
 
 </body>
