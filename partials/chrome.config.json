@@ -1,174 +1,222 @@
 {
   "$comment": "Single source of truth for the site nav and footer. Edit this file (or nav.html / subnav.html / footer.html / chrome.css), then run `node tools/build-chrome.mjs` to regenerate every page. CI fails if a page is out of sync.",
-
   "site": "https://xentovia.ai",
-
-  "cta": { "href": "/#contact", "label": "Book a Demo" },
-
+  "cta": {
+    "href": "/#contact",
+    "label": "Book a Demo"
+  },
   "footer": {
     "tagline": "Agentic AI for Enterprise.",
     "email": "sales@xentovia.ai",
-    "phone": { "display": "+91 80 6553 5500", "tel": "+918065535500", "whatsapp": "918065535500" },
+    "phone": {
+      "display": "+91 80 6553 5500",
+      "tel": "+918065535500",
+      "whatsapp": "918065535500"
+    },
     "linkedin": "https://www.linkedin.com/company/xentovia-ai",
     "copyright": "© 2026 Xentovia Tech Private Limited. All rights reserved.",
     "columns": [
       {
-        "title": "Solutions",
-        "fromSolutions": "Products",
-        "links": [{ "label": "By industry", "href": "/#solutions" }]
+        "title": "Platforms",
+        "fromSolutions": "Platforms",
+        "links": [
+          {
+            "label": "Industry products",
+            "href": "/#solutions"
+          }
+        ]
       },
       {
-        "title": "Platform",
+        "title": "Explore",
         "links": [
-          { "label": "Capabilities", "href": "/#capabilities" },
-          { "label": "How it works", "href": "/#how-it-works" },
-          { "label": "Security", "href": "/#security" }
+          {
+            "label": "Capabilities",
+            "href": "/#capabilities"
+          },
+          {
+            "label": "How it works",
+            "href": "/#how-it-works"
+          },
+          {
+            "label": "Security",
+            "href": "/#security"
+          }
         ]
       },
       {
         "title": "Company",
         "links": [
-          { "label": "About", "href": "/#company" },
-          { "label": "Blog", "href": "/blog/" },
-          { "label": "Careers", "href": "/careers/" },
-          { "label": "Contact", "href": "mailto:sales@xentovia.ai" }
+          {
+            "label": "About",
+            "href": "/#company"
+          },
+          {
+            "label": "Blog",
+            "href": "/blog/"
+          },
+          {
+            "label": "Careers",
+            "href": "/careers/"
+          },
+          {
+            "label": "Contact",
+            "href": "mailto:sales@xentovia.ai"
+          }
         ]
       },
       {
         "title": "Legal",
         "links": [
-          { "label": "Privacy Policy", "href": "/privacy/" },
-          { "label": "Terms of Service", "href": "/terms/" },
-          { "label": "DPA", "href": "/dpa/" }
+          {
+            "label": "Privacy Policy",
+            "href": "/privacy/"
+          },
+          {
+            "label": "Terms of Service",
+            "href": "/terms/"
+          },
+          {
+            "label": "DPA",
+            "href": "/dpa/"
+          }
         ]
       }
     ]
   },
-
   "linksBefore": [],
   "linksAfter": [
-    { "label": "Platform", "href": "/#how-it-works" },
-    { "label": "Security", "href": "/#security" },
-    { "label": "Company", "href": "/#company" },
-    { "label": "Blog", "href": "/blog/" }
+    {
+      "label": "Security",
+      "href": "/#security"
+    },
+    {
+      "label": "Research",
+      "href": "/research/"
+    },
+    {
+      "label": "Company",
+      "href": "/#company"
+    },
+    {
+      "label": "Blog",
+      "href": "/blog/"
+    }
   ],
-
   "solutions": [
     {
-      "key": "simplimpex",
-      "group": "Products",
-      "href": "/simplimpex/",
-      "title": "Customs & ICEGATE Filing",
-      "subtitle": "SimplImpex AI · File entries in 15 min",
-      "subtitleShort": "SimplImpex AI",
-      "icon": "ship",
-      "color": "brand"
-    },
-    {
-      "key": "xentoaxar",
-      "group": "Products",
-      "href": "/xentoaxar/",
-      "title": "Handwritten Record Digitization",
-      "subtitle": "XentoAxar · Process physical records at scale",
-      "subtitleShort": "XentoAxar",
-      "icon": "building",
-      "color": "brand"
-    },
-    {
       "key": "xentovox",
-      "group": "Products",
+      "group": "Platforms",
       "href": "/xentovox/",
-      "title": "AI Voice Agents",
-      "subtitle": "XentoVoX · Sub-500ms conversational voice",
-      "subtitleShort": "XentoVoX",
+      "title": "Front Desk agents",
+      "subtitle": "Voice, WhatsApp, chat and video",
+      "subtitleShort": "Front Desk",
       "icon": "phone-call",
       "color": "brand"
     },
     {
-      "key": "xentostay",
-      "group": "Products",
-      "href": "/solutions/xentostay/",
-      "title": "Hotel & Resort Automation",
-      "subtitle": "XentoStay · AI voice & booking agents",
-      "subtitleShort": "XentoStay",
-      "icon": "hotel",
+      "key": "xentoaxar",
+      "group": "Platforms",
+      "href": "/xentoaxar/",
+      "title": "Document AI",
+      "subtitle": "Documents and handwritten records",
+      "subtitleShort": "Document AI",
+      "icon": "file-text",
+      "color": "brand"
+    },
+    {
+      "key": "vision",
+      "group": "Platforms",
+      "href": "/#platforms",
+      "title": "Vision AI",
+      "subtitle": "Detection, counts and site evidence",
+      "subtitleShort": "Vision AI",
+      "icon": "scan-eye",
+      "color": "brand"
+    },
+    {
+      "key": "ops",
+      "group": "Platforms",
+      "href": "/#platforms",
+      "title": "Business Ops",
+      "subtitle": "HR, hiring and expenses agents",
+      "subtitleShort": "Business Ops",
+      "icon": "briefcase",
       "color": "brand"
     },
     {
       "key": "xentoscribe",
-      "group": "Products",
+      "group": "Industry products",
       "href": "/xentoscribe/",
-      "title": "Medical Pathology Dictation",
-      "subtitle": "XentoScribe · AI dictation for doctors",
+      "title": "XentoScribe",
+      "subtitle": "Pathology reporting for labs",
       "subtitleShort": "XentoScribe",
       "icon": "mic",
       "color": "brand"
     },
     {
-      "key": "healthcare",
-      "group": "By Industry",
-      "href": "/solutions/healthcare/",
-      "title": "Healthcare Prior Authorization",
-      "subtitle": "Prior auth in hours, not days",
-      "subtitleShort": "Prior auth in hours",
-      "icon": "heart-pulse",
+      "key": "simplimpex",
+      "group": "Industry products",
+      "href": "/simplimpex/",
+      "title": "SimplImpex",
+      "subtitle": "Customs filing for CHAs",
+      "subtitleShort": "SimplImpex",
+      "icon": "ship",
       "color": "brand"
     },
     {
-      "key": "insurance",
-      "group": "By Industry",
-      "href": "/solutions/insurance/",
-      "title": "Insurance Claims & FNOL",
-      "subtitle": "AI triage for claims & losses",
-      "subtitleShort": "AI triage",
-      "icon": "umbrella",
-      "color": "brand"
-    },
-    {
-      "key": "manufacturing",
-      "group": "By Industry",
-      "href": "/solutions/manufacturing/",
-      "title": "Manufacturing Quality Control",
-      "subtitle": "Catch defects before the line",
-      "subtitleShort": "Defect inspection",
-      "icon": "factory",
-      "color": "brand"
-    },
-    {
-      "key": "mortgage",
-      "group": "By Industry",
-      "href": "/solutions/mortgage/",
-      "title": "Mortgage Loan File Indexing",
-      "subtitle": "Index loan files at packet speed",
-      "subtitleShort": "Packet speed",
-      "icon": "home",
+      "key": "xentostay",
+      "group": "Industry products",
+      "href": "/solutions/xentostay/",
+      "title": "XentoStay",
+      "subtitle": "Reservations desk for resorts",
+      "subtitleShort": "XentoStay",
+      "icon": "hotel",
       "color": "brand"
     }
   ],
-
   "pages": {
     "index.html": {},
     "blog/index.html": {},
     "careers/index.html": {},
     "dpa/index.html": {},
     "privacy/index.html": {},
+    "research/index.html": {},
     "terms/index.html": {},
-    "solutions/healthcare/index.html": { "active": "healthcare" },
-    "solutions/insurance/index.html": { "active": "insurance" },
-    "solutions/manufacturing/index.html": { "active": "manufacturing" },
-    "solutions/mortgage/index.html": { "active": "mortgage" },
-
+    "solutions/healthcare/index.html": {
+      "active": "healthcare"
+    },
+    "solutions/insurance/index.html": {
+      "active": "insurance"
+    },
+    "solutions/manufacturing/index.html": {
+      "active": "manufacturing"
+    },
+    "solutions/mortgage/index.html": {
+      "active": "mortgage"
+    },
     "simplimpex/index.html": {
       "active": "simplimpex",
       "subnav": {
         "name": "SimplImpex AI",
         "href": "/simplimpex/",
         "links": [
-          { "label": "How It Works", "href": "#workflow-demo" },
-          { "label": "See It Work", "href": "#video" },
-          { "label": "Security", "href": "#security" }
+          {
+            "label": "How It Works",
+            "href": "#workflow-demo"
+          },
+          {
+            "label": "See It Work",
+            "href": "#video"
+          },
+          {
+            "label": "Security",
+            "href": "#security"
+          }
         ],
-        "cta": { "label": "Book a 30-Min Demo", "href": "#contact" }
+        "cta": {
+          "label": "Book a 30-Min Demo",
+          "href": "#contact"
+        }
       }
     },
     "xentoaxar/index.html": {
@@ -177,11 +225,23 @@
         "name": "XentoAxar",
         "href": "/xentoaxar/",
         "links": [
-          { "label": "The Problem", "href": "#problem" },
-          { "label": "How It Works", "href": "#how" },
-          { "label": "Trust & Security", "href": "#trust" }
+          {
+            "label": "The Problem",
+            "href": "#problem"
+          },
+          {
+            "label": "How It Works",
+            "href": "#how"
+          },
+          {
+            "label": "Trust & Security",
+            "href": "#trust"
+          }
         ],
-        "cta": { "label": "Book a Demo", "href": "#cta" }
+        "cta": {
+          "label": "Book a Demo",
+          "href": "#cta"
+        }
       }
     },
     "xentovox/index.html": {
@@ -190,10 +250,19 @@
         "name": "XentoVoX",
         "href": "/xentovox/",
         "links": [
-          { "label": "Features", "href": "#features" },
-          { "label": "Verticals", "href": "#verticals" }
+          {
+            "label": "Features",
+            "href": "#features"
+          },
+          {
+            "label": "Verticals",
+            "href": "#verticals"
+          }
         ],
-        "cta": { "label": "Request Demo", "href": "/#contact" }
+        "cta": {
+          "label": "Request Demo",
+          "href": "/#contact"
+        }
       }
     },
     "xentoscribe/index.html": {
@@ -202,11 +271,23 @@
         "name": "XentoScribe",
         "href": "/xentoscribe/",
         "links": [
-          { "label": "How It Works", "href": "#how" },
-          { "label": "Pricing", "href": "#pricing" },
-          { "label": "Security", "href": "#security" }
+          {
+            "label": "How It Works",
+            "href": "#how"
+          },
+          {
+            "label": "Pricing",
+            "href": "#pricing"
+          },
+          {
+            "label": "Security",
+            "href": "#security"
+          }
         ],
-        "cta": { "label": "Book a Demo", "href": "mailto:sales@xentovia.ai?subject=XentoScribe%20demo" }
+        "cta": {
+          "label": "Book a Demo",
+          "href": "mailto:sales@xentovia.ai?subject=XentoScribe%20demo"
+        }
       }
     },
     "solutions/xentostay/index.html": {
@@ -215,12 +296,27 @@
         "name": "XentoStay",
         "href": "/solutions/xentostay/",
         "links": [
-          { "label": "Features", "href": "#features" },
-          { "label": "Integration", "href": "#integration" },
-          { "label": "Pricing", "href": "#pricing" },
-          { "label": "FAQ", "href": "#faq" }
+          {
+            "label": "Features",
+            "href": "#features"
+          },
+          {
+            "label": "Integration",
+            "href": "#integration"
+          },
+          {
+            "label": "Pricing",
+            "href": "#pricing"
+          },
+          {
+            "label": "FAQ",
+            "href": "#faq"
+          }
         ],
-        "cta": { "label": "Book a Demo", "href": "#contact" }
+        "cta": {
+          "label": "Book a Demo",
+          "href": "#contact"
+        }
       }
     }
   }
