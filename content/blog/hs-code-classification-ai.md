@@ -1,7 +1,7 @@
 ---
 title: Tariff Classification Is a Legal Determination, Not a Text-Matching Task
 description: Automated HS code assignment is tempting and frequently wrong in ways that surface years later. Here is what to automate and where to keep a person.
-date: 2026-08-09
+date: 2026-09-25
 tags: [Logistics, Compliance, Document Intelligence]
 highlight: Not a Text-Matching Task
 ctaTitle: Want classification assistance with an audit trail?

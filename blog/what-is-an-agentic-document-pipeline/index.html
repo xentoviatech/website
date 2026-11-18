@@ -12,7 +12,7 @@
   <meta property="og:description" content="&quot;Agentic&quot; has become a marketing word. Here is the concrete architecture behind it for document processing — what each component does, and why one big model call is not the same thing.">
   <meta property="og:url" content="https://xentovia.ai/blog/what-is-an-agentic-document-pipeline/">
   <meta property="og:site_name" content="Xentovia Tech">
-  <meta property="article:published_time" content="2026-08-09">
+  <meta property="article:published_time" content="2026-11-12">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="What an Agentic Document Pipeline Actually Is">
   <meta name="twitter:description" content="&quot;Agentic&quot; has become a marketing word. Here is the concrete architecture behind it for document processing — what each component does, and why one big model call is not the same thing.">
@@ -166,6 +166,27 @@
       margin: 2.5rem 0;
     }
 
+    /* Light reading surface for the article body (brand light #F5F6FA, navy/slate text). */
+    .post-light { background: var(--xv-light); border: 1px solid #E1E5EF; color: #1E2A47; }
+    .post-light h2 { color: var(--xv-navy); }
+    .post-light h3 { color: #1E2F6E; }
+    .post-light p, .post-light li { color: #2B3654; }
+    .post-light strong { color: var(--xv-navy); }
+    .post-light em { color: #2B3654; }
+    .post-light a { color: var(--xv-purple); }
+    .post-light a:hover { color: var(--xv-purple-hover); }
+    .post-light a.cta-primary, .post-light a.cta-primary:hover { color: #fff; text-decoration: none; }
+    .post-light blockquote { border-left-color: var(--xv-purple); background: rgba(var(--xv-purple-rgb), 0.06); }
+    .post-light blockquote p { color: #2B3654; }
+    .post-light code { background: #E9ECF4; border-color: #D9DEEA; color: var(--xv-purple-hover); }
+    .post-light pre { background: #E9ECF4; border-color: #D9DEEA; color: #1E2A47; }
+    .post-light th, .post-light td { border-bottom-color: #DFE3EC; color: #2B3654; }
+    .post-light th { color: var(--xv-navy); background: #E9ECF4; }
+    .post-light hr { background: #DFE3EC; }
+    .post-light .post-cta { border-top-color: #DFE3EC; }
+    .post-light .post-cta-title { color: var(--xv-navy); }
+    .post-light .post-cta-text { color: var(--xv-slate); }
+    .post-light ::selection { background: rgba(var(--xv-purple-rgb), 0.18); }
     /* Reading progress — decorative, degrades to nothing without JS. */
     .read-bar {
       position: fixed;
@@ -271,8 +292,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
   "@type": "BlogPosting",
   "headline": "What an Agentic Document Pipeline Actually Is",
   "description": "\"Agentic\" has become a marketing word. Here is the concrete architecture behind it for document processing — what each component does, and why one big model call is not the same thing.",
-  "datePublished": "2026-08-09",
-  "dateModified": "2026-08-09",
+  "datePublished": "2026-11-12",
+  "dateModified": "2026-11-12",
   "mainEntityOfPage": "https://xentovia.ai/blog/what-is-an-agentic-document-pipeline/",
   "url": "https://xentovia.ai/blog/what-is-an-agentic-document-pipeline/",
   "keywords": "Agentic AI, Document Intelligence, Human-in-the-Loop",
@@ -474,13 +495,13 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </h1>
           <p class="text-lg text-slate-400 leading-relaxed mb-5">&quot;Agentic&quot; has become a marketing word. Here is the concrete architecture behind it for document processing — what each component does, and why one big model call is not the same thing.</p>
           <div class="flex items-center gap-3 text-sm text-slate-400">
-            <time datetime="2026-08-09">August 9, 2026</time>
+            <time datetime="2026-11-12">November 12, 2026</time>
             <span class="w-1 h-1 rounded-full bg-slate-600"></span>
             <span>5 min read</span>
           </div>
         </header>
 
-        <div class="glass rounded-2xl p-6 sm:p-10 post-content">
+        <div class="post-light rounded-2xl p-6 sm:p-10 post-content">
           <p>"Agentic" has been applied to enough products that it no longer distinguishes anything on its own. In document processing it does describe a real architectural difference, and it is worth stating the difference plainly rather than in adjectives.</p>
           <p>The distinction is not whether a large model is involved. It is whether the system is a single call that produces an answer, or a set of specialised steps that produce an answer <em>and the evidence that it is right</em>, with control flow between them.</p>
           <h2 id="the-one-call-approach-and-where-it-stops">The one-call approach and where it stops</h2>
@@ -532,9 +553,9 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <p>None of this argues against starting simple. If you have one clean document type, a modest volume, and errors that are cheap and self-correcting, a single well-specified model call plus a couple of validation rules is a perfectly good system, and building more is over-engineering.</p>
           <p>The decomposition earns its cost when documents are varied, when errors are expensive, when a compliance function needs to see evidence, or when the system has to keep working as its inputs change. Which, in enterprise document processing, is most of the time — but it is worth being honest about which case you are in before building for the harder one.</p>
 
-          <div class="mt-12 pt-8 border-t border-white/10 text-center">
-            <p class="text-white text-lg font-semibold mb-2">Want to see the pipeline run end to end?</p>
-            <p class="text-slate-400 mb-6">We will walk you through every stage on your own documents — extraction, validation, correction, and the review queue.</p>
+          <div class="post-cta mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="post-cta-title text-white text-lg font-semibold mb-2">Want to see the pipeline run end to end?</p>
+            <p class="post-cta-text text-slate-400 mb-6">We will walk you through every stage on your own documents — extraction, validation, correction, and the review queue.</p>
             <a href="/#contact" class="cta-primary inline-block px-8 py-3 rounded-lg text-sm font-semibold text-white">
               <span class="flex items-center gap-2">
                 Book a Demo
@@ -553,15 +574,15 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
             <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Designing a Review Queue People Can Actually Work</h3>
             <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">The review interface determines the unit economics of document automation more than model accuracy does. Here is what separates a queue that takes seconds per exception from one that takes minutes.</p>
           </a>
-          <a href="/blog/commercial-underwriting-submission-intake/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
-            <p class="text-xs text-slate-500 mb-2">Insurance</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Submission Intake Is the Real Bottleneck in Commercial Underwriting</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Underwriters spend a large share of their time assembling submissions rather than underwriting them. Automating intake raises quote capacity without touching a single pricing decision.</p>
-          </a>
-          <a href="/blog/confidence-scores-and-thresholds/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+          <a href="/blog/straight-through-processing-rate-explained/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
             <p class="text-xs text-slate-500 mb-2">Document Intelligence</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Confidence Scores Are Not Probabilities (Until You Make Them One)</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">The number a model attaches to an extraction is rarely the probability that it is correct. Here is how to calibrate confidence so your review thresholds mean something.</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">What Straight-Through Processing Rate Really Tells You</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">STP is the single most quoted number in document automation and the easiest to inflate. Here is how to read it honestly, and why the STP-versus-error curve matters more than any single figure.</p>
+          </a>
+          <a href="/blog/document-ai-build-vs-buy/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Document Intelligence</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Build or Buy Document AI: An Honest Decision Framework</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Foundation model APIs made the first 70% of a document pipeline easy to build, which is exactly why so many in-house projects stall. Here is where the real work is, and how to decide.</p>
           </a>
         </div>
       </section>

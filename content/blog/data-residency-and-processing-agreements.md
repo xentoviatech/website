@@ -1,7 +1,7 @@
 ---
 title: Data Residency When Your Model Provider Is Somewhere Else
 description: A vendor hosting in your region may still send your documents through an inference endpoint in another. Here is how to establish where processing actually happens.
-date: 2026-08-09
+date: 2026-10-06
 tags: [Compliance, Security, Procurement]
 highlight: Somewhere Else
 ctaTitle: Have residency constraints to satisfy?

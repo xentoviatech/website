@@ -1,7 +1,7 @@
 ---
 title: Why Customs Filing Takes Hours and What Actually Removes Them
 description: The declaration form is not the bottleneck. Reconciling a document set that disagrees with itself is — and that is the part worth automating.
-date: 2026-08-09
+date: 2026-10-08
 tags: [Logistics, Document Intelligence, Agentic AI]
 highlight: What Actually Removes Them
 ctaTitle: Want to see a filing prepared from raw documents?

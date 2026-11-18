@@ -1,7 +1,7 @@
 ---
 title: Claims Attachments: The Unstructured Half of Healthcare Payments
 description: Healthcare claims are largely electronic. The documentation that supports them is not — and that mismatch is where a great deal of payer and provider effort disappears.
-date: 2026-08-09
+date: 2026-09-28
 tags: [Healthcare, Document Intelligence, Agentic AI]
 highlight: The Unstructured Half
 ctaTitle: Want your attachment workflow measured?

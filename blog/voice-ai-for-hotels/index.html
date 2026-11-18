@@ -12,7 +12,7 @@
   <meta property="og:description" content="Front desks miss calls because staff are with guests. The fix is not a smarter chatbot — it is an agent that handles the small number of calls that make up most of the volume.">
   <meta property="og:url" content="https://xentovia.ai/blog/voice-ai-for-hotels/">
   <meta property="og:site_name" content="Xentovia Tech">
-  <meta property="article:published_time" content="2026-08-09">
+  <meta property="article:published_time" content="2026-08-11">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="What Hotels Actually Need From a Voice Agent">
   <meta name="twitter:description" content="Front desks miss calls because staff are with guests. The fix is not a smarter chatbot — it is an agent that handles the small number of calls that make up most of the volume.">
@@ -166,6 +166,27 @@
       margin: 2.5rem 0;
     }
 
+    /* Light reading surface for the article body (brand light #F5F6FA, navy/slate text). */
+    .post-light { background: var(--xv-light); border: 1px solid #E1E5EF; color: #1E2A47; }
+    .post-light h2 { color: var(--xv-navy); }
+    .post-light h3 { color: #1E2F6E; }
+    .post-light p, .post-light li { color: #2B3654; }
+    .post-light strong { color: var(--xv-navy); }
+    .post-light em { color: #2B3654; }
+    .post-light a { color: var(--xv-purple); }
+    .post-light a:hover { color: var(--xv-purple-hover); }
+    .post-light a.cta-primary, .post-light a.cta-primary:hover { color: #fff; text-decoration: none; }
+    .post-light blockquote { border-left-color: var(--xv-purple); background: rgba(var(--xv-purple-rgb), 0.06); }
+    .post-light blockquote p { color: #2B3654; }
+    .post-light code { background: #E9ECF4; border-color: #D9DEEA; color: var(--xv-purple-hover); }
+    .post-light pre { background: #E9ECF4; border-color: #D9DEEA; color: #1E2A47; }
+    .post-light th, .post-light td { border-bottom-color: #DFE3EC; color: #2B3654; }
+    .post-light th { color: var(--xv-navy); background: #E9ECF4; }
+    .post-light hr { background: #DFE3EC; }
+    .post-light .post-cta { border-top-color: #DFE3EC; }
+    .post-light .post-cta-title { color: var(--xv-navy); }
+    .post-light .post-cta-text { color: var(--xv-slate); }
+    .post-light ::selection { background: rgba(var(--xv-purple-rgb), 0.18); }
     /* Reading progress — decorative, degrades to nothing without JS. */
     .read-bar {
       position: fixed;
@@ -271,8 +292,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
   "@type": "BlogPosting",
   "headline": "What Hotels Actually Need From a Voice Agent",
   "description": "Front desks miss calls because staff are with guests. The fix is not a smarter chatbot — it is an agent that handles the small number of calls that make up most of the volume.",
-  "datePublished": "2026-08-09",
-  "dateModified": "2026-08-09",
+  "datePublished": "2026-08-11",
+  "dateModified": "2026-08-11",
   "mainEntityOfPage": "https://xentovia.ai/blog/voice-ai-for-hotels/",
   "url": "https://xentovia.ai/blog/voice-ai-for-hotels/",
   "keywords": "Voice AI, Agentic AI, Procurement",
@@ -474,13 +495,13 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </h1>
           <p class="text-lg text-slate-400 leading-relaxed mb-5">Front desks miss calls because staff are with guests. The fix is not a smarter chatbot — it is an agent that handles the small number of calls that make up most of the volume.</p>
           <div class="flex items-center gap-3 text-sm text-slate-400">
-            <time datetime="2026-08-09">August 9, 2026</time>
+            <time datetime="2026-08-11">August 11, 2026</time>
             <span class="w-1 h-1 rounded-full bg-slate-600"></span>
             <span>5 min read</span>
           </div>
         </header>
 
-        <div class="glass rounded-2xl p-6 sm:p-10 post-content">
+        <div class="post-light rounded-2xl p-6 sm:p-10 post-content">
           <p>Hotel front desks have a structural problem. The person answering the phone is usually the person checking in a guest standing in front of them, and the guest wins. Calls go unanswered, roll to voicemail nobody checks, or are answered abruptly.</p>
           <p>Independent properties feel this most acutely because there is no call centre behind the desk. A missed reservation call is direct lost revenue, and the calls that go unanswered are disproportionately the ones that would have booked.</p>
           <h2 id="the-call-mix">The call mix</h2>
@@ -526,9 +547,9 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <p>The realistic value is that every call is answered, the routine majority are handled well, bookings that would have been lost are captured, and the front desk gets its attention back for the guests physically present.</p>
           <p>The unrealistic version is an agent that handles everything. Hospitality is a service business where the difficult calls are difficult precisely because they involve a person who is unhappy, confused or in an unusual situation — which is exactly the category that should reach a human quickly. A deployment scoped honestly around that distinction succeeds; one sold as full automation generates complaints that outlast the efficiency gain.</p>
 
-          <div class="mt-12 pt-8 border-t border-white/10 text-center">
-            <p class="text-white text-lg font-semibold mb-2">Want to hear XentoStay on your own property?</p>
-            <p class="text-slate-400 mb-6">We will set up an agent that knows your rooms, rates and policies, and you can call it.</p>
+          <div class="post-cta mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="post-cta-title text-white text-lg font-semibold mb-2">Want to hear XentoStay on your own property?</p>
+            <p class="post-cta-text text-slate-400 mb-6">We will set up an agent that knows your rooms, rates and policies, and you can call it.</p>
             <a href="/solutions/xentostay/" class="cta-primary inline-block px-8 py-3 rounded-lg text-sm font-semibold text-white">
               <span class="flex items-center gap-2">
                 Book a Demo
@@ -542,20 +563,20 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
       <section class="mt-16">
         <h2 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-5">Keep reading</h2>
         <div class="grid gap-5 sm:grid-cols-3">
-          <a href="/blog/ai-regulation-and-document-processing/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
-            <p class="text-xs text-slate-500 mb-2">Compliance</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Where Document AI Sits in the Emerging AI Regulation Landscape</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Most document extraction is low-risk under the frameworks now taking shape. The obligations attach to what you do with the output, which is an argument for a specific architecture.</p>
-          </a>
-          <a href="/blog/ambient-documentation-vs-dictation/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
-            <p class="text-xs text-slate-500 mb-2">Healthcare</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Ambient Documentation and Dictation Solve Different Problems</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">They are often evaluated as competing products. They have different failure modes, different oversight requirements, and different specialties where each is clearly right.</p>
-          </a>
           <a href="/blog/document-ai-build-vs-buy/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
             <p class="text-xs text-slate-500 mb-2">Document Intelligence</p>
             <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Build or Buy Document AI: An Honest Decision Framework</h3>
             <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Foundation model APIs made the first 70% of a document pipeline easy to build, which is exactly why so many in-house projects stall. Here is where the real work is, and how to decide.</p>
+          </a>
+          <a href="/blog/voice-ai-latency-budget/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Voice AI</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">The Latency Budget of a Voice Agent</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Sub-second response is the difference between a conversation and an interrogation. Here is where the milliseconds actually go and which ones you can get back.</p>
+          </a>
+          <a href="/blog/ai-regulation-and-document-processing/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Compliance</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Where Document AI Sits in the Emerging AI Regulation Landscape</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Most document extraction is low-risk under the frameworks now taking shape. The obligations attach to what you do with the output, which is an argument for a specific architecture.</p>
           </a>
         </div>
       </section>

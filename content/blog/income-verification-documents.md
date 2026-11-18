@@ -1,7 +1,7 @@
 ---
 title: Income Documents Are Where Lending Automation Gets Difficult
 description: Pay stubs, tax returns and profit-and-loss statements resist automation for a specific reason: extracting the numbers is easy, and deciding which numbers count is not.
-date: 2026-08-09
+date: 2026-09-24
 tags: [Mortgage, Document Intelligence, Human-in-the-Loop]
 highlight: Gets Difficult
 ctaTitle: Want income documents extracted and reconciled?

@@ -1,7 +1,7 @@
 ---
 title: Turn-Taking Is What Makes a Voice Agent Feel Human
 description: Interruption handling, backchannels and knowing when someone has finished speaking do more for perceived quality than any improvement in what the agent actually says.
-date: 2026-08-09
+date: 2026-08-17
 tags: [Voice AI, Evaluation, Agentic AI]
 highlight: Feel Human
 ctaTitle: Judge it by ear

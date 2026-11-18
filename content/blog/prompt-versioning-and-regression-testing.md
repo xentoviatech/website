@@ -1,7 +1,7 @@
 ---
 title: Treat Prompts Like Code, Because They Are
 description: A prompt edit is a production change with non-local effects and no compiler to catch mistakes. Here is the release discipline that makes changing them safe.
-date: 2026-08-09
+date: 2026-08-28
 tags: [Agentic AI, Evaluation, Document Intelligence]
 highlight: Because They Are
 ctaTitle: Want to see how we ship prompt changes?

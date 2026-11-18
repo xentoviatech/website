@@ -1,7 +1,7 @@
 ---
 title: The State of Handwriting Recognition in 2026
 description: Handwriting was the wall that stopped a generation of digitization projects. Vision language models moved it — but not uniformly, and knowing where the remaining hard cases are decides whether a project succeeds.
-date: 2026-08-09
+date: 2026-11-09
 weight: 44
 tags: [Vision AI, Document Intelligence, GovTech]
 highlight: Handwriting Recognition

@@ -1,7 +1,7 @@
 ---
 title: Automated Redaction Is Asymmetric, and That Changes the Design
 description: Over-redacting is correctable. Under-redacting is not. Every design decision in a redaction pipeline should follow from that asymmetry.
-date: 2026-08-09
+date: 2026-09-03
 tags: [Security, Compliance, Document Intelligence]
 highlight: Asymmetric
 ctaTitle: Building a redaction workflow?

@@ -1,7 +1,7 @@
 ---
 title: Why Pathology Dictation Is a Harder Speech Problem Than It Looks
 description: General-purpose transcription fails on pathology for specific, fixable reasons — vocabulary, structure, and the fact that a single misheard word changes a diagnosis.
-date: 2026-08-09
+date: 2026-09-07
 tags: [Healthcare, Voice AI, Evaluation]
 highlight: Harder Than It Looks
 ctaTitle: Want to hear XentoScribe on your own dictation?

@@ -1,7 +1,7 @@
 ---
 title: Medical Record Review: Find and Cite, Do Not Summarise
 description: Hundreds of pages of records, one clinical question, and a reviewer with twenty minutes. The right architecture retrieves and cites evidence rather than generating a narrative.
-date: 2026-08-09
+date: 2026-09-14
 tags: [Healthcare, Document Intelligence, Human-in-the-Loop]
 highlight: Do Not Summarise
 ctaTitle: Have record review as a bottleneck?

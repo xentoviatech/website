@@ -1,7 +1,7 @@
 ---
 title: What Straight-Through Processing Rate Really Tells You
 description: STP is the single most quoted number in document automation and the easiest to inflate. Here is how to read it honestly, and why the STP-versus-error curve matters more than any single figure.
-date: 2026-08-09
+date: 2026-11-10
 weight: 46
 tags: [Document Intelligence, Evaluation, Human-in-the-Loop]
 highlight: Really Tells You

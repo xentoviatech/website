@@ -12,7 +12,7 @@
   <meta property="og:description" content="Without a scoring harness, every prompt change is a guess and every model upgrade is a gamble. Here is how to build one for document extraction, and what to put in it.">
   <meta property="og:url" content="https://xentovia.ai/blog/evaluation-harness-for-document-extraction/">
   <meta property="og:site_name" content="Xentovia Tech">
-  <meta property="article:published_time" content="2026-08-09">
+  <meta property="article:published_time" content="2026-10-30">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Build the Evaluation Harness Before the Pipeline">
   <meta name="twitter:description" content="Without a scoring harness, every prompt change is a guess and every model upgrade is a gamble. Here is how to build one for document extraction, and what to put in it.">
@@ -166,6 +166,27 @@
       margin: 2.5rem 0;
     }
 
+    /* Light reading surface for the article body (brand light #F5F6FA, navy/slate text). */
+    .post-light { background: var(--xv-light); border: 1px solid #E1E5EF; color: #1E2A47; }
+    .post-light h2 { color: var(--xv-navy); }
+    .post-light h3 { color: #1E2F6E; }
+    .post-light p, .post-light li { color: #2B3654; }
+    .post-light strong { color: var(--xv-navy); }
+    .post-light em { color: #2B3654; }
+    .post-light a { color: var(--xv-purple); }
+    .post-light a:hover { color: var(--xv-purple-hover); }
+    .post-light a.cta-primary, .post-light a.cta-primary:hover { color: #fff; text-decoration: none; }
+    .post-light blockquote { border-left-color: var(--xv-purple); background: rgba(var(--xv-purple-rgb), 0.06); }
+    .post-light blockquote p { color: #2B3654; }
+    .post-light code { background: #E9ECF4; border-color: #D9DEEA; color: var(--xv-purple-hover); }
+    .post-light pre { background: #E9ECF4; border-color: #D9DEEA; color: #1E2A47; }
+    .post-light th, .post-light td { border-bottom-color: #DFE3EC; color: #2B3654; }
+    .post-light th { color: var(--xv-navy); background: #E9ECF4; }
+    .post-light hr { background: #DFE3EC; }
+    .post-light .post-cta { border-top-color: #DFE3EC; }
+    .post-light .post-cta-title { color: var(--xv-navy); }
+    .post-light .post-cta-text { color: var(--xv-slate); }
+    .post-light ::selection { background: rgba(var(--xv-purple-rgb), 0.18); }
     /* Reading progress — decorative, degrades to nothing without JS. */
     .read-bar {
       position: fixed;
@@ -271,8 +292,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
   "@type": "BlogPosting",
   "headline": "Build the Evaluation Harness Before the Pipeline",
   "description": "Without a scoring harness, every prompt change is a guess and every model upgrade is a gamble. Here is how to build one for document extraction, and what to put in it.",
-  "datePublished": "2026-08-09",
-  "dateModified": "2026-08-09",
+  "datePublished": "2026-10-30",
+  "dateModified": "2026-10-30",
   "mainEntityOfPage": "https://xentovia.ai/blog/evaluation-harness-for-document-extraction/",
   "url": "https://xentovia.ai/blog/evaluation-harness-for-document-extraction/",
   "keywords": "Evaluation, Agentic AI, Document Intelligence",
@@ -474,13 +495,13 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </h1>
           <p class="text-lg text-slate-400 leading-relaxed mb-5">Without a scoring harness, every prompt change is a guess and every model upgrade is a gamble. Here is how to build one for document extraction, and what to put in it.</p>
           <div class="flex items-center gap-3 text-sm text-slate-400">
-            <time datetime="2026-08-09">August 9, 2026</time>
+            <time datetime="2026-10-30">October 30, 2026</time>
             <span class="w-1 h-1 rounded-full bg-slate-600"></span>
             <span>5 min read</span>
           </div>
         </header>
 
-        <div class="glass rounded-2xl p-6 sm:p-10 post-content">
+        <div class="post-light rounded-2xl p-6 sm:p-10 post-content">
           <p>The most common structural mistake in document AI projects is building the pipeline first and the measurement second. It feels faster. It is not, because from that point on every change is unfalsifiable: a prompt is edited, the outputs look better on the three documents someone checked, and nobody knows what happened to the other four hundred.</p>
           <p>The evaluation harness is the thing that makes progress cumulative rather than anecdotal. Build it first.</p>
           <h2 id="what-the-harness-is">What the harness is</h2>
@@ -540,9 +561,9 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <p>A labelled corpus is the longest-lived asset in a document AI programme. Models will change, vendors may change, prompts will be rewritten many times. The corpus survives all of it, and it is what lets you evaluate a replacement in an afternoon rather than a quarter.</p>
           <p>It is also the thing that turns an argument into a measurement. "The new approach is better" is a claim. "The new approach is 4.2 points better on field-level accuracy, with a regression on two document types, at 1.8x the cost" is a decision anyone can make.</p>
 
-          <div class="mt-12 pt-8 border-t border-white/10 text-center">
-            <p class="text-white text-lg font-semibold mb-2">Want a scored baseline on your documents?</p>
-            <p class="text-slate-400 mb-6">We will build a labelled sample and report per-field accuracy — yours to keep, whether or not you work with us.</p>
+          <div class="post-cta mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="post-cta-title text-white text-lg font-semibold mb-2">Want a scored baseline on your documents?</p>
+            <p class="post-cta-text text-slate-400 mb-6">We will build a labelled sample and report per-field accuracy — yours to keep, whether or not you work with us.</p>
             <a href="/#contact" class="cta-primary inline-block px-8 py-3 rounded-lg text-sm font-semibold text-white">
               <span class="flex items-center gap-2">
                 Book a Demo

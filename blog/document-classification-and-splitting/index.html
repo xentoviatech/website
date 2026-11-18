@@ -12,7 +12,7 @@
   <meta property="og:description" content="Most document AI failures happen before extraction, when a 40-page bundle is treated as one document or routed to the wrong parser. Here is how to build the step that decides everything downstream.">
   <meta property="og:url" content="https://xentovia.ai/blog/document-classification-and-splitting/">
   <meta property="og:site_name" content="Xentovia Tech">
-  <meta property="article:published_time" content="2026-08-09">
+  <meta property="article:published_time" content="2026-10-02">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Classification and Splitting: The Step Everyone Skips">
   <meta name="twitter:description" content="Most document AI failures happen before extraction, when a 40-page bundle is treated as one document or routed to the wrong parser. Here is how to build the step that decides everything downstream.">
@@ -166,6 +166,27 @@
       margin: 2.5rem 0;
     }
 
+    /* Light reading surface for the article body (brand light #F5F6FA, navy/slate text). */
+    .post-light { background: var(--xv-light); border: 1px solid #E1E5EF; color: #1E2A47; }
+    .post-light h2 { color: var(--xv-navy); }
+    .post-light h3 { color: #1E2F6E; }
+    .post-light p, .post-light li { color: #2B3654; }
+    .post-light strong { color: var(--xv-navy); }
+    .post-light em { color: #2B3654; }
+    .post-light a { color: var(--xv-purple); }
+    .post-light a:hover { color: var(--xv-purple-hover); }
+    .post-light a.cta-primary, .post-light a.cta-primary:hover { color: #fff; text-decoration: none; }
+    .post-light blockquote { border-left-color: var(--xv-purple); background: rgba(var(--xv-purple-rgb), 0.06); }
+    .post-light blockquote p { color: #2B3654; }
+    .post-light code { background: #E9ECF4; border-color: #D9DEEA; color: var(--xv-purple-hover); }
+    .post-light pre { background: #E9ECF4; border-color: #D9DEEA; color: #1E2A47; }
+    .post-light th, .post-light td { border-bottom-color: #DFE3EC; color: #2B3654; }
+    .post-light th { color: var(--xv-navy); background: #E9ECF4; }
+    .post-light hr { background: #DFE3EC; }
+    .post-light .post-cta { border-top-color: #DFE3EC; }
+    .post-light .post-cta-title { color: var(--xv-navy); }
+    .post-light .post-cta-text { color: var(--xv-slate); }
+    .post-light ::selection { background: rgba(var(--xv-purple-rgb), 0.18); }
     /* Reading progress — decorative, degrades to nothing without JS. */
     .read-bar {
       position: fixed;
@@ -271,8 +292,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
   "@type": "BlogPosting",
   "headline": "Classification and Splitting: The Step Everyone Skips",
   "description": "Most document AI failures happen before extraction, when a 40-page bundle is treated as one document or routed to the wrong parser. Here is how to build the step that decides everything downstream.",
-  "datePublished": "2026-08-09",
-  "dateModified": "2026-08-09",
+  "datePublished": "2026-10-02",
+  "dateModified": "2026-10-02",
   "mainEntityOfPage": "https://xentovia.ai/blog/document-classification-and-splitting/",
   "url": "https://xentovia.ai/blog/document-classification-and-splitting/",
   "keywords": "Document Intelligence, Agentic AI, Evaluation",
@@ -474,13 +495,13 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </h1>
           <p class="text-lg text-slate-400 leading-relaxed mb-5">Most document AI failures happen before extraction, when a 40-page bundle is treated as one document or routed to the wrong parser. Here is how to build the step that decides everything downstream.</p>
           <div class="flex items-center gap-3 text-sm text-slate-400">
-            <time datetime="2026-08-09">August 9, 2026</time>
+            <time datetime="2026-10-02">October 2, 2026</time>
             <span class="w-1 h-1 rounded-full bg-slate-600"></span>
             <span>5 min read</span>
           </div>
         </header>
 
-        <div class="glass rounded-2xl p-6 sm:p-10 post-content">
+        <div class="post-light rounded-2xl p-6 sm:p-10 post-content">
           <p>Almost every document AI pilot begins with a clean folder of one document type. Almost every production system begins with an inbox.</p>
           <p>What arrives in the inbox is a 40-page PDF containing a cover email, a signed form, twelve pages of supporting statements, a duplicate of the form someone re-scanned, and three blank pages from the feeder. Before anything can be extracted, something has to decide where each document starts, what type it is, and whether it is worth processing at all.</p>
           <p>This step gets skipped in pilots and it is where a large share of production failures originate.</p>
@@ -517,9 +538,9 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <p>If your extraction accuracy is disappointing and you have not instrumented this step, instrument it first. Repeatedly, teams tuning prompts to squeeze out another point of field accuracy are working on documents that were split or typed incorrectly to begin with — the extraction was fine, it was reading the wrong page.</p>
           <p>The other high-leverage move is upstream of software entirely. If you influence how documents arrive — separator sheets, a submission portal with per-document upload slots, a required cover form, a minimum scan resolution — that intervention will beat any model improvement, permanently and for free.</p>
 
-          <div class="mt-12 pt-8 border-t border-white/10 text-center">
-            <p class="text-white text-lg font-semibold mb-2">Drowning in mixed document bundles?</p>
-            <p class="text-slate-400 mb-6">Send us a week of raw intake, exactly as it arrives. Splitting and classification is usually where the fastest wins are.</p>
+          <div class="post-cta mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="post-cta-title text-white text-lg font-semibold mb-2">Drowning in mixed document bundles?</p>
+            <p class="post-cta-text text-slate-400 mb-6">Send us a week of raw intake, exactly as it arrives. Splitting and classification is usually where the fastest wins are.</p>
             <a href="/#contact" class="cta-primary inline-block px-8 py-3 rounded-lg text-sm font-semibold text-white">
               <span class="flex items-center gap-2">
                 Book a Demo
@@ -533,15 +554,15 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
       <section class="mt-16">
         <h2 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-5">Keep reading</h2>
         <div class="grid gap-5 sm:grid-cols-3">
-          <a href="/blog/confidence-scores-and-thresholds/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
-            <p class="text-xs text-slate-500 mb-2">Document Intelligence</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Confidence Scores Are Not Probabilities (Until You Make Them One)</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">The number a model attaches to an extraction is rarely the probability that it is correct. Here is how to calibrate confidence so your review thresholds mean something.</p>
-          </a>
           <a href="/blog/evaluation-harness-for-document-extraction/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
             <p class="text-xs text-slate-500 mb-2">Evaluation</p>
             <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Build the Evaluation Harness Before the Pipeline</h3>
             <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Without a scoring harness, every prompt change is a guess and every model upgrade is a gamble. Here is how to build one for document extraction, and what to put in it.</p>
+          </a>
+          <a href="/blog/confidence-scores-and-thresholds/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Document Intelligence</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Confidence Scores Are Not Probabilities (Until You Make Them One)</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">The number a model attaches to an extraction is rarely the probability that it is correct. Here is how to calibrate confidence so your review thresholds mean something.</p>
           </a>
           <a href="/blog/multi-agent-validation-patterns/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
             <p class="text-xs text-slate-500 mb-2">Agentic AI</p>

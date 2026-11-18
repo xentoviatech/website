@@ -1,7 +1,7 @@
 ---
 title: What an Agentic Document Pipeline Actually Is
 description: '"Agentic" has become a marketing word. Here is the concrete architecture behind it for document processing — what each component does, and why one big model call is not the same thing.'
-date: 2026-08-09
+date: 2026-11-12
 weight: 48
 tags: [Agentic AI, Document Intelligence, Human-in-the-Loop]
 highlight: Actually Is

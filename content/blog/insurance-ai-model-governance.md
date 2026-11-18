@@ -1,7 +1,7 @@
 ---
 title: Model Governance for Insurers Deploying Document AI
 description: Regulators are asking insurers to explain, monitor and document the AI systems in their operations. Here is what that means concretely for a document processing deployment.
-date: 2026-08-09
+date: 2026-09-22
 tags: [Insurance, Compliance, Evaluation]
 highlight: Model Governance
 ctaTitle: Need governance artefacts for your risk committee?

@@ -12,7 +12,7 @@
   <meta property="og:description" content="Sub-second response is the difference between a conversation and an interrogation. Here is where the milliseconds actually go and which ones you can get back.">
   <meta property="og:url" content="https://xentovia.ai/blog/voice-ai-latency-budget/">
   <meta property="og:site_name" content="Xentovia Tech">
-  <meta property="article:published_time" content="2026-08-09">
+  <meta property="article:published_time" content="2026-11-05">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="The Latency Budget of a Voice Agent">
   <meta name="twitter:description" content="Sub-second response is the difference between a conversation and an interrogation. Here is where the milliseconds actually go and which ones you can get back.">
@@ -166,6 +166,27 @@
       margin: 2.5rem 0;
     }
 
+    /* Light reading surface for the article body (brand light #F5F6FA, navy/slate text). */
+    .post-light { background: var(--xv-light); border: 1px solid #E1E5EF; color: #1E2A47; }
+    .post-light h2 { color: var(--xv-navy); }
+    .post-light h3 { color: #1E2F6E; }
+    .post-light p, .post-light li { color: #2B3654; }
+    .post-light strong { color: var(--xv-navy); }
+    .post-light em { color: #2B3654; }
+    .post-light a { color: var(--xv-purple); }
+    .post-light a:hover { color: var(--xv-purple-hover); }
+    .post-light a.cta-primary, .post-light a.cta-primary:hover { color: #fff; text-decoration: none; }
+    .post-light blockquote { border-left-color: var(--xv-purple); background: rgba(var(--xv-purple-rgb), 0.06); }
+    .post-light blockquote p { color: #2B3654; }
+    .post-light code { background: #E9ECF4; border-color: #D9DEEA; color: var(--xv-purple-hover); }
+    .post-light pre { background: #E9ECF4; border-color: #D9DEEA; color: #1E2A47; }
+    .post-light th, .post-light td { border-bottom-color: #DFE3EC; color: #2B3654; }
+    .post-light th { color: var(--xv-navy); background: #E9ECF4; }
+    .post-light hr { background: #DFE3EC; }
+    .post-light .post-cta { border-top-color: #DFE3EC; }
+    .post-light .post-cta-title { color: var(--xv-navy); }
+    .post-light .post-cta-text { color: var(--xv-slate); }
+    .post-light ::selection { background: rgba(var(--xv-purple-rgb), 0.18); }
     /* Reading progress — decorative, degrades to nothing without JS. */
     .read-bar {
       position: fixed;
@@ -271,8 +292,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
   "@type": "BlogPosting",
   "headline": "The Latency Budget of a Voice Agent",
   "description": "Sub-second response is the difference between a conversation and an interrogation. Here is where the milliseconds actually go and which ones you can get back.",
-  "datePublished": "2026-08-09",
-  "dateModified": "2026-08-09",
+  "datePublished": "2026-11-05",
+  "dateModified": "2026-11-05",
   "mainEntityOfPage": "https://xentovia.ai/blog/voice-ai-latency-budget/",
   "url": "https://xentovia.ai/blog/voice-ai-latency-budget/",
   "keywords": "Voice AI, Evaluation, Agentic AI",
@@ -474,13 +495,13 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </h1>
           <p class="text-lg text-slate-400 leading-relaxed mb-5">Sub-second response is the difference between a conversation and an interrogation. Here is where the milliseconds actually go and which ones you can get back.</p>
           <div class="flex items-center gap-3 text-sm text-slate-400">
-            <time datetime="2026-08-09">August 9, 2026</time>
+            <time datetime="2026-11-05">November 5, 2026</time>
             <span class="w-1 h-1 rounded-full bg-slate-600"></span>
             <span>5 min read</span>
           </div>
         </header>
 
-        <div class="glass rounded-2xl p-6 sm:p-10 post-content">
+        <div class="post-light rounded-2xl p-6 sm:p-10 post-content">
           <p>People are extremely sensitive to conversational timing. In natural speech, the gap between one person finishing and the next starting is typically a couple of hundred milliseconds. Beyond roughly half a second, a listener starts to perceive hesitation. Beyond a second, they assume something is wrong and often start speaking again — which, with a voice agent, causes a collision that makes the whole interaction feel broken.</p>
           <p>This is why latency is the defining engineering constraint in voice AI, more than accuracy or reasoning quality. An agent that responds fast and imperfectly feels far better than one that responds slowly and well.</p>
           <h2 id="where-the-time-goes">Where the time goes</h2>
@@ -525,9 +546,9 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <p>For most conversational turns, speed wins decisively. A fast, slightly less sophisticated response keeps the conversation natural; a better response arriving a second and a half later does not. Callers judge voice systems on whether the interaction felt normal far more than on the elegance of any individual reply.</p>
           <p>The exception is turns that genuinely require care — a complex request, an unusual situation, anything consequential. There, the right pattern is to acknowledge verbally and take the time, which is exactly what a competent human would do. Uniform treatment of every turn is what produces systems that are either uniformly shallow or uniformly slow.</p>
 
-          <div class="mt-12 pt-8 border-t border-white/10 text-center">
-            <p class="text-white text-lg font-semibold mb-2">Want to hear the difference latency makes?</p>
-            <p class="text-slate-400 mb-6">Call XentoVoX and judge the latency yourself, by ear.</p>
+          <div class="post-cta mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="post-cta-title text-white text-lg font-semibold mb-2">Want to hear the difference latency makes?</p>
+            <p class="post-cta-text text-slate-400 mb-6">Call XentoVoX and judge the latency yourself, by ear.</p>
             <a href="/xentovox/" class="cta-primary inline-block px-8 py-3 rounded-lg text-sm font-semibold text-white">
               <span class="flex items-center gap-2">
                 Book a Demo
@@ -551,10 +572,10 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
             <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Appointment Scheduling Is the Best First Voice Agent Deployment</h3>
             <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Bounded scope, clear success criteria, immediate measurable value, and a low cost of failure. Here is how to build one that works and what makes it harder than it looks.</p>
           </a>
-          <a href="/blog/confidence-scores-and-thresholds/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
-            <p class="text-xs text-slate-500 mb-2">Document Intelligence</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Confidence Scores Are Not Probabilities (Until You Make Them One)</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">The number a model attaches to an extraction is rarely the probability that it is correct. Here is how to calibrate confidence so your review thresholds mean something.</p>
+          <a href="/blog/evaluation-harness-for-document-extraction/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Evaluation</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Build the Evaluation Harness Before the Pipeline</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Without a scoring harness, every prompt change is a guess and every model upgrade is a gamble. Here is how to build one for document extraction, and what to put in it.</p>
           </a>
         </div>
       </section>

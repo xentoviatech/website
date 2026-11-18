@@ -1,7 +1,7 @@
 ---
 title: Indexing a Loan File at Packet Speed
 description: A mortgage file is 300 to 800 pages of forty document types in no reliable order. Getting the stacking order right is a prerequisite for everything downstream — and it is automatable.
-date: 2026-08-09
+date: 2026-09-11
 tags: [Mortgage, Document Intelligence, Agentic AI]
 highlight: Packet Speed
 ctaTitle: Want your loan files indexed automatically?

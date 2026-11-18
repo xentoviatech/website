@@ -1,7 +1,7 @@
 ---
 title: Prompt Injection Through Documents Is a Real Attack Surface
 description: If your pipeline reads documents supplied by outside parties and acts on what it finds, those documents are untrusted input reaching a model that follows instructions.
-date: 2026-08-09
+date: 2026-11-03
 weight: 38
 tags: [Security, Agentic AI, Document Intelligence]
 highlight: A Real Attack Surface

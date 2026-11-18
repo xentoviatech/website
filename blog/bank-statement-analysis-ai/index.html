@@ -12,7 +12,7 @@
   <meta property="og:description" content="Pulling transactions off a statement is the easy part. Deciding what each one means — income, transfer, business, recurring obligation — is where the accuracy actually matters.">
   <meta property="og:url" content="https://xentovia.ai/blog/bank-statement-analysis-ai/">
   <meta property="og:site_name" content="Xentovia Tech">
-  <meta property="article:published_time" content="2026-08-09">
+  <meta property="article:published_time" content="2026-10-20">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Bank Statement Analysis Is a Classification Problem, Not an Extraction Problem">
   <meta name="twitter:description" content="Pulling transactions off a statement is the easy part. Deciding what each one means — income, transfer, business, recurring obligation — is where the accuracy actually matters.">
@@ -166,6 +166,27 @@
       margin: 2.5rem 0;
     }
 
+    /* Light reading surface for the article body (brand light #F5F6FA, navy/slate text). */
+    .post-light { background: var(--xv-light); border: 1px solid #E1E5EF; color: #1E2A47; }
+    .post-light h2 { color: var(--xv-navy); }
+    .post-light h3 { color: #1E2F6E; }
+    .post-light p, .post-light li { color: #2B3654; }
+    .post-light strong { color: var(--xv-navy); }
+    .post-light em { color: #2B3654; }
+    .post-light a { color: var(--xv-purple); }
+    .post-light a:hover { color: var(--xv-purple-hover); }
+    .post-light a.cta-primary, .post-light a.cta-primary:hover { color: #fff; text-decoration: none; }
+    .post-light blockquote { border-left-color: var(--xv-purple); background: rgba(var(--xv-purple-rgb), 0.06); }
+    .post-light blockquote p { color: #2B3654; }
+    .post-light code { background: #E9ECF4; border-color: #D9DEEA; color: var(--xv-purple-hover); }
+    .post-light pre { background: #E9ECF4; border-color: #D9DEEA; color: #1E2A47; }
+    .post-light th, .post-light td { border-bottom-color: #DFE3EC; color: #2B3654; }
+    .post-light th { color: var(--xv-navy); background: #E9ECF4; }
+    .post-light hr { background: #DFE3EC; }
+    .post-light .post-cta { border-top-color: #DFE3EC; }
+    .post-light .post-cta-title { color: var(--xv-navy); }
+    .post-light .post-cta-text { color: var(--xv-slate); }
+    .post-light ::selection { background: rgba(var(--xv-purple-rgb), 0.18); }
     /* Reading progress — decorative, degrades to nothing without JS. */
     .read-bar {
       position: fixed;
@@ -271,8 +292,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
   "@type": "BlogPosting",
   "headline": "Bank Statement Analysis Is a Classification Problem, Not an Extraction Problem",
   "description": "Pulling transactions off a statement is the easy part. Deciding what each one means — income, transfer, business, recurring obligation — is where the accuracy actually matters.",
-  "datePublished": "2026-08-09",
-  "dateModified": "2026-08-09",
+  "datePublished": "2026-10-20",
+  "dateModified": "2026-10-20",
   "mainEntityOfPage": "https://xentovia.ai/blog/bank-statement-analysis-ai/",
   "url": "https://xentovia.ai/blog/bank-statement-analysis-ai/",
   "keywords": "Mortgage, Document Intelligence, Evaluation",
@@ -474,13 +495,13 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </h1>
           <p class="text-lg text-slate-400 leading-relaxed mb-5">Pulling transactions off a statement is the easy part. Deciding what each one means — income, transfer, business, recurring obligation — is where the accuracy actually matters.</p>
           <div class="flex items-center gap-3 text-sm text-slate-400">
-            <time datetime="2026-08-09">August 9, 2026</time>
+            <time datetime="2026-10-20">October 20, 2026</time>
             <span class="w-1 h-1 rounded-full bg-slate-600"></span>
             <span>5 min read</span>
           </div>
         </header>
 
-        <div class="glass rounded-2xl p-6 sm:p-10 post-content">
+        <div class="post-light rounded-2xl p-6 sm:p-10 post-content">
           <p>Bank statements are used across lending and financial services to verify income, confirm assets, assess affordability, identify obligations and detect risk. They arrive as PDFs from thousands of institutions, each with its own layout, and as scans of printed statements.</p>
           <p>Extraction gets the attention. It should not. Getting transactions off the page is a solved-enough problem with well-understood techniques. The accuracy that determines whether the analysis is any good lies in what happens next: deciding what each transaction <em>is</em>.</p>
           <h2 id="the-extraction-layer-briefly">The extraction layer, briefly</h2>
@@ -521,9 +542,9 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <p>Bank statement analysis automates the mechanical work: extract, reconcile, classify, aggregate, identify recurrence, flag anomalies. It produces a worked analysis with every figure traceable to a transaction and every transaction traceable to a line on a page.</p>
           <p>It does not decide whether an applicant qualifies, and it should not attempt to. In workflows where a decision affects access to credit, the combination of a fully automated analysis and an unexplainable classifier is a governance problem waiting to be found. Traceability from decision to transaction to page is what makes the whole thing defensible — and it is a natural byproduct of building it properly.</p>
 
-          <div class="mt-12 pt-8 border-t border-white/10 text-center">
-            <p class="text-white text-lg font-semibold mb-2">Want transaction-level analysis you can audit?</p>
-            <p class="text-slate-400 mb-6">Send us a set of statements. We will return classified transactions, income streams and flagged anomalies, each traceable to its line on the page.</p>
+          <div class="post-cta mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="post-cta-title text-white text-lg font-semibold mb-2">Want transaction-level analysis you can audit?</p>
+            <p class="post-cta-text text-slate-400 mb-6">Send us a set of statements. We will return classified transactions, income streams and flagged anomalies, each traceable to its line on the page.</p>
             <a href="/solutions/mortgage/" class="cta-primary inline-block px-8 py-3 rounded-lg text-sm font-semibold text-white">
               <span class="flex items-center gap-2">
                 Book a Demo
@@ -537,20 +558,20 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
       <section class="mt-16">
         <h2 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-5">Keep reading</h2>
         <div class="grid gap-5 sm:grid-cols-3">
-          <a href="/blog/acord-forms-automation/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
-            <p class="text-xs text-slate-500 mb-2">Insurance</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">ACORD Forms Are Standardised. Your Inbound ACORDs Are Not.</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">A standard form should be the easy case for document AI. In practice ACORD submissions arrive in a dozen states of completeness and fidelity — here is how to handle the reality.</p>
+          <a href="/blog/document-ai-accuracy-metrics-that-matter/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Document Intelligence</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Character Accuracy Is a Vanity Metric. Measure These Four Instead.</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">A vendor quoting 99% accuracy is telling you almost nothing useful. Here are the four numbers that actually predict whether a document AI deployment will save money.</p>
           </a>
-          <a href="/blog/closing-document-quality-control/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
-            <p class="text-xs text-slate-500 mb-2">Mortgage</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Closing Document QC Is a Consistency Problem</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Most closing defects are not judgement calls. They are dates out of order, figures that disagree between documents, and signatures that are missing — all of which a machine can check on every file.</p>
+          <a href="/blog/straight-through-processing-rate-explained/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Document Intelligence</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">What Straight-Through Processing Rate Really Tells You</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">STP is the single most quoted number in document automation and the easiest to inflate. Here is how to read it honestly, and why the STP-versus-error curve matters more than any single figure.</p>
           </a>
-          <a href="/blog/commercial-invoice-and-packing-list-extraction/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
-            <p class="text-xs text-slate-500 mb-2">Logistics</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Commercial Invoices and Packing Lists: The Line-Item Problem</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Trade documents look structured and are not. The header fields extract easily; the line items are where the value is and where the difficulty is.</p>
+          <a href="/blog/evaluation-harness-for-document-extraction/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Evaluation</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Build the Evaluation Harness Before the Pipeline</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Without a scoring harness, every prompt change is a guess and every model upgrade is a gamble. Here is how to build one for document extraction, and what to put in it.</p>
           </a>
         </div>
       </section>

@@ -12,7 +12,7 @@
   <meta property="og:description" content="Servicing generates decades of inbound correspondence, and most automation attention stops at closing. Here is what the post-close document workflow looks like and where it pays.">
   <meta property="og:url" content="https://xentovia.ai/blog/servicing-and-post-close-document-automation/">
   <meta property="og:site_name" content="Xentovia Tech">
-  <meta property="article:published_time" content="2026-08-09">
+  <meta property="article:published_time" content="2026-08-25">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="The Document Work That Starts After the Loan Closes">
   <meta name="twitter:description" content="Servicing generates decades of inbound correspondence, and most automation attention stops at closing. Here is what the post-close document workflow looks like and where it pays.">
@@ -166,6 +166,27 @@
       margin: 2.5rem 0;
     }
 
+    /* Light reading surface for the article body (brand light #F5F6FA, navy/slate text). */
+    .post-light { background: var(--xv-light); border: 1px solid #E1E5EF; color: #1E2A47; }
+    .post-light h2 { color: var(--xv-navy); }
+    .post-light h3 { color: #1E2F6E; }
+    .post-light p, .post-light li { color: #2B3654; }
+    .post-light strong { color: var(--xv-navy); }
+    .post-light em { color: #2B3654; }
+    .post-light a { color: var(--xv-purple); }
+    .post-light a:hover { color: var(--xv-purple-hover); }
+    .post-light a.cta-primary, .post-light a.cta-primary:hover { color: #fff; text-decoration: none; }
+    .post-light blockquote { border-left-color: var(--xv-purple); background: rgba(var(--xv-purple-rgb), 0.06); }
+    .post-light blockquote p { color: #2B3654; }
+    .post-light code { background: #E9ECF4; border-color: #D9DEEA; color: var(--xv-purple-hover); }
+    .post-light pre { background: #E9ECF4; border-color: #D9DEEA; color: #1E2A47; }
+    .post-light th, .post-light td { border-bottom-color: #DFE3EC; color: #2B3654; }
+    .post-light th { color: var(--xv-navy); background: #E9ECF4; }
+    .post-light hr { background: #DFE3EC; }
+    .post-light .post-cta { border-top-color: #DFE3EC; }
+    .post-light .post-cta-title { color: var(--xv-navy); }
+    .post-light .post-cta-text { color: var(--xv-slate); }
+    .post-light ::selection { background: rgba(var(--xv-purple-rgb), 0.18); }
     /* Reading progress — decorative, degrades to nothing without JS. */
     .read-bar {
       position: fixed;
@@ -271,8 +292,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
   "@type": "BlogPosting",
   "headline": "The Document Work That Starts After the Loan Closes",
   "description": "Servicing generates decades of inbound correspondence, and most automation attention stops at closing. Here is what the post-close document workflow looks like and where it pays.",
-  "datePublished": "2026-08-09",
-  "dateModified": "2026-08-09",
+  "datePublished": "2026-08-25",
+  "dateModified": "2026-08-25",
   "mainEntityOfPage": "https://xentovia.ai/blog/servicing-and-post-close-document-automation/",
   "url": "https://xentovia.ai/blog/servicing-and-post-close-document-automation/",
   "keywords": "Mortgage, Document Intelligence, Agentic AI",
@@ -474,13 +495,13 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </h1>
           <p class="text-lg text-slate-400 leading-relaxed mb-5">Servicing generates decades of inbound correspondence, and most automation attention stops at closing. Here is what the post-close document workflow looks like and where it pays.</p>
           <div class="flex items-center gap-3 text-sm text-slate-400">
-            <time datetime="2026-08-09">August 9, 2026</time>
+            <time datetime="2026-08-25">August 25, 2026</time>
             <span class="w-1 h-1 rounded-full bg-slate-600"></span>
             <span>4 min read</span>
           </div>
         </header>
 
-        <div class="glass rounded-2xl p-6 sm:p-10 post-content">
+        <div class="post-light rounded-2xl p-6 sm:p-10 post-content">
           <p>Origination gets the automation attention because it is where the transaction is. But a loan generates documents for decades afterwards, and servicing operations handle far more inbound volume over a loan's life than origination ever did.</p>
           <p>The work is less glamorous and the case for automating it is often stronger, because the documents are more repetitive, the decisions are more rule-driven, and the volume is continuous rather than cyclical.</p>
           <h2 id="what-arrives">What arrives</h2>
@@ -525,9 +546,9 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <p>Servicing document automation tends to be an easier first deployment than origination for three reasons: the documents are more repetitive, the decisions being supported are more rule-driven, and the failure modes are more contained.</p>
           <p>It also has a clearer compliance story. A system whose primary output is "this document arrived, here is what it is, here is the deadline it starts, here is who needs it" is a control that reduces risk, which is a different and easier conversation than one about automating a lending decision.</p>
 
-          <div class="mt-12 pt-8 border-t border-white/10 text-center">
-            <p class="text-white text-lg font-semibold mb-2">Have a servicing correspondence backlog?</p>
-            <p class="text-slate-400 mb-6">We will run a sample of real inbound mail and show classification, association, extraction and routing on it.</p>
+          <div class="post-cta mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="post-cta-title text-white text-lg font-semibold mb-2">Have a servicing correspondence backlog?</p>
+            <p class="post-cta-text text-slate-400 mb-6">We will run a sample of real inbound mail and show classification, association, extraction and routing on it.</p>
             <a href="/solutions/mortgage/" class="cta-primary inline-block px-8 py-3 rounded-lg text-sm font-semibold text-white">
               <span class="flex items-center gap-2">
                 Book a Demo
@@ -546,15 +567,15 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
             <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Indexing a Loan File at Packet Speed</h3>
             <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">A mortgage file is 300 to 800 pages of forty document types in no reliable order. Getting the stacking order right is a prerequisite for everything downstream — and it is automatable.</p>
           </a>
-          <a href="/blog/bank-statement-analysis-ai/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
-            <p class="text-xs text-slate-500 mb-2">Mortgage</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Bank Statement Analysis Is a Classification Problem, Not an Extraction Problem</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Pulling transactions off a statement is the easy part. Deciding what each one means — income, transfer, business, recurring obligation — is where the accuracy actually matters.</p>
+          <a href="/blog/what-is-an-agentic-document-pipeline/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Agentic AI</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">What an Agentic Document Pipeline Actually Is</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">&quot;Agentic&quot; has become a marketing word. Here is the concrete architecture behind it for document processing — what each component does, and why one big model call is not the same thing.</p>
           </a>
-          <a href="/blog/closing-document-quality-control/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
-            <p class="text-xs text-slate-500 mb-2">Mortgage</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Closing Document QC Is a Consistency Problem</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Most closing defects are not judgement calls. They are dates out of order, figures that disagree between documents, and signatures that are missing — all of which a machine can check on every file.</p>
+          <a href="/blog/document-ai-build-vs-buy/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Document Intelligence</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Build or Buy Document AI: An Honest Decision Framework</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Foundation model APIs made the first 70% of a document pipeline easy to build, which is exactly why so many in-house projects stall. Here is where the real work is, and how to decide.</p>
           </a>
         </div>
       </section>

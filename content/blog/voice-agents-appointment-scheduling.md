@@ -1,7 +1,7 @@
 ---
 title: Appointment Scheduling Is the Best First Voice Agent Deployment
 description: Bounded scope, clear success criteria, immediate measurable value, and a low cost of failure. Here is how to build one that works and what makes it harder than it looks.
-date: 2026-08-09
+date: 2026-08-14
 tags: [Voice AI, Agentic AI, Evaluation]
 highlight: Best First Deployment
 ctaTitle: Want a scheduling agent on your calendar?

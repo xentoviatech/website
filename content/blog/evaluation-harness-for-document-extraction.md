@@ -1,7 +1,7 @@
 ---
 title: Build the Evaluation Harness Before the Pipeline
 description: Without a scoring harness, every prompt change is a guess and every model upgrade is a gamble. Here is how to build one for document extraction, and what to put in it.
-date: 2026-08-09
+date: 2026-10-30
 weight: 34
 tags: [Evaluation, Agentic AI, Document Intelligence]
 highlight: Before the Pipeline

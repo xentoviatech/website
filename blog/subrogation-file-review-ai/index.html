@@ -12,7 +12,7 @@
   <meta property="og:description" content="Recovery potential is usually visible somewhere in the claim file. The problem is that reading every file is not economic — which is exactly the kind of problem document AI is suited to.">
   <meta property="og:url" content="https://xentovia.ai/blog/subrogation-file-review-ai/">
   <meta property="og:site_name" content="Xentovia Tech">
-  <meta property="article:published_time" content="2026-08-09">
+  <meta property="article:published_time" content="2026-08-21">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Finding Subrogation Opportunities Nobody Has Time to Look For">
   <meta name="twitter:description" content="Recovery potential is usually visible somewhere in the claim file. The problem is that reading every file is not economic — which is exactly the kind of problem document AI is suited to.">
@@ -166,6 +166,27 @@
       margin: 2.5rem 0;
     }
 
+    /* Light reading surface for the article body (brand light #F5F6FA, navy/slate text). */
+    .post-light { background: var(--xv-light); border: 1px solid #E1E5EF; color: #1E2A47; }
+    .post-light h2 { color: var(--xv-navy); }
+    .post-light h3 { color: #1E2F6E; }
+    .post-light p, .post-light li { color: #2B3654; }
+    .post-light strong { color: var(--xv-navy); }
+    .post-light em { color: #2B3654; }
+    .post-light a { color: var(--xv-purple); }
+    .post-light a:hover { color: var(--xv-purple-hover); }
+    .post-light a.cta-primary, .post-light a.cta-primary:hover { color: #fff; text-decoration: none; }
+    .post-light blockquote { border-left-color: var(--xv-purple); background: rgba(var(--xv-purple-rgb), 0.06); }
+    .post-light blockquote p { color: #2B3654; }
+    .post-light code { background: #E9ECF4; border-color: #D9DEEA; color: var(--xv-purple-hover); }
+    .post-light pre { background: #E9ECF4; border-color: #D9DEEA; color: #1E2A47; }
+    .post-light th, .post-light td { border-bottom-color: #DFE3EC; color: #2B3654; }
+    .post-light th { color: var(--xv-navy); background: #E9ECF4; }
+    .post-light hr { background: #DFE3EC; }
+    .post-light .post-cta { border-top-color: #DFE3EC; }
+    .post-light .post-cta-title { color: var(--xv-navy); }
+    .post-light .post-cta-text { color: var(--xv-slate); }
+    .post-light ::selection { background: rgba(var(--xv-purple-rgb), 0.18); }
     /* Reading progress — decorative, degrades to nothing without JS. */
     .read-bar {
       position: fixed;
@@ -271,8 +292,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
   "@type": "BlogPosting",
   "headline": "Finding Subrogation Opportunities Nobody Has Time to Look For",
   "description": "Recovery potential is usually visible somewhere in the claim file. The problem is that reading every file is not economic — which is exactly the kind of problem document AI is suited to.",
-  "datePublished": "2026-08-09",
-  "dateModified": "2026-08-09",
+  "datePublished": "2026-08-21",
+  "dateModified": "2026-08-21",
   "mainEntityOfPage": "https://xentovia.ai/blog/subrogation-file-review-ai/",
   "url": "https://xentovia.ai/blog/subrogation-file-review-ai/",
   "keywords": "Insurance, Document Intelligence, Human-in-the-Loop",
@@ -474,13 +495,13 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </h1>
           <p class="text-lg text-slate-400 leading-relaxed mb-5">Recovery potential is usually visible somewhere in the claim file. The problem is that reading every file is not economic — which is exactly the kind of problem document AI is suited to.</p>
           <div class="flex items-center gap-3 text-sm text-slate-400">
-            <time datetime="2026-08-09">August 9, 2026</time>
+            <time datetime="2026-08-21">August 21, 2026</time>
             <span class="w-1 h-1 rounded-full bg-slate-600"></span>
             <span>5 min read</span>
           </div>
         </header>
 
-        <div class="glass rounded-2xl p-6 sm:p-10 post-content">
+        <div class="post-light rounded-2xl p-6 sm:p-10 post-content">
           <p>Subrogation is one of the few functions in claims where the return is measured directly in recovered money. It is also one of the most consistently under-resourced, for a structural reason: identifying recovery potential requires reading the file, and reading every file is not economic.</p>
           <p>So carriers screen. Referral rules based on loss type, severity thresholds, and adjuster judgement catch the obvious cases. The rest close without anyone having asked the question — not because the potential was not there, but because nobody had time to look.</p>
           <p>That is a screening problem over unstructured documents, which is a good fit for automation in a way that many claims applications are not.</p>
@@ -525,9 +546,9 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
             <li><strong>Screening coverage</strong> — the share of closed files actually screened, which in most carriers starts far below 100% and is the underlying reason the opportunity exists.</li>
           </ul>
 
-          <div class="mt-12 pt-8 border-t border-white/10 text-center">
-            <p class="text-white text-lg font-semibold mb-2">Curious how much recovery you are leaving behind?</p>
-            <p class="text-slate-400 mb-6">We will screen a sample of closed files and show you what a systematic review surfaces.</p>
+          <div class="post-cta mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="post-cta-title text-white text-lg font-semibold mb-2">Curious how much recovery you are leaving behind?</p>
+            <p class="post-cta-text text-slate-400 mb-6">We will screen a sample of closed files and show you what a systematic review surfaces.</p>
             <a href="/solutions/insurance/" class="cta-primary inline-block px-8 py-3 rounded-lg text-sm font-semibold text-white">
               <span class="flex items-center gap-2">
                 Book a Demo
@@ -546,15 +567,15 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
             <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Automating FNOL Without Losing the Plot</h3>
             <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">First notice of loss is the highest-leverage automation target in claims and the easiest to get wrong. Here is what to automate, what to leave alone, and how to measure it.</p>
           </a>
-          <a href="/blog/acord-forms-automation/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
-            <p class="text-xs text-slate-500 mb-2">Insurance</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">ACORD Forms Are Standardised. Your Inbound ACORDs Are Not.</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">A standard form should be the easy case for document AI. In practice ACORD submissions arrive in a dozen states of completeness and fidelity — here is how to handle the reality.</p>
+          <a href="/blog/what-is-an-agentic-document-pipeline/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Agentic AI</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">What an Agentic Document Pipeline Actually Is</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">&quot;Agentic&quot; has become a marketing word. Here is the concrete architecture behind it for document processing — what each component does, and why one big model call is not the same thing.</p>
           </a>
-          <a href="/blog/commercial-underwriting-submission-intake/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
-            <p class="text-xs text-slate-500 mb-2">Insurance</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Submission Intake Is the Real Bottleneck in Commercial Underwriting</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Underwriters spend a large share of their time assembling submissions rather than underwriting them. Automating intake raises quote capacity without touching a single pricing decision.</p>
+          <a href="/blog/straight-through-processing-rate-explained/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Document Intelligence</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">What Straight-Through Processing Rate Really Tells You</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">STP is the single most quoted number in document automation and the easiest to inflate. Here is how to read it honestly, and why the STP-versus-error curve matters more than any single figure.</p>
           </a>
         </div>
       </section>

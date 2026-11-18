@@ -12,7 +12,7 @@
   <meta property="og:description" content="A vendor quoting 99% accuracy is telling you almost nothing useful. Here are the four numbers that actually predict whether a document AI deployment will save money.">
   <meta property="og:url" content="https://xentovia.ai/blog/document-ai-accuracy-metrics-that-matter/">
   <meta property="og:site_name" content="Xentovia Tech">
-  <meta property="article:published_time" content="2026-08-09">
+  <meta property="article:published_time" content="2026-11-13">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Character Accuracy Is a Vanity Metric. Measure These Four Instead.">
   <meta name="twitter:description" content="A vendor quoting 99% accuracy is telling you almost nothing useful. Here are the four numbers that actually predict whether a document AI deployment will save money.">
@@ -166,6 +166,27 @@
       margin: 2.5rem 0;
     }
 
+    /* Light reading surface for the article body (brand light #F5F6FA, navy/slate text). */
+    .post-light { background: var(--xv-light); border: 1px solid #E1E5EF; color: #1E2A47; }
+    .post-light h2 { color: var(--xv-navy); }
+    .post-light h3 { color: #1E2F6E; }
+    .post-light p, .post-light li { color: #2B3654; }
+    .post-light strong { color: var(--xv-navy); }
+    .post-light em { color: #2B3654; }
+    .post-light a { color: var(--xv-purple); }
+    .post-light a:hover { color: var(--xv-purple-hover); }
+    .post-light a.cta-primary, .post-light a.cta-primary:hover { color: #fff; text-decoration: none; }
+    .post-light blockquote { border-left-color: var(--xv-purple); background: rgba(var(--xv-purple-rgb), 0.06); }
+    .post-light blockquote p { color: #2B3654; }
+    .post-light code { background: #E9ECF4; border-color: #D9DEEA; color: var(--xv-purple-hover); }
+    .post-light pre { background: #E9ECF4; border-color: #D9DEEA; color: #1E2A47; }
+    .post-light th, .post-light td { border-bottom-color: #DFE3EC; color: #2B3654; }
+    .post-light th { color: var(--xv-navy); background: #E9ECF4; }
+    .post-light hr { background: #DFE3EC; }
+    .post-light .post-cta { border-top-color: #DFE3EC; }
+    .post-light .post-cta-title { color: var(--xv-navy); }
+    .post-light .post-cta-text { color: var(--xv-slate); }
+    .post-light ::selection { background: rgba(var(--xv-purple-rgb), 0.18); }
     /* Reading progress — decorative, degrades to nothing without JS. */
     .read-bar {
       position: fixed;
@@ -271,8 +292,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
   "@type": "BlogPosting",
   "headline": "Character Accuracy Is a Vanity Metric. Measure These Four Instead.",
   "description": "A vendor quoting 99% accuracy is telling you almost nothing useful. Here are the four numbers that actually predict whether a document AI deployment will save money.",
-  "datePublished": "2026-08-09",
-  "dateModified": "2026-08-09",
+  "datePublished": "2026-11-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": "https://xentovia.ai/blog/document-ai-accuracy-metrics-that-matter/",
   "url": "https://xentovia.ai/blog/document-ai-accuracy-metrics-that-matter/",
   "keywords": "Document Intelligence, Evaluation, Procurement",
@@ -474,13 +495,13 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </h1>
           <p class="text-lg text-slate-400 leading-relaxed mb-5">A vendor quoting 99% accuracy is telling you almost nothing useful. Here are the four numbers that actually predict whether a document AI deployment will save money.</p>
           <div class="flex items-center gap-3 text-sm text-slate-400">
-            <time datetime="2026-08-09">August 9, 2026</time>
+            <time datetime="2026-11-13">November 13, 2026</time>
             <span class="w-1 h-1 rounded-full bg-slate-600"></span>
             <span>6 min read</span>
           </div>
         </header>
 
-        <div class="glass rounded-2xl p-6 sm:p-10 post-content">
+        <div class="post-light rounded-2xl p-6 sm:p-10 post-content">
           <p>Every document AI vendor quotes an accuracy figure, and almost every one of those figures is unfalsifiable. "99.2% accurate" invites an obvious question that rarely gets asked in the sales meeting: accurate at what, measured how, on which documents?</p>
           <p>The number being quoted is usually character accuracy — the percentage of individual characters the system transcribes correctly. It is the easiest metric to make look good and the least connected to whether the deployment pays for itself. This post is about the four numbers that are connected, and how to make a vendor produce them.</p>
           <h2 id="why-character-accuracy-misleads">Why character accuracy misleads</h2>
@@ -531,9 +552,9 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <p>Some workflows do not care about per-field accuracy at all. If you are routing documents to the right queue, what matters is classification accuracy and the cost asymmetry between the two kinds of mistake. If you are searching an archive, recall at a given precision matters more than exact extraction. If you are summarising for a human who will read the source anyway, faithfulness matters and field accuracy does not apply.</p>
           <p>Match the metric to the decision the system is actually making. The point of all four numbers above is not to be rigorous for its own sake — it is that they are the ones you can put into a spreadsheet and defend to a CFO.</p>
 
-          <div class="mt-12 pt-8 border-t border-white/10 text-center">
-            <p class="text-white text-lg font-semibold mb-2">Want these four numbers for your own documents?</p>
-            <p class="text-slate-400 mb-6">Send us a representative sample. We will report field accuracy, STP rate, escaped error rate and cost per corrected document — measured, not estimated.</p>
+          <div class="post-cta mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="post-cta-title text-white text-lg font-semibold mb-2">Want these four numbers for your own documents?</p>
+            <p class="post-cta-text text-slate-400 mb-6">Send us a representative sample. We will report field accuracy, STP rate, escaped error rate and cost per corrected document — measured, not estimated.</p>
             <a href="/#contact" class="cta-primary inline-block px-8 py-3 rounded-lg text-sm font-semibold text-white">
               <span class="flex items-center gap-2">
                 Book a Demo
@@ -552,15 +573,15 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
             <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">The Real Total Cost of a Document AI Deployment</h3>
             <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Per-page pricing is the smallest line in the budget. Here is the full cost model, including the four categories that consistently get left out of business cases.</p>
           </a>
-          <a href="/blog/acord-forms-automation/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
-            <p class="text-xs text-slate-500 mb-2">Insurance</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">ACORD Forms Are Standardised. Your Inbound ACORDs Are Not.</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">A standard form should be the easy case for document AI. In practice ACORD submissions arrive in a dozen states of completeness and fidelity — here is how to handle the reality.</p>
+          <a href="/blog/straight-through-processing-rate-explained/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Document Intelligence</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">What Straight-Through Processing Rate Really Tells You</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">STP is the single most quoted number in document automation and the easiest to inflate. Here is how to read it honestly, and why the STP-versus-error curve matters more than any single figure.</p>
           </a>
-          <a href="/blog/bank-statement-analysis-ai/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
-            <p class="text-xs text-slate-500 mb-2">Mortgage</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Bank Statement Analysis Is a Classification Problem, Not an Extraction Problem</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Pulling transactions off a statement is the easy part. Deciding what each one means — income, transfer, business, recurring obligation — is where the accuracy actually matters.</p>
+          <a href="/blog/document-ai-build-vs-buy/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Document Intelligence</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Build or Buy Document AI: An Honest Decision Framework</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Foundation model APIs made the first 70% of a document pipeline easy to build, which is exactly why so many in-house projects stall. Here is where the real work is, and how to decide.</p>
           </a>
         </div>
       </section>

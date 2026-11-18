@@ -1,7 +1,7 @@
 ---
 title: Validation Patterns That Catch What the Model Missed
 description: The cheapest accuracy improvements in document AI are not model upgrades. They are rules — arithmetic, cross-references, and reference-data lookups that turn a guess into a verified value.
-date: 2026-08-09
+date: 2026-09-10
 tags: [Agentic AI, Document Intelligence, Evaluation]
 highlight: What the Model Missed
 ctaTitle: Want your business rules inside the pipeline?

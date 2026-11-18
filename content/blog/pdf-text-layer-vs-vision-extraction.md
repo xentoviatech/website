@@ -1,7 +1,7 @@
 ---
 title: When to Trust a PDF's Text Layer and When to Look at the Pixels
 description: A PDF that contains selectable text seems like a solved problem. Often it is — and the cases where it is not will silently corrupt your data.
-date: 2026-08-09
+date: 2026-09-04
 tags: [Document Intelligence, Vision AI, Evaluation]
 highlight: the Pixels
 ctaTitle: Not sure which of your PDFs are lying to you?

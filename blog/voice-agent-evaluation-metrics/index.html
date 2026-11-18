@@ -12,7 +12,7 @@
   <meta property="og:description" content="Word error rate tells you almost nothing about whether a voice agent works. Here is the evaluation stack that predicts how it will perform with real callers.">
   <meta property="og:url" content="https://xentovia.ai/blog/voice-agent-evaluation-metrics/">
   <meta property="og:site_name" content="Xentovia Tech">
-  <meta property="article:published_time" content="2026-08-09">
+  <meta property="article:published_time" content="2026-08-18">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="How to Evaluate a Voice Agent Properly">
   <meta name="twitter:description" content="Word error rate tells you almost nothing about whether a voice agent works. Here is the evaluation stack that predicts how it will perform with real callers.">
@@ -166,6 +166,27 @@
       margin: 2.5rem 0;
     }
 
+    /* Light reading surface for the article body (brand light #F5F6FA, navy/slate text). */
+    .post-light { background: var(--xv-light); border: 1px solid #E1E5EF; color: #1E2A47; }
+    .post-light h2 { color: var(--xv-navy); }
+    .post-light h3 { color: #1E2F6E; }
+    .post-light p, .post-light li { color: #2B3654; }
+    .post-light strong { color: var(--xv-navy); }
+    .post-light em { color: #2B3654; }
+    .post-light a { color: var(--xv-purple); }
+    .post-light a:hover { color: var(--xv-purple-hover); }
+    .post-light a.cta-primary, .post-light a.cta-primary:hover { color: #fff; text-decoration: none; }
+    .post-light blockquote { border-left-color: var(--xv-purple); background: rgba(var(--xv-purple-rgb), 0.06); }
+    .post-light blockquote p { color: #2B3654; }
+    .post-light code { background: #E9ECF4; border-color: #D9DEEA; color: var(--xv-purple-hover); }
+    .post-light pre { background: #E9ECF4; border-color: #D9DEEA; color: #1E2A47; }
+    .post-light th, .post-light td { border-bottom-color: #DFE3EC; color: #2B3654; }
+    .post-light th { color: var(--xv-navy); background: #E9ECF4; }
+    .post-light hr { background: #DFE3EC; }
+    .post-light .post-cta { border-top-color: #DFE3EC; }
+    .post-light .post-cta-title { color: var(--xv-navy); }
+    .post-light .post-cta-text { color: var(--xv-slate); }
+    .post-light ::selection { background: rgba(var(--xv-purple-rgb), 0.18); }
     /* Reading progress — decorative, degrades to nothing without JS. */
     .read-bar {
       position: fixed;
@@ -271,8 +292,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
   "@type": "BlogPosting",
   "headline": "How to Evaluate a Voice Agent Properly",
   "description": "Word error rate tells you almost nothing about whether a voice agent works. Here is the evaluation stack that predicts how it will perform with real callers.",
-  "datePublished": "2026-08-09",
-  "dateModified": "2026-08-09",
+  "datePublished": "2026-08-18",
+  "dateModified": "2026-08-18",
   "mainEntityOfPage": "https://xentovia.ai/blog/voice-agent-evaluation-metrics/",
   "url": "https://xentovia.ai/blog/voice-agent-evaluation-metrics/",
   "keywords": "Voice AI, Evaluation, Procurement",
@@ -474,13 +495,13 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </h1>
           <p class="text-lg text-slate-400 leading-relaxed mb-5">Word error rate tells you almost nothing about whether a voice agent works. Here is the evaluation stack that predicts how it will perform with real callers.</p>
           <div class="flex items-center gap-3 text-sm text-slate-400">
-            <time datetime="2026-08-09">August 9, 2026</time>
+            <time datetime="2026-08-18">August 18, 2026</time>
             <span class="w-1 h-1 rounded-full bg-slate-600"></span>
             <span>5 min read</span>
           </div>
         </header>
 
-        <div class="glass rounded-2xl p-6 sm:p-10 post-content">
+        <div class="post-light rounded-2xl p-6 sm:p-10 post-content">
           <p>Voice agents are usually evaluated by demonstration: someone makes a call, it goes well, everyone is impressed. This predicts production performance poorly, because the demonstration call is made by someone who knows what to say, in a quiet room, with a good connection, on a path that has been tested.</p>
           <p>Real callers are on mobile phones in cars, have accents, change their minds mid-sentence, interrupt, and ask about things nobody anticipated. Evaluating for that requires structure.</p>
           <h2 id="the-layers">The layers</h2>
@@ -533,9 +554,9 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </ul>
           <p>That last one is the most informative request you can make, and a vendor's willingness to accommodate it is itself a signal.</p>
 
-          <div class="mt-12 pt-8 border-t border-white/10 text-center">
-            <p class="text-white text-lg font-semibold mb-2">Evaluating voice vendors?</p>
-            <p class="text-slate-400 mb-6">Ask us for the metrics in this post on your own call types. We would rather be measured than demonstrated.</p>
+          <div class="post-cta mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="post-cta-title text-white text-lg font-semibold mb-2">Evaluating voice vendors?</p>
+            <p class="post-cta-text text-slate-400 mb-6">Ask us for the metrics in this post on your own call types. We would rather be measured than demonstrated.</p>
             <a href="/xentovox/" class="cta-primary inline-block px-8 py-3 rounded-lg text-sm font-semibold text-white">
               <span class="flex items-center gap-2">
                 Talk to Us
@@ -549,20 +570,20 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
       <section class="mt-16">
         <h2 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-5">Keep reading</h2>
         <div class="grid gap-5 sm:grid-cols-3">
-          <a href="/blog/ambient-documentation-vs-dictation/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
-            <p class="text-xs text-slate-500 mb-2">Healthcare</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Ambient Documentation and Dictation Solve Different Problems</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">They are often evaluated as competing products. They have different failure modes, different oversight requirements, and different specialties where each is clearly right.</p>
-          </a>
           <a href="/blog/document-ai-accuracy-metrics-that-matter/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
             <p class="text-xs text-slate-500 mb-2">Document Intelligence</p>
             <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Character Accuracy Is a Vanity Metric. Measure These Four Instead.</h3>
             <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">A vendor quoting 99% accuracy is telling you almost nothing useful. Here are the four numbers that actually predict whether a document AI deployment will save money.</p>
           </a>
-          <a href="/blog/document-ai-total-cost-of-ownership/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
-            <p class="text-xs text-slate-500 mb-2">Document Intelligence</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">The Real Total Cost of a Document AI Deployment</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Per-page pricing is the smallest line in the budget. Here is the full cost model, including the four categories that consistently get left out of business cases.</p>
+          <a href="/blog/voice-ai-latency-budget/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Voice AI</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">The Latency Budget of a Voice Agent</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Sub-second response is the difference between a conversation and an interrogation. Here is where the milliseconds actually go and which ones you can get back.</p>
+          </a>
+          <a href="/blog/ambient-documentation-vs-dictation/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Healthcare</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Ambient Documentation and Dictation Solve Different Problems</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">They are often evaluated as competing products. They have different failure modes, different oversight requirements, and different specialties where each is clearly right.</p>
           </a>
         </div>
       </section>

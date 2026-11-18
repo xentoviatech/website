@@ -1,7 +1,7 @@
 ---
 title: Bank Statement Analysis Is a Classification Problem, Not an Extraction Problem
 description: Pulling transactions off a statement is the easy part. Deciding what each one means — income, transfer, business, recurring obligation — is where the accuracy actually matters.
-date: 2026-08-09
+date: 2026-10-20
 tags: [Mortgage, Document Intelligence, Evaluation]
 highlight: Not an Extraction Problem
 ctaTitle: Want transaction-level analysis you can audit?

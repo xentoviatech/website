@@ -1,7 +1,7 @@
 ---
 title: The Latency Budget of a Voice Agent
 description: Sub-second response is the difference between a conversation and an interrogation. Here is where the milliseconds actually go and which ones you can get back.
-date: 2026-08-09
+date: 2026-11-05
 weight: 40
 tags: [Voice AI, Evaluation, Agentic AI]
 highlight: Latency Budget

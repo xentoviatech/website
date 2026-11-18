@@ -1,7 +1,7 @@
 ---
 title: Closing Document QC Is a Consistency Problem
 description: Most closing defects are not judgement calls. They are dates out of order, figures that disagree between documents, and signatures that are missing — all of which a machine can check on every file.
-date: 2026-08-09
+date: 2026-10-15
 tags: [Mortgage, Compliance, Document Intelligence]
 highlight: A Consistency Problem
 ctaTitle: Want every file checked instead of a sample?

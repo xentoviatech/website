@@ -1,7 +1,7 @@
 ---
 title: When Not to Use an LLM Agent
 description: The failure mode of the current moment is using a language model for work that a regular expression, a lookup table, or a form field would do better. Here is how to tell the difference.
-date: 2026-08-09
+date: 2026-08-10
 tags: [Agentic AI, Procurement, Evaluation]
 highlight: Not to Use
 ctaTitle: Want a straight answer about your workflow?

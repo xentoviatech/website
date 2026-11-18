@@ -1,7 +1,7 @@
 ---
 title: The Real Total Cost of a Document AI Deployment
 description: Per-page pricing is the smallest line in the budget. Here is the full cost model, including the four categories that consistently get left out of business cases.
-date: 2026-08-09
+date: 2026-10-05
 tags: [Document Intelligence, Procurement, Evaluation]
 highlight: Real Total Cost
 ctaTitle: Building the business case?

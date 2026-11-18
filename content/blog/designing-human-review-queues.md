@@ -1,7 +1,7 @@
 ---
 title: Designing a Review Queue People Can Actually Work
 description: The review interface determines the unit economics of document automation more than model accuracy does. Here is what separates a queue that takes seconds per exception from one that takes minutes.
-date: 2026-08-09
+date: 2026-11-02
 weight: 36
 tags: [Human-in-the-Loop, Document Intelligence, Agentic AI]
 highlight: Actually Work

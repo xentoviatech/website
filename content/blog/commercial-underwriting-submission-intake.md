@@ -1,7 +1,7 @@
 ---
 title: Submission Intake Is the Real Bottleneck in Commercial Underwriting
 description: Underwriters spend a large share of their time assembling submissions rather than underwriting them. Automating intake raises quote capacity without touching a single pricing decision.
-date: 2026-08-09
+date: 2026-10-12
 tags: [Insurance, Document Intelligence, Agentic AI]
 highlight: The Real Bottleneck
 ctaTitle: Want more quote capacity without more underwriters?

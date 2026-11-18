@@ -1,7 +1,7 @@
 ---
 title: The Document Work That Starts After the Loan Closes
 description: Servicing generates decades of inbound correspondence, and most automation attention stops at closing. Here is what the post-close document workflow looks like and where it pays.
-date: 2026-08-09
+date: 2026-08-25
 tags: [Mortgage, Document Intelligence, Agentic AI]
 highlight: After the Loan Closes
 ctaTitle: Have a servicing correspondence backlog?

@@ -1,7 +1,7 @@
 ---
 title: Character Accuracy Is a Vanity Metric. Measure These Four Instead.
 description: A vendor quoting 99% accuracy is telling you almost nothing useful. Here are the four numbers that actually predict whether a document AI deployment will save money.
-date: 2026-08-09
+date: 2026-11-13
 weight: 50
 tags: [Document Intelligence, Evaluation, Procurement]
 highlight: Vanity Metric

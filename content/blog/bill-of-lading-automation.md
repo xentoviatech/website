@@ -1,7 +1,7 @@
 ---
 title: Bills of Lading Are Legal Instruments, Not Just Data
 description: Extracting fields from a transport document is straightforward. Understanding which document is the original, what it entitles the holder to, and what its clauses mean is not.
-date: 2026-08-09
+date: 2026-10-19
 tags: [Logistics, Document Intelligence, Compliance]
 highlight: Not Just Data
 ctaTitle: Processing transport documents at volume?

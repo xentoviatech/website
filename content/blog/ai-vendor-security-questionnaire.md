@@ -1,7 +1,7 @@
 ---
 title: The Security Questions to Ask an AI Vendor That Standard Questionnaires Miss
 description: Your existing vendor assessment covers encryption and access control. It probably does not cover model providers, training use, or what happens to your data inside an inference call.
-date: 2026-08-09
+date: 2026-10-26
 tags: [Security, Procurement, Compliance]
 highlight: Standard Questionnaires Miss
 ctaTitle: Running an assessment on us?

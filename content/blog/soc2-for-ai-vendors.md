@@ -1,7 +1,7 @@
 ---
 title: What SOC 2 Does and Does Not Tell You About an AI Vendor
 description: The report is a genuine signal about operational discipline. It says almost nothing about whether the AI works, and buyers routinely read more into it than it contains.
-date: 2026-08-09
+date: 2026-08-24
 tags: [Security, Procurement, Compliance]
 highlight: Does and Does Not
 ctaTitle: Going through security review with us?

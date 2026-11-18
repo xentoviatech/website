@@ -12,7 +12,7 @@
   <meta property="og:description" content="The engineering decisions that determine whether a clinical document pipeline is compliant are made early, in architecture rather than in policy. Here are the ones that matter.">
   <meta property="og:url" content="https://xentovia.ai/blog/clinical-document-extraction-hipaa/">
   <meta property="og:site_name" content="Xentovia Tech">
-  <meta property="article:published_time" content="2026-08-09">
+  <meta property="article:published_time" content="2026-10-16">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Extracting Clinical Data Without Creating a HIPAA Problem">
   <meta name="twitter:description" content="The engineering decisions that determine whether a clinical document pipeline is compliant are made early, in architecture rather than in policy. Here are the ones that matter.">
@@ -166,6 +166,27 @@
       margin: 2.5rem 0;
     }
 
+    /* Light reading surface for the article body (brand light #F5F6FA, navy/slate text). */
+    .post-light { background: var(--xv-light); border: 1px solid #E1E5EF; color: #1E2A47; }
+    .post-light h2 { color: var(--xv-navy); }
+    .post-light h3 { color: #1E2F6E; }
+    .post-light p, .post-light li { color: #2B3654; }
+    .post-light strong { color: var(--xv-navy); }
+    .post-light em { color: #2B3654; }
+    .post-light a { color: var(--xv-purple); }
+    .post-light a:hover { color: var(--xv-purple-hover); }
+    .post-light a.cta-primary, .post-light a.cta-primary:hover { color: #fff; text-decoration: none; }
+    .post-light blockquote { border-left-color: var(--xv-purple); background: rgba(var(--xv-purple-rgb), 0.06); }
+    .post-light blockquote p { color: #2B3654; }
+    .post-light code { background: #E9ECF4; border-color: #D9DEEA; color: var(--xv-purple-hover); }
+    .post-light pre { background: #E9ECF4; border-color: #D9DEEA; color: #1E2A47; }
+    .post-light th, .post-light td { border-bottom-color: #DFE3EC; color: #2B3654; }
+    .post-light th { color: var(--xv-navy); background: #E9ECF4; }
+    .post-light hr { background: #DFE3EC; }
+    .post-light .post-cta { border-top-color: #DFE3EC; }
+    .post-light .post-cta-title { color: var(--xv-navy); }
+    .post-light .post-cta-text { color: var(--xv-slate); }
+    .post-light ::selection { background: rgba(var(--xv-purple-rgb), 0.18); }
     /* Reading progress — decorative, degrades to nothing without JS. */
     .read-bar {
       position: fixed;
@@ -271,8 +292,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
   "@type": "BlogPosting",
   "headline": "Extracting Clinical Data Without Creating a HIPAA Problem",
   "description": "The engineering decisions that determine whether a clinical document pipeline is compliant are made early, in architecture rather than in policy. Here are the ones that matter.",
-  "datePublished": "2026-08-09",
-  "dateModified": "2026-08-09",
+  "datePublished": "2026-10-16",
+  "dateModified": "2026-10-16",
   "mainEntityOfPage": "https://xentovia.ai/blog/clinical-document-extraction-hipaa/",
   "url": "https://xentovia.ai/blog/clinical-document-extraction-hipaa/",
   "keywords": "Healthcare, Compliance, Security",
@@ -474,13 +495,13 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </h1>
           <p class="text-lg text-slate-400 leading-relaxed mb-5">The engineering decisions that determine whether a clinical document pipeline is compliant are made early, in architecture rather than in policy. Here are the ones that matter.</p>
           <div class="flex items-center gap-3 text-sm text-slate-400">
-            <time datetime="2026-08-09">August 9, 2026</time>
+            <time datetime="2026-10-16">October 16, 2026</time>
             <span class="w-1 h-1 rounded-full bg-slate-600"></span>
             <span>6 min read</span>
           </div>
         </header>
 
-        <div class="glass rounded-2xl p-6 sm:p-10 post-content">
+        <div class="post-light rounded-2xl p-6 sm:p-10 post-content">
           <p>Clinical documents are among the most valuable targets for document AI and the least forgiving. The content is protected health information, the handling requirements are specific, and the consequences of getting it wrong are regulatory rather than merely operational.</p>
           <p>Most of what determines whether a clinical pipeline is defensible is decided in architecture, before anyone writes a privacy policy. This is a practical account of those decisions. It is not legal advice — confirm specifics with your own privacy officer and counsel, because the details vary by organisation, jurisdiction and use case.</p>
           <h2 id="establish-the-relationship-first">Establish the relationship first</h2>
@@ -527,9 +548,9 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </ul>
           <p>None of this is exotic. All of it is much easier to build in at the start than to retrofit after a privacy review sends the project back.</p>
 
-          <div class="mt-12 pt-8 border-t border-white/10 text-center">
-            <p class="text-white text-lg font-semibold mb-2">Need a BAA and a deployment model that satisfies your privacy office?</p>
-            <p class="text-slate-400 mb-6">We will walk your security and privacy teams through data flows, subprocessors, retention and deployment options.</p>
+          <div class="post-cta mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="post-cta-title text-white text-lg font-semibold mb-2">Need a BAA and a deployment model that satisfies your privacy office?</p>
+            <p class="post-cta-text text-slate-400 mb-6">We will walk your security and privacy teams through data flows, subprocessors, retention and deployment options.</p>
             <a href="/solutions/healthcare/" class="cta-primary inline-block px-8 py-3 rounded-lg text-sm font-semibold text-white">
               <span class="flex items-center gap-2">
                 Talk to Us

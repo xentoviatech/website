@@ -1,7 +1,7 @@
 ---
 title: How to Evaluate a Voice Agent Properly
 description: Word error rate tells you almost nothing about whether a voice agent works. Here is the evaluation stack that predicts how it will perform with real callers.
-date: 2026-08-09
+date: 2026-08-18
 tags: [Voice AI, Evaluation, Procurement]
 highlight: Properly
 ctaTitle: Evaluating voice vendors?

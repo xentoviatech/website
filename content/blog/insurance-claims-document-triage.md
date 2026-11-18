@@ -1,7 +1,7 @@
 ---
 title: Claims Document Triage: Sorting the Pile Before Anyone Reads It
 description: A claim file accumulates dozens of documents from a dozen sources. Getting each one to the right place at the right time is a bigger win than extracting every field perfectly.
-date: 2026-08-09
+date: 2026-09-21
 tags: [Insurance, Document Intelligence, Agentic AI]
 highlight: Before Anyone Reads It
 ctaTitle: Want your claim files triaged automatically?

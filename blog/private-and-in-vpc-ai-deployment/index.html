@@ -12,7 +12,7 @@
   <meta property="og:description" content="&quot;Nothing leaves our environment&quot; is achievable. It is not free, and the trade-offs are worth understanding before it becomes a hard requirement in a procurement document.">
   <meta property="og:url" content="https://xentovia.ai/blog/private-and-in-vpc-ai-deployment/">
   <meta property="og:site_name" content="Xentovia Tech">
-  <meta property="article:published_time" content="2026-08-09">
+  <meta property="article:published_time" content="2026-08-31">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Private Deployment Options for Document AI, and What Each Costs You">
   <meta name="twitter:description" content="&quot;Nothing leaves our environment&quot; is achievable. It is not free, and the trade-offs are worth understanding before it becomes a hard requirement in a procurement document.">
@@ -166,6 +166,27 @@
       margin: 2.5rem 0;
     }
 
+    /* Light reading surface for the article body (brand light #F5F6FA, navy/slate text). */
+    .post-light { background: var(--xv-light); border: 1px solid #E1E5EF; color: #1E2A47; }
+    .post-light h2 { color: var(--xv-navy); }
+    .post-light h3 { color: #1E2F6E; }
+    .post-light p, .post-light li { color: #2B3654; }
+    .post-light strong { color: var(--xv-navy); }
+    .post-light em { color: #2B3654; }
+    .post-light a { color: var(--xv-purple); }
+    .post-light a:hover { color: var(--xv-purple-hover); }
+    .post-light a.cta-primary, .post-light a.cta-primary:hover { color: #fff; text-decoration: none; }
+    .post-light blockquote { border-left-color: var(--xv-purple); background: rgba(var(--xv-purple-rgb), 0.06); }
+    .post-light blockquote p { color: #2B3654; }
+    .post-light code { background: #E9ECF4; border-color: #D9DEEA; color: var(--xv-purple-hover); }
+    .post-light pre { background: #E9ECF4; border-color: #D9DEEA; color: #1E2A47; }
+    .post-light th, .post-light td { border-bottom-color: #DFE3EC; color: #2B3654; }
+    .post-light th { color: var(--xv-navy); background: #E9ECF4; }
+    .post-light hr { background: #DFE3EC; }
+    .post-light .post-cta { border-top-color: #DFE3EC; }
+    .post-light .post-cta-title { color: var(--xv-navy); }
+    .post-light .post-cta-text { color: var(--xv-slate); }
+    .post-light ::selection { background: rgba(var(--xv-purple-rgb), 0.18); }
     /* Reading progress — decorative, degrades to nothing without JS. */
     .read-bar {
       position: fixed;
@@ -271,8 +292,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
   "@type": "BlogPosting",
   "headline": "Private Deployment Options for Document AI, and What Each Costs You",
   "description": "\"Nothing leaves our environment\" is achievable. It is not free, and the trade-offs are worth understanding before it becomes a hard requirement in a procurement document.",
-  "datePublished": "2026-08-09",
-  "dateModified": "2026-08-09",
+  "datePublished": "2026-08-31",
+  "dateModified": "2026-08-31",
   "mainEntityOfPage": "https://xentovia.ai/blog/private-and-in-vpc-ai-deployment/",
   "url": "https://xentovia.ai/blog/private-and-in-vpc-ai-deployment/",
   "keywords": "Security, Procurement, Agentic AI",
@@ -474,13 +495,13 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </h1>
           <p class="text-lg text-slate-400 leading-relaxed mb-5">&quot;Nothing leaves our environment&quot; is achievable. It is not free, and the trade-offs are worth understanding before it becomes a hard requirement in a procurement document.</p>
           <div class="flex items-center gap-3 text-sm text-slate-400">
-            <time datetime="2026-08-09">August 9, 2026</time>
+            <time datetime="2026-08-31">August 31, 2026</time>
             <span class="w-1 h-1 rounded-full bg-slate-600"></span>
             <span>5 min read</span>
           </div>
         </header>
 
-        <div class="glass rounded-2xl p-6 sm:p-10 post-content">
+        <div class="post-light rounded-2xl p-6 sm:p-10 post-content">
           <p>"Our data cannot leave our environment" appears in a lot of requirements documents, sometimes as a genuine regulatory constraint and sometimes as a default position adopted before anyone examined what it costs.</p>
           <p>It is achievable. The options form a spectrum, and each point on it trades control against capability, cost and operational burden. Making the choice deliberately produces much better outcomes than inheriting it from a template.</p>
           <h2 id="the-spectrum">The spectrum</h2>
@@ -528,9 +549,9 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <p>Start from what you are actually required to guarantee, not from the strongest-sounding option. For most enterprise document workloads, a hosted deployment in a chosen region with contractual zero-retention, no training use and a named subprocessor list satisfies the genuine requirement at a fraction of the cost of full isolation.</p>
           <p>Where the constraint is real — certain government work, some health and financial contexts, defence-adjacent work — self-containment is the answer and the costs above are simply the price. Knowing which situation you are in is worth the week it takes to establish.</p>
 
-          <div class="mt-12 pt-8 border-t border-white/10 text-center">
-            <p class="text-white text-lg font-semibold mb-2">Have a hard isolation requirement?</p>
-            <p class="text-slate-400 mb-6">Tell us the constraint. We will tell you which deployment model meets it and what it means for accuracy and cost.</p>
+          <div class="post-cta mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="post-cta-title text-white text-lg font-semibold mb-2">Have a hard isolation requirement?</p>
+            <p class="post-cta-text text-slate-400 mb-6">Tell us the constraint. We will tell you which deployment model meets it and what it means for accuracy and cost.</p>
             <a href="/#contact" class="cta-primary inline-block px-8 py-3 rounded-lg text-sm font-semibold text-white">
               <span class="flex items-center gap-2">
                 Talk to Us
@@ -544,20 +565,20 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
       <section class="mt-16">
         <h2 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-5">Keep reading</h2>
         <div class="grid gap-5 sm:grid-cols-3">
+          <a href="/blog/document-ai-build-vs-buy/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Document Intelligence</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Build or Buy Document AI: An Honest Decision Framework</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Foundation model APIs made the first 70% of a document pipeline easy to build, which is exactly why so many in-house projects stall. Here is where the real work is, and how to decide.</p>
+          </a>
+          <a href="/blog/prompt-injection-in-document-pipelines/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Security</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Prompt Injection Through Documents Is a Real Attack Surface</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">If your pipeline reads documents supplied by outside parties and acts on what it finds, those documents are untrusted input reaching a model that follows instructions.</p>
+          </a>
           <a href="/blog/ai-regulation-and-document-processing/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
             <p class="text-xs text-slate-500 mb-2">Compliance</p>
             <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Where Document AI Sits in the Emerging AI Regulation Landscape</h3>
             <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Most document extraction is low-risk under the frameworks now taking shape. The obligations attach to what you do with the output, which is an argument for a specific architecture.</p>
-          </a>
-          <a href="/blog/ai-vendor-security-questionnaire/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
-            <p class="text-xs text-slate-500 mb-2">Security</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">The Security Questions to Ask an AI Vendor That Standard Questionnaires Miss</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Your existing vendor assessment covers encryption and access control. It probably does not cover model providers, training use, or what happens to your data inside an inference call.</p>
-          </a>
-          <a href="/blog/data-residency-and-processing-agreements/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
-            <p class="text-xs text-slate-500 mb-2">Compliance</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Data Residency When Your Model Provider Is Somewhere Else</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">A vendor hosting in your region may still send your documents through an inference endpoint in another. Here is how to establish where processing actually happens.</p>
           </a>
         </div>
       </section>

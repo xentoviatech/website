@@ -1,7 +1,7 @@
 ---
 title: Ambient Documentation and Dictation Solve Different Problems
 description: They are often evaluated as competing products. They have different failure modes, different oversight requirements, and different specialties where each is clearly right.
-date: 2026-08-09
+date: 2026-10-23
 tags: [Healthcare, Voice AI, Procurement]
 highlight: Different Problems
 ctaTitle: Deciding between ambient capture and structured dictation?

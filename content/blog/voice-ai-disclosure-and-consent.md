@@ -1,7 +1,7 @@
 ---
 title: Disclosure, Consent and Recording for Voice AI Deployments
 description: The compliance requirements around automated calling, recording and AI disclosure are jurisdiction-specific and moving. Here is the framework to design against.
-date: 2026-08-09
+date: 2026-08-13
 tags: [Voice AI, Compliance, Security]
 highlight: Disclosure, Consent and Recording
 ctaTitle: Need a voice deployment your legal team will approve?

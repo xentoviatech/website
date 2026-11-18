@@ -1,7 +1,7 @@
 ---
 title: Automating FNOL Without Losing the Plot
 description: First notice of loss is the highest-leverage automation target in claims and the easiest to get wrong. Here is what to automate, what to leave alone, and how to measure it.
-date: 2026-08-09
+date: 2026-10-01
 tags: [Insurance, Document Intelligence, Human-in-the-Loop]
 highlight: Without Losing the Plot
 ctaTitle: Want to see FNOL intake automated end to end?

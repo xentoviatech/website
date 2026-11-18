@@ -12,7 +12,7 @@
   <meta property="og:description" content="General-purpose transcription fails on pathology for specific, fixable reasons — vocabulary, structure, and the fact that a single misheard word changes a diagnosis.">
   <meta property="og:url" content="https://xentovia.ai/blog/pathology-dictation-ai/">
   <meta property="og:site_name" content="Xentovia Tech">
-  <meta property="article:published_time" content="2026-08-09">
+  <meta property="article:published_time" content="2026-09-07">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Why Pathology Dictation Is a Harder Speech Problem Than It Looks">
   <meta name="twitter:description" content="General-purpose transcription fails on pathology for specific, fixable reasons — vocabulary, structure, and the fact that a single misheard word changes a diagnosis.">
@@ -166,6 +166,27 @@
       margin: 2.5rem 0;
     }
 
+    /* Light reading surface for the article body (brand light #F5F6FA, navy/slate text). */
+    .post-light { background: var(--xv-light); border: 1px solid #E1E5EF; color: #1E2A47; }
+    .post-light h2 { color: var(--xv-navy); }
+    .post-light h3 { color: #1E2F6E; }
+    .post-light p, .post-light li { color: #2B3654; }
+    .post-light strong { color: var(--xv-navy); }
+    .post-light em { color: #2B3654; }
+    .post-light a { color: var(--xv-purple); }
+    .post-light a:hover { color: var(--xv-purple-hover); }
+    .post-light a.cta-primary, .post-light a.cta-primary:hover { color: #fff; text-decoration: none; }
+    .post-light blockquote { border-left-color: var(--xv-purple); background: rgba(var(--xv-purple-rgb), 0.06); }
+    .post-light blockquote p { color: #2B3654; }
+    .post-light code { background: #E9ECF4; border-color: #D9DEEA; color: var(--xv-purple-hover); }
+    .post-light pre { background: #E9ECF4; border-color: #D9DEEA; color: #1E2A47; }
+    .post-light th, .post-light td { border-bottom-color: #DFE3EC; color: #2B3654; }
+    .post-light th { color: var(--xv-navy); background: #E9ECF4; }
+    .post-light hr { background: #DFE3EC; }
+    .post-light .post-cta { border-top-color: #DFE3EC; }
+    .post-light .post-cta-title { color: var(--xv-navy); }
+    .post-light .post-cta-text { color: var(--xv-slate); }
+    .post-light ::selection { background: rgba(var(--xv-purple-rgb), 0.18); }
     /* Reading progress — decorative, degrades to nothing without JS. */
     .read-bar {
       position: fixed;
@@ -271,8 +292,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
   "@type": "BlogPosting",
   "headline": "Why Pathology Dictation Is a Harder Speech Problem Than It Looks",
   "description": "General-purpose transcription fails on pathology for specific, fixable reasons — vocabulary, structure, and the fact that a single misheard word changes a diagnosis.",
-  "datePublished": "2026-08-09",
-  "dateModified": "2026-08-09",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
   "mainEntityOfPage": "https://xentovia.ai/blog/pathology-dictation-ai/",
   "url": "https://xentovia.ai/blog/pathology-dictation-ai/",
   "keywords": "Healthcare, Voice AI, Evaluation",
@@ -474,13 +495,13 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </h1>
           <p class="text-lg text-slate-400 leading-relaxed mb-5">General-purpose transcription fails on pathology for specific, fixable reasons — vocabulary, structure, and the fact that a single misheard word changes a diagnosis.</p>
           <div class="flex items-center gap-3 text-sm text-slate-400">
-            <time datetime="2026-08-09">August 9, 2026</time>
+            <time datetime="2026-09-07">September 7, 2026</time>
             <span class="w-1 h-1 rounded-full bg-slate-600"></span>
             <span>5 min read</span>
           </div>
         </header>
 
-        <div class="glass rounded-2xl p-6 sm:p-10 post-content">
+        <div class="post-light rounded-2xl p-6 sm:p-10 post-content">
           <p>Speech recognition is widely regarded as solved. For general conversational speech in good conditions, that is close to true. For a pathologist dictating a surgical report, it is not — and the reasons are specific enough to be worth enumerating, because each one is addressable.</p>
           <h2 id="what-makes-it-hard">What makes it hard</h2>
           <p><strong>The vocabulary is not in the general model.</strong> Anatomical terms, tumour classifications, staging nomenclature, stain names, immunohistochemistry markers, organism names, eponymous entities. General models substitute a common word that sounds similar, producing text that is fluent, plausible, and clinically wrong.</p>
@@ -518,9 +539,9 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <p>The gain is not eliminating pathologist involvement. It is producing a draft in report structure with measurements parsed and uncertain terms flagged, so that the review is a focused verification rather than a transcription-and-formatting task.</p>
           <p>Where that works, it removes a meaningful amount of time per report and, more importantly, removes it from the part of the day that pathologists find least valuable. That is a good outcome and it does not require claiming that a speech model can produce a signable diagnostic report on its own.</p>
 
-          <div class="mt-12 pt-8 border-t border-white/10 text-center">
-            <p class="text-white text-lg font-semibold mb-2">Want to hear XentoScribe on your own dictation?</p>
-            <p class="text-slate-400 mb-6">Record a few typical reports. We will show you the structured output, the terminology handling and the review flow.</p>
+          <div class="post-cta mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="post-cta-title text-white text-lg font-semibold mb-2">Want to hear XentoScribe on your own dictation?</p>
+            <p class="post-cta-text text-slate-400 mb-6">Record a few typical reports. We will show you the structured output, the terminology handling and the review flow.</p>
             <a href="/xentoscribe/" class="cta-primary inline-block px-8 py-3 rounded-lg text-sm font-semibold text-white">
               <span class="flex items-center gap-2">
                 Book a Demo
@@ -534,6 +555,11 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
       <section class="mt-16">
         <h2 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-5">Keep reading</h2>
         <div class="grid gap-5 sm:grid-cols-3">
+          <a href="/blog/voice-ai-latency-budget/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Voice AI</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">The Latency Budget of a Voice Agent</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Sub-second response is the difference between a conversation and an interrogation. Here is where the milliseconds actually go and which ones you can get back.</p>
+          </a>
           <a href="/blog/ambient-documentation-vs-dictation/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
             <p class="text-xs text-slate-500 mb-2">Healthcare</p>
             <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Ambient Documentation and Dictation Solve Different Problems</h3>
@@ -543,11 +569,6 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
             <p class="text-xs text-slate-500 mb-2">Voice AI</p>
             <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">How to Evaluate a Voice Agent Properly</h3>
             <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Word error rate tells you almost nothing about whether a voice agent works. Here is the evaluation stack that predicts how it will perform with real callers.</p>
-          </a>
-          <a href="/blog/voice-agent-turn-taking/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
-            <p class="text-xs text-slate-500 mb-2">Voice AI</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Turn-Taking Is What Makes a Voice Agent Feel Human</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Interruption handling, backchannels and knowing when someone has finished speaking do more for perceived quality than any improvement in what the agent actually says.</p>
           </a>
         </div>
       </section>

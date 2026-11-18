@@ -1,7 +1,7 @@
 ---
 title: Commercial Invoices and Packing Lists: The Line-Item Problem
 description: Trade documents look structured and are not. The header fields extract easily; the line items are where the value is and where the difficulty is.
-date: 2026-08-09
+date: 2026-10-13
 tags: [Logistics, Document Intelligence, Evaluation]
 highlight: The Line-Item Problem
 ctaTitle: Want line-level extraction that reconciles?

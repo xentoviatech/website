@@ -1,7 +1,7 @@
 ---
 title: A Practical Playbook for Land Record Digitization Programmes
 description: Most land record programmes fail on sequencing and scope rather than on technology. Here is the order of operations that keeps them on schedule.
-date: 2026-08-09
+date: 2026-09-17
 tags: [GovTech, Vision AI, Document Intelligence]
 highlight: Playbook
 ctaTitle: Planning a digitization programme?

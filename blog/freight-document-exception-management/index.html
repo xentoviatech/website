@@ -12,7 +12,7 @@
   <meta property="og:description" content="Most logistics document work is comparing what was planned against what happened. The comparison automates well; deciding what to do about the difference does not.">
   <meta property="og:url" content="https://xentovia.ai/blog/freight-document-exception-management/">
   <meta property="og:site_name" content="Xentovia Tech">
-  <meta property="article:published_time" content="2026-08-09">
+  <meta property="article:published_time" content="2026-09-29">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Freight Operations Run on Exceptions. Automate the Detection, Not the Resolution.">
   <meta name="twitter:description" content="Most logistics document work is comparing what was planned against what happened. The comparison automates well; deciding what to do about the difference does not.">
@@ -166,6 +166,27 @@
       margin: 2.5rem 0;
     }
 
+    /* Light reading surface for the article body (brand light #F5F6FA, navy/slate text). */
+    .post-light { background: var(--xv-light); border: 1px solid #E1E5EF; color: #1E2A47; }
+    .post-light h2 { color: var(--xv-navy); }
+    .post-light h3 { color: #1E2F6E; }
+    .post-light p, .post-light li { color: #2B3654; }
+    .post-light strong { color: var(--xv-navy); }
+    .post-light em { color: #2B3654; }
+    .post-light a { color: var(--xv-purple); }
+    .post-light a:hover { color: var(--xv-purple-hover); }
+    .post-light a.cta-primary, .post-light a.cta-primary:hover { color: #fff; text-decoration: none; }
+    .post-light blockquote { border-left-color: var(--xv-purple); background: rgba(var(--xv-purple-rgb), 0.06); }
+    .post-light blockquote p { color: #2B3654; }
+    .post-light code { background: #E9ECF4; border-color: #D9DEEA; color: var(--xv-purple-hover); }
+    .post-light pre { background: #E9ECF4; border-color: #D9DEEA; color: #1E2A47; }
+    .post-light th, .post-light td { border-bottom-color: #DFE3EC; color: #2B3654; }
+    .post-light th { color: var(--xv-navy); background: #E9ECF4; }
+    .post-light hr { background: #DFE3EC; }
+    .post-light .post-cta { border-top-color: #DFE3EC; }
+    .post-light .post-cta-title { color: var(--xv-navy); }
+    .post-light .post-cta-text { color: var(--xv-slate); }
+    .post-light ::selection { background: rgba(var(--xv-purple-rgb), 0.18); }
     /* Reading progress — decorative, degrades to nothing without JS. */
     .read-bar {
       position: fixed;
@@ -271,8 +292,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
   "@type": "BlogPosting",
   "headline": "Freight Operations Run on Exceptions. Automate the Detection, Not the Resolution.",
   "description": "Most logistics document work is comparing what was planned against what happened. The comparison automates well; deciding what to do about the difference does not.",
-  "datePublished": "2026-08-09",
-  "dateModified": "2026-08-09",
+  "datePublished": "2026-09-29",
+  "dateModified": "2026-09-29",
   "mainEntityOfPage": "https://xentovia.ai/blog/freight-document-exception-management/",
   "url": "https://xentovia.ai/blog/freight-document-exception-management/",
   "keywords": "Logistics, Document Intelligence, Agentic AI",
@@ -474,13 +495,13 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </h1>
           <p class="text-lg text-slate-400 leading-relaxed mb-5">Most logistics document work is comparing what was planned against what happened. The comparison automates well; deciding what to do about the difference does not.</p>
           <div class="flex items-center gap-3 text-sm text-slate-400">
-            <time datetime="2026-08-09">August 9, 2026</time>
+            <time datetime="2026-09-29">September 29, 2026</time>
             <span class="w-1 h-1 rounded-full bg-slate-600"></span>
             <span>5 min read</span>
           </div>
         </header>
 
-        <div class="glass rounded-2xl p-6 sm:p-10 post-content">
+        <div class="post-light rounded-2xl p-6 sm:p-10 post-content">
           <p>Freight forwarding and logistics operations are exception-driven. When everything matches, the shipment moves without anyone thinking about it. The work is entirely in the cases where something does not match: a weight discrepancy, a missing document, a rate that does not agree with the contract, a delivery that did not happen as scheduled.</p>
           <p>Finding those exceptions requires comparing documents against each other and against system records. That comparison is repetitive, high-volume and entirely mechanical — which makes it a strong automation candidate. Deciding what to do about an exception is commercial judgement, and it is not.</p>
           <h2 id="the-comparisons-worth-running">The comparisons worth running</h2>
@@ -526,9 +547,9 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <p>Freight document exception management has an attractive risk profile: the system surfaces information rather than making decisions, errors are visible quickly rather than years later, and the financial return from freight audit alone often justifies the deployment.</p>
           <p>It is also a natural foundation. The extraction and normalisation built for exception detection is the same infrastructure customs filing, invoice matching and analytics all need — so the first project pays for itself while building the layer the next ones require.</p>
 
-          <div class="mt-12 pt-8 border-t border-white/10 text-center">
-            <p class="text-white text-lg font-semibold mb-2">Want your document exceptions surfaced automatically?</p>
-            <p class="text-slate-400 mb-6">We will run a week of your operational documents and show you what a reconciled exception queue looks like.</p>
+          <div class="post-cta mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="post-cta-title text-white text-lg font-semibold mb-2">Want your document exceptions surfaced automatically?</p>
+            <p class="post-cta-text text-slate-400 mb-6">We will run a week of your operational documents and show you what a reconciled exception queue looks like.</p>
             <a href="/simplimpex/" class="cta-primary inline-block px-8 py-3 rounded-lg text-sm font-semibold text-white">
               <span class="flex items-center gap-2">
                 Book a Demo
@@ -547,15 +568,15 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
             <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Why Customs Filing Takes Hours and What Actually Removes Them</h3>
             <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">The declaration form is not the bottleneck. Reconciling a document set that disagrees with itself is — and that is the part worth automating.</p>
           </a>
-          <a href="/blog/bill-of-lading-automation/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
-            <p class="text-xs text-slate-500 mb-2">Logistics</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Bills of Lading Are Legal Instruments, Not Just Data</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Extracting fields from a transport document is straightforward. Understanding which document is the original, what it entitles the holder to, and what its clauses mean is not.</p>
+          <a href="/blog/what-is-an-agentic-document-pipeline/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Agentic AI</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">What an Agentic Document Pipeline Actually Is</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">&quot;Agentic&quot; has become a marketing word. Here is the concrete architecture behind it for document processing — what each component does, and why one big model call is not the same thing.</p>
           </a>
-          <a href="/blog/commercial-invoice-and-packing-list-extraction/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
-            <p class="text-xs text-slate-500 mb-2">Logistics</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Commercial Invoices and Packing Lists: The Line-Item Problem</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Trade documents look structured and are not. The header fields extract easily; the line items are where the value is and where the difficulty is.</p>
+          <a href="/blog/document-ai-build-vs-buy/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Document Intelligence</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Build or Buy Document AI: An Honest Decision Framework</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Foundation model APIs made the first 70% of a document pipeline easy to build, which is exactly why so many in-house projects stall. Here is where the real work is, and how to decide.</p>
           </a>
         </div>
       </section>

@@ -1,7 +1,7 @@
 ---
 title: Why Tables Are Still the Hardest Part of Document AI
 description: Models that read prose reliably still fall apart on merged cells, multi-page rows, and columns whose meaning is defined three pages earlier. Here is why, and what actually helps.
-date: 2026-08-09
+date: 2026-08-20
 tags: [Document Intelligence, Vision AI, Evaluation]
 highlight: Hardest Part
 ctaTitle: Have a table format nothing handles well?

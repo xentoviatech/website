@@ -1,7 +1,7 @@
 ---
 title: Your Reviewers Are Generating Training Data. Are You Keeping It?
 description: Every correction a human makes is a labelled example produced by work you already paid for. Most pipelines throw them away. Here is how to capture and use them.
-date: 2026-08-09
+date: 2026-09-15
 tags: [Human-in-the-Loop, Evaluation, Agentic AI]
 highlight: Are You Keeping It?
 ctaTitle: Want corrections to make the system better?

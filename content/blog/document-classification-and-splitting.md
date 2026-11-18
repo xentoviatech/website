@@ -1,7 +1,7 @@
 ---
 title: Classification and Splitting: The Step Everyone Skips
 description: Most document AI failures happen before extraction, when a 40-page bundle is treated as one document or routed to the wrong parser. Here is how to build the step that decides everything downstream.
-date: 2026-08-09
+date: 2026-10-02
 tags: [Document Intelligence, Agentic AI, Evaluation]
 highlight: The Step Everyone Skips
 ctaTitle: Drowning in mixed document bundles?

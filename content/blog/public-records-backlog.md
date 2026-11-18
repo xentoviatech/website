@@ -1,7 +1,7 @@
 ---
 title: Clearing a Public Records Backlog Without Adding Headcount
 description: Records requests, permit applications and case files pile up for the same structural reason. Document automation helps, but only if applied to the step that is actually the constraint.
-date: 2026-08-09
+date: 2026-08-27
 tags: [GovTech, Document Intelligence, Human-in-the-Loop]
 highlight: Without Adding Headcount
 ctaTitle: Have a backlog with no path to clearing it?

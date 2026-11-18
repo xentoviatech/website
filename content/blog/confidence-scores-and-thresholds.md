@@ -1,7 +1,7 @@
 ---
 title: Confidence Scores Are Not Probabilities (Until You Make Them One)
 description: The number a model attaches to an extraction is rarely the probability that it is correct. Here is how to calibrate confidence so your review thresholds mean something.
-date: 2026-08-09
+date: 2026-10-09
 tags: [Document Intelligence, Evaluation, Agentic AI]
 highlight: Not Probabilities
 ctaTitle: Want a calibration report on your own fields?

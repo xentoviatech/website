@@ -1,7 +1,7 @@
 ---
 title: What Hotels Actually Need From a Voice Agent
 description: Front desks miss calls because staff are with guests. The fix is not a smarter chatbot — it is an agent that handles the small number of calls that make up most of the volume.
-date: 2026-08-09
+date: 2026-08-11
 tags: [Voice AI, Agentic AI, Procurement]
 highlight: Actually Need
 ctaTitle: Want to hear XentoStay on your own property?

@@ -1,7 +1,7 @@
 ---
 title: Multilingual and Multi-Script Documents in One Pipeline
 description: Real archives and real enterprises produce documents with two scripts on one page, transliterated names, and language that switches mid-sentence. Here is how to build for that rather than around it.
-date: 2026-08-09
+date: 2026-09-08
 tags: [Vision AI, Document Intelligence, GovTech]
 highlight: One Pipeline
 ctaTitle: Have documents no single-language pipeline handles?

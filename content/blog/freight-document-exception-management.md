@@ -1,7 +1,7 @@
 ---
 title: Freight Operations Run on Exceptions. Automate the Detection, Not the Resolution.
 description: Most logistics document work is comparing what was planned against what happened. The comparison automates well; deciding what to do about the difference does not.
-date: 2026-08-09
+date: 2026-09-29
 tags: [Logistics, Document Intelligence, Agentic AI]
 highlight: Not the Resolution
 ctaTitle: Want your document exceptions surfaced automatically?

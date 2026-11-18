@@ -1,7 +1,7 @@
 ---
 title: KYC Document Verification Beyond Reading the Fields
 description: Extracting a name and date of birth from an identity document is the easy half. Establishing that the document is genuine, current and belongs to the person presenting it is the other half.
-date: 2026-08-09
+date: 2026-09-18
 tags: [Compliance, Document Intelligence, Security]
 highlight: Beyond Reading the Fields
 ctaTitle: Reviewing your onboarding document flow?

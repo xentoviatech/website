@@ -1,7 +1,7 @@
 ---
 title: Where Document AI Sits in the Emerging AI Regulation Landscape
 description: Most document extraction is low-risk under the frameworks now taking shape. The obligations attach to what you do with the output, which is an argument for a specific architecture.
-date: 2026-08-09
+date: 2026-10-27
 tags: [Compliance, Procurement, Agentic AI]
 highlight: Emerging AI Regulation
 ctaTitle: Preparing for an AI compliance review?

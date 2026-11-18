@@ -1,7 +1,7 @@
 ---
 title: Build or Buy Document AI: An Honest Decision Framework
 description: Foundation model APIs made the first 70% of a document pipeline easy to build, which is exactly why so many in-house projects stall. Here is where the real work is, and how to decide.
-date: 2026-08-09
+date: 2026-11-06
 weight: 42
 tags: [Document Intelligence, Procurement, Agentic AI]
 highlight: An Honest Decision Framework

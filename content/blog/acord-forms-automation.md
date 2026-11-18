@@ -1,7 +1,7 @@
 ---
 title: ACORD Forms Are Standardised. Your Inbound ACORDs Are Not.
 description: A standard form should be the easy case for document AI. In practice ACORD submissions arrive in a dozen states of completeness and fidelity — here is how to handle the reality.
-date: 2026-08-09
+date: 2026-10-29
 tags: [Insurance, Document Intelligence, Evaluation]
 highlight: Are Not
 ctaTitle: Want your ACORD intake measured honestly?

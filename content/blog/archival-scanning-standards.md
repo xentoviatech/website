@@ -1,7 +1,7 @@
 ---
 title: Scan Once, Extract Many Times: Capture Standards That Do Not Age
 description: Capture settings chosen for today's extraction pipeline will constrain every future one. Here is how to scan so the images outlive the software that reads them.
-date: 2026-08-09
+date: 2026-10-22
 tags: [GovTech, Document Intelligence, Vision AI]
 highlight: Do Not Age
 ctaTitle: Setting capture standards for a programme?

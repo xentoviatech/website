@@ -1,7 +1,7 @@
 ---
 title: Finding Subrogation Opportunities Nobody Has Time to Look For
 description: Recovery potential is usually visible somewhere in the claim file. The problem is that reading every file is not economic — which is exactly the kind of problem document AI is suited to.
-date: 2026-08-09
+date: 2026-08-21
 tags: [Insurance, Document Intelligence, Human-in-the-Loop]
 highlight: Nobody Has Time
 ctaTitle: Curious how much recovery you are leaving behind?

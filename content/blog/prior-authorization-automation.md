@@ -1,7 +1,7 @@
 ---
 title: Prior Authorization: Automating the Packet, Not the Decision
 description: Prior auth is slow because assembling and reviewing clinical evidence is manual. Automating that assembly cuts days out of the cycle without touching medical necessity determination.
-date: 2026-08-09
+date: 2026-09-01
 tags: [Healthcare, Document Intelligence, Human-in-the-Loop]
 highlight: Not the Decision
 ctaTitle: Want prior auth packets assembled automatically?

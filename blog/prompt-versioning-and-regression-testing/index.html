@@ -12,7 +12,7 @@
   <meta property="og:description" content="A prompt edit is a production change with non-local effects and no compiler to catch mistakes. Here is the release discipline that makes changing them safe.">
   <meta property="og:url" content="https://xentovia.ai/blog/prompt-versioning-and-regression-testing/">
   <meta property="og:site_name" content="Xentovia Tech">
-  <meta property="article:published_time" content="2026-08-09">
+  <meta property="article:published_time" content="2026-08-28">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Treat Prompts Like Code, Because They Are">
   <meta name="twitter:description" content="A prompt edit is a production change with non-local effects and no compiler to catch mistakes. Here is the release discipline that makes changing them safe.">
@@ -166,6 +166,27 @@
       margin: 2.5rem 0;
     }
 
+    /* Light reading surface for the article body (brand light #F5F6FA, navy/slate text). */
+    .post-light { background: var(--xv-light); border: 1px solid #E1E5EF; color: #1E2A47; }
+    .post-light h2 { color: var(--xv-navy); }
+    .post-light h3 { color: #1E2F6E; }
+    .post-light p, .post-light li { color: #2B3654; }
+    .post-light strong { color: var(--xv-navy); }
+    .post-light em { color: #2B3654; }
+    .post-light a { color: var(--xv-purple); }
+    .post-light a:hover { color: var(--xv-purple-hover); }
+    .post-light a.cta-primary, .post-light a.cta-primary:hover { color: #fff; text-decoration: none; }
+    .post-light blockquote { border-left-color: var(--xv-purple); background: rgba(var(--xv-purple-rgb), 0.06); }
+    .post-light blockquote p { color: #2B3654; }
+    .post-light code { background: #E9ECF4; border-color: #D9DEEA; color: var(--xv-purple-hover); }
+    .post-light pre { background: #E9ECF4; border-color: #D9DEEA; color: #1E2A47; }
+    .post-light th, .post-light td { border-bottom-color: #DFE3EC; color: #2B3654; }
+    .post-light th { color: var(--xv-navy); background: #E9ECF4; }
+    .post-light hr { background: #DFE3EC; }
+    .post-light .post-cta { border-top-color: #DFE3EC; }
+    .post-light .post-cta-title { color: var(--xv-navy); }
+    .post-light .post-cta-text { color: var(--xv-slate); }
+    .post-light ::selection { background: rgba(var(--xv-purple-rgb), 0.18); }
     /* Reading progress — decorative, degrades to nothing without JS. */
     .read-bar {
       position: fixed;
@@ -271,8 +292,8 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
   "@type": "BlogPosting",
   "headline": "Treat Prompts Like Code, Because They Are",
   "description": "A prompt edit is a production change with non-local effects and no compiler to catch mistakes. Here is the release discipline that makes changing them safe.",
-  "datePublished": "2026-08-09",
-  "dateModified": "2026-08-09",
+  "datePublished": "2026-08-28",
+  "dateModified": "2026-08-28",
   "mainEntityOfPage": "https://xentovia.ai/blog/prompt-versioning-and-regression-testing/",
   "url": "https://xentovia.ai/blog/prompt-versioning-and-regression-testing/",
   "keywords": "Agentic AI, Evaluation, Document Intelligence",
@@ -474,13 +495,13 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           </h1>
           <p class="text-lg text-slate-400 leading-relaxed mb-5">A prompt edit is a production change with non-local effects and no compiler to catch mistakes. Here is the release discipline that makes changing them safe.</p>
           <div class="flex items-center gap-3 text-sm text-slate-400">
-            <time datetime="2026-08-09">August 9, 2026</time>
+            <time datetime="2026-08-28">August 28, 2026</time>
             <span class="w-1 h-1 rounded-full bg-slate-600"></span>
             <span>5 min read</span>
           </div>
         </header>
 
-        <div class="glass rounded-2xl p-6 sm:p-10 post-content">
+        <div class="post-light rounded-2xl p-6 sm:p-10 post-content">
           <p>In most document AI systems, the prompt is the highest-leverage piece of production configuration in the entire stack. It determines what gets extracted, in what form, with what edge-case behaviour. Editing it changes the behaviour of the system for every document it will ever process.</p>
           <p>It is also, in a large number of deployments, a string literal that someone changes in an afternoon with no test and no record of what it used to say. That gap between consequence and process is where a lot of unexplained quality drift comes from.</p>
           <h2 id="why-prompts-need-more-discipline-than-code-not-less">Why prompts need more discipline than code, not less</h2>
@@ -516,9 +537,9 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
           <p>The pattern is familiar. Extraction quality is quietly worse than it was in the spring. Nobody can say when it changed or why. The prompt has been edited a dozen times by three people, none of the edits were tested, the model version updated at some point, and there is no record of any of it.</p>
           <p>At that point the only honest option is to rebuild the baseline from scratch. The discipline above costs a few days to establish and makes that outcome impossible — which is a good trade in a system whose behaviour is determined by a string that anyone can change.</p>
 
-          <div class="mt-12 pt-8 border-t border-white/10 text-center">
-            <p class="text-white text-lg font-semibold mb-2">Want to see how we ship prompt changes?</p>
-            <p class="text-slate-400 mb-6">Versioned, scored against a labelled corpus, and rolled out behind a gate. Ask us to walk through a real change.</p>
+          <div class="post-cta mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="post-cta-title text-white text-lg font-semibold mb-2">Want to see how we ship prompt changes?</p>
+            <p class="post-cta-text text-slate-400 mb-6">Versioned, scored against a labelled corpus, and rolled out behind a gate. Ask us to walk through a real change.</p>
             <a href="/#contact" class="cta-primary inline-block px-8 py-3 rounded-lg text-sm font-semibold text-white">
               <span class="flex items-center gap-2">
                 Talk to Us
@@ -532,6 +553,11 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
       <section class="mt-16">
         <h2 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-5">Keep reading</h2>
         <div class="grid gap-5 sm:grid-cols-3">
+          <a href="/blog/evaluation-harness-for-document-extraction/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
+            <p class="text-xs text-slate-500 mb-2">Evaluation</p>
+            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Build the Evaluation Harness Before the Pipeline</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Without a scoring harness, every prompt change is a guess and every model upgrade is a gamble. Here is how to build one for document extraction, and what to put in it.</p>
+          </a>
           <a href="/blog/confidence-scores-and-thresholds/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
             <p class="text-xs text-slate-500 mb-2">Document Intelligence</p>
             <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Confidence Scores Are Not Probabilities (Until You Make Them One)</h3>
@@ -541,11 +567,6 @@ html:has(body.has-subnav) { scroll-padding-top: 7.75rem; }
             <p class="text-xs text-slate-500 mb-2">Document Intelligence</p>
             <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Classification and Splitting: The Step Everyone Skips</h3>
             <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Most document AI failures happen before extraction, when a 40-page bundle is treated as one document or routed to the wrong parser. Here is how to build the step that decides everything downstream.</p>
-          </a>
-          <a href="/blog/evaluation-harness-for-document-extraction/" class="glass rounded-2xl p-5 flex flex-col group no-underline hover:border-white/15 transition-colors">
-            <p class="text-xs text-slate-500 mb-2">Evaluation</p>
-            <h3 class="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-brand-300 transition-colors">Build the Evaluation Harness Before the Pipeline</h3>
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Without a scoring harness, every prompt change is a guess and every model upgrade is a gamble. Here is how to build one for document extraction, and what to put in it.</p>
           </a>
         </div>
       </section>

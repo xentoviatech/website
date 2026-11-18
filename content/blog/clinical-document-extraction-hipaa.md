@@ -1,7 +1,7 @@
 ---
 title: Extracting Clinical Data Without Creating a HIPAA Problem
 description: The engineering decisions that determine whether a clinical document pipeline is compliant are made early, in architecture rather than in policy. Here are the ones that matter.
-date: 2026-08-09
+date: 2026-10-16
 tags: [Healthcare, Compliance, Security]
 highlight: Without Creating a HIPAA Problem
 ctaTitle: Need a BAA and a deployment model that satisfies your privacy office?
