@@ -1,6 +1,6 @@
 ---
 title: Private Deployment Options for Document AI, and What Each Costs You
-description: "Nothing leaves our environment" is achievable. It is not free, and the trade-offs are worth understanding before it becomes a hard requirement in a procurement document.
+description: '"Nothing leaves our environment" is achievable. It is not free, and the trade-offs are worth understanding before it becomes a hard requirement in a procurement document.'
 date: 2026-08-09
 tags: [Security, Procurement, Agentic AI]
 highlight: What Each Costs You
