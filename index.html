@@ -934,7 +934,7 @@ let li=0;function stepA(){const c=document.getElementById('capt'),a=document.get
  const x=document.createElement('span');x.textContent=A[li];a.appendChild(x);li=(li+1)%L.length}
 // Recorded clip: set data-clip (and data-poster) on #heroVid to a self-hosted MP4. Muted, loops only while on screen.
 const HV=document.getElementById('heroVid'),clip=HV&&HV.dataset.clip;
-if(clip){const v=document.createElement('video');v.src=clip;if(HV.dataset.poster)v.poster=HV.dataset.poster;v.muted=true;v.loop=true;v.playsInline=true;v.setAttribute('aria-label','Mira, Xentovia's AI agent, introducing herself in Hindi');
+if(clip){const v=document.createElement('video');v.src=clip;if(HV.dataset.poster)v.poster=HV.dataset.poster;v.muted=true;v.loop=true;v.playsInline=true;v.setAttribute('aria-label','Mira, Xentovia’s AI agent, introducing herself in Hindi');
  HV.querySelector('.face').remove();HV.querySelector('.wave').remove();HV.appendChild(v);
  const cw=HV.closest('.callwin');cw.querySelector('.capt').hidden=true;cw.querySelector('.acts').hidden=true;
  const sb=document.createElement('button');sb.type='button';sb.className='sound';sb.textContent='Turn sound on';
